@@ -4,9 +4,16 @@ import requests
 import argparse
 
 LOGS_DIR = "logs"
-EXPLAIN_DIR = "explain"def get_project_name():
-    suffix = input("Enter openSUSE project suffix (e.g., Factory): ").strip()
-    return f"openSUSE:{suffix}"
+EXPLAIN_DIR = "explain"
+
+def get_project_name():
+    parser = argparse.ArgumentParser(description="Download and explain openSUSE build logs")
+    parser.add_argument(
+        "suffix",
+        help="Suffix for the openSUSE project (e.g., Factory)",
+    )
+    args = parser.parse_args()
+    return f"openSUSE:{args.suffix}"
 
 def get_failed_builds(project_name):
     try:
@@ -68,15 +75,6 @@ def run_log_detective(log_path):
         print(f"❌ Error analyzing {log_path}: {e.stderr}")
         return None
 
-def git_commit(files, message="Add new build logs and explanations"):
-    try:
-        subprocess.run(["git", "add"] + files, check=True)
-        subprocess.run(["git", "commit", "-m", message], check=True)
-        subprocess.run(["git", "push"], check=True)
-        print("✅ Changes pushed to Git")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Git error: {e}")
-
 # === Main Script ===
 if __name__ == "__main__":
     project = get_project_name()
@@ -100,7 +98,4 @@ if __name__ == "__main__":
                         explained_files.append(explained_path)
             except ValueError as ve:
                 print(f"⚠️ Skipping line: {line}\nReason: {ve}")
-
-        # Commit both logs and explanations
-        if downloaded_files or explained_files:
-            git_commit(downloaded_files + explained_files)
+                
