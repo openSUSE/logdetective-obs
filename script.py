@@ -1,11 +1,10 @@
 import os
 import subprocess
 import requests
+import argparse
 
 LOGS_DIR = "logs"
-EXPLAIN_DIR = "explain"
-
-def get_project_name():
+EXPLAIN_DIR = "explain"def get_project_name():
     suffix = input("Enter openSUSE project suffix (e.g., Factory): ").strip()
     return f"openSUSE:{suffix}"
 
