@@ -4,6 +4,7 @@ import os
 import subprocess
 import requests
 import argparse
+import json
 
 LOGS_DIR = "logs"
 EXPLAIN_DIR = "explain"
@@ -84,6 +85,18 @@ def run_log_detective(log_path):
         print(f"❌ Error analyzing {log_path}: {e.stderr}")
         return None
 
+def run_log_detective_remote(url, log_path):
+    os.makedirs(EXPLAIN_DIR, exist_ok=True)
+    output_filename = os.path.basename(log_path).replace('.log', '.json')
+    output_path = os.path.join(EXPLAIN_DIR, output_filename)
+
+    print(f"🖥️ Log Detective explain: {url}")
+    data = requests.post("https://log-detective.com/frontend/explain/", json={"prompt": url})
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(data.json(), f, ensure_ascii=False, indent=4)
+    print(f"🕵️ Analysis saved to {output_path}")
+    return output_path
+
 # === Main Script ===
 if __name__ == "__main__":
     args = parse_args()
@@ -104,7 +117,7 @@ if __name__ == "__main__":
                 if log_path:
                     downloaded_files.append(log_path)
                     if args.explain:
-                        explained_path = run_log_detective(log_path)
+                        explained_path = run_log_detective_remote(url, log_path)
                         if explained_path:
                             explained_files.append(explained_path)
             except ValueError as ve:
