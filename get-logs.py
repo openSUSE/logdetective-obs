@@ -23,6 +23,12 @@ def parse_args():
         action="store_true",
         help="Try to explain the log using log-detective.com",
     )
+    parser.add_argument(
+    "-l",
+    "--local",
+    action="store_true",
+    help="Try to explain the log using a local log-detective model"
+    )
     return parser.parse_args()
 
 def get_failed_builds(project_name):
@@ -35,6 +41,7 @@ def get_failed_builds(project_name):
             text=True
         )
         return result.stdout.strip().split('\n')
+        print(f"The failed builds are: \n {result}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Error running osc: {e.stderr}")
         return []
@@ -49,9 +56,10 @@ def parse_build_failure(line: str, project: str):
     filename = f"{package}_{repository}_{arch}.log"
     return url, filename
 
-def download_log(url: str, filename: str):
-    os.makedirs(LOGS_DIR, exist_ok=True)
-    path = os.path.join(LOGS_DIR, filename)
+def download_log(url: str, filename: str, project: str):
+    project_logs_dir = os.path.join(LOGS_DIR, project)
+    os.makedirs(project_logs_dir, exist_ok=True)
+    path = os.path.join(project_logs_dir, filename)
 
     print(f"📥 Downloading: {url}")
     response = requests.get(url)
@@ -64,10 +72,11 @@ def download_log(url: str, filename: str):
         print(f"❌ Failed: {response.status_code} - {url}")
         return None
 
-def run_log_detective(log_path):
-    os.makedirs(EXPLAIN_DIR, exist_ok=True)
+def run_log_detective(log_path, project):
+    project_explain_dir = os.path.join(EXPLAIN_DIR, project)
+    os.makedirs(project_explain_dir, exist_ok=True)
     output_filename = os.path.basename(log_path).replace('.log', '.txt')
-    output_path = os.path.join(EXPLAIN_DIR, output_filename)
+    output_path = os.path.join(project_explain_dir, output_filename)
 
     try:
         result = subprocess.run(
@@ -85,10 +94,11 @@ def run_log_detective(log_path):
         print(f"❌ Error analyzing {log_path}: {e.stderr}")
         return None
 
-def run_log_detective_remote(url, log_path):
-    os.makedirs(EXPLAIN_DIR, exist_ok=True)
+def run_log_detective_remote(url, log_path, project):
+    project_explain_dir = os.path.join(EXPLAIN_DIR, project)
+    os.makedirs(project_explain_dir, exist_ok=True)
     output_filename = os.path.basename(log_path).replace('.log', '.json')
-    output_path = os.path.join(EXPLAIN_DIR, output_filename)
+    output_path = os.path.join(project_explain_dir, output_filename)
 
     print(f"🖥️ Log Detective explain: {url}")
     data = requests.post("https://log-detective.com/frontend/explain/", json={"prompt": url})
@@ -113,11 +123,14 @@ if __name__ == "__main__":
         for line in failures:
             try:
                 url, filename = parse_build_failure(line, project)
-                log_path = download_log(url, filename)
+                log_path = download_log(url, filename, project)
                 if log_path:
                     downloaded_files.append(log_path)
                     if args.explain:
-                        explained_path = run_log_detective_remote(url, log_path)
+                        if args.local:
+                            explained_path = run_log_detective(log_path, project)
+                        else:
+                           explained_path = run_log_detective_remote(url, log_path, project)
                         if explained_path:
                             explained_files.append(explained_path)
             except ValueError as ve:
