@@ -1,0 +1,1557 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_6/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_6/root
+[    0s] 
+[    0s] 
+[    0s] i04-ch1b started "build Dockerfile" at Wed Jun 11 16:28:07 UTC 2025.
+[    0s] 
+[    0s] Building virt-libguestfs-tools-container for project 'openSUSE:Factory' repository 'containerfile' arch 'x86_64' srcmd5 'c83a6450eb11dce4658fc33bd18e6d20'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_6/.build-srcdir/Dockerfile ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_6/.build-srcdir/Dockerfile
+[    0s] init_buildsystem --configdir /var/run/obs/worker/6/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_6/.build.rpmlist /var/cache/obs/worker/root_6/.build-srcdir/Dockerfile build ...
+[    1s] cycle: rpm-config-SUSE -> rpm
+[    1s]   breaking dependency rpm-config-SUSE -> rpm
+[    1s] [1/28] preinstalling compat-usrmerge-tools...
+[    1s] [2/28] preinstalling system-user-root...
+[    1s] [3/28] preinstalling terminfo-base...
+[    1s] [4/28] preinstalling filesystem...
+[    1s] [5/28] preinstalling glibc...
+[    1s] [6/28] preinstalling fillup...
+[    1s] [7/28] preinstalling libacl1...
+[    1s] [8/28] preinstalling libattr1...
+[    1s] [9/28] preinstalling libbz2-1...
+[    1s] [10/28] preinstalling libcap2...
+[    1s] [11/28] preinstalling libgmp10...
+[    1s] [12/28] preinstalling libgpg-error0...
+[    1s] [13/28] preinstalling libjitterentropy3...
+[    1s] [14/28] preinstalling liblua5_4-5...
+[    1s] [15/28] preinstalling liblzma5...
+[    1s] [16/28] preinstalling libpcre2-8-0...
+[    1s] [17/28] preinstalling libpopt0...
+[    1s] [18/28] preinstalling libz1...
+[    1s] [19/28] preinstalling libzstd1...
+[    1s] [20/28] preinstalling libncurses6...
+[    1s] [21/28] preinstalling libreadline8...
+[    1s] [22/28] preinstalling libselinux1...
+[    2s] [23/28] preinstalling libgcrypt20...
+[    2s] [24/28] preinstalling bash...
+[    2s] [25/28] preinstalling bash-sh...
+[    2s] [26/28] preinstalling coreutils...
+[    2s] [27/28] preinstalling rpm-config-SUSE...
+[    2s] [28/28] preinstalling rpm...
+[    2s] 
+[    2s] [1/18] preinstalling grep...
+[    2s] [2/18] preinstalling kernel-obs-build...
+[    2s] [3/18] preinstalling libaudit1...
+[    2s] [4/18] preinstalling libcap-ng0...
+[    2s] [5/18] preinstalling libcrypt1...
+[    2s] [6/18] preinstalling libeconf0...
+[    2s] [7/18] preinstalling libgcc_s1...
+[    2s] [8/18] preinstalling libsmartcols1...
+[    2s] [9/18] preinstalling libuuid1...
+[    2s] [10/18] preinstalling libblkid1...
+[    2s] [11/18] preinstalling perl-base...
+[    2s] [12/18] preinstalling permctl...
+[    2s] [13/18] preinstalling libmount1...
+[    2s] [14/18] preinstalling permissions-config...
+[    2s] [15/18] preinstalling libfdisk1...
+[    2s] [16/18] preinstalling permissions...
+[    2s] [17/18] preinstalling pam...
+[    2s] [18/18] preinstalling util-linux...
+[    2s] copying packages...
+[    3s] reordering...cycle: python313-base -> libpython3_13-1_0
+[    3s]   breaking dependency python313-base -> libpython3_13-1_0
+[    3s] cycle: container-build-checks-vendor-openSUSE -> container-build-checks
+[    3s]   breaking dependency container-build-checks -> container-build-checks-vendor-openSUSE
+[    3s] cycle: binutils -> libctf0
+[    3s]   breaking dependency libctf0 -> binutils
+[    3s] cycle: gio-branding-upstream -> libgio-2_0-0
+[    3s]   breaking dependency libgio-2_0-0 -> gio-branding-upstream
+[    3s] cycle: libgio-2_0-0 -> glib2-tools
+[    3s]   breaking dependency libgio-2_0-0 -> glib2-tools
+[    3s] cycle: rpm-config-SUSE -> rpm
+[    3s]   breaking dependency rpm-config-SUSE -> rpm
+[    3s] done
+[    3s] Detected virtio-serial support
+[    4s] booting kvm...
+[    4s] ### VM INTERACTION START ###
+[    4s] Using virtio-serial support and enabling console input
+[    4s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_6/.mount/boot/kernel -initrd /var/cache/obs/worker/root_6/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime elevator=noop nmi_watchdog=0 rw ia32_emulation=1 oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_6/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_6/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_6/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    5s] [!p]104[?7h[    0.600581][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    7s] 2nd stage started in virtual machine
+[    7s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    7s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    7s] Time: Wed Jun 11 16:28:13 UTC 2025
+[    7s] Increasing log level from now on...
+[    7s] [    2.521144][  T572] sysrq: Changing Loglevel
+[    7s] [    2.521209][  T572] sysrq: Loglevel set to 4
+[    7s] Enable sysrq operations
+[    7s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    7s] no label, UUID=6e9c1b24-db67-4e98-a62f-7139cdd48dd8
+[    7s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe //.build-srcdir/Dockerfile ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/Dockerfile build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[    8s] [1/188] cumulate catatonit-0.2.1-1.3
+[    8s] [2/188] cumulate compat-usrmerge-tools-84.87-5.22
+[    8s] [3/188] cumulate container-build-checks-strict-1723452932.412e7f6-1.2
+[    8s] [4/188] cumulate crypto-policies-20250124.4d262e7-3.1
+[    8s] [5/188] cumulate file-magic-5.46-4.1
+[    8s] [6/188] cumulate kernel-obs-build-6.15.1-1.1
+[    8s] [7/188] cumulate libcontainers-openSUSE-policy-20250409-2.1
+[    8s] [8/188] cumulate pkgconf-m4-2.2.0-1.3
+[    8s] [9/188] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    8s] [10/188] cumulate registries-conf-default-20250409-2.1
+[    8s] [11/188] cumulate system-user-root-20190513-2.18
+[    8s] [12/188] cumulate terminfo-base-6.5.20250531-73.1
+[    8s] [13/188] cumulate filesystem-84.87-18.2
+[    8s] [14/188] cumulate glibc-2.41-2.1
+[    8s] [15/188] cumulate diffutils-3.12-1.1
+[    8s] [16/188] cumulate envsubst-mini-0.22.5-8.1
+[    8s] [17/188] cumulate fillup-1.42-281.3
+[    8s] [18/188] cumulate glibc-gconv-modules-extra-2.41-2.1
+[    8s] [19/188] cumulate glibc-locale-base-2.41-2.1
+[    8s] [20/188] cumulate libacl1-2.3.2-2.3
+[    8s] [21/188] cumulate libatomic1-15.1.1+git9739-2.1
+[    8s] [22/188] cumulate libattr1-2.5.2-1.4
+[    8s] [23/188] cumulate libaudit1-4.0-3.3
+[    8s] [24/188] cumulate libbrotlicommon1-1.1.0-1.6
+[    8s] [25/188] cumulate libbz2-1-1.0.8-5.12
+[    8s] [26/188] cumulate libcap-ng0-0.8.5-1.3
+[    8s] [27/188] cumulate libcap2-2.75-1.1
+[    8s] [28/188] cumulate libcom_err2-1.47.2-1.1
+[    8s] [29/188] cumulate libcrypt1-4.4.38-1.2
+[    8s] [30/188] cumulate libeconf0-0.7.9-1.1
+[    8s] [31/188] cumulate libexpat1-2.7.1-2.1
+[    8s] [32/188] cumulate libffi8-3.4.7-1.1
+[    8s] [33/188] cumulate libfuse3-4-3.17.2-1.1
+[    8s] [34/188] cumulate libgcc_s1-15.1.1+git9739-2.1
+[    8s] [35/188] cumulate libgmp10-6.3.0-5.1
+[    8s] [36/188] cumulate libgomp1-15.1.1+git9739-2.1
+[    8s] [37/188] cumulate libgpg-error0-1.55-1.1
+[    8s] [38/188] cumulate libitm1-15.1.1+git9739-2.1
+[    8s] [39/188] cumulate libjansson4-2.14.1-1.1
+[    8s] [40/188] cumulate libjitterentropy3-3.6.3-1.1
+[    8s] [41/188] cumulate liblua5_4-5-5.4.7-4.1
+[    8s] [42/188] cumulate liblz1-1.15-1.2
+[    8s] [43/188] cumulate liblz4-1-1.10.0-2.4
+[    8s] [44/188] cumulate liblzma5-5.8.1-1.1
+[    8s] [45/188] cumulate libmnl0-1.0.5-2.3
+[    8s] [46/188] cumulate libmpdec4-4.0.1-2.1
+[    8s] [47/188] cumulate libnghttp2-14-1.65.0-1.1
+[    8s] [48/188] cumulate libnpth0-1.8-2.1
+[    8s] [49/188] cumulate libpcre2-8-0-10.45-1.1
+[    8s] [50/188] cumulate libpkgconf5-2.2.0-1.3
+[    8s] [51/188] cumulate libpopt0-1.19-1.10
+[    8s] [52/188] cumulate libsasl2-3-2.1.28-10.1
+[    8s] [53/188] cumulate libseccomp2-2.6.0-2.2
+[    8s] [54/188] cumulate libsmartcols1-2.41-1.1
+[    8s] [55/188] cumulate libsqlite3-0-3.50.1-1.1
+[    8s] [56/188] cumulate libunistring5-1.3-1.3
+[    8s] [57/188] cumulate libuuid1-2.41-1.1
+[    8s] [58/188] cumulate libverto1-0.3.2-3.5
+[    8s] [59/188] cumulate libyaml-0-2-0.2.5-2.7
+[    8s] [60/188] cumulate libz1-1.3.1-1.3
+[    8s] [61/188] cumulate libzstd1-1.5.7-3.1
+[    8s] [62/188] cumulate passt-20250512.8ec1341-1.1
+[    8s] [63/188] cumulate patch-2.8-1.1
+[    8s] [64/188] cumulate timezone-2025b-1.1
+[    8s] [65/188] cumulate umoci-0.5.0-1.1
+[    8s] [66/188] cumulate update-alternatives-1.22.18-1.1
+[    8s] [67/188] cumulate which-2.23-1.2
+[    8s] [68/188] cumulate libncurses6-6.5.20250531-73.1
+[    8s] [69/188] cumulate aardvark-dns-1.15.0-1.1
+[    8s] [70/188] cumulate fuse-overlayfs-1.15-1.1
+[    8s] [71/188] cumulate libassuan9-3.0.2-1.2
+[    8s] [72/188] cumulate libblkid1-2.41-1.1
+[    8s] [73/188] cumulate libbrotlidec1-1.1.0-1.6
+[    8s] [74/188] cumulate libctf-nobfd0-2.43-7.1
+[    8s] [75/188] cumulate libedit0-20250104.3.1-1.1
+[    8s] [76/188] cumulate libglib-2_0-0-2.84.2-1.1
+[    8s] [77/188] cumulate libidn2-0-2.3.8-1.1
+[    8s] [78/188] cumulate libisl23-0.27-1.2
+[    8s] [79/188] cumulate libksba8-1.6.7-1.3
+[    8s] [80/188] cumulate libmpfr6-4.2.2-1.1
+[    8s] [81/188] cumulate libnftnl11-1.2.9-2.1
+[    8s] [82/188] cumulate libreadline8-8.2.13-2.3
+[    8s] [83/188] cumulate libselinux1-3.8.1-1.1
+[    8s] [84/188] cumulate libstdc++6-15.1.1+git9739-2.1
+[    8s] [85/188] cumulate libsystemd0-mini-257.6-1.1
+[    8s] [86/188] cumulate libudev-mini1-257.6-1.1
+[    8s] [87/188] cumulate perl-base-5.40.2-2.1
+[    8s] [88/188] cumulate pkgconf-2.2.0-1.3
+[    8s] [89/188] cumulate runc-1.3.0-1.1
+[    8s] [90/188] cumulate libelf1-0.192-2.2
+[    8s] [91/188] cumulate libgcrypt20-1.11.1-1.1
+[    8s] [92/188] cumulate libxml2-2-2.13.8-1.1
+[    8s] [93/188] cumulate libopenssl3-3.5.0-3.1
+[    8s] [94/188] cumulate permctl-1699_20250120-1.3
+[    8s] [95/188] cumulate libmagic1-5.46-4.1
+[    8s] [96/188] cumulate bash-5.2.37-20.1
+[    8s] [97/188] cumulate dwz-0.15-6.1
+[    8s] [98/188] cumulate findutils-4.10.0-2.2
+[    8s] [99/188] cumulate libgmodule-2_0-0-2.84.2-1.1
+[    8s] [100/188] cumulate libslirp0-4.9.1+1-1.1
+[    8s] [101/188] cumulate libusb-1_0-0-1.0.28-1.1
+[    8s] [102/188] cumulate conmon-2.1.13-1.2
+[    8s] [103/188] cumulate file-5.46-4.1
+[    8s] [104/188] cumulate libasan8-15.1.1+git9739-2.1
+[    8s] [105/188] cumulate libfdisk1-2.41-1.1
+[    8s] [106/188] cumulate libgobject-2_0-0-2.84.2-1.1
+[    8s] [107/188] cumulate libhwasan0-15.1.1+git9739-2.1
+[    8s] [108/188] cumulate libldap2-2.6.8-2.5
+[    8s] [109/188] cumulate liblsan0-15.1.1+git9739-2.1
+[    8s] [110/188] cumulate libmount1-2.41-1.1
+[    8s] [111/188] cumulate libmpc3-1.3.1-1.10
+[    8s] [112/188] cumulate libpsl5-0.21.5-1.5
+[    8s] [113/188] cumulate libtsan2-15.1.1+git9739-2.1
+[    8s] [114/188] cumulate libubsan1-15.1.1+git9739-2.1
+[    8s] [115/188] cumulate libzck1-1.5.1-1.3
+[    8s] [116/188] cumulate sed-4.9-2.8
+[    8s] [117/188] cumulate tar-1.35-4.1
+[    8s] [118/188] cumulate libnftables1-1.1.3-1.1
+[    8s] [119/188] cumulate libdw1-0.192-2.2
+[    8s] [120/188] cumulate libarchive13-3.7.9-1.1
+[    8s] [121/188] cumulate bash-sh-5.2.37-20.1
+[    8s] [122/188] cumulate obs-service-kubevirt_containers_meta-1.5.0-1.1
+[    8s] [123/188] cumulate obs-service-replace_using_env-0.1-2.11
+[    8s] [124/188] cumulate libasm1-0.192-2.2
+[    8s] [125/188] cumulate slirp4netns-1.3.3-1.1
+[    8s] [126/188] cumulate cpp14-14.3.0+git11799-3.1
+[    8s] [127/188] cumulate libssh-config-0.11.1-5.1
+[    8s] [128/188] cumulate cpio-2.15-5.1
+[    8s] [129/188] cumulate cpp-14-3.1
+[    8s] [130/188] cumulate gzip-1.14-1.1
+[    8s] [131/188] cumulate make-4.4.1-3.3
+[    8s] [132/188] cumulate bzip2-1.0.8-5.12
+[    8s] [133/188] cumulate grep-3.12-1.1
+[    8s] [134/188] cumulate pkgconf-pkg-config-2.2.0-1.3
+[    8s] [135/188] cumulate xz-5.8.1-1.1
+[    8s] [136/188] cumulate gettext-runtime-mini-0.22.5-8.1
+[    8s] [137/188] cumulate libcontainers-common-20250409-2.1
+[    8s] [138/188] cumulate nftables-1.1.3-1.1
+[    8s] [139/188] cumulate gawk-5.3.2-1.1
+[    8s] [140/188] cumulate shared-mime-info-2.4-3.4
+[    8s] [141/188] cumulate coreutils-9.7-2.1
+[    8s] [142/188] cumulate elfutils-0.192-2.2
+[    8s] [143/188] cumulate gpg2-2.5.7-2.1
+[    8s] [144/188] cumulate systemd-rpm-macros-24-1.8
+[    8s] [145/188] cumulate libxcrypt-devel-4.4.38-1.2
+[    8s] [146/188] cumulate linux-glibc-devel-6.15-1.1
+[    8s] [147/188] cumulate obs-service-docker_label_helper-0.0-7.3
+[    8s] [148/188] cumulate libgpgme11-1.24.3-2.1
+[    8s] [149/188] cumulate obs-service-kiwi_metainfo_helper-0.6-9.1
+[    8s] [150/188] cumulate netavark-1.15.2-1.1
+[    8s] [151/188] cumulate permissions-config-1699_20250120-1.3
+[    8s] [152/188] cumulate gettext-tools-mini-0.22.5-8.1
+[    8s] [153/188] cumulate krb5-mini-1.21.3-3.1
+[    8s] [154/188] cumulate permissions-1699_20250120-1.3
+[    8s] [155/188] cumulate glibc-devel-2.41-2.1
+[    8s] [156/188] cumulate skopeo-1.19.0-1.1
+[    8s] [157/188] cumulate libssh4-0.11.1-5.1
+[    8s] [158/188] cumulate buildah-1.40.1-1.1
+[    8s] [159/188] cumulate podman-5.5.1-1.1
+[    8s] [160/188] cumulate pam-1.7.0-3.1
+[    8s] [161/188] cumulate libcurl4-8.14.1-1.1
+[    8s] [162/188] cumulate util-linux-2.41-1.1
+[    8s] [163/188] cumulate rpm-config-SUSE-20250423-1.1
+[    8s] [164/188] cumulate libctf0-2.43-7.1
+[    8s] [165/188] cumulate libgio-2_0-0-2.84.2-1.1
+[    8s] [166/188] cumulate python313-base-3.13.3-4.1
+[    8s] [167/188] cumulate gio-branding-upstream-2.84.2-1.1
+[    8s] [168/188] cumulate python313-packaging-24.2-2.1
+[    8s] [169/188] cumulate container-build-checks-1723452932.412e7f6-1.2
+[    8s] [170/188] cumulate libpython3_13-1_0-3.13.3-4.1
+[    8s] [171/188] cumulate python313-setuptools-78.1.1-1.1
+[    8s] [172/188] cumulate python313-PyYAML-6.0.2-3.1
+[    8s] [173/188] cumulate glib2-tools-2.84.2-1.1
+[    8s] [174/188] cumulate binutils-2.43-7.1
+[    8s] [175/188] cumulate rpm-4.20.1-5.1
+[    8s] [176/188] cumulate container-build-checks-vendor-openSUSE-1723452932.412e7f6-1.2
+[    8s] [177/188] cumulate release-compare-0.9.2-1.2
+[    8s] [178/188] cumulate libmodulemd2-2.15.0-3.4
+[    8s] [179/188] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    8s] [180/188] cumulate librpmbuild10-4.20.1-5.1
+[    8s] [181/188] cumulate debugedit-5.1-1.3
+[    8s] [182/188] cumulate gcc14-14.3.0+git11799-3.1
+[    8s] [183/188] cumulate gcc14-PIE-14.3.0+git11799-3.1
+[    8s] [184/188] cumulate gcc-14-3.1
+[    8s] [185/188] cumulate libcreaterepo_c1-1.2.1-1.1
+[    8s] [186/188] cumulate gcc-PIE-14-3.1
+[    8s] [187/188] cumulate createrepo_c-1.2.1-1.1
+[    8s] [188/188] cumulate rpm-build-4.20.1-5.1
+[    8s] now installing cumulated packages
+[    8s] Preparing...                          ########################################
+[    8s] Updating / installing...
+[    8s] system-user-root-20190513-2.18        ########################################
+[    8s] crypto-policies-20250124.4d262e7-3.1  ########################################
+[    8s] terminfo-base-6.5.20250531-73.1       ########################################
+[    8s] registries-conf-default-20250409-2.1  ########################################
+[    8s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    8s] pkgconf-m4-2.2.0-1.3                  ########################################
+[    8s] libcontainers-openSUSE-policy-20250409########################################
+[    8s] file-magic-5.46-4.1                   ########################################
+[    8s] compat-usrmerge-tools-84.87-5.22      ########################################
+[    8s] filesystem-84.87-18.2                 ########################################
+[    8s] glibc-2.41-2.1                        ########################################
+[    8s] libz1-1.3.1-1.3                       ########################################
+[    8s] libgcc_s1-15.1.1+git9739-2.1          ########################################
+[    8s] libzstd1-1.5.7-3.1                    ########################################
+[    8s] libstdc++6-15.1.1+git9739-2.1         ########################################
+[    8s] libelf1-0.192-2.2                     ########################################
+[    8s] libbz2-1-1.0.8-5.12                   ########################################
+[    8s] libgmp10-6.3.0-5.1                    ########################################
+[    8s] liblzma5-5.8.1-1.1                    ########################################
+[    8s] libacl1-2.3.2-2.3                     ########################################
+[    8s] libcap2-2.75-1.1                      ########################################
+[    8s] libgpg-error0-1.55-1.1                ########################################
+[    8s] libseccomp2-2.6.0-2.2                 ########################################
+[    8s] libdw1-0.192-2.2                      ########################################
+[    8s] libmpfr6-4.2.2-1.1                    ########################################
+[    8s] libcrypt1-4.4.38-1.2                  ########################################
+[    8s] libxml2-2-2.13.8-1.1                  ########################################
+[    8s] fillup-1.42-281.3                     ########################################
+[    8s] libeconf0-0.7.9-1.1                   ########################################
+[    8s] libblkid1-2.41-1.1                    ########################################
+[    8s] libgomp1-15.1.1+git9739-2.1           ########################################
+[    8s] libpcre2-8-0-10.45-1.1                ########################################
+[    8s] libglib-2_0-0-2.84.2-1.1              ########################################
+[    8s] libselinux1-3.8.1-1.1                 ########################################
+[    8s] sed-4.9-2.8                           ########################################
+[    8s] findutils-4.10.0-2.2                  ########################################
+[    8s] libpopt0-1.19-1.10                    ########################################
+[    8s] libuuid1-2.41-1.1                     ########################################
+[    8s] update-alternatives-1.22.18-1.1       ########################################
+[    8s] libncurses6-6.5.20250531-73.1         ########################################
+[    8s] libreadline8-8.2.13-2.3               ########################################
+[    8s] bash-5.2.37-20.1                      ########################################
+[    8s] bash-sh-5.2.37-20.1                   ########################################
+[    8s] grep-3.12-1.1                         ########################################
+[    8s] xz-5.8.1-1.1                          ########################################
+[    8s] libcontainers-common-20250409-2.1     ########################################
+[    8s] gawk-5.3.2-1.1                        ########################################
+[    8s] libmount1-2.41-1.1                    ########################################
+[    8s] libgmodule-2_0-0-2.84.2-1.1           ########################################
+[    8s] libmpc3-1.3.1-1.10                    ########################################
+[    8s] runc-1.3.0-1.1                        ########################################
+[    8s] libassuan9-3.0.2-1.2                  ########################################
+[    8s] permctl-1699_20250120-1.3             ########################################
+[    9s] libisl23-0.27-1.2                     ########################################
+[    9s] cpp14-14.3.0+git11799-3.1             ########################################
+[    9s] dwz-0.15-6.1                          ########################################
+[    9s] libaudit1-4.0-3.3                     ########################################
+[    9s] libffi8-3.4.7-1.1                     ########################################
+[    9s] libgobject-2_0-0-2.84.2-1.1           ########################################
+[    9s] libjitterentropy3-3.6.3-1.1           ########################################
+[    9s] libopenssl3-3.5.0-3.1                 ########################################
+[    9s] libgcrypt20-1.11.1-1.1                ########################################
+[    9s] liblua5_4-5-5.4.7-4.1                 ########################################
+[    9s] libmnl0-1.0.5-2.3                     ########################################
+[    9s] libsqlite3-0-3.50.1-1.1               ########################################
+[    9s] libunistring5-1.3-1.3                 ########################################
+[    9s] libidn2-0-2.3.8-1.1                   ########################################
+[    9s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    9s] passt-20250512.8ec1341-1.1            ########################################
+[    9s] libpsl5-0.21.5-1.5                    ########################################
+[    9s] libnftnl11-1.2.9-2.1                  ########################################
+[    9s] libzck1-1.5.1-1.3                     ########################################
+[    9s] cpp-14-3.1                            ########################################
+[    9s] libssh-config-0.11.1-5.1              ########################################
+[    9s] cpio-2.15-5.1                         ########################################
+[    9s] gzip-1.14-1.1                         ########################################
+[    9s] make-4.4.1-3.3                        ########################################
+[    9s] bzip2-1.0.8-5.12                      ########################################
+[    9s] shared-mime-info-2.4-3.4              ########################################
+[    9s] gio-branding-upstream-2.84.2-1.1      ########################################
+[    9s] libgio-2_0-0-2.84.2-1.1               ########################################
+[    9s] glib2-tools-2.84.2-1.1                ########################################
+[    9s] No schema files found: doing nothing.
+[    9s] libedit0-20250104.3.1-1.1             ########################################
+[    9s] libfdisk1-2.41-1.1                    ########################################
+[    9s] tar-1.35-4.1                          ########################################
+[    9s] libslirp0-4.9.1+1-1.1                 ########################################
+[    9s] slirp4netns-1.3.3-1.1                 ########################################
+[    9s] libasm1-0.192-2.2                     ########################################
+[    9s] elfutils-0.192-2.2                    ########################################
+[    9s] libksba8-1.6.7-1.3                    ########################################
+[    9s] libsystemd0-mini-257.6-1.1            ########################################
+[    9s] conmon-2.1.13-1.2                     ########################################
+[    9s] libudev-mini1-257.6-1.1               ########################################
+[    9s] libusb-1_0-0-1.0.28-1.1               ########################################
+[    9s] libasan8-15.1.1+git9739-2.1           ########################################
+[    9s] libhwasan0-15.1.1+git9739-2.1         ########################################
+[    9s] liblsan0-15.1.1+git9739-2.1           ########################################
+[    9s] libtsan2-15.1.1+git9739-2.1           ########################################
+[   10s] libubsan1-15.1.1+git9739-2.1          ########################################
+[   10s] aardvark-dns-1.15.0-1.1               ########################################
+[   10s] libctf-nobfd0-2.43-7.1                ########################################
+[   10s] diffutils-3.12-1.1                    ########################################
+[   10s] envsubst-mini-0.22.5-8.1              ########################################
+[   10s] gettext-runtime-mini-0.22.5-8.1       ########################################
+[   10s] glibc-gconv-modules-extra-2.41-2.1    ########################################
+[   10s] gettext-tools-mini-0.22.5-8.1         ########################################
+[   10s] glibc-locale-base-2.41-2.1            ########################################
+[   10s] libatomic1-15.1.1+git9739-2.1         ########################################
+[   10s] libattr1-2.5.2-1.4                    ########################################
+[   10s] coreutils-9.7-2.1                     ########################################
+[   10s] rpm-config-SUSE-20250423-1.1          ########################################
+[   10s] rpm-4.20.1-5.1                        ########################################
+[   10s] Updating /etc/sysconfig/services ...
+[   10s] libctf0-2.43-7.1                      ########################################
+[   10s] binutils-2.43-7.1                     ########################################
+[   10s] update-alternatives: using /usr/bin/ld.bfd to provide /usr/bin/ld (ld) in auto mode
+[   10s] libmodulemd2-2.15.0-3.4               ########################################
+[   10s] debugedit-5.1-1.3                     ########################################
+[   10s] systemd-rpm-macros-24-1.8             ########################################
+[   11s] linux-glibc-devel-6.15-1.1            ########################################
+[   11s] permissions-config-1699_20250120-1.3  ########################################
+[   11s] Updating /etc/sysconfig/security ...
+[   11s] Checking permissions and ownerships - using the permissions files
+[   11s] 	/usr/share/permissions/permissions
+[   11s] 	/usr/share/permissions/permissions.easy
+[   11s] 	/etc/permissions.local
+[   11s] /usr/sbin/unix_chkpwd: setting to root:shadow 4755 (wrong owner/group root:root)
+[   11s] permissions-1699_20250120-1.3         ########################################
+[   11s] pam-1.7.0-3.1                         ########################################
+[   11s] libbrotlicommon1-1.1.0-1.6            ########################################
+[   11s] libbrotlidec1-1.1.0-1.6               ########################################
+[   11s] libcap-ng0-0.8.5-1.3                  ########################################
+[   11s] libcom_err2-1.47.2-1.1                ########################################
+[   11s] libexpat1-2.7.1-2.1                   ########################################
+[   11s] libfuse3-4-3.17.2-1.1                 ########################################
+[   11s] fuse-overlayfs-1.15-1.1               ########################################
+[   11s] libitm1-15.1.1+git9739-2.1            ########################################
+[   11s] libjansson4-2.14.1-1.1                ########################################
+[   11s] libnftables1-1.1.3-1.1                ########################################
+[   11s] nftables-1.1.3-1.1                    ########################################
+[   11s] netavark-1.15.2-1.1                   ########################################
+[   11s] liblz1-1.15-1.2                       ########################################
+[   11s] libmagic1-5.46-4.1                    ########################################
+[   11s] file-5.46-4.1                         ########################################
+[   11s] librpmbuild10-4.20.1-5.1              ########################################
+[   11s] liblz4-1-1.10.0-2.4                   ########################################
+[   11s] libarchive13-3.7.9-1.1                ########################################
+[   11s] libmpdec4-4.0.1-2.1                   ########################################
+[   11s] python313-base-3.13.3-4.1             ########################################
+[   11s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[   11s] python313-packaging-24.2-2.1          ########################################
+[   11s] python-rpm-packaging-20210526+a18ca48-########################################
+[   11s] container-build-checks-vendor-openSUSE########################################
+[   11s] container-build-checks-1723452932.412e########################################
+[   11s] python313-setuptools-78.1.1-1.1       ########################################
+[   11s] python313-PyYAML-6.0.2-3.1            ########################################
+[   11s] libnghttp2-14-1.65.0-1.1              ########################################
+[   11s] libnpth0-1.8-2.1                      ########################################
+[   11s] gpg2-2.5.7-2.1                        ########################################
+[   11s] libgpgme11-1.24.3-2.1                 ########################################
+[   11s] libpkgconf5-2.2.0-1.3                 ########################################
+[   11s] pkgconf-2.2.0-1.3                     ########################################
+[   11s] pkgconf-pkg-config-2.2.0-1.3          ########################################
+[   11s] libxcrypt-devel-4.4.38-1.2            ########################################
+[   11s] glibc-devel-2.41-2.1                  ########################################
+[   12s] gcc14-14.3.0+git11799-3.1             ########################################
+[   12s] gcc14-PIE-14.3.0+git11799-3.1         ########################################
+[   12s] gcc-14-3.1                            ########################################
+[   12s] libsasl2-3-2.1.28-10.1                ########################################
+[   12s] libldap2-2.6.8-2.5                    ########################################
+[   12s] libsmartcols1-2.41-1.1                ########################################
+[   12s] util-linux-2.41-1.1                   ########################################
+[   12s] libverto1-0.3.2-3.5                   ########################################
+[   12s] krb5-mini-1.21.3-3.1                  ########################################
+[   12s] Updating /etc/sysconfig/kadmind ...
+[   12s] Updating /etc/sysconfig/krb5kdc ...
+[   12s] libssh4-0.11.1-5.1                    ########################################
+[   12s] libcurl4-8.14.1-1.1                   ########################################
+[   12s] libcreaterepo_c1-1.2.1-1.1            ########################################
+[   12s] patch-2.8-1.1                         ########################################
+[   12s] timezone-2025b-1.1                    ########################################
+[   12s] which-2.23-1.2                        ########################################
+[   12s] catatonit-0.2.1-1.3                   ########################################
+[   12s] podman-5.5.1-1.1                      ########################################
+[   12s] rpm-build-4.20.1-5.1                  ########################################
+[   12s] createrepo_c-1.2.1-1.1                ########################################
+[   12s] gcc-PIE-14-3.1                        ########################################
+[   12s] skopeo-1.19.0-1.1                     ########################################
+[   12s] buildah-1.40.1-1.1                    ########################################
+[   12s] release-compare-0.9.2-1.2             ########################################
+[   12s] obs-service-docker_label_helper-0.0-7.########################################
+[   12s] obs-service-kiwi_metainfo_helper-0.6-9########################################
+[   12s] obs-service-kubevirt_containers_meta-1########################################
+[   12s] obs-service-replace_using_env-0.1-2.11########################################
+[   12s] perl-base-5.40.2-2.1                  ########################################
+[   12s] umoci-0.5.0-1.1                       ########################################
+[   13s] kernel-obs-build-6.15.1-1.1           ########################################
+[   13s] container-build-checks-strict-17234529########################################
+[   13s] now finalizing build dir...
+[   14s] Running build time source services...
+[   14s] + TAGPREFIX=kubevirt
+[   14s] + LABELPREFIX=org.opensuse.kubevirt
+[   14s] + REGISTRY=registry.opensuse.org
+[   14s] + PKG_VERSION=1.5.0
+[   14s] + PKG_RELEASE=1.1
+[   14s] + DISTRO=:1
+[   14s] ++ HOME=/root
+[   14s] ++ rpm --eval '%{?sle_version}:%{?is_opensuse}%{!?is_opensuse:0}'
+[   14s] + _distro=:1
+[   14s] + '[' :1 == :1 ']'
+[   14s] + '[' -n '' ']'
+[   14s] + case "${DISTRO}" in
+[   14s] + SUPPORT_LEVEL=unsupported
+[   14s] Ignoring unknown parameter: --outdir
+[   14s] Ignoring unknown parameter: /tmp/shRkgxWRkz
+[   14s] Replacing 'PKG_VERSION' with '1.5.0'
+[   14s] Replacing 'PKG_RELEASE' with '1.1'
+[   14s] Replacing 'REGISTRY' with 'registry.opensuse.org'
+[   14s] Replacing 'TAGPREFIX' with 'kubevirt'
+[   14s] Replacing 'LABELPREFIX' with 'org.opensuse.kubevirt'
+[   14s] Replacing 'SUPPORT_LEVEL' with 'unsupported'
+[   14s] # SPDX-License-Identifier: Apache-2.0
+[   14s] 
+[   14s] # Define the tags for OBS and build script builds:
+[   14s] #!BuildTag: kubevirt/libguestfs-tools:1.5.0
+[   14s] #!BuildTag: kubevirt/libguestfs-tools:1.5.0.15.688
+[   14s] #!BuildTag: kubevirt/libguestfs-tools:1.5.0-1.1
+[   14s] 
+[   14s] #!ExclusiveArch: x86_64 aarch64
+[   14s] 
+[   14s] # libguestfs-tools container image
+[   14s] # KUBEVIRTFROM defined in prjconf, e.g.
+[   14s] #  BuildFlags: dockerarg:KUBEVIRTFROM=opensuse/tumbleweed
+[   14s] ARG KUBEVIRTFROM
+[   14s] FROM $KUBEVIRTFROM
+[   14s] 
+[   14s] # Mandatory labels for the build service:
+[   14s] #   https://en.opensuse.org/Building_derived_containers
+[   14s] # labelprefix=org.opensuse.kubevirt
+[   14s] LABEL org.opencontainers.image.title="kubevirt libguestfs-tools container"
+[   14s] LABEL org.opencontainers.image.description="Container for libguestfs tools"
+[   14s] LABEL org.opencontainers.image.created="2025-06-11T16:28:20.616857713Z"
+[   14s] LABEL org.opencontainers.image.version="1.5.0.15.688"
+[   14s] LABEL org.opencontainers.image.source="https://build.opensuse.org/package/show/openSUSE:Factory/virt-libguestfs-tools-container?rev=c83a6450eb11dce4658fc33bd18e6d20"
+[   14s] LABEL org.openbuildservice.disturl="obs://build.opensuse.org/openSUSE:Factory/containerfile/c83a6450eb11dce4658fc33bd18e6d20-virt-libguestfs-tools-container"
+[   14s] LABEL org.opensuse.reference="registry.opensuse.org/kubevirt/libguestfs-tools:1.5.0.15.688"
+[   14s] LABEL com.suse.supportlevel="unsupported"
+[   14s] # endlabelprefix
+[   14s] 
+[   14s] # Note: the trick with install/remove kubevirt-manifests is needed to ensure
+[   14s] # that OBS triggers the rebuild of the container whenever the main kubevirt
+[   14s] # package is updated. Even though there is no direct dependency on the RPM
+[   14s] # itself, we still need to add proper tags. Having a reference to the build
+[   14s] # service obs-service-kubevirt_containers_meta in the _service file apparently
+[   14s] # is not enough.
+[   14s] RUN zypper -n install \
+[   14s]               bash \
+[   14s]               btrfsprogs \
+[   14s]               cryptsetup \
+[   14s]               dosfstools \
+[   14s]               e2fsprogs \
+[   14s]               gptfdisk \
+[   14s]               guestfs-tools \
+[   14s]               jfsutils \
+[   14s]               kernel-kvmsmall \
+[   14s]               kubevirt-manifests \
+[   14s]               ldmtool \
+[   14s]               libguestfs \
+[   14s]               libguestfs-appliance \
+[   14s]               libguestfs-devel \
+[   14s]               libguestfs-winsupport \
+[   14s]               mdadm \
+[   14s]               parted \
+[   14s]               qemu-tools \
+[   14s]               shadow \
+[   14s]               supermin \
+[   14s]               xfsprogs \
+[   14s]               xorriso \
+[   14s]               zerofree
+[   14s] 
+[   14s] #!ArchExclusiveLine: x86_64
+[   14s] RUN if [ "$(uname -m)" = "x86_64" ]; then \
+[   14s]         zypper -n install qemu-x86 ; \
+[   14s]     fi;
+[   14s] 
+[   14s] # qemu-x86 is required on aarch64 to get the test to pass (allow fallback to non KVM mode)
+[   14s] #!ArchExclusiveLine: aarch64
+[   14s] RUN if [ "$(uname -m)" = "aarch64" ]; then \
+[   14s]         zypper -n install qemu-arm qemu-uefi-aarch64 qemu-x86; \
+[   14s]     fi;
+[   14s] 
+[   14s] # Make a "fixed appliance" for libguestfs.
+[   14s] # Note: the resulting 'appliance/root' is a sparse file. Docker does not
+[   14s] # preserve sparseness hence it is converted to qcow2.
+[   14s] RUN mkdir -p /usr/local/lib/guestfs/appliance && \
+[   14s]     cd /usr/local/lib/guestfs/appliance && \
+[   14s]     LIBGUESTFS_BACKEND=direct LIBGUESTFS_DEBUG=1 libguestfs-make-fixed-appliance . && \
+[   14s]     qemu-img convert -c -O qcow2 root root.qcow2 && \
+[   14s]     mv root.qcow2 root && \
+[   14s]     touch done && \
+[   14s]     rm -rf /var/tmp/.guestfs-*
+[   14s] 
+[   14s] RUN zypper -n remove --clean-deps \
+[   14s]               kernel-kvmsmall \
+[   14s]               kubevirt-manifests && \
+[   14s]     zypper clean -a && \
+[   14s]     useradd -u 1001 --create-home -s /bin/bash virt-libguestfs-tools
+[   14s] 
+[   14s] COPY entrypoint.sh /entrypoint.sh
+[   14s] RUN chmod +x entrypoint.sh
+[   14s] 
+[   14s] USER 1001
+[   14s] ENTRYPOINT [ "/entrypoint.sh" ]
+[   14s] -----------------------------------------------------------------
+[   14s] ----- building Dockerfile
+[   14s] -----------------------------------------------------------------
+[   14s] -----------------------------------------------------------------
+[   14s] Loading base image container_opensuse-tumbleweed-image-docker.tar
+[   14s] Unsharing environment
+[   15s] Getting image source signatures
+[   15s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   16s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   16s] Writing manifest to image destination
+[   17s] Getting image source signatures
+[   17s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   17s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   17s] Writing manifest to image destination
+[   17s] Getting image source signatures
+[   17s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   17s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   17s] Writing manifest to image destination
+[   17s] Loaded image: localhost/opensuse/tumbleweed:latest
+[   17s] Loaded image: localhost/opensuse/tumbleweed:20250611
+[   17s] Loaded image: localhost/opensuse/tumbleweed:20250611.34.53
+[   18s] Building image kubevirt/libguestfs-tools:1.5.0 kubevirt/libguestfs-tools:1.5.0.15.688 kubevirt/libguestfs-tools:1.5.0-1.1
+[   18s] Unsharing environment
+[   18s] STEP 1/30: FROM opensuse/tumbleweed
+[   18s] STEP 2/30: COPY .obs-docker-support /usr/local/sbin/obs-docker-support
+[   19s] STEP 3/30: RUN obs-docker-support --upload-packages --install
+[   19s] Retrieving repository 'obs_repository' metadata [.done]
+[   19s] Building repository 'obs_repository' cache [....done]
+[   19s] All repositories have been refreshed.
+[   19s] STEP 4/30: LABEL org.opensuse.kubevirt.title="kubevirt libguestfs-tools container"
+[   19s] STEP 5/30: LABEL org.opencontainers.image.title="kubevirt libguestfs-tools container"
+[   19s] STEP 6/30: LABEL org.opensuse.kubevirt.description="Container for libguestfs tools"
+[   19s] STEP 7/30: LABEL org.opencontainers.image.description="Container for libguestfs tools"
+[   19s] STEP 8/30: LABEL org.opensuse.kubevirt.created="2025-06-11T16:28:20.616857713Z"
+[   19s] STEP 9/30: LABEL org.opencontainers.image.created="2025-06-11T16:28:20.616857713Z"
+[   19s] STEP 10/30: LABEL org.opensuse.kubevirt.version="1.5.0.15.688"
+[   19s] STEP 11/30: LABEL org.opencontainers.image.version="1.5.0.15.688"
+[   19s] STEP 12/30: LABEL org.opensuse.kubevirt.source="https://build.opensuse.org/package/show/openSUSE:Factory/virt-libguestfs-tools-container?rev=c83a6450eb11dce4658fc33bd18e6d20"
+[   19s] STEP 13/30: LABEL org.opencontainers.image.source="https://build.opensuse.org/package/show/openSUSE:Factory/virt-libguestfs-tools-container?rev=c83a6450eb11dce4658fc33bd18e6d20"
+[   19s] STEP 14/30: LABEL org.opensuse.kubevirt.disturl="obs://build.opensuse.org/openSUSE:Factory/containerfile/c83a6450eb11dce4658fc33bd18e6d20-virt-libguestfs-tools-container"
+[   19s] STEP 15/30: LABEL org.openbuildservice.disturl="obs://build.opensuse.org/openSUSE:Factory/containerfile/c83a6450eb11dce4658fc33bd18e6d20-virt-libguestfs-tools-container"
+[   19s] STEP 16/30: LABEL org.opensuse.kubevirt.reference="registry.opensuse.org/kubevirt/libguestfs-tools:1.5.0.15.688"
+[   19s] STEP 17/30: LABEL org.opensuse.reference="registry.opensuse.org/kubevirt/libguestfs-tools:1.5.0.15.688"
+[   19s] STEP 18/30: LABEL org.opensuse.kubevirt.supportlevel="unsupported"
+[   19s] STEP 19/30: LABEL com.suse.supportlevel="unsupported"
+[   19s] STEP 20/30: RUN zypper -n install               bash               btrfsprogs               cryptsetup               dosfstools               e2fsprogs               gptfdisk               guestfs-tools               jfsutils               kernel-kvmsmall               kubevirt-manifests               ldmtool               libguestfs               libguestfs-appliance               libguestfs-devel               libguestfs-winsupport               mdadm               parted               qemu-tools               shadow               supermin               xfsprogs               xorriso               zerofree
+[   19s] Loading repository data...
+[   19s] Reading installed packages...
+[   19s] 'bash' is already installed.
+[   19s] No update candidate for 'bash-5.2.37-20.1.x86_64'. The highest available version is already installed.
+[   19s] 'shadow' is already installed.
+[   19s] No update candidate for 'shadow-4.17.4-2.1.x86_64'. The highest available version is already installed.
+[   19s] Resolving package dependencies...
+[   19s] 
+[   19s] The following 203 NEW packages are going to be installed:
+[   19s]   acl alts augeas augeas-lenses btrfsprogs btrfsprogs-udev-rules canokey-qemu cracklib cryptsetup cyrus-sasl cyrus-sasl-digestmd5 dbus-1 dbus-1-common dbus-1-tools dbus-broker dbus-broker-block-restart device-mapper dhcpcd diffutils dosfstools e2fsprogs findutils gawk gio-branding-openSUSE glib-networking glib2-tools gptfdisk gsettings-desktop-schemas guestfs-tools hwdata info jfsutils kbd kernel-kvmsmall kmod krb5 kubevirt-manifests ldmtool libaio1 libalternatives1 libapparmor1 libbpf1 libbrotlicommon1 libbrotlidec1 libburn4 libcapstone5 libcbor0_11 libcdrdeflt1_0 libcom_err2 libconfig15 libcrack2 libcryptsetup12 libdbus-1-3 libdeflt1_0 libdevmapper-event1_03 libdevmapper1_03 libduktape207 libedit0 libefa1 libelf1 libexpat1 libexslt0 libext2fs2 libfdt1 libfile1_0 libfind4_0 libfuse2 libfuse3-4 libgdbm6 libgdbm_compat4 libgio-2_0-0 libgmodule-2_0-0 libgnutls30 libgobject-2_0-0 libguestfs libguestfs-appliance libguestfs-devel libguestfs-winsupport libguestfs0 libhd24 libhivex0 libhns1 libhogweed6 libibverbs libibverbs1 libinih0 libisoburn1 libisofs6 libjpeg8 libjson-c5 libjson-glib-1_0-0 libjte2 libkbdfile1 libkeymap1 libkeyutils1 libkfont0 libkmod2 libldm-1_0-0 liblz4-1 liblzo2-2 libmana1 libmlx4-1 libmlx5-1 libmpath0 libmpdec4 libmpfr6 libndctl6 libnettle8 libnl-config libnl3-200 libntfs-3g89 libnuma1 libosinfo libosinfo-1_0-0 libparted-fs-resize0 libparted2 libpixman-1-0 libpkgconf5 libpmem1 libpng16-16 libproxy1 libpwquality1 libpxbackend-1_0 libpython3_13-1_0 libqat4 libqatzip3 librdmacm1 librscg1_0 libsasl2-3 libscg1_0 libscgcmd1_0 libschily2_0 libseccomp2 libslirp0 libsnappy1 libsoup-3_0-0 libssh-config libssh2-1 libssh4 libtirpc-netconfig libtirpc3 liburcu8 liburing2 libusdm0 libvdeplug3 libverto1 libvirt-libs libx86emu3 libxdp1 libxkbcommon0 libxslt1 libyajl2 libzio1 mdadm mkisofs ntfs-3g ntfsprogs osinfo-db pam-config pam-extra parted perl perl-base pkgconf pkgconf-m4 pkgconf-pkg-config python313-base qemu qemu-img qemu-ipxe qemu-ovmf-x86_64 qemu-pr-helper qemu-seabios qemu-tools qemu-vgabios qemu-vmsr-helper qemu-x86 rdma-core shared-mime-info supermin suse-module-tools suse-module-tools-scriptlets system-group-hardware system-group-kvm system-user-lp system-user-qemu systemd systemd-default-settings systemd-default-settings-branding-openSUSE systemd-presets-branding-openSUSE systemd-presets-common-SUSE systemd-rpm-macros thin-provisioning-tools udev update-alternatives virtiofsd xen-libs xfsprogs xkeyboard-config xmlstarlet xorriso zerofree zisofs-tools
+[   19s] 
+[   19s] The following package requires a system reboot:
+[   19s]   kernel-kvmsmall
+[   19s] 
+[   19s] 203 new packages to install.
+[   19s] 
+[   19s] Package download size:   177.1 MiB
+[   19s] 
+[   19s] Package install size change:
+[   19s]               |     565.6 MiB  required by packages that will be installed
+[   19s]    565.6 MiB  |  -      0 B    released by packages that will be removed
+[   19s] 
+[   19s]     Note: System reboot required.
+[   19s] 
+[   19s] Backend:  classic_rpmtrans
+[   19s] Continue? [y/n/v/...? shows all options] (y): y
+[   19s] Retrieving: acl-2.3.2-2.3.x86_64 (obs_repository) (1/203),  77.0 KiB    
+[   19s] Retrieving: augeas-lenses-1.14.1-2.1.x86_64 (obs_repository) (2/203), 171.7 KiB    
+[   19s] Retrieving: augeas-1.14.1-2.1.x86_64 (obs_repository) (3/203), 104.8 KiB    
+[   19s] Retrieving: btrfsprogs-udev-rules-6.14-2.1.noarch (obs_repository) (4/203),  35.3 KiB    
+[   19s] Retrieving: canokey-qemu-0.0+git20230606.151568c-2.5.x86_64 (obs_repository) (5/203), 192.7 KiB    
+[   19s] Retrieving: cracklib-2.9.11-1.6.x86_64 (obs_repository) (6/203),  65.3 KiB    
+[   19s] Retrieving: libcrack2-2.9.11-1.6.x86_64 (obs_repository) (7/203),  22.1 KiB    
+[   19s] Retrieving: dbus-1-common-1.14.10-4.4.noarch (obs_repository) (8/203),  28.6 KiB    
+[   19s] Retrieving: dbus-broker-block-restart-36-2.3.noarch (obs_repository) (9/203),  14.7 KiB    
+[   19s] Retrieving: dhcpcd-10.2.4-1.1.x86_64 (obs_repository) (10/203), 204.3 KiB    
+[   19s] Retrieving: diffutils-3.12-1.1.x86_64 (obs_repository) (11/203), 191.8 KiB    
+[   20s] Retrieving: dosfstools-4.2-4.8.x86_64 (obs_repository) (12/203), 148.7 KiB    
+[   20s] Retrieving: findutils-4.10.0-2.2.x86_64 (obs_repository) (13/203), 286.8 KiB    
+[   20s] Retrieving: gptfdisk-1.0.10-1.3.x86_64 (obs_repository) (14/203), 230.3 KiB    
+[   20s] Retrieving: gsettings-desktop-schemas-48.0-1.1.x86_64 (obs_repository) (15/203),  66.6 KiB    
+[   20s] Retrieving: jfsutils-1.1.15-21.4.x86_64 (obs_repository) (16/203), 742.4 KiB    
+[   20s] Retrieving: kubevirt-manifests-1.5.0-1.1.x86_64 (obs_repository) (17/203),  39.8 KiB    
+[   20s] Retrieving: libaio1-0.3.113-4.3.x86_64 (obs_repository) (18/203),  21.7 KiB    
+[   20s] Retrieving: libalternatives1-1.2+31.da24cd4-1.1.x86_64 (obs_repository) (19/203),  19.2 KiB    
+[   20s] Retrieving: libapparmor1-4.1.0-4.1.x86_64 (obs_repository) (20/203),  57.1 KiB    
+[   20s] Retrieving: libbrotlicommon1-1.1.0-1.6.x86_64 (obs_repository) (21/203),  66.2 KiB    
+[   20s] Retrieving: libburn4-1.5.6-3.1.x86_64 (obs_repository) (22/203), 149.4 KiB    
+[   20s] Retrieving: libcapstone5-5.0.6-1.1.x86_64 (obs_repository) (23/203), 887.1 KiB    
+[   20s] Retrieving: libcbor0_11-0.11.0-3.3.x86_64 (obs_repository) (24/203),  31.1 KiB    
+[   20s] Retrieving: libcom_err2-1.47.2-1.1.x86_64 (obs_repository) (25/203),  27.2 KiB    
+[   20s] Retrieving: libconfig15-1.8.1-1.1.x86_64 (obs_repository) (26/203),  44.5 KiB    
+[   20s] Retrieving: libdeflt1_0-2024.03.21-52.1.x86_64 (obs_repository) (27/203),  17.6 KiB    
+[   20s] Retrieving: libdevmapper1_03-2.03.29_1.02.203-7.1.x86_64 (obs_repository) (28/203), 191.3 KiB    
+[   20s] Retrieving: libduktape207-2.7.0-3.5.x86_64 (obs_repository) (29/203), 148.1 KiB    
+[   20s] Retrieving: libedit0-20250104.3.1-1.1.x86_64 (obs_repository) (30/203), 101.0 KiB    
+[   20s] Retrieving: libelf1-0.192-2.2.x86_64 (obs_repository) (31/203),  58.0 KiB    
+[   20s] Retrieving: libexpat1-2.7.1-2.1.x86_64 (obs_repository) (32/203),  91.1 KiB    
+[   20s] Retrieving: libfdt1-1.7.2-1.2.x86_64 (obs_repository) (33/203),  27.2 KiB    
+[   20s] Retrieving: libfuse2-2.9.9-7.1.x86_64 (obs_repository) (34/203),  79.2 KiB    
+[   20s] Retrieving: libfuse3-4-3.17.2-1.1.x86_64 (obs_repository) (35/203),  86.2 KiB    
+[   20s] Retrieving: libgdbm6-1.24-2.1.x86_64 (obs_repository) (36/203),  52.4 KiB    
+[   20s] Retrieving: libgmodule-2_0-0-2.84.2-1.1.x86_64 (obs_repository) (37/203),  77.5 KiB    
+[   20s] Retrieving: libgobject-2_0-0-2.84.2-1.1.x86_64 (obs_repository) (38/203), 209.2 KiB    
+[   20s] Retrieving: libhivex0-1.3.24-1.6.x86_64 (obs_repository) (39/203),  41.4 KiB    
+[   20s] Retrieving: libinih0-59-1.1.x86_64 (obs_repository) (40/203),  23.2 KiB    
+[   20s] Retrieving: libjpeg8-8.3.2-81.4.x86_64 (obs_repository) (41/203), 241.3 KiB    
+[   20s] Retrieving: libjson-c5-0.18-1.3.x86_64 (obs_repository) (42/203),  51.5 KiB    
+[   20s] Retrieving: libjte2-1.22-1.15.x86_64 (obs_repository) (43/203),  33.5 KiB    
+[   20s] Retrieving: libkbdfile1-2.7.1-2.1.x86_64 (obs_repository) (44/203),  21.0 KiB    
+[   20s] Retrieving: libkeyutils1-1.6.3-7.4.x86_64 (obs_repository) (45/203),  25.9 KiB    
+[   20s] Retrieving: libkmod2-34.2-1.1.x86_64 (obs_repository) (46/203),  56.8 KiB    
+[   20s] Retrieving: liblz4-1-1.10.0-2.4.x86_64 (obs_repository) (47/203),  75.4 KiB    
+[   20s] Retrieving: liblzo2-2-2.10-9.3.x86_64 (obs_repository) (48/203),  59.9 KiB    
+[   20s] Retrieving: libmpdec4-4.0.1-2.1.x86_64 (obs_repository) (49/203),  86.2 KiB    
+[   20s] Retrieving: libmpfr6-4.2.2-1.1.x86_64 (obs_repository) (50/203), 338.7 KiB    
+[   20s] Retrieving: libnettle8-3.10.1-2.2.x86_64 (obs_repository) (51/203), 179.6 KiB    
+[   20s] Retrieving: libnl-config-3.11.0-1.3.noarch (obs_repository) (52/203),  11.2 KiB    
+[   20s] Retrieving: libnuma1-2.0.19.13.g63e0223-1.1.x86_64 (obs_repository) (53/203),  34.2 KiB    
+[   20s] Retrieving: libparted-fs-resize0-3.6-3.2.x86_64 (obs_repository) (54/203),  44.5 KiB    
+[   20s] Retrieving: libpixman-1-0-0.44.2-1.1.x86_64 (obs_repository) (55/203), 276.0 KiB    
+[   20s] Retrieving: libpkgconf5-2.2.0-1.3.x86_64 (obs_repository) (56/203),  39.1 KiB    
+[   20s] Retrieving: libpng16-16-1.6.44-1.3.x86_64 (obs_repository) (57/203), 142.6 KiB    
+[   20s] Retrieving: libsasl2-3-2.1.28-10.1.x86_64 (obs_repository) (58/203),  59.1 KiB    
+[   20s] Retrieving: libschily2_0-2024.03.21-52.1.x86_64 (obs_repository) (59/203),  73.2 KiB    
+[   20s] Retrieving: libseccomp2-2.6.0-2.2.x86_64 (obs_repository) (60/203),  64.7 KiB    
+[   20s] Retrieving: libslirp0-4.9.1+1-1.1.x86_64 (obs_repository) (61/203),  82.9 KiB    
+[   20s] Retrieving: libsnappy1-1.1.10-4.1.x86_64 (obs_repository) (62/203),  27.5 KiB    
+[   20s] Retrieving: libssh-config-0.11.1-5.1.noarch (obs_repository) (63/203),  12.5 KiB    
+[   20s] Retrieving: libssh2-1-1.11.1-1.3.x86_64 (obs_repository) (64/203), 137.7 KiB    
+[   20s] Retrieving: libtirpc-netconfig-1.3.6-2.1.x86_64 (obs_repository) (65/203),  12.0 KiB    
+[   20s] Retrieving: liburcu8-0.14.0-1.7.x86_64 (obs_repository) (66/203), 111.2 KiB    
+[   20s] Retrieving: liburing2-2.9-1.1.x86_64 (obs_repository) (67/203),  37.9 KiB    
+[   20s] Retrieving: libusdm0-24.09.0-1.3.x86_64 (obs_repository) (68/203),  19.8 KiB    
+[   20s] Retrieving: libvdeplug3-2.3.2+svn587-6.1.x86_64 (obs_repository) (69/203),  37.3 KiB    
+[   20s] Retrieving: libverto1-0.3.2-3.5.x86_64 (obs_repository) (70/203),  19.2 KiB    
+[   20s] Retrieving: libx86emu3-3.7-1.1.x86_64 (obs_repository) (71/203),  61.2 KiB    
+[   20s] Retrieving: libxslt1-1.1.43-1.1.x86_64 (obs_repository) (72/203), 118.9 KiB    
+[   20s] Retrieving: libyajl2-2.1.0-8.7.x86_64 (obs_repository) (73/203),  24.8 KiB    
+[   20s] Retrieving: libzio1-1.09-1.4.x86_64 (obs_repository) (74/203),  27.1 KiB    
+[   20s] Retrieving: mdadm-4.4-5.1.x86_64 (obs_repository) (75/203), 512.9 KiB    
+[   20s] Retrieving: osinfo-db-20250124-4.1.noarch (obs_repository) (76/203), 309.4 KiB    
+[   20s] Retrieving: pam-extra-1.7.0-3.1.x86_64 (obs_repository) (77/203),  40.7 KiB    
+[   20s] Retrieving: perl-base-5.40.2-2.1.x86_64 (obs_repository) (78/203),   1.6 MiB    
+[   20s] Retrieving: pkgconf-m4-2.2.0-1.3.noarch (obs_repository) (79/203),  17.6 KiB    
+[   20s] Retrieving: qemu-ipxe-10.0.0-3.1.noarch (obs_repository) (80/203),   1.2 MiB    
+[   20s] Retrieving: qemu-seabios-10.0.01.16.3_3_g3d33c746-3.1.noarch (obs_repository) (81/203), 221.4 KiB    
+[   20s] Retrieving: qemu-vgabios-10.0.01.16.3_3_g3d33c746-3.1.noarch (obs_repository) (82/203), 133.4 KiB    
+[   20s] Retrieving: shared-mime-info-2.4-3.4.x86_64 (obs_repository) (83/203), 316.2 KiB    
+[   20s] Retrieving: system-group-hardware-20170617-27.1.noarch (obs_repository) (84/203),   9.3 KiB    
+[   20s] Retrieving: system-group-kvm-20170617-27.1.noarch (obs_repository) (85/203),   8.6 KiB    
+[   20s] Retrieving: system-user-lp-20170617-27.1.noarch (obs_repository) (86/203),   8.8 KiB    
+[   20s] Retrieving: systemd-default-settings-branding-openSUSE-0.10-1.3.noarch (obs_repository) (87/203),   8.7 KiB    
+[   20s] Retrieving: systemd-default-settings-0.10-1.3.noarch (obs_repository) (88/203),  10.7 KiB    
+[   20s] Retrieving: systemd-presets-common-SUSE-15-39.1.noarch (obs_repository) (89/203),  14.5 KiB    
+[   20s] Retrieving: systemd-rpm-macros-24-1.8.noarch (obs_repository) (90/203),  14.7 KiB    
+[   20s] Retrieving: thin-provisioning-tools-1.1.0-2.3.x86_64 (obs_repository) (91/203),   1.1 MiB    
+[   20s] Retrieving: update-alternatives-1.22.18-1.1.x86_64 (obs_repository) (92/203),  59.9 KiB    
+[   20s] Retrieving: libpwquality1-1.4.5-5.3.x86_64 (obs_repository) (93/203),  36.8 KiB    
+[   20s] Retrieving: libdbus-1-3-1.14.10-4.4.x86_64 (obs_repository) (94/203), 149.4 KiB    
+[   20s] Retrieving: alts-1.2+31.da24cd4-1.1.x86_64 (obs_repository) (95/203),  22.4 KiB    
+[   20s] Retrieving: libbrotlidec1-1.1.0-1.6.x86_64 (obs_repository) (96/203),  29.9 KiB    
+[   20s] Retrieving: libext2fs2-1.47.2-1.1.x86_64 (obs_repository) (97/203), 214.2 KiB    
+[   20s] Retrieving: libparted2-3.6-3.2.x86_64 (obs_repository) (98/203), 133.5 KiB    
+[   20s] Retrieving: libdevmapper-event1_03-2.03.29_1.02.203-7.1.x86_64 (obs_repository) (99/203),  50.9 KiB    
+[   20s] Retrieving: libbpf1-1.5.1-2.1.x86_64 (obs_repository) (100/203), 196.5 KiB    
+[   20s] Retrieving: libgdbm_compat4-1.24-2.1.x86_64 (obs_repository) (101/203),  26.7 KiB    
+[   20s] Retrieving: libldm-1_0-0-0.2.4-2.20.x86_64 (obs_repository) (102/203),  31.1 KiB    
+[   20s] Retrieving: libisofs6-1.5.6.pl01-1.1.x86_64 (obs_repository) (103/203), 226.1 KiB    
+[   20s] Retrieving: libkfont0-2.7.1-2.1.x86_64 (obs_repository) (104/203),  35.3 KiB    
+[   20s] Retrieving: libkeymap1-2.7.1-2.1.x86_64 (obs_repository) (105/203),  66.4 KiB    
+[   20s] Retrieving: libndctl6-81-1.1.x86_64 (obs_repository) (106/203), 135.8 KiB    
+[   20s] Retrieving: python313-base-3.13.3-4.1.x86_64 (obs_repository) (107/203),   9.1 MiB    
+[   20s] Retrieving: libpython3_13-1_0-3.13.3-4.1.x86_64 (obs_repository) (108/203),   1.9 MiB    
+[   20s] Retrieving: gawk-5.3.2-1.1.x86_64 (obs_repository) (109/203),   1.6 MiB    
+[   20s] Retrieving: libhogweed6-3.10.1-2.2.x86_64 (obs_repository) (110/203), 221.8 KiB    
+[   20s] Retrieving: libnl3-200-3.11.0-1.3.x86_64 (obs_repository) (111/203), 340.7 KiB    
+[   20s] Retrieving: pkgconf-2.2.0-1.3.x86_64 (obs_repository) (112/203),  49.8 KiB    
+[   20s] Retrieving: libscg1_0-2024.03.21-52.1.x86_64 (obs_repository) (113/203),  49.8 KiB    
+[   20s] Retrieving: libfind4_0-1.8-52.1.x86_64 (obs_repository) (114/203),  41.1 KiB    
+[   20s] Retrieving: libfile1_0-2024.03.21-52.1.x86_64 (obs_repository) (115/203),  16.2 KiB    
+[   20s] Retrieving: libcdrdeflt1_0-3.02~a10-52.1.x86_64 (obs_repository) (116/203),  18.6 KiB    
+[   20s] Retrieving: virtiofsd-1.13.0-1.2.x86_64 (obs_repository) (117/203),   1.1 MiB    
+[   20s] Retrieving: libmpath0-0.11.0+183+suse.3973293-1.1.x86_64 (obs_repository) (118/203), 275.4 KiB    
+[   20s] Retrieving: libqat4-24.09.0-1.3.x86_64 (obs_repository) (119/203), 193.8 KiB    
+[   20s] Retrieving: krb5-1.21.3-3.1.x86_64 (obs_repository) (120/203), 694.7 KiB    
+[   20s] Retrieving: libhd24-24.0-1.1.x86_64 (obs_repository) (121/203), 988.3 KiB    
+[   20s] Retrieving: libexslt0-1.1.43-1.1.x86_64 (obs_repository) (122/203),  52.3 KiB    
+[   20s] Retrieving: info-7.1-2.2.x86_64 (obs_repository) (123/203), 130.0 KiB    
+[   20s] Retrieving: pam-config-2.12+git.20250411-1.1.x86_64 (obs_repository) (124/203), 148.2 KiB    
+[   20s] Retrieving: system-user-qemu-20170617-27.1.noarch (obs_repository) (125/203),   8.7 KiB    
+[   20s] Retrieving: systemd-presets-branding-openSUSE-12.2-25.1.noarch (obs_repository) (126/203),  10.0 KiB    
+[   20s] Retrieving: dbus-1-tools-1.14.10-4.4.x86_64 (obs_repository) (127/203),  50.5 KiB    
+[   20s] Retrieving: zerofree-1.1.1-1.28.x86_64 (obs_repository) (128/203),  22.5 KiB    
+[   20s] Retrieving: e2fsprogs-1.47.2-1.1.x86_64 (obs_repository) (129/203),   1.0 MiB    
+[   20s] Retrieving: btrfsprogs-6.14-2.1.x86_64 (obs_repository) (130/203),   1.2 MiB    
+[   20s] Retrieving: parted-3.6-3.2.x86_64 (obs_repository) (131/203), 229.3 KiB    
+[   20s] Retrieving: device-mapper-2.03.29_1.02.203-7.1.x86_64 (obs_repository) (132/203), 158.0 KiB    
+[   20s] Retrieving: libxdp1-1.5.5-1.1.x86_64 (obs_repository) (133/203),  54.5 KiB    
+[   20s] Retrieving: perl-5.40.2-2.1.x86_64 (obs_repository) (134/203),   8.2 MiB    
+[   20s] Retrieving: libisoburn1-1.5.6-1.5.x86_64 (obs_repository) (135/203), 406.3 KiB    
+[   20s] Retrieving: kbd-2.7.1-2.1.x86_64 (obs_repository) (136/203),   2.2 MiB    
+[   20s] Retrieving: libpmem1-2.1.1-1.2.x86_64 (obs_repository) (137/203),  89.4 KiB    
+[   20s] Retrieving: xfsprogs-6.14.0-1.1.x86_64 (obs_repository) (138/203),   1.3 MiB    
+[   20s] Retrieving: libgnutls30-3.8.9-4.2.x86_64 (obs_repository) (139/203), 937.3 KiB    
+[   20s] Retrieving: xen-libs-4.20.0_12-1.1.x86_64 (obs_repository) (140/203), 653.5 KiB    
+[   20s] Retrieving: pkgconf-pkg-config-2.2.0-1.3.x86_64 (obs_repository) (141/203),  13.0 KiB    
+[   20s] Retrieving: libscgcmd1_0-2024.03.21-52.1.x86_64 (obs_repository) (142/203),  21.6 KiB    
+[   20s] Retrieving: librscg1_0-2024.03.21-52.1.x86_64 (obs_repository) (143/203),  22.3 KiB    
+[   20s] Retrieving: libqatzip3-1.3.1-1.1.x86_64 (obs_repository) (144/203),  64.4 KiB    
+[   20s] Retrieving: libtirpc3-1.3.6-2.1.x86_64 (obs_repository) (145/203),  94.2 KiB    
+[   20s] Retrieving: libssh4-0.11.1-5.1.x86_64 (obs_repository) (146/203), 217.3 KiB    
+[   20s] Retrieving: cyrus-sasl-2.1.28-10.1.x86_64 (obs_repository) (147/203),  55.1 KiB    
+[   20s] Retrieving: libntfs-3g89-2022.10.3-5.1.x86_64 (obs_repository) (148/203), 174.2 KiB    
+[   20s] Retrieving: xmlstarlet-1.6.1-2.6.x86_64 (obs_repository) (149/203),  63.6 KiB    
+[   20s] Retrieving: libcryptsetup12-2.7.5-4.1.x86_64 (obs_repository) (150/203), 278.6 KiB    
+[   20s] Retrieving: xorriso-1.5.6-1.5.x86_64 (obs_repository) (151/203), 345.7 KiB    
+[   20s] Retrieving: qemu-vmsr-helper-10.0.0-3.1.x86_64 (obs_repository) (152/203), 431.9 KiB    
+[   20s] Retrieving: qemu-pr-helper-10.0.0-3.1.x86_64 (obs_repository) (153/203), 441.9 KiB    
+[   20s] Retrieving: qemu-img-10.0.0-3.1.x86_64 (obs_repository) (154/203),   2.3 MiB    
+[   20s] Retrieving: xkeyboard-config-2.44-1.2.noarch (obs_repository) (155/203), 426.9 KiB    
+[   20s] Retrieving: suse-module-tools-16.0.60-1.1.x86_64 (obs_repository) (156/203),  56.9 KiB    
+[   20s] Retrieving: kmod-34.2-1.1.x86_64 (obs_repository) (157/203), 111.7 KiB    
+[   20s] Retrieving: hwdata-0.395-1.1.noarch (obs_repository) (158/203),   1.6 MiB    
+[   20s] Retrieving: dbus-1-1.14.10-4.4.x86_64 (obs_repository) (159/203), 106.8 KiB    
+[   20s] Retrieving: systemd-257.6-1.1.x86_64 (obs_repository) (160/203),   4.4 MiB    
+[   20s] Retrieving: dbus-broker-36-2.3.x86_64 (obs_repository) (161/203), 151.2 KiB    
+[   20s] Retrieving: mkisofs-3.02~a10-52.1.x86_64 (obs_repository) (162/203), 278.1 KiB    
+[   20s] Retrieving: zisofs-tools-1.0.8-27.7.x86_64 (obs_repository) (163/203),  27.4 KiB    
+[   20s] Retrieving: cyrus-sasl-digestmd5-2.1.28-10.1.x86_64 (obs_repository) (164/203),  34.2 KiB    
+[   20s] Retrieving: ntfsprogs-2022.10.3-5.1.x86_64 (obs_repository) (165/203), 276.8 KiB    
+[   20s] Retrieving: ntfs-3g-2022.10.3-5.1.x86_64 (obs_repository) (166/203), 121.4 KiB    
+[   20s] Retrieving: supermin-5.3.5-3.1.x86_64 (obs_repository) (167/203), 785.2 KiB    
+[   20s] Retrieving: cryptsetup-2.7.5-4.1.x86_64 (obs_repository) (168/203), 135.7 KiB    
+[   20s] Retrieving: libxkbcommon0-1.10.0-1.1.x86_64 (obs_repository) (169/203), 153.9 KiB    
+[   20s] Retrieving: suse-module-tools-scriptlets-16.0.60-1.1.x86_64 (obs_repository) (170/203),  24.0 KiB    
+[   20s] Retrieving: udev-257.6-1.1.x86_64 (obs_repository) (171/203),   1.9 MiB    
+[   20s] Retrieving: gio-branding-openSUSE-42.1-2.2.noarch (obs_repository) (172/203),  13.6 KiB    
+[   20s] Retrieving: libgio-2_0-0-2.84.2-1.1.x86_64 (obs_repository) (173/203), 724.9 KiB    
+[   20s] Retrieving: glib2-tools-2.84.2-1.1.x86_64 (obs_repository) (174/203), 183.3 KiB    
+[   20s] Retrieving: qemu-tools-10.0.0-3.1.x86_64 (obs_repository) (175/203), 498.5 KiB    
+[   20s] Retrieving: kernel-kvmsmall-6.15.1-1.1.x86_64 (obs_repository) (176/203),  68.4 MiB    
+[   20s] Retrieving: rdma-core-56.1-1.2.x86_64 (obs_repository) (177/203),  42.6 KiB    
+[   20s] Retrieving: libvirt-libs-11.4.0-1.1.x86_64 (obs_repository) (178/203),   5.1 MiB    
+[   20s] Retrieving: libpxbackend-1_0-0.5.9-1.4.x86_64 (obs_repository) (179/203),  30.7 KiB    
+[   20s] Retrieving: libjson-glib-1_0-0-1.10.6-1.3.x86_64 (obs_repository) (180/203),  67.6 KiB    
+[   20s] Retrieving: libibverbs1-56.1-1.2.x86_64 (obs_repository) (181/203),  65.5 KiB    
+[   20s] Retrieving: libmlx5-1-56.1-1.2.x86_64 (obs_repository) (182/203), 202.1 KiB    
+[   20s] Retrieving: libproxy1-0.5.9-1.3.x86_64 (obs_repository) (183/203),  16.0 KiB    
+[   20s] Retrieving: ldmtool-0.2.4-2.20.x86_64 (obs_repository) (184/203),  31.6 KiB    
+[   20s] Retrieving: libmlx4-1-56.1-1.2.x86_64 (obs_repository) (185/203),  32.4 KiB    
+[   20s] Retrieving: libmana1-56.1-1.2.x86_64 (obs_repository) (186/203),  24.4 KiB    
+[   20s] Retrieving: libhns1-56.1-1.2.x86_64 (obs_repository) (187/203),  36.2 KiB    
+[   20s] Retrieving: libefa1-56.1-1.2.x86_64 (obs_repository) (188/203),  29.4 KiB    
+[   20s] Retrieving: glib-networking-2.80.1-1.3.x86_64 (obs_repository) (189/203),  88.5 KiB    
+[   20s] Retrieving: libibverbs-56.1-1.2.x86_64 (obs_repository) (190/203), 145.9 KiB    
+[   20s] Retrieving: libsoup-3_0-0-3.6.5-5.1.x86_64 (obs_repository) (191/203), 289.7 KiB    
+[   20s] Retrieving: librdmacm1-56.1-1.2.x86_64 (obs_repository) (192/203),  62.5 KiB    
+[   20s] Retrieving: libosinfo-1_0-0-1.12.0-1.3.x86_64 (obs_repository) (193/203),  90.9 KiB    
+[   20s] Retrieving: libosinfo-1.12.0-1.3.x86_64 (obs_repository) (194/203), 152.7 KiB    
+[   20s] Retrieving: qemu-x86-10.0.0-3.1.x86_64 (obs_repository) (195/203),   9.4 MiB    
+[   20s] Retrieving: qemu-10.0.0-3.1.x86_64 (obs_repository) (196/203), 598.8 KiB    
+[   20s] Retrieving: qemu-ovmf-x86_64-202505-1.1.noarch (obs_repository) (197/203),  19.5 MiB    
+[   21s] Retrieving: libguestfs0-1.55.13-3.1.x86_64 (obs_repository) (198/203), 386.3 KiB    
+[   21s] Retrieving: libguestfs-devel-1.55.13-3.1.x86_64 (obs_repository) (199/203), 286.4 KiB    
+[   21s] Retrieving: libguestfs-appliance-1.55.13-3.1.x86_64 (obs_repository) (200/203),   2.5 MiB    
+[   21s] Retrieving: libguestfs-1.55.13-3.1.x86_64 (obs_repository) (201/203), 767.7 KiB    
+[   21s] Retrieving: libguestfs-winsupport-1.55.13-3.1.x86_64 (obs_repository) (202/203), 645.5 KiB    
+[   21s] Retrieving: guestfs-tools-1.54.0-1.1.x86_64 (obs_repository) (203/203),   3.9 MiB    
+[   21s] 
+[   21s] Checking for file conflicts: [.....done]
+[   21s] (  1/203) Installing: acl-2.3.2-2.3.x86_64 [..done]
+[   21s] (  2/203) Installing: augeas-lenses-1.14.1-2.1.x86_64 [..done]
+[   21s] (  3/203) Installing: augeas-1.14.1-2.1.x86_64 [..done]
+[   21s] (  4/203) Installing: btrfsprogs-udev-rules-6.14-2.1.noarch [..done]
+[   21s] (  5/203) Installing: canokey-qemu-0.0+git20230606.151568c-2.5.x86_64 [..done]
+[   21s] (  6/203) Installing: cracklib-2.9.11-1.6.x86_64 [..done]
+[   21s] (  7/203) Installing: libcrack2-2.9.11-1.6.x86_64 [..done]
+[   21s] (  8/203) Installing: dbus-1-common-1.14.10-4.4.noarch [..
+[   21s] /usr/sbin/useradd -r -c User for D-Bus -d /run/dbus -U messagebus -s /usr/sbin/nologin
+[   21s] done]
+[   21s] (  9/203) Installing: dbus-broker-block-restart-36-2.3.noarch [..done]
+[   21s] ( 10/203) Installing: dhcpcd-10.2.4-1.1.x86_64 [..
+[   21s] /usr/sbin/useradd -r -c Minimalistic DHCP client -d /var/lib/dhcpcd -U dhcpcd -s /usr/sbin/nologin
+[   21s] done]
+[   21s] ( 11/203) Installing: diffutils-3.12-1.1.x86_64 [..done]
+[   21s] ( 12/203) Installing: dosfstools-4.2-4.8.x86_64 [..done]
+[   21s] ( 13/203) Installing: findutils-4.10.0-2.2.x86_64 [..done]
+[   21s] ( 14/203) Installing: gptfdisk-1.0.10-1.3.x86_64 [..done]
+[   21s] ( 15/203) Installing: gsettings-desktop-schemas-48.0-1.1.x86_64 [..done]
+[   21s] ( 16/203) Installing: jfsutils-1.1.15-21.4.x86_64 [..done]
+[   21s] ( 17/203) Installing: kubevirt-manifests-1.5.0-1.1.x86_64 [..done]
+[   21s] ( 18/203) Installing: libaio1-0.3.113-4.3.x86_64 [..done]
+[   21s] ( 19/203) Installing: libalternatives1-1.2+31.da24cd4-1.1.x86_64 [..done]
+[   21s] ( 20/203) Installing: libapparmor1-4.1.0-4.1.x86_64 [..done]
+[   21s] ( 21/203) Installing: libbrotlicommon1-1.1.0-1.6.x86_64 [..done]
+[   21s] ( 22/203) Installing: libburn4-1.5.6-3.1.x86_64 [..done]
+[   21s] ( 23/203) Installing: libcapstone5-5.0.6-1.1.x86_64 [..done]
+[   21s] ( 24/203) Installing: libcbor0_11-0.11.0-3.3.x86_64 [..done]
+[   21s] ( 25/203) Installing: libcom_err2-1.47.2-1.1.x86_64 [..done]
+[   21s] ( 26/203) Installing: libconfig15-1.8.1-1.1.x86_64 [..done]
+[   21s] ( 27/203) Installing: libdeflt1_0-2024.03.21-52.1.x86_64 [..done]
+[   22s] ( 28/203) Installing: libdevmapper1_03-2.03.29_1.02.203-7.1.x86_64 [..done]
+[   22s] ( 29/203) Installing: libduktape207-2.7.0-3.5.x86_64 [..done]
+[   22s] ( 30/203) Installing: libedit0-20250104.3.1-1.1.x86_64 [..done]
+[   22s] ( 31/203) Installing: libelf1-0.192-2.2.x86_64 [..done]
+[   22s] ( 32/203) Installing: libexpat1-2.7.1-2.1.x86_64 [..done]
+[   22s] ( 33/203) Installing: libfdt1-1.7.2-1.2.x86_64 [..done]
+[   22s] ( 34/203) Installing: libfuse2-2.9.9-7.1.x86_64 [..done]
+[   22s] ( 35/203) Installing: libfuse3-4-3.17.2-1.1.x86_64 [..done]
+[   22s] ( 36/203) Installing: libgdbm6-1.24-2.1.x86_64 [..done]
+[   22s] ( 37/203) Installing: libgmodule-2_0-0-2.84.2-1.1.x86_64 [..done]
+[   22s] ( 38/203) Installing: libgobject-2_0-0-2.84.2-1.1.x86_64 [..done]
+[   22s] ( 39/203) Installing: libhivex0-1.3.24-1.6.x86_64 [..done]
+[   22s] ( 40/203) Installing: libinih0-59-1.1.x86_64 [..done]
+[   22s] ( 41/203) Installing: libjpeg8-8.3.2-81.4.x86_64 [..done]
+[   22s] ( 42/203) Installing: libjson-c5-0.18-1.3.x86_64 [..done]
+[   22s] ( 43/203) Installing: libjte2-1.22-1.15.x86_64 [..done]
+[   22s] ( 44/203) Installing: libkbdfile1-2.7.1-2.1.x86_64 [..done]
+[   22s] ( 45/203) Installing: libkeyutils1-1.6.3-7.4.x86_64 [..done]
+[   22s] ( 46/203) Installing: libkmod2-34.2-1.1.x86_64 [..done]
+[   22s] ( 47/203) Installing: liblz4-1-1.10.0-2.4.x86_64 [..done]
+[   22s] ( 48/203) Installing: liblzo2-2-2.10-9.3.x86_64 [..done]
+[   22s] ( 49/203) Installing: libmpdec4-4.0.1-2.1.x86_64 [..done]
+[   22s] ( 50/203) Installing: libmpfr6-4.2.2-1.1.x86_64 [..done]
+[   22s] ( 51/203) Installing: libnettle8-3.10.1-2.2.x86_64 [..done]
+[   22s] ( 52/203) Installing: libnl-config-3.11.0-1.3.noarch [..done]
+[   22s] ( 53/203) Installing: libnuma1-2.0.19.13.g63e0223-1.1.x86_64 [..done]
+[   22s] ( 54/203) Installing: libparted-fs-resize0-3.6-3.2.x86_64 [..done]
+[   22s] ( 55/203) Installing: libpixman-1-0-0.44.2-1.1.x86_64 [..done]
+[   22s] ( 56/203) Installing: libpkgconf5-2.2.0-1.3.x86_64 [..done]
+[   22s] ( 57/203) Installing: libpng16-16-1.6.44-1.3.x86_64 [..done]
+[   22s] ( 58/203) Installing: libsasl2-3-2.1.28-10.1.x86_64 [..done]
+[   22s] ( 59/203) Installing: libschily2_0-2024.03.21-52.1.x86_64 [..done]
+[   22s] ( 60/203) Installing: libseccomp2-2.6.0-2.2.x86_64 [..done]
+[   22s] ( 61/203) Installing: libslirp0-4.9.1+1-1.1.x86_64 [..done]
+[   22s] ( 62/203) Installing: libsnappy1-1.1.10-4.1.x86_64 [..done]
+[   22s] ( 63/203) Installing: libssh-config-0.11.1-5.1.noarch [..done]
+[   22s] ( 64/203) Installing: libssh2-1-1.11.1-1.3.x86_64 [..done]
+[   22s] ( 65/203) Installing: libtirpc-netconfig-1.3.6-2.1.x86_64 [..done]
+[   22s] ( 66/203) Installing: liburcu8-0.14.0-1.7.x86_64 [..done]
+[   22s] ( 67/203) Installing: liburing2-2.9-1.1.x86_64 [..done]
+[   22s] ( 68/203) Installing: libusdm0-24.09.0-1.3.x86_64 [..done]
+[   22s] ( 69/203) Installing: libvdeplug3-2.3.2+svn587-6.1.x86_64 [..done]
+[   22s] ( 70/203) Installing: libverto1-0.3.2-3.5.x86_64 [..done]
+[   22s] ( 71/203) Installing: libx86emu3-3.7-1.1.x86_64 [..done]
+[   22s] ( 72/203) Installing: libxslt1-1.1.43-1.1.x86_64 [..done]
+[   22s] ( 73/203) Installing: libyajl2-2.1.0-8.7.x86_64 [..done]
+[   22s] ( 74/203) Installing: libzio1-1.09-1.4.x86_64 [..done]
+[   22s] ( 75/203) Installing: mdadm-4.4-5.1.x86_64 [..
+[   22s] Updating /etc/sysconfig/mdadm ...
+[   22s] done]
+[   23s] ( 76/203) Installing: osinfo-db-20250124-4.1.noarch [...done]
+[   23s] ( 77/203) Installing: pam-extra-1.7.0-3.1.x86_64 [..done]
+[   23s] ( 78/203) Installing: perl-base-5.40.2-2.1.x86_64 [..done]
+[   23s] ( 79/203) Installing: pkgconf-m4-2.2.0-1.3.noarch [..done]
+[   23s] ( 80/203) Installing: qemu-ipxe-10.0.0-3.1.noarch [..done]
+[   23s] ( 81/203) Installing: qemu-seabios-10.0.01.16.3_3_g3d33c746-3.1.noarch [..done]
+[   23s] ( 82/203) Installing: qemu-vgabios-10.0.01.16.3_3_g3d33c746-3.1.noarch [..done]
+[   23s] ( 83/203) Installing: shared-mime-info-2.4-3.4.x86_64 [..done]
+[   23s] ( 84/203) Installing: system-group-hardware-20170617-27.1.noarch [..
+[   23s] /usr/sbin/groupadd -r kmem
+[   23s] /usr/sbin/groupadd -r lock
+[   23s] /usr/sbin/groupadd -r -g 5 tty
+[   23s] /usr/sbin/groupadd -r utmp
+[   23s] /usr/sbin/groupadd -r audio
+[   23s] /usr/sbin/groupadd -r cdrom
+[   23s] /usr/sbin/groupadd -r clock
+[   23s] /usr/sbin/groupadd -r dialout
+[   23s] /usr/sbin/groupadd -r disk
+[   23s] /usr/sbin/groupadd -r input
+[   23s] /usr/sbin/groupadd -r render
+[   23s] /usr/sbin/groupadd -r sgx
+[   23s] /usr/sbin/groupadd -r tape
+[   23s] /usr/sbin/groupadd -r video
+[   23s] done]
+[   24s] ( 85/203) Installing: system-group-kvm-20170617-27.1.noarch [..
+[   24s] /usr/sbin/groupadd -r -g 36 kvm
+[   24s] done]
+[   24s] ( 86/203) Installing: system-user-lp-20170617-27.1.noarch [..
+[   24s] /usr/sbin/useradd -r -c Printing daemon -d /var/spool/lpd -U lp -s /usr/sbin/nologin
+[   24s] done]
+[   24s] ( 87/203) Installing: systemd-default-settings-branding-openSUSE-0.10-1.3.noarch [..done]
+[   24s] ( 88/203) Installing: systemd-default-settings-0.10-1.3.noarch [..done]
+[   24s] ( 89/203) Installing: systemd-presets-common-SUSE-15-39.1.noarch [..done]
+[   24s] ( 90/203) Installing: systemd-rpm-macros-24-1.8.noarch [..done]
+[   24s] ( 91/203) Installing: thin-provisioning-tools-1.1.0-2.3.x86_64 [..done]
+[   24s] ( 92/203) Installing: update-alternatives-1.22.18-1.1.x86_64 [..done]
+[   24s] ( 93/203) Installing: libpwquality1-1.4.5-5.3.x86_64 [..done]
+[   24s] ( 94/203) Installing: libdbus-1-3-1.14.10-4.4.x86_64 [..done]
+[   24s] ( 95/203) Installing: alts-1.2+31.da24cd4-1.1.x86_64 [..done]
+[   24s] ( 96/203) Installing: libbrotlidec1-1.1.0-1.6.x86_64 [..done]
+[   24s] ( 97/203) Installing: libext2fs2-1.47.2-1.1.x86_64 [..done]
+[   24s] ( 98/203) Installing: libparted2-3.6-3.2.x86_64 [..done]
+[   24s] ( 99/203) Installing: libdevmapper-event1_03-2.03.29_1.02.203-7.1.x86_64 [..done]
+[   24s] (100/203) Installing: libbpf1-1.5.1-2.1.x86_64 [..done]
+[   24s] (101/203) Installing: libgdbm_compat4-1.24-2.1.x86_64 [..done]
+[   24s] (102/203) Installing: libldm-1_0-0-0.2.4-2.20.x86_64 [..done]
+[   24s] (103/203) Installing: libisofs6-1.5.6.pl01-1.1.x86_64 [..done]
+[   24s] (104/203) Installing: libkfont0-2.7.1-2.1.x86_64 [..done]
+[   24s] (105/203) Installing: libkeymap1-2.7.1-2.1.x86_64 [..done]
+[   24s] (106/203) Installing: libndctl6-81-1.1.x86_64 [..done]
+[   24s] (107/203) Installing: python313-base-3.13.3-4.1.x86_64 [.....done]
+[   24s] (108/203) Installing: libpython3_13-1_0-3.13.3-4.1.x86_64 [..done]
+[   24s] (109/203) Installing: gawk-5.3.2-1.1.x86_64 [..done]
+[   24s] (110/203) Installing: libhogweed6-3.10.1-2.2.x86_64 [..done]
+[   24s] (111/203) Installing: libnl3-200-3.11.0-1.3.x86_64 [..done]
+[   24s] (112/203) Installing: pkgconf-2.2.0-1.3.x86_64 [..done]
+[   25s] (113/203) Installing: libscg1_0-2024.03.21-52.1.x86_64 [..done]
+[   25s] (114/203) Installing: libfind4_0-1.8-52.1.x86_64 [..done]
+[   25s] (115/203) Installing: libfile1_0-2024.03.21-52.1.x86_64 [..done]
+[   25s] (116/203) Installing: libcdrdeflt1_0-3.02~a10-52.1.x86_64 [..done]
+[   25s] (117/203) Installing: virtiofsd-1.13.0-1.2.x86_64 [..done]
+[   25s] (118/203) Installing: libmpath0-0.11.0+183+suse.3973293-1.1.x86_64 [..done]
+[   25s] (119/203) Installing: libqat4-24.09.0-1.3.x86_64 [..done]
+[   25s] (120/203) Installing: krb5-1.21.3-3.1.x86_64 [..done]
+[   25s] (121/203) Installing: libhd24-24.0-1.1.x86_64 [..done]
+[   25s] (122/203) Installing: libexslt0-1.1.43-1.1.x86_64 [..done]
+[   25s] (123/203) Installing: info-7.1-2.2.x86_64 [..done]
+[   25s] (124/203) Installing: pam-config-2.12+git.20250411-1.1.x86_64 [..
+[   25s] ERROR: module /lib64/security/pam_pwquality.so is not installed.
+[   25s] *** write_config (account, /etc/pam.d/common-account-pc, ...)
+[   25s] **** write config for pam_access.so (account, disabled)
+[   25s] **** write config for pam_systemd_home.so (account, disabled)
+[   25s] **** write config for pam_unix2.so (account, disabled)
+[   25s] **** write config for pam_unix.so (account, enabled)
+[   25s] **** write config for pam_krb5.so (account, disabled)
+[   25s] **** write config for pam_localuser.so (account, disabled)
+[   25s] **** write config for pam_sss.so (account, disabled)
+[   25s] **** write config for pam_ldap.so (account, disabled)
+[   25s] **** write config for pam_nam.so (account, disabled)
+[   25s] **** write config for pam_winbind.so (account, disabled)
+[   25s] **** write config for pam_time.so (account, disabled)
+[   25s] **** write config for pam_himmelblau.so (account, disabled)
+[   25s] **** write config for pam_kanidm.so (account, disabled)
+[   25s] *** write_config (auth, /etc/pam.d/common-auth-pc, ...)
+[   25s] **** write config for pam_env.so (auth, enabled)
+[   25s] **** write config for pam_faildelay.so (auth, disabled)
+[   25s] **** write config for pam_group.so (auth, disabled)
+[   25s] **** write config for pam_pkcs11.so (auth, disabled)
+[   25s] **** write config for pam_fp.so (auth, disabled)
+[   25s] **** write config for pam_fprint.so (auth, disabled)
+[   25s] **** write config for pam_fprintd.so (auth, disabled)
+[   25s] **** write config for pam_thinkfinger.so (auth, disabled)
+[   25s] **** write config for pam_gnome_keyring.so (auth, disabled)
+[   25s] **** write config for pam_kwallet5.so (auth, disabled)
+[   25s] **** write config for pam_systemd_home.so (auth, disabled)
+[   25s] **** write config for pam_ssh.so (auth, disabled)
+[   25s] **** write config for pam_ecryptfs.so (auth, disabled)
+[   25s] **** write config for pam_fscrypt.so (auth, disabled)
+[   25s] **** write config for pam_unix2.so (auth, disabled)
+[   25s] **** write config for pam_unix.so (auth, enabled)
+[   25s] **** write config for pam_krb5.so (auth, disabled)
+[   25s] **** write config for pam_sss.so (auth, disabled)
+[   25s] **** write config for pam_ldap.so (auth, disabled)
+[   25s] **** write config for pam_nam.so (auth, disabled)
+[   25s] **** write config for pam_winbind.so (auth, disabled)
+[   25s] **** write config for pam_himmelblau.so (auth, disabled)
+[   25s] **** write config for pam_kanidm.so (auth, disabled)
+[   25s] *** write_config (password, /etc/pam.d/common-password-pc, ...)
+[   25s] **** write config for pam_winbind.so (password, disabled)
+[   25s] **** write config for pam_pwcheck.so (password, disabled)
+[   25s] **** write config for pam_passwdqc.so (password, disabled)
+[   25s] **** write config for pam_pwquality.so (password, disabled)
+[   25s] **** write config for pam_cracklib.so (password, disabled)
+[   25s] **** write config for pam_pwhistory.so (password, disabled)
+[   25s] **** write config for pam_gnome_keyring.so (password, disabled)
+[   25s] **** write config for pam_kwallet5.so (password, disabled)
+[   25s] **** write config for pam_ecryptfs.so (password, disabled)
+[   25s] **** write config for pam_systemd_home.so (password, disabled)
+[   25s] **** write config for pam_unix2.so (password, disabled)
+[   25s] **** write config for pam_unix.so (password, enabled)
+[   25s] **** write config for pam_fscrypt.so (password, disabled)
+[   25s] **** write config for pam_make.so (password, disabled)
+[   25s] **** write config for pam_exec.so (password, disabled)
+[   25s] **** write config for pam_krb5.so (password, disabled)
+[   25s] **** write config for pam_sss.so (password, disabled)
+[   25s] **** write config for pam_ldap.so (password, disabled)
+[   25s] **** write config for pam_nam.so (password, disabled)
+[   25s] *** write_config (session, /etc/pam.d/common-session-pc, ...)
+[   25s] **** write config for pam_selinux.so (session, disabled)
+[   25s] **** write config for pam_limits.so (session, enabled)
+[   25s] **** write config for pam_ecryptfs.so (session, disabled)
+[   25s] **** write config for pam_fscrypt.so (session, disabled)
+[   25s] **** write config for pam_mkhomedir.so (session, disabled)
+[   25s] **** write config for pam_systemd_home.so (session, disabled)
+[   25s] **** write config for pam_systemd.so (session, disabled)
+[   25s] **** write config for pam_unix2.so (session, disabled)
+[   25s] **** write config for pam_unix.so (session, enabled)
+[   25s] **** write config for pam_apparmor.so (session, disabled)
+[   25s] **** write config for pam_krb5.so (session, disabled)
+[   25s] **** write config for pam_sss.so (session, disabled)
+[   25s] **** write config for pam_ldap.so (session, disabled)
+[   25s] **** write config for pam_winbind.so (session, disabled)
+[   25s] **** write config for pam_nam.so (session, disabled)
+[   25s] **** write config for pam_umask.so (session, enabled)
+[   25s] **** write config for pam_ssh.so (session, disabled)
+[   25s] **** write config for pam_selinux.so (session, disabled)
+[   25s] **** write config for pam_gnome_keyring.so (session, disabled)
+[   25s] **** write config for pam_kwallet5.so (session, disabled)
+[   25s] **** write config for pam_exec.so (session, disabled)
+[   25s] **** write config for pam_env.so (session, enabled)
+[   25s] **** write config for pam_mktemp.so (session, disabled)
+[   25s] **** write config for pam_himmelblau.so (session, disabled)
+[   25s] **** write config for pam_kanidm.so (session, disabled)
+[   25s] *** write_config (session, /etc/pam.d/common-session-nonlogin-pc, ...)
+[   25s] **** write config for pam_ecryptfs.so (session, disabled)
+[   25s] **** write config for pam_fscrypt.so (session, disabled)
+[   25s] **** write config for pam_selinux.so (session, disabled)
+[   25s] **** write config for pam_mkhomedir.so (session, disabled)
+[   25s] **** write config for pam_systemd_home.so (session, disabled)
+[   25s] **** write config for pam_limits.so (session, enabled)
+[   25s] **** write config for pam_unix2.so (session, disabled)
+[   25s] **** write config for pam_unix.so (session, enabled)
+[   25s] **** write config for pam_apparmor.so (session, disabled)
+[   25s] **** write config for pam_krb5.so (session, disabled)
+[   25s] **** write config for pam_sss.so (session, disabled)
+[   25s] **** write config for pam_ldap.so (session, disabled)
+[   25s] **** write config for pam_winbind.so (session, disabled)
+[   25s] **** write config for pam_nam.so (session, disabled)
+[   25s] **** write config for pam_umask.so (session, enabled)
+[   25s] **** write config for pam_ssh.so (session, disabled)
+[   25s] **** write config for pam_selinux.so (session, disabled)
+[   25s] **** write config for pam_gnome_keyring.so (session, disabled)
+[   25s] **** write config for pam_kwallet5.so (session, disabled)
+[   25s] **** write config for pam_exec.so (session, disabled)
+[   25s] **** write config for pam_env.so (session, enabled)
+[   25s] **** write config for pam_mktemp.so (session, disabled)
+[   25s] *** write_config (account, /etc/pam.d/postlogin-account-pc, ...)
+[   25s] *** write_config (auth, /etc/pam.d/postlogin-auth-pc, ...)
+[   25s] *** write_config (password, /etc/pam.d/postlogin-password-pc, ...)
+[   25s] *** write_config (session, /etc/pam.d/postlogin-session-pc, ...)
+[   25s] **** write config for pam_wtmpdb.so (session, disabled)
+[   25s] **** write config for pam_lastlog2.so (session, disabled)
+[   25s] done]
+[   25s] (125/203) Installing: system-user-qemu-20170617-27.1.noarch [..
+[   25s] /usr/sbin/groupadd -r -g 107 qemu
+[   25s] /usr/sbin/useradd -r -c qemu user -d / -g qemu -u 107 qemu -s /usr/sbin/nologin
+[   25s] /usr/sbin/usermod -a -G kvm qemu
+[   25s] done]
+[   25s] (126/203) Installing: systemd-presets-branding-openSUSE-12.2-25.1.noarch [..done]
+[   25s] (127/203) Installing: dbus-1-tools-1.14.10-4.4.x86_64 [..done]
+[   25s] (128/203) Installing: zerofree-1.1.1-1.28.x86_64 [..done]
+[   25s] (129/203) Installing: e2fsprogs-1.47.2-1.1.x86_64 [..done]
+[   25s] (130/203) Installing: btrfsprogs-6.14-2.1.x86_64 [..done]
+[   25s] (131/203) Installing: parted-3.6-3.2.x86_64 [..done]
+[   25s] (132/203) Installing: device-mapper-2.03.29_1.02.203-7.1.x86_64 [..done]
+[   25s] (133/203) Installing: libxdp1-1.5.5-1.1.x86_64 [..done]
+[   26s] (134/203) Installing: perl-5.40.2-2.1.x86_64 [.......done]
+[   26s] (135/203) Installing: libisoburn1-1.5.6-1.5.x86_64 [..done]
+[   26s] (136/203) Installing: kbd-2.7.1-2.1.x86_64 [...
+[   26s] Updating /etc/sysconfig/console ...
+[   26s] Updating /etc/sysconfig/keyboard ...
+[   26s] done]
+[   26s] (137/203) Installing: libpmem1-2.1.1-1.2.x86_64 [..done]
+[   26s] (138/203) Installing: xfsprogs-6.14.0-1.1.x86_64 [..done]
+[   26s] (139/203) Installing: libgnutls30-3.8.9-4.2.x86_64 [..done]
+[   26s] (140/203) Installing: xen-libs-4.20.0_12-1.1.x86_64 [..done]
+[   26s] (141/203) Installing: pkgconf-pkg-config-2.2.0-1.3.x86_64 [..done]
+[   26s] (142/203) Installing: libscgcmd1_0-2024.03.21-52.1.x86_64 [..done]
+[   26s] (143/203) Installing: librscg1_0-2024.03.21-52.1.x86_64 [..done]
+[   26s] (144/203) Installing: libqatzip3-1.3.1-1.1.x86_64 [..done]
+[   26s] (145/203) Installing: libtirpc3-1.3.6-2.1.x86_64 [..done]
+[   26s] (146/203) Installing: libssh4-0.11.1-5.1.x86_64 [..done]
+[   26s] (147/203) Installing: cyrus-sasl-2.1.28-10.1.x86_64 [..done]
+[   26s] (148/203) Installing: libntfs-3g89-2022.10.3-5.1.x86_64 [..done]
+[   26s] (149/203) Installing: xmlstarlet-1.6.1-2.6.x86_64 [..done]
+[   26s] (150/203) Installing: libcryptsetup12-2.7.5-4.1.x86_64 [..done]
+[   26s] (151/203) Installing: xorriso-1.5.6-1.5.x86_64 [..done]
+[   26s] (152/203) Installing: qemu-vmsr-helper-10.0.0-3.1.x86_64 [..done]
+[   26s] (153/203) Installing: qemu-pr-helper-10.0.0-3.1.x86_64 [..done]
+[   26s] (154/203) Installing: qemu-img-10.0.0-3.1.x86_64 [..done]
+[   26s] (155/203) Installing: xkeyboard-config-2.44-1.2.noarch [..done]
+[   26s] (156/203) Installing: suse-module-tools-16.0.60-1.1.x86_64 [..done]
+[   26s] (157/203) Installing: kmod-34.2-1.1.x86_64 [..done]
+[   27s] (158/203) Installing: hwdata-0.395-1.1.noarch [..done]
+[   27s] (159/203) Installing: dbus-1-1.14.10-4.4.x86_64 [..done]
+[   27s] (160/203) Installing: systemd-257.6-1.1.x86_64 [...
+[   27s] System has not been booted with systemd as init system (PID 1). Can't operate.
+[   27s] Failed to connect to system scope bus via local transport: Host is down
+[   27s] done]
+[   28s] (161/203) Installing: dbus-broker-36-2.3.x86_64 [..
+[   28s] Created symlink '/etc/systemd/system/dbus.service' -> '/usr/lib/systemd/system/dbus-broker.service'.
+[   28s] Created symlink '/etc/systemd/user/dbus.service' -> '/usr/lib/systemd/user/dbus-broker.service'.
+[   28s] done]
+[   28s] (162/203) Installing: mkisofs-3.02~a10-52.1.x86_64 [..done]
+[   28s] (163/203) Installing: zisofs-tools-1.0.8-27.7.x86_64 [..done]
+[   28s] (164/203) Installing: cyrus-sasl-digestmd5-2.1.28-10.1.x86_64 [..done]
+[   28s] (165/203) Installing: ntfsprogs-2022.10.3-5.1.x86_64 [..done]
+[   28s] (166/203) Installing: ntfs-3g-2022.10.3-5.1.x86_64 [..done]
+[   28s] (167/203) Installing: supermin-5.3.5-3.1.x86_64 [..done]
+[   28s] (168/203) Installing: cryptsetup-2.7.5-4.1.x86_64 [..done]
+[   28s] (169/203) Installing: libxkbcommon0-1.10.0-1.1.x86_64 [..done]
+[   28s] (170/203) Installing: suse-module-tools-scriptlets-16.0.60-1.1.x86_64 [..done]
+[   28s] (171/203) Installing: udev-257.6-1.1.x86_64 [..
+[   28s] Created symlink '/etc/systemd/system/sysinit.target.wants/systemd-pstore.service' -> '/usr/lib/systemd/system/systemd-pstore.service'.
+[   28s] done]
+[   28s] (172/203) Installing: gio-branding-openSUSE-42.1-2.2.noarch [..done]
+[   28s] (173/203) Installing: libgio-2_0-0-2.84.2-1.1.x86_64 [..done]
+[   28s] (174/203) Installing: glib2-tools-2.84.2-1.1.x86_64 [..done]
+[   28s] (175/203) Installing: qemu-tools-10.0.0-3.1.x86_64 [..done]
+[   33s] (176/203) Installing: kernel-kvmsmall-6.15.1-1.1.x86_64 [.........................................
+[   33s] Please run "/usr/bin/dracut -f /boot/initrd-6.15.1-1-kvmsmall 6.15.1-1-kvmsmall" as soon as your system is complete.
+[   33s] You may need to setup and install the boot loader using the
+[   33s] available bootloader for your platform (e.g. grub, lilo, zipl, ...).
+[   33s] ERROR: cannot create symlinks /boot/vmlinuz and /boot/initrd
+[   33s] done]
+[   33s] (177/203) Installing: rdma-core-56.1-1.2.x86_64 [..done]
+[   34s] (178/203) Installing: libvirt-libs-11.4.0-1.1.x86_64 [...done]
+[   34s] (179/203) Installing: libpxbackend-1_0-0.5.9-1.4.x86_64 [..done]
+[   34s] (180/203) Installing: libjson-glib-1_0-0-1.10.6-1.3.x86_64 [..done]
+[   34s] (181/203) Installing: libibverbs1-56.1-1.2.x86_64 [..done]
+[   34s] (182/203) Installing: libmlx5-1-56.1-1.2.x86_64 [..done]
+[   34s] (183/203) Installing: libproxy1-0.5.9-1.3.x86_64 [..done]
+[   34s] (184/203) Installing: ldmtool-0.2.4-2.20.x86_64 [..done]
+[   34s] (185/203) Installing: libmlx4-1-56.1-1.2.x86_64 [..done]
+[   34s] (186/203) Installing: libmana1-56.1-1.2.x86_64 [..done]
+[   34s] (187/203) Installing: libhns1-56.1-1.2.x86_64 [..done]
+[   34s] (188/203) Installing: libefa1-56.1-1.2.x86_64 [..done]
+[   34s] (189/203) Installing: glib-networking-2.80.1-1.3.x86_64 [..done]
+[   34s] (190/203) Installing: libibverbs-56.1-1.2.x86_64 [..done]
+[   34s] (191/203) Installing: libsoup-3_0-0-3.6.5-5.1.x86_64 [..done]
+[   34s] (192/203) Installing: librdmacm1-56.1-1.2.x86_64 [..done]
+[   34s] (193/203) Installing: libosinfo-1_0-0-1.12.0-1.3.x86_64 [..done]
+[   34s] (194/203) Installing: libosinfo-1.12.0-1.3.x86_64 [..done]
+[   34s] (195/203) Installing: qemu-x86-10.0.0-3.1.x86_64 [...done]
+[   34s] (196/203) Installing: qemu-10.0.0-3.1.x86_64 [..done]
+[   35s] (197/203) Installing: qemu-ovmf-x86_64-202505-1.1.noarch [....done]
+[   35s] (198/203) Installing: libguestfs0-1.55.13-3.1.x86_64 [..done]
+[   35s] (199/203) Installing: libguestfs-devel-1.55.13-3.1.x86_64 [..done]
+[   35s] (200/203) Installing: libguestfs-appliance-1.55.13-3.1.x86_64 [..done]
+[   35s] (201/203) Installing: libguestfs-1.55.13-3.1.x86_64 [..done]
+[   35s] (202/203) Installing: libguestfs-winsupport-1.55.13-3.1.x86_64 [..done]
+[   35s] (203/203) Installing: guestfs-tools-1.54.0-1.1.x86_64 [...done]
+[   35s] Running post-transaction scripts [..
+[   35s] %posttrans(mdadm-4.4-5.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(systemd-presets-common-SUSE-15-39.1.noarch) script output:
+[   35s] Created symlink '/etc/systemd/system/default.target.wants/ca-certificates.path' -> '/usr/lib/systemd/system/ca-certificates.path'.
+[   35s] Created symlink '/etc/systemd/system/default.target.wants/soft-reboot-cleanup.service' -> '/usr/lib/systemd/system/soft-reboot-cleanup.service'.
+[   35s] Created symlink '/etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer' -> '/usr/lib/systemd/system/mdcheck_start.timer'.
+[   35s] Created symlink '/etc/systemd/system/mdmonitor.service.wants/mdcheck_continue.timer' -> '/usr/lib/systemd/system/mdcheck_continue.timer'.
+[   35s] Created symlink '/etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer' -> '/usr/lib/systemd/system/mdmonitor-oneshot.timer'.
+[   35s] Created symlink '/etc/systemd/system/sockets.target.wants/dm-event.socket' -> '/usr/lib/systemd/system/dm-event.socket'.
+[   35s] Created symlink '/etc/systemd/system/multi-user.target.wants/kbdsettings.service' -> '/usr/lib/systemd/system/kbdsettings.service'.
+[   35s] Created symlink '/etc/systemd/system/getty.target.wants/getty@tty1.service' -> '/usr/lib/systemd/system/getty@.service'.
+[   35s] Created symlink '/etc/systemd/system/multi-user.target.wants/remote-fs.target' -> '/usr/lib/systemd/system/remote-fs.target'.
+[   35s] Created symlink '/etc/systemd/user/timers.target.wants/systemd-tmpfiles-clean.timer' -> '/usr/lib/systemd/user/systemd-tmpfiles-clean.timer'.
+[   35s] Created symlink '/etc/systemd/user/basic.target.wants/systemd-tmpfiles-setup.service' -> '/usr/lib/systemd/user/systemd-tmpfiles-setup.service'.
+[   35s] %posttrans(thin-provisioning-tools-1.1.0-2.3.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] .
+[   35s] %posttrans(pam-config-2.12+git.20250411-1.1.x86_64) script output:
+[   35s] *** load_config (common-account-pc, account, ...)
+[   35s] **** Trying /etc/pam.d/common-account-pc...
+[   35s] *** Using config file /etc/pam.d/common-account-pc
+[   35s] **** [account, required, pam_unix.so, try_first_pass ]
+[   35s] **** def_parse_config [pam_unix.so] (account): 'try_first_pass '
+[   35s] *** load_config (common-auth-pc, auth, ...)
+[   35s] **** Trying /etc/pam.d/common-auth-pc...
+[   35s] *** Using config file /etc/pam.d/common-auth-pc
+[   35s] **** [auth, required, pam_env.so, ]
+[   35s] **** def_parse_config [pam_env.so] (auth): ''
+[   35s] **** [auth, required, pam_unix.so, try_first_pass ]
+[   35s] **** def_parse_config [pam_unix.so] (auth): 'try_first_pass '
+[   35s] *** load_config (common-password-pc, password, ...)
+[   35s] **** Trying /etc/pam.d/common-password-pc...
+[   35s] *** Using config file /etc/pam.d/common-password-pc
+[   35s] **** [password, required, pam_unix.so, nullok shadow try_first_pass ]
+[   35s] **** def_parse_config [pam_unix.so] (password): 'nullok shadow try_first_pass '
+[   35s] *** load_config (common-session-pc, session, ...)
+[   35s] **** Trying /etc/pam.d/common-session-pc...
+[   35s] *** Using config file /etc/pam.d/common-session-pc
+[   35s] **** [session, required, pam_limits.so, ]
+[   35s] **** def_parse_config [pam_limits.so] (session): ''
+[   35s] **** [session, optional, pam_systemd.so, ]
+[   35s] **** parse_config_pam_systemd.so (session): ''
+[   35s] **** [session, required, pam_unix.so, try_first_pass ]
+[   35s] **** def_parse_config [pam_unix.so] (session): 'try_first_pass '
+[   35s] **** [session, optional, pam_umask.so, ]
+[   35s] **** def_parse_config [pam_umask.so] (session): ''
+[   35s] **** [session, optional, pam_env.so, ]
+[   35s] **** def_parse_config [pam_env.so] (session): ''
+[   35s] *** load_config (common-session-nonlogin-pc, session, ...)
+[   35s] **** Trying /etc/pam.d/common-session-nonlogin-pc...
+[   35s] *** Using config file /etc/pam.d/common-session-nonlogin-pc
+[   35s] **** [session, required, pam_limits.so, ]
+[   35s] **** def_parse_config [pam_limits.so] (session): ''
+[   35s] **** [session, required, pam_unix.so, try_first_pass ]
+[   35s] **** def_parse_config [pam_unix.so] (session): 'try_first_pass '
+[   35s] **** [session, optional, pam_umask.so, ]
+[   35s] **** def_parse_config [pam_umask.so] (session): ''
+[   35s] **** [session, optional, pam_env.so, ]
+[   35s] **** def_parse_config [pam_env.so] (session): ''
+[   35s] *** load_config (postlogin-account-pc, account, ...)
+[   35s] **** Trying /etc/pam.d/postlogin-account-pc...
+[   35s] *** Using config file /etc/pam.d/postlogin-account-pc
+[   35s] *** load_config (postlogin-auth-pc, auth, ...)
+[   35s] **** Trying /etc/pam.d/postlogin-auth-pc...
+[   35s] *** Using config file /etc/pam.d/postlogin-auth-pc
+[   35s] *** load_config (postlogin-password-pc, password, ...)
+[   35s] **** Trying /etc/pam.d/postlogin-password-pc...
+[   35s] *** Using config file /etc/pam.d/postlogin-password-pc
+[   35s] *** load_config (postlogin-session-pc, session, ...)
+[   35s] **** Trying /etc/pam.d/postlogin-session-pc...
+[   35s] *** Using config file /etc/pam.d/postlogin-session-pc
+[   35s] *** write_config (account, /etc/pam.d/common-account-pc, ...)
+[   35s] **** write config for pam_access.so (account, disabled)
+[   35s] **** write config for pam_systemd_home.so (account, disabled)
+[   35s] **** write config for pam_unix2.so (account, disabled)
+[   35s] **** write config for pam_unix.so (account, enabled)
+[   35s] **** write config for pam_krb5.so (account, disabled)
+[   35s] **** write config for pam_localuser.so (account, disabled)
+[   35s] **** write config for pam_sss.so (account, disabled)
+[   35s] **** write config for pam_ldap.so (account, disabled)
+[   35s] **** write config for pam_nam.so (account, disabled)
+[   35s] **** write config for pam_winbind.so (account, disabled)
+[   35s] **** write config for pam_time.so (account, disabled)
+[   35s] **** write config for pam_himmelblau.so (account, disabled)
+[   35s] **** write config for pam_kanidm.so (account, disabled)
+[   35s] *** write_config (auth, /etc/pam.d/common-auth-pc, ...)
+[   35s] **** write config for pam_env.so (auth, enabled)
+[   35s] **** write config for pam_faildelay.so (auth, disabled)
+[   35s] **** write config for pam_group.so (auth, disabled)
+[   35s] **** write config for pam_pkcs11.so (auth, disabled)
+[   35s] **** write config for pam_fp.so (auth, disabled)
+[   35s] **** write config for pam_fprint.so (auth, disabled)
+[   35s] **** write config for pam_fprintd.so (auth, disabled)
+[   35s] **** write config for pam_thinkfinger.so (auth, disabled)
+[   35s] **** write config for pam_gnome_keyring.so (auth, disabled)
+[   35s] **** write config for pam_kwallet5.so (auth, disabled)
+[   35s] **** write config for pam_systemd_home.so (auth, disabled)
+[   35s] **** write config for pam_ssh.so (auth, disabled)
+[   35s] **** write config for pam_ecryptfs.so (auth, disabled)
+[   35s] **** write config for pam_fscrypt.so (auth, disabled)
+[   35s] **** write config for pam_unix2.so (auth, disabled)
+[   35s] **** write config for pam_unix.so (auth, enabled)
+[   35s] **** write config for pam_krb5.so (auth, disabled)
+[   35s] **** write config for pam_sss.so (auth, disabled)
+[   35s] **** write config for pam_ldap.so (auth, disabled)
+[   35s] **** write config for pam_nam.so (auth, disabled)
+[   35s] **** write config for pam_winbind.so (auth, disabled)
+[   35s] **** write config for pam_himmelblau.so (auth, disabled)
+[   35s] **** write config for pam_kanidm.so (auth, disabled)
+[   35s] *** write_config (password, /etc/pam.d/common-password-pc, ...)
+[   35s] **** write config for pam_winbind.so (password, disabled)
+[   35s] **** write config for pam_pwcheck.so (password, disabled)
+[   35s] **** write config for pam_passwdqc.so (password, disabled)
+[   35s] **** write config for pam_pwquality.so (password, disabled)
+[   35s] **** write config for pam_cracklib.so (password, disabled)
+[   35s] **** write config for pam_pwhistory.so (password, disabled)
+[   35s] **** write config for pam_gnome_keyring.so (password, disabled)
+[   35s] **** write config for pam_kwallet5.so (password, disabled)
+[   35s] **** write config for pam_ecryptfs.so (password, disabled)
+[   35s] **** write config for pam_systemd_home.so (password, disabled)
+[   35s] **** write config for pam_unix2.so (password, disabled)
+[   35s] **** write config for pam_unix.so (password, enabled)
+[   35s] **** write config for pam_fscrypt.so (password, disabled)
+[   35s] **** write config for pam_make.so (password, disabled)
+[   35s] **** write config for pam_exec.so (password, disabled)
+[   35s] **** write config for pam_krb5.so (password, disabled)
+[   35s] **** write config for pam_sss.so (password, disabled)
+[   35s] **** write config for pam_ldap.so (password, disabled)
+[   35s] **** write config for pam_nam.so (password, disabled)
+[   35s] *** write_config (session, /etc/pam.d/common-session-pc, ...)
+[   35s] **** write config for pam_selinux.so (session, disabled)
+[   35s] **** write config for pam_limits.so (session, enabled)
+[   35s] **** write config for pam_ecryptfs.so (session, disabled)
+[   35s] **** write config for pam_fscrypt.so (session, disabled)
+[   35s] **** write config for pam_mkhomedir.so (session, disabled)
+[   35s] **** write config for pam_systemd_home.so (session, disabled)
+[   35s] **** write config for pam_systemd.so (session, enabled)
+[   35s] **** write config for pam_unix2.so (session, disabled)
+[   35s] **** write config for pam_unix.so (session, enabled)
+[   35s] **** write config for pam_apparmor.so (session, disabled)
+[   35s] **** write config for pam_krb5.so (session, disabled)
+[   35s] **** write config for pam_sss.so (session, disabled)
+[   35s] **** write config for pam_ldap.so (session, disabled)
+[   35s] **** write config for pam_winbind.so (session, disabled)
+[   35s] **** write config for pam_nam.so (session, disabled)
+[   35s] **** write config for pam_umask.so (session, enabled)
+[   35s] **** write config for pam_ssh.so (session, disabled)
+[   35s] **** write config for pam_selinux.so (session, disabled)
+[   35s] **** write config for pam_gnome_keyring.so (session, disabled)
+[   35s] **** write config for pam_kwallet5.so (session, disabled)
+[   35s] **** write config for pam_exec.so (session, disabled)
+[   35s] **** write config for pam_env.so (session, enabled)
+[   35s] **** write config for pam_mktemp.so (session, disabled)
+[   35s] **** write config for pam_himmelblau.so (session, disabled)
+[   35s] **** write config for pam_kanidm.so (session, disabled)
+[   35s] *** write_config (session, /etc/pam.d/common-session-nonlogin-pc, ...)
+[   35s] **** write config for pam_ecryptfs.so (session, disabled)
+[   35s] **** write config for pam_fscrypt.so (session, disabled)
+[   35s] **** write config for pam_selinux.so (session, disabled)
+[   35s] **** write config for pam_mkhomedir.so (session, disabled)
+[   35s] **** write config for pam_systemd_home.so (session, disabled)
+[   35s] **** write config for pam_limits.so (session, enabled)
+[   35s] **** write config for pam_unix2.so (session, disabled)
+[   35s] **** write config for pam_unix.so (session, enabled)
+[   35s] **** write config for pam_apparmor.so (session, disabled)
+[   35s] **** write config for pam_krb5.so (session, disabled)
+[   35s] **** write config for pam_sss.so (session, disabled)
+[   35s] **** write config for pam_ldap.so (session, disabled)
+[   35s] **** write config for pam_winbind.so (session, disabled)
+[   35s] **** write config for pam_nam.so (session, disabled)
+[   35s] **** write config for pam_umask.so (session, enabled)
+[   35s] **** write config for pam_ssh.so (session, disabled)
+[   35s] **** write config for pam_selinux.so (session, disabled)
+[   35s] **** write config for pam_gnome_keyring.so (session, disabled)
+[   35s] **** write config for pam_kwallet5.so (session, disabled)
+[   35s] **** write config for pam_exec.so (session, disabled)
+[   35s] **** write config for pam_env.so (session, enabled)
+[   35s] **** write config for pam_mktemp.so (session, disabled)
+[   35s] *** write_config (account, /etc/pam.d/postlogin-account-pc, ...)
+[   35s] *** write_config (auth, /etc/pam.d/postlogin-auth-pc, ...)
+[   35s] *** write_config (password, /etc/pam.d/postlogin-password-pc, ...)
+[   35s] *** write_config (session, /etc/pam.d/postlogin-session-pc, ...)
+[   35s] **** write config for pam_wtmpdb.so (session, disabled)
+[   35s] **** write config for pam_lastlog2.so (session, disabled)
+[   35s] %posttrans(e2fsprogs-1.47.2-1.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] .
+[   35s] %posttrans(btrfsprogs-6.14-2.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(device-mapper-2.03.29_1.02.203-7.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(kbd-2.7.1-2.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(kmod-34.2-1.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(cryptsetup-2.7.5-4.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(udev-257.6-1.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   35s] %posttrans(kernel-kvmsmall-6.15.1-1.1.x86_64) script output:
+[   35s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   36s] ..
+[   36s] %transfiletriggerin(udev-257.6-1.1.x86_64) script output:
+[   36s] Running %posttrans(libssh-config-0.11.1-5.1.noarch)
+[   36s] Running %posttrans(mdadm-4.4-5.1.x86_64)
+[   36s] Running %posttrans(systemd-presets-common-SUSE-15-39.1.noarch)
+[   36s] Running %posttrans(thin-provisioning-tools-1.1.0-2.3.x86_64)
+[   36s] Running %posttrans(libpwquality1-1.4.5-5.3.x86_64)
+[   36s] Running %posttrans(pam-config-2.12+git.20250411-1.1.x86_64)
+[   36s] Running %posttrans(systemd-presets-branding-openSUSE-12.2-25.1.noarch)
+[   36s] Running %posttrans(e2fsprogs-1.47.2-1.1.x86_64)
+[   36s] Running %posttrans(btrfsprogs-6.14-2.1.x86_64)
+[   36s] Running %posttrans(device-mapper-2.03.29_1.02.203-7.1.x86_64)
+[   36s] Running %posttrans(kbd-2.7.1-2.1.x86_64)
+[   36s] Running %posttrans(suse-module-tools-16.0.60-1.1.x86_64)
+[   36s] Running %posttrans(kmod-34.2-1.1.x86_64)
+[   36s] Running %posttrans(systemd-257.6-1.1.x86_64)
+[   36s] Running %posttrans(cryptsetup-2.7.5-4.1.x86_64)
+[   36s] Running %posttrans(udev-257.6-1.1.x86_64)
+[   36s] Running %posttrans(kernel-kvmsmall-6.15.1-1.1.x86_64)
+[   36s] Running %posttrans(rdma-core-56.1-1.2.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(systemd-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(udev-257.6-1.1.x86_64)
+[   36s] Running %transfiletriggerin(udev-257.6-1.1.x86_64)
+[   36s] .done]
+[   36s] STEP 21/30: RUN if [ "$(uname -m)" = "x86_64" ]; then         zypper -n install qemu-x86 ;     fi;
+[   36s] Loading repository data...
+[   36s] Reading installed packages...
+[   36s] 'qemu-x86' is already installed.
+[   36s] No update candidate for 'qemu-x86-10.0.0-3.1.x86_64'. The highest available version is already installed.
+[   36s] Resolving package dependencies...
+[   36s] Nothing to do.
+[   36s] STEP 22/30: RUN if [ "$(uname -m)" = "aarch64" ]; then         zypper -n install qemu-arm qemu-uefi-aarch64 qemu-x86;     fi;
+[   37s] STEP 23/30: RUN mkdir -p /usr/local/lib/guestfs/appliance &&     cd /usr/local/lib/guestfs/appliance &&     LIBGUESTFS_BACKEND=direct LIBGUESTFS_DEBUG=1 libguestfs-make-fixed-appliance . &&     qemu-img convert -c -O qcow2 root root.qcow2 &&     mv root.qcow2 root &&     touch done &&     rm -rf /var/tmp/.guestfs-*
+[   37s] libguestfs: create: flags = 0, handle = 0x5636a8b7e930, program = guestfish
+[   37s] libguestfs: launch: program=guestfish
+[   37s] libguestfs: launch: version=1.55.13
+[   37s] libguestfs: launch: backend registered: direct
+[   37s] libguestfs: launch: backend registered: libvirt
+[   37s] libguestfs: launch: backend=direct
+[   37s] libguestfs: launch: tmpdir=/tmp/libguestfsooUzp4
+[   37s] libguestfs: launch: umask=0022
+[   37s] libguestfs: launch: euid=0
+[   37s] libguestfs: launch: host: Linux 9f2817ef690d 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad) x86_64
+[   37s] libguestfs: begin building supermin appliance
+[   37s] libguestfs: run supermin
+[   37s] libguestfs: command: run: /usr/bin/supermin
+[   37s] libguestfs: command: run: \ --build
+[   37s] libguestfs: command: run: \ --verbose
+[   37s] libguestfs: command: run: \ --if-newer
+[   37s] libguestfs: command: run: \ --lock /var/tmp/.guestfs-0/lock
+[   37s] libguestfs: command: run: \ --copy-kernel
+[   37s] libguestfs: command: run: \ -f ext2
+[   37s] libguestfs: command: run: \ --host-cpu x86_64
+[   37s] libguestfs: command: run: \ /usr/lib64/guestfs/supermin.d
+[   37s] libguestfs: command: run: \ -o /var/tmp/.guestfs-0/appliance.d
+[   37s] supermin: version: 5.3.5
+[   37s] supermin: rpm: detected RPM version 4.20
+[   37s] supermin: rpm: detected RPM architecture x86_64
+[   37s] supermin: rpm: detected zypper version 1.14.90
+[   37s] supermin: package handler: opensuse/rpm
+[   37s] supermin: acquiring lock on /var/tmp/.guestfs-0/lock
+[   37s] supermin: build: /usr/lib64/guestfs/supermin.d
+[   37s] supermin: reading the supermin appliance
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/base.tar.gz type gzip base image (tar)
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/daemon.tar.gz type gzip base image (tar)
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/excludefiles type uncompressed excludefiles
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/hostfiles type uncompressed hostfiles
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/init.tar.gz type gzip base image (tar)
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/packages type uncompressed packages
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/udev-rules.tar.gz type gzip base image (tar)
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/zz-packages-winsupport type uncompressed packages
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/zz-scripts.tar.gz type gzip base image (tar)
+[   37s] supermin: build: visiting /usr/lib64/guestfs/supermin.d/zz-winsupport.tar.gz type gzip base image (tar)
+[   37s] supermin: mapping package names to installed packages
+[   37s] supermin: resolving full list of package dependencies
+[   37s] supermin: build: 151 packages, including dependencies
+[   37s] supermin: build: 6178 files
+[   37s] supermin: build: 4176 files, after matching excludefiles
+[   37s] supermin: build: 4177 files, after adding hostfiles
+[   37s] supermin: build: 4155 files, after removing unreadable files
+[   37s] supermin: build: 4162 files, after munging
+[   37s] supermin: kernel: looking for kernel using environment variables ...
+[   37s] supermin: kernel: looking for kernels in /lib/modules/*/vmlinuz ...
+[   37s] supermin: kernel: picked vmlinuz /lib/modules/6.15.1-1-kvmsmall/vmlinuz
+[   37s] supermin: kernel: kernel_version 6.15.1-1-kvmsmall
+[   37s] supermin: kernel: modpath /lib/modules/6.15.1-1-kvmsmall
+[   37s] supermin: ext2: creating empty ext2 filesystem '/var/tmp/.guestfs-0/appliance.d.n4jjkgsi/root'
+[   37s] supermin: ext2: populating from base image
+[   37s] supermin: ext2: copying files from host filesystem
+[   38s] supermin: ext2: copying kernel modules
+[   38s] supermin: ext2: creating minimal initrd '/var/tmp/.guestfs-0/appliance.d.n4jjkgsi/initrd'
+[   38s] sh: line 1: /usr/bin/zstdcat: No such file or directory
+[   38s] supermin: '/usr/bin/zstdcat' '/lib/modules/6.15.1-1-kvmsmall/kernel/crypto/crc32_generic.ko.zst' > '/var/tmp/supermin3a6357.tmpdir/init.d/crc32_generic.ko': command failed, see earlier errors
+[   38s] *stdin*:0: libguestfs: error: /usr/bin/supermin exited with error status 1, see debug messages above
+[   38s] libguestfs: closing guestfs handle 0x5636a8b7e930 (state 0)
+[   38s] libguestfs: command: run: rm
+[   38s] libguestfs: command: run: \ -rf /tmp/libguestfsooUzp4
+[   38s] Error: building at STEP "RUN mkdir -p /usr/local/lib/guestfs/appliance &&     cd /usr/local/lib/guestfs/appliance &&     LIBGUESTFS_BACKEND=direct LIBGUESTFS_DEBUG=1 libguestfs-make-fixed-appliance . &&     qemu-img convert -c -O qcow2 root root.qcow2 &&     mv root.qcow2 root &&     touch done &&     rm -rf /var/tmp/.guestfs-*": while running runtime: exit status 1
+[   38s] podman build command failed
+[   38s] ### VM INTERACTION START ###
+[   38s] [   33.826897][    T1] sysrq: Power Off
+[   39s] ### VM INTERACTION END ###
+[   39s] 
+[   39s] i04-ch1b failed "build Dockerfile" at Wed Jun 11 16:28:46 UTC 2025.
+[   39s] 

@@ -1,0 +1,436 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_5/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_5/root
+[    0s] 
+[    0s] 
+[    0s] i04-ch2a started "build libArcus.spec" at Tue Jun 10 11:39:36 UTC 2025.
+[    0s] 
+[    0s] Building libArcus for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '22c5b980726f3181dabf4f3292d47810'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_5/.build-srcdir/libArcus.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_5/.build-srcdir/libArcus.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/5/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_5/.build.rpmlist /var/cache/obs/worker/root_5/.build-srcdir/libArcus.spec build ...
+[    0s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: libabsl_2501_0_0 -> libabsl_lite_2501_0_0
+[    2s]   breaking dependency libabsl_lite_2501_0_0 -> libabsl_2501_0_0
+[    2s] cycle: libpython3_13-1_0 -> python313-base
+[    2s]   breaking dependency python313-base -> libpython3_13-1_0
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_5/.mount/boot/kernel -initrd /var/cache/obs/worker/root_5/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_5/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_5/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_5/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.411340][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    5s] 2nd stage started in virtual machine
+[    5s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    5s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    5s] Time: Tue Jun 10 11:39:41 UTC 2025
+[    5s] Increasing log level from now on...
+[    5s] [    1.926100][  T574] sysrq: Changing Loglevel
+[    5s] [    1.926155][  T574] sysrq: Loglevel set to 4
+[    5s] Enable sysrq operations
+[    5s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    5s] no label, UUID=928f6b84-6e98-4484-84a7-f13c2ab6e575
+[    5s] WARNING: udev not running, creating extra device nodes
+[    5s] logging output to //.build.log...
+[    5s] processing recipe //.build-srcdir/libArcus.spec ...
+[    5s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/libArcus.spec build ...
+[    5s] initializing rpm db...
+[    5s] querying package ids...
+[    6s] [1/156] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/156] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/156] preinstalled bash-5.2.37-20.1
+[    6s] [4/156] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/156] preinstalled binutils-2.43-7.1
+[    6s] [6/156] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [7/156] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [8/156] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [9/156] preinstalled bzip2-1.0.8-5.12
+[    6s] [10/156] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [11/156] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [12/156] preinstalled coreutils-9.7-2.1
+[    6s] [13/156] preinstalled cpio-2.15-5.1
+[    6s] [14/156] preinstalled cpp-14-3.1
+[    6s] [15/156] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [16/156] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [17/156] preinstalled debugedit-5.1-1.3
+[    6s] [18/156] preinstalled diffutils-3.12-1.1
+[    6s] [19/156] preinstalled dwz-0.15-6.1
+[    6s] [20/156] preinstalled elfutils-0.192-2.2
+[    6s] [21/156] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [22/156] preinstalled file-5.46-4.1
+[    6s] [23/156] preinstalled file-magic-5.46-4.1
+[    6s] [24/156] preinstalled filesystem-84.87-18.2
+[    6s] [25/156] preinstalled fillup-1.42-281.3
+[    6s] [26/156] preinstalled findutils-4.10.0-2.2
+[    6s] [27/156] preinstalled gawk-5.3.2-1.1
+[    6s] [28/156] preinstalled gcc-14-3.1
+[    6s] [29/156] preinstalled gcc-PIE-14-3.1
+[    6s] [30/156] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [31/156] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [32/156] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [33/156] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [34/156] preinstalled glibc-2.41-2.1
+[    6s] [35/156] preinstalled glibc-devel-2.41-2.1
+[    6s] [36/156] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [37/156] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [38/156] preinstalled grep-3.12-1.1
+[    6s] [39/156] preinstalled gzip-1.14-1.1
+[    6s] [40/156] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [41/156] preinstalled libacl1-2.3.2-2.3
+[    6s] [42/156] preinstalled libarchive13-3.7.9-1.1
+[    6s] [43/156] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [44/156] preinstalled libasm1-0.192-2.2
+[    6s] [45/156] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [46/156] preinstalled libattr1-2.5.2-1.4
+[    6s] [47/156] preinstalled libaudit1-4.0-3.3
+[    6s] [48/156] preinstalled libblkid1-2.41-1.1
+[    6s] [49/156] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [50/156] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [51/156] preinstalled libcap2-2.75-1.1
+[    6s] [52/156] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [53/156] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [54/156] preinstalled libctf0-2.43-7.1
+[    6s] [55/156] preinstalled libdw1-0.192-2.2
+[    6s] [56/156] preinstalled libeconf0-0.7.9-1.1
+[    6s] [57/156] preinstalled libelf1-0.192-2.2
+[    6s] [58/156] cumulate libexpat1-2.7.1-2.1
+[    6s] [59/156] preinstalled libfdisk1-2.41-1.1
+[    6s] [60/156] cumulate libffi8-3.4.7-1.1
+[    6s] [61/156] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [62/156] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [63/156] preinstalled libgdbm6-1.24-2.1
+[    6s] [64/156] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [65/156] preinstalled libgmp10-6.3.0-5.1
+[    6s] [66/156] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [67/156] preinstalled libgpg-error0-1.55-1.1
+[    6s] [68/156] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [69/156] preinstalled libisl23-0.27-1.2
+[    6s] [70/156] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [71/156] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [72/156] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [73/156] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [74/156] preinstalled liblz1-1.15-1.2
+[    6s] [75/156] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [76/156] preinstalled liblzma5-5.8.1-1.1
+[    6s] [77/156] preinstalled libmagic1-5.46-4.1
+[    6s] [78/156] preinstalled libmount1-2.41-1.1
+[    6s] [79/156] preinstalled libmpc3-1.3.1-1.10
+[    6s] [80/156] cumulate libmpdec4-4.0.1-2.1
+[    6s] [81/156] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [82/156] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [83/156] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [84/156] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [85/156] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [86/156] preinstalled libpopt0-1.19-1.10
+[    6s] [87/156] preinstalled libreadline8-8.2.13-2.3
+[    6s] [88/156] cumulate librhash1-1.4.5-1.2
+[    6s] [89/156] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [90/156] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [91/156] preinstalled libselinux1-3.8.1-1.1
+[    6s] [92/156] preinstalled libsmartcols1-2.41-1.1
+[    6s] [93/156] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [94/156] cumulate libstdc++6-devel-gcc14-14.3.0+git11799-3.1
+[    6s] [95/156] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [96/156] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [97/156] cumulate libutf8_range-30_2_0-30.2-1.1
+[    6s] [98/156] preinstalled libuuid1-2.41-1.1
+[    6s] [99/156] cumulate libuv1-1.50.0-1.1
+[    6s] [100/156] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [101/156] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [102/156] preinstalled libz1-1.3.1-1.3
+[    6s] [103/156] preinstalled libzstd1-1.5.7-3.1
+[    6s] [104/156] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [105/156] preinstalled lua54-5.4.7-4.1
+[    6s] [106/156] preinstalled make-4.4.1-3.3
+[    6s] [107/156] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [108/156] preinstalled pam-1.7.0-3.1
+[    6s] [109/156] preinstalled patch-2.8-1.1
+[    6s] [110/156] preinstalled perl-5.40.2-2.1
+[    6s] [111/156] preinstalled perl-base-5.40.2-2.1
+[    6s] [112/156] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [113/156] preinstalled permctl-1699_20250120-1.3
+[    6s] [114/156] preinstalled permissions-1699_20250120-1.3
+[    6s] [115/156] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [116/156] preinstalled pkgconf-2.2.0-1.3
+[    6s] [117/156] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [118/156] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [119/156] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [120/156] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [121/156] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    6s] [122/156] cumulate python-sip4-common-4.19.25-7.12
+[    6s] [123/156] preinstalled rpm-4.20.1-4.1
+[    6s] [124/156] preinstalled rpm-build-4.20.1-4.1
+[    6s] [125/156] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [126/156] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [127/156] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [128/156] preinstalled sed-4.9-2.8
+[    6s] [129/156] preinstalled system-user-root-20190513-2.18
+[    6s] [130/156] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [131/156] preinstalled tar-1.35-4.1
+[    6s] [132/156] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [133/156] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [134/156] preinstalled util-linux-2.41-1.1
+[    6s] [135/156] preinstalled which-2.23-1.2
+[    6s] [136/156] preinstalled xz-5.8.1-1.1
+[    6s] [137/156] cumulate gcc14-c++-14.3.0+git11799-3.1
+[    6s] [138/156] cumulate gcc-c++-14-3.1
+[    6s] [139/156] cumulate libabsl_lite_2501_0_0-20250127.1-2.1
+[    6s] [140/156] cumulate python313-base-3.13.3-4.1
+[    6s] [141/156] cumulate libabsl_2501_0_0-20250127.1-2.1
+[    6s] [142/156] cumulate libpython3_13-1_0-3.13.3-4.1
+[    6s] [143/156] cumulate python313-packaging-24.2-2.1
+[    6s] [144/156] cumulate python313-qt5-sip-12.16.1-1.3
+[    6s] [145/156] cumulate python313-setuptools-78.1.1-1.1
+[    6s] [146/156] cumulate libprotobuf-lite30_2_0-30.2-1.1
+[    6s] [147/156] cumulate cmake-mini-3.31.7-2.1
+[    6s] [148/156] cumulate abseil-cpp-devel-20250127.1-2.1
+[    6s] [149/156] cumulate cmake-3.31.7-2.1
+[    6s] [150/156] cumulate python313-devel-3.13.3-4.1
+[    6s] [151/156] cumulate libprotobuf30_2_0-30.2-1.1
+[    6s] [152/156] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    6s] [153/156] cumulate python313-sip4-4.19.25-7.12
+[    6s] [154/156] cumulate libprotoc30_2_0-30.2-1.1
+[    6s] [155/156] cumulate python313-sip4-devel-4.19.25-7.12
+[    6s] [156/156] cumulate protobuf-devel-30.2-1.1
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] libabsl_2501_0_0-20250127.1-2.1       ########################################
+[    6s] libabsl_lite_2501_0_0-20250127.1-2.1  ########################################
+[    6s] libutf8_range-30_2_0-30.2-1.1         ########################################
+[    6s] libprotobuf30_2_0-30.2-1.1            ########################################
+[    6s] python-sip4-common-4.19.25-7.12       ########################################
+[    6s] libuv1-1.50.0-1.1                     ########################################
+[    6s] libexpat1-2.7.1-2.1                   ########################################
+[    6s] libprotoc30_2_0-30.2-1.1              ########################################
+[    6s] libprotobuf-lite30_2_0-30.2-1.1       ########################################
+[    6s] abseil-cpp-devel-20250127.1-2.1       ########################################
+[    6s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    6s] libstdc++6-devel-gcc14-14.3.0+git11799########################################
+[    6s] gcc14-c++-14.3.0+git11799-3.1         ########################################
+[    6s] gcc-c++-14-3.1                        ########################################
+[    6s] librhash1-1.4.5-1.2                   ########################################
+[    6s] libmpdec4-4.0.1-2.1                   ########################################
+[    6s] libffi8-3.4.7-1.1                     ########################################
+[    6s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    7s] python313-base-3.13.3-4.1             ########################################
+[    7s] python313-packaging-24.2-2.1          ########################################
+[    7s] cmake-mini-3.31.7-2.1                 ########################################
+[    7s] python313-devel-3.13.3-4.1            ########################################
+[    7s] python313-sip4-4.19.25-7.12           ########################################
+[    7s] python313-sip4-devel-4.19.25-7.12     ########################################
+[    7s] cmake-3.31.7-2.1                      ########################################
+[    7s] python-rpm-packaging-20210526+a18ca48-########################################
+[    7s] python313-qt5-sip-12.16.1-1.3         ########################################
+[    7s] python313-setuptools-78.1.1-1.1       ########################################
+[    7s] protobuf-devel-30.2-1.1               ########################################
+[    7s] now finalizing build dir...
+[    7s] ... running 01-add_abuild_user_to_trusted_group
+[    7s] ... running 02-set_timezone_to_utc
+[    7s] ... running 03-set-permissions-secure
+[    7s] ... running 11-hack_uname_version_to_kernel_version
+[    7s] setting SOURCE_DATE_EPOCH_MTIME to 1741828900
+[    8s] -----------------------------------------------------------------
+[    8s] I have the following modifications for libArcus.spec:
+[    8s] 23c23
+[    8s] < Release:        0
+[    8s] ---
+[    8s] > Release:        8.3
+[    8s] -----------------------------------------------------------------
+[    8s] ----- building libArcus.spec (user abuild)
+[    8s] -----------------------------------------------------------------
+[    8s] -----------------------------------------------------------------
+[    8s] setting SOURCE_DATE_EPOCH_MTIME to 1741828900
+[    8s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/22c5b980726f3181dabf4f3292d47810-libArcus' /home/abuild/rpmbuild/SOURCES/libArcus.spec
+[    8s] using SOURCE_DATE_EPOCH with value 1741828897 as build time
+[    8s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.UCXkt2
+[    8s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.LH6kcc
+[    8s] + umask 022
+[    8s] + cd /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build
+[    8s] + cd /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build
+[    8s] + rm -rf libArcus-4.13
+[    8s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/libArcus-4.13.1.tar.gz
+[    9s] + STATUS=0
+[    9s] + '[' 0 -ne 0 ']'
+[    9s] + cd libArcus-4.13
+[    9s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[    9s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/libArcus-3.5.1-PyQt5.sip.patch
+[    9s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[    9s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/0001-Use-single-parameter-SetTotalBytesLimit-fix-protobuf.patch
+[    9s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[    9s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/0001-Fix-compatibility-for-protobuf-v26.x-and-later.patch
+[    9s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[    9s] + sed -i -e '/COMPILE_FLAGS.*c++11/ d' examples/CMakeLists.txt
+[    9s] + RPM_EC=0
+[    9s] ++ jobs -p
+[    9s] + exit 0
+[    9s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.1rjp7p
+[    9s] + umask 022
+[    9s] + cd /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build
+[    9s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/BUILDROOT
+[    9s] ++ dirname /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/BUILDROOT
+[    9s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build
+[    9s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/BUILDROOT
+[    9s] + cd libArcus-4.13
+[    9s] + find . -type f -name CMakeLists.txt -exec sed -i -re '/^[[:blank:]]*[sS][eE][tT][[:blank:]]*\([[:blank:]]*(CMAKE_BUILD_TYPE|CMAKE_COLOR_MAKEFILE|CMAKE_INSTALL_PREFIX|CMAKE_VERBOSE_MAKEFILE).*\)/{s/^/#IGNORE /}' '{}' +
+[    9s] + mkdir -p build
+[    9s] + cd build
+[    9s] + /usr/bin/cmake /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/. '-GUnix Makefiles' -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_BINDIR:PATH=bin -DCMAKE_INSTALL_SBINDIR:PATH=sbin -DCMAKE_INSTALL_LIBEXECDIR:PATH=libexec -DCMAKE_INSTALL_SYSCONFDIR:PATH=etc -DCMAKE_INSTALL_SHAREDSTATEDIR:PATH=/var/lib -DCMAKE_INSTALL_LOCALSTATEDIR:PATH=var -DCMAKE_INSTALL_RUNSTATEDIR:PATH=run -DCMAKE_INSTALL_LIBDIR:PATH=lib64 -DCMAKE_INSTALL_INCLUDEDIR:PATH=include -DCMAKE_INSTALL_DATAROOTDIR:PATH=share -DCMAKE_INSTALL_DOCDIR:PATH=share/doc/packages/libArcus -DCMAKE_INSTALL_MANDIR:PATH=share/man -DCMAKE_INSTALL_INFODIR:PATH=share/info -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DCMAKE_BUILD_TYPE=RelWithDebInfo '-DCMAKE_C_FLAGS=-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g' '-DCMAKE_CXX_FLAGS=-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g' '-DCMAKE_Fortran_FLAGS=-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g' '-DCMAKE_EXE_LINKER_FLAGS=-flto=auto -Wl,--as-needed -Wl,--no-undefined -Wl,-z,now' '-DCMAKE_MODULE_LINKER_FLAGS=-flto=auto -Wl,--as-needed' '-DCMAKE_SHARED_LINKER_FLAGS=-flto=auto -Wl,--as-needed -Wl,--no-undefined -Wl,-z,now' -DLIB_SUFFIX=64 -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON -DBUILD_STATIC_LIBS:BOOL=OFF -DCMAKE_COLOR_MAKEFILE:BOOL=OFF -DCMAKE_INSTALL_DO_STRIP:BOOL=OFF -DCMAKE_MODULES_INSTALL_DIR=/usr/lib64/cmake/libArcus
+[    9s] CMake Warning (dev) at CMakeLists.txt:1 (project):
+[    9s]   cmake_minimum_required() should be called prior to this top-level project()
+[    9s]   call.  Please see the cmake-commands(7) manual for usage documentation of
+[    9s]   both commands.
+[    9s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[    9s] 
+[    9s] -- The C compiler identification is GNU 14.3.0
+[    9s] -- The CXX compiler identification is GNU 14.3.0
+[    9s] -- Detecting C compiler ABI info
+[    9s] -- Detecting C compiler ABI info - done
+[    9s] -- Check for working C compiler: /usr/bin/cc - skipped
+[    9s] -- Detecting C compile features
+[    9s] -- Detecting C compile features - done
+[    9s] -- Detecting CXX compiler ABI info
+[    9s] -- Detecting CXX compiler ABI info - done
+[    9s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[    9s] -- Detecting CXX compile features
+[    9s] -- Detecting CXX compile features - done
+[    9s] CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+[    9s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[    9s]   CMake.
+[    9s] 
+[    9s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[    9s]   to tell CMake that the project requires at least <min> but has been updated
+[    9s]   to work with policies introduced by <max> or earlier.
+[    9s] 
+[    9s] 
+[    9s] -- Found Protobuf: /usr/lib64/libprotobuf.so (found suitable version "6.30.2", minimum required is "3.6.0")
+[    9s] -- Found Python3: /usr/bin/python3.13 (found suitable version "3.13.3", minimum required is "3.4") found components: Interpreter Development Development.Module Development.Embed
+[    9s] CMake Warning (dev) at cmake/FindSIP.cmake:29 (find_package):
+[    9s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[    9s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[    9s]   the cmake_policy command to set the policy and suppress this warning.
+[    9s] 
+[    9s] Call Stack (most recent call first):
+[    9s]   CMakeLists.txt:40 (find_package)
+[    9s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[    9s] 
+[    9s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.13.3", minimum required is "3.5")
+[    9s] CMake Warning (dev) at cmake/FindSIP.cmake:30 (find_package):
+[    9s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[    9s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[    9s]   the cmake_policy command to set the policy and suppress this warning.
+[    9s] 
+[    9s] Call Stack (most recent call first):
+[    9s]   CMakeLists.txt:40 (find_package)
+[    9s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[    9s] 
+[    9s] -- Found PythonLibs: /usr/lib64/libpython3.13.so (found suitable version "3.13.3", minimum required is "3.5")
+[   10s] -- Found SIP: /bin/sip (found version "6.9.1")
+[   10s] -- Python > 3.7 - not linking to libpython
+[   10s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+[   10s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+[   10s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+[   10s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+[   10s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+[   10s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+[   10s] -- Configuring done (1.5s)
+[   10s] -- Generating done (0.0s)
+[   10s] CMake Warning:
+[   10s]   Manually-specified variables were not used by the project:
+[   10s] 
+[   10s]     BUILD_STATIC_LIBS
+[   10s]     CMAKE_Fortran_FLAGS
+[   10s]     CMAKE_INSTALL_DO_STRIP
+[   10s]     CMAKE_MODULES_INSTALL_DIR
+[   10s]     INCLUDE_INSTALL_DIR
+[   10s]     LIB_INSTALL_DIR
+[   10s]     LIB_SUFFIX
+[   10s]     SHARE_INSTALL_PREFIX
+[   10s]     SYSCONF_INSTALL_DIR
+[   10s] 
+[   10s] 
+[   10s] -- Build files have been written to: /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build
+[   10s] + /usr/bin/make -O VERBOSE=1 -j4
+[   10s] /usr/bin/cmake -S/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13 -B/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build --check-build-system CMakeFiles/Makefile.cmake 0
+[   10s] /usr/bin/cmake -E cmake_progress_start /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/CMakeFiles /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build//CMakeFiles/progress.marks
+[   10s] /usr/bin/make  -f CMakeFiles/Makefile2 all
+[   10s] /usr/bin/make  -f CMakeFiles/Arcus.dir/build.make CMakeFiles/Arcus.dir/depend
+[   10s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   10s] cd /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13 /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13 /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/CMakeFiles/Arcus.dir/DependInfo.cmake
+[   10s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   10s] /usr/bin/make  -f CMakeFiles/Arcus.dir/build.make CMakeFiles/Arcus.dir/build
+[   10s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   10s] [ 18%] Building CXX object CMakeFiles/Arcus.dir/src/PlatformSocket.cpp.o
+[   10s] /usr/bin/c++ -DMAKE_ARCUS_LIB -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/python -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src -I/usr/include/python3.13 -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/src -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -O2 -g -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -MD -MT CMakeFiles/Arcus.dir/src/PlatformSocket.cpp.o -MF CMakeFiles/Arcus.dir/src/PlatformSocket.cpp.o.d -o CMakeFiles/Arcus.dir/src/PlatformSocket.cpp.o -c /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/PlatformSocket.cpp
+[   10s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   10s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   10s] [ 13%] Building CXX object CMakeFiles/Arcus.dir/src/SocketListener.cpp.o
+[   10s] /usr/bin/c++ -DMAKE_ARCUS_LIB -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/python -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src -I/usr/include/python3.13 -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/src -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -O2 -g -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -MD -MT CMakeFiles/Arcus.dir/src/SocketListener.cpp.o -MF CMakeFiles/Arcus.dir/src/SocketListener.cpp.o.d -o CMakeFiles/Arcus.dir/src/SocketListener.cpp.o -c /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/SocketListener.cpp
+[   10s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   11s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   11s] [ 22%] Building CXX object CMakeFiles/Arcus.dir/src/Error.cpp.o
+[   11s] /usr/bin/c++ -DMAKE_ARCUS_LIB -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/python -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src -I/usr/include/python3.13 -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/src -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -O2 -g -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -MD -MT CMakeFiles/Arcus.dir/src/Error.cpp.o -MF CMakeFiles/Arcus.dir/src/Error.cpp.o.d -o CMakeFiles/Arcus.dir/src/Error.cpp.o -c /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Error.cpp
+[   11s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   12s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   12s] [  4%] Building CXX object CMakeFiles/Arcus.dir/src/MessageTypeStore.cpp.o
+[   12s] /usr/bin/c++ -DMAKE_ARCUS_LIB -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/python -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src -I/usr/include/python3.13 -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/src -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -O2 -g -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -MD -MT CMakeFiles/Arcus.dir/src/MessageTypeStore.cpp.o -MF CMakeFiles/Arcus.dir/src/MessageTypeStore.cpp.o.d -o CMakeFiles/Arcus.dir/src/MessageTypeStore.cpp.o -c /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp: In member function âuint32_t Arcus::MessageTypeStore::getMessageTypeId(const Arcus::MessagePtr&)â:
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:134:37: error: invalid initialization of reference of type âconst std::string&â {aka âconst std::__cxx11::basic_string<char>&â} from expression of type âgoogle::protobuf::internal::GetTypeNameReturnTypeâ {aka âstd::basic_string_view<char>â}
+[   12s]   134 |     return hash(message->GetTypeName());
+[   12s]       |                 ~~~~~~~~~~~~~~~~~~~~^~
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:37:34: note: in passing argument 1 of âuint32_t hash(const std::string&)â
+[   12s]    37 | uint32_t hash(const std::string& input)
+[   12s]       |               ~~~~~~~~~~~~~~~~~~~^~~~~
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp: In member function âbool Arcus::MessageTypeStore::registerMessageType(const google::protobuf::Message*)â:
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:144:54: error: invalid initialization of reference of type âconst std::string&â {aka âconst std::__cxx11::basic_string<char>&â} from expression of type âgoogle::protobuf::internal::GetTypeNameReturnTypeâ {aka âstd::basic_string_view<char>â}
+[   12s]   144 |     uint32_t type_id = hash(message_type->GetTypeName());
+[   12s]       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:37:34: note: in passing argument 1 of âuint32_t hash(const std::string&)â
+[   12s]    37 | uint32_t hash(const std::string& input)
+[   12s]       |               ~~~~~~~~~~~~~~~~~~~^~~~~
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp: In member function âbool Arcus::MessageTypeStore::registerAllMessageTypes(const std::string&)â:
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:196:58: error: invalid initialization of reference of type âconst std::string&â {aka âconst std::__cxx11::basic_string<char>&â} from expression of type âgoogle::protobuf::internal::GetTypeNameReturnTypeâ {aka âstd::basic_string_view<char>â}
+[   12s]   196 |         uint32_t type_id = hash(message_type->GetTypeName());
+[   12s]       |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/MessageTypeStore.cpp:37:34: note: in passing argument 1 of âuint32_t hash(const std::string&)â
+[   12s]    37 | uint32_t hash(const std::string& input)
+[   12s]       |               ~~~~~~~~~~~~~~~~~~~^~~~~
+[   12s] make[2]: *** [CMakeFiles/Arcus.dir/build.make:110: CMakeFiles/Arcus.dir/src/MessageTypeStore.cpp.o] Error 1
+[   12s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   12s] make[2]: *** Waiting for unfinished jobs....
+[   12s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   12s] [  9%] Building CXX object CMakeFiles/Arcus.dir/src/Socket.cpp.o
+[   12s] /usr/bin/c++ -DMAKE_ARCUS_LIB -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/python -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src -I/usr/include/python3.13 -I/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build/src -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -O2 -g -DNDEBUG -std=gnu++17 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -MD -MT CMakeFiles/Arcus.dir/src/Socket.cpp.o -MF CMakeFiles/Arcus.dir/src/Socket.cpp.o.d -o CMakeFiles/Arcus.dir/src/Socket.cpp.o -c /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Socket.cpp
+[   12s] In file included from /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Socket.cpp:20:
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Socket_p.h: In member function âvoid Arcus::Socket::Private::sendMessage(const Arcus::MessagePtr&)â:
+[   12s] /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Socket_p.h:362:50: warning: âint google::protobuf::MessageLite::ByteSize() constâ is deprecated: Please use ByteSizeLong() instead [-Wdeprecated-declarations]
+[   12s]   362 |         uint32_t message_size = message->ByteSize();
+[   12s]       |                                 ~~~~~~~~~~~~~~~~~^~
+[   12s] In file included from /usr/include/google/protobuf/generated_enum_util.h:20,
+[   12s]                  from /usr/include/google/protobuf/extension_set.h:36,
+[   12s]                  from /usr/include/google/protobuf/descriptor.h:56,
+[   12s]                  from /usr/include/google/protobuf/message.h:107,
+[   12s]                  from /home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/src/Socket_p.h:41:
+[   12s] /usr/include/google/protobuf/message_lite.h:831:59: note: declared here
+[   12s]   831 |   [[deprecated("Please use ByteSizeLong() instead")]] int ByteSize() const {
+[   12s]       |                                                           ^~~~~~~~
+[   12s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/libArcus-4.13.1-build/libArcus-4.13/build'
+[   12s] make[1]: *** [CMakeFiles/Makefile2:115: CMakeFiles/Arcus.dir/all] Error 2
+[   12s] make: *** [Makefile:159: all] Error 2
+[   12s] error: Bad exit status from /var/tmp/rpm-tmp.1rjp7p (%build)
+[   12s] 
+[   12s] RPM build errors:
+[   12s]     Bad exit status from /var/tmp/rpm-tmp.1rjp7p (%build)
+[   12s] ### VM INTERACTION START ###
+[   12s] [    8.815155][    T1] sysrq: Power Off
+[   12s] ### VM INTERACTION END ###
+[   12s] 
+[   12s] i04-ch2a failed "build libArcus.spec" at Tue Jun 10 11:39:48 UTC 2025.
+[   12s] 
