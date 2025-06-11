@@ -1,0 +1,405 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_28/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_28/root
+[    0s] 
+[    0s] 
+[    0s] i02-ch1a started "build evdi.spec" at Tue Jun 10 11:39:29 UTC 2025.
+[    0s] 
+[    0s] Building evdi for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 'd052be4a94fa72bdaaa81db5a041c456'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_28/.build-srcdir/evdi.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_28/.build-srcdir/evdi.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/28/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_28/.build.rpmlist /var/cache/obs/worker/root_28/.build-srcdir/evdi.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: fipscheck -> libfipscheck1
+[    2s]   breaking dependency libfipscheck1 -> fipscheck
+[    2s] cycle: libpython3_13-1_0 -> python313-base
+[    2s]   breaking dependency python313-base -> libpython3_13-1_0
+[    2s] cycle: openssl -> openssl-3
+[    2s]   breaking dependency openssl-3 -> openssl
+[    2s] cycle: mozilla-nss -> libsoftokn3
+[    2s]   breaking dependency mozilla-nss -> libsoftokn3
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_28/.mount/boot/kernel -initrd /var/cache/obs/worker/root_28/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_28/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_28/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_28/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.397373][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    6s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    6s] 2nd stage started in virtual machine
+[    6s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    6s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    6s] Time: Tue Jun 10 11:39:35 UTC 2025
+[    6s] Increasing log level from now on...
+[    6s] [    1.912845][  T570] sysrq: Changing Loglevel
+[    6s] [    1.912890][  T570] sysrq: Loglevel set to 4
+[    6s] Enable sysrq operations
+[    6s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    6s] no label, UUID=21c12fb6-46f6-4921-aa52-bb5c74afcb04
+[    6s] WARNING: udev not running, creating extra device nodes
+[    6s] logging output to //.build.log...
+[    6s] processing recipe //.build-srcdir/evdi.spec ...
+[    6s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/evdi.spec build ...
+[    6s] initializing rpm db...
+[    6s] querying package ids...
+[    6s] [1/183] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/183] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/183] preinstalled bash-5.2.37-20.1
+[    6s] [4/183] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/183] preinstalled binutils-2.43-7.1
+[    6s] [6/183] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [7/183] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [8/183] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [9/183] preinstalled bzip2-1.0.8-5.12
+[    6s] [10/183] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [11/183] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [12/183] preinstalled coreutils-9.7-2.1
+[    6s] [13/183] preinstalled cpio-2.15-5.1
+[    6s] [14/183] preinstalled cpp-14-3.1
+[    6s] [15/183] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [16/183] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [17/183] preinstalled debugedit-5.1-1.3
+[    6s] [18/183] preinstalled diffutils-3.12-1.1
+[    6s] [19/183] preinstalled dwz-0.15-6.1
+[    6s] [20/183] preinstalled elfutils-0.192-2.2
+[    6s] [21/183] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [22/183] preinstalled file-5.46-4.1
+[    6s] [23/183] preinstalled file-magic-5.46-4.1
+[    6s] [24/183] preinstalled filesystem-84.87-18.2
+[    6s] [25/183] preinstalled fillup-1.42-281.3
+[    6s] [26/183] preinstalled findutils-4.10.0-2.2
+[    6s] [27/183] preinstalled gawk-5.3.2-1.1
+[    6s] [28/183] preinstalled gcc-14-3.1
+[    6s] [29/183] preinstalled gcc-PIE-14-3.1
+[    6s] [30/183] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [31/183] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [32/183] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [33/183] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [34/183] preinstalled glibc-2.41-2.1
+[    6s] [35/183] preinstalled glibc-devel-2.41-2.1
+[    6s] [36/183] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [37/183] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [38/183] preinstalled grep-3.12-1.1
+[    6s] [39/183] preinstalled gzip-1.14-1.1
+[    6s] [40/183] cumulate kernel-macros-6.15.1-1.1
+[    6s] [41/183] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [42/183] preinstalled libacl1-2.3.2-2.3
+[    6s] [43/183] preinstalled libarchive13-3.7.9-1.1
+[    6s] [44/183] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [45/183] preinstalled libasm1-0.192-2.2
+[    6s] [46/183] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [47/183] preinstalled libattr1-2.5.2-1.4
+[    6s] [48/183] preinstalled libaudit1-4.0-3.3
+[    6s] [49/183] preinstalled libblkid1-2.41-1.1
+[    6s] [50/183] cumulate libbpf1-1.5.1-2.1
+[    6s] [51/183] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [52/183] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [53/183] preinstalled libcap2-2.75-1.1
+[    6s] [54/183] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [55/183] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [56/183] preinstalled libctf0-2.43-7.1
+[    6s] [57/183] cumulate libdrm2-2.4.124-2.3
+[    6s] [58/183] preinstalled libdw1-0.192-2.2
+[    6s] [59/183] preinstalled libeconf0-0.7.9-1.1
+[    6s] [60/183] cumulate libefivar1-38-3.3
+[    6s] [61/183] preinstalled libelf1-0.192-2.2
+[    6s] [62/183] cumulate libexpat1-2.7.1-2.1
+[    6s] [63/183] preinstalled libfdisk1-2.41-1.1
+[    6s] [64/183] cumulate libffi8-3.4.7-1.1
+[    6s] [65/183] cumulate libfreebl3-3.110-1.1
+[    6s] [66/183] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [67/183] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [68/183] preinstalled libgdbm6-1.24-2.1
+[    6s] [69/183] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [70/183] preinstalled libgmp10-6.3.0-5.1
+[    6s] [71/183] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [72/183] preinstalled libgpg-error0-1.55-1.1
+[    6s] [73/183] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [74/183] preinstalled libisl23-0.27-1.2
+[    6s] [75/183] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [76/183] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [77/183] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [78/183] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [79/183] preinstalled liblz1-1.15-1.2
+[    6s] [80/183] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [81/183] preinstalled liblzma5-5.8.1-1.1
+[    6s] [82/183] preinstalled libmagic1-5.46-4.1
+[    6s] [83/183] preinstalled libmount1-2.41-1.1
+[    6s] [84/183] preinstalled libmpc3-1.3.1-1.10
+[    6s] [85/183] cumulate libmpdec4-4.0.1-2.1
+[    6s] [86/183] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [87/183] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [88/183] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [89/183] cumulate libpciaccess0-0.18.1-1.5
+[    6s] [90/183] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [91/183] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [92/183] preinstalled libpopt0-1.19-1.10
+[    6s] [93/183] preinstalled libreadline8-8.2.13-2.3
+[    6s] [94/183] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [95/183] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [96/183] preinstalled libselinux1-3.8.1-1.1
+[    6s] [97/183] cumulate libsemanage-conf-3.8.1-1.1
+[    6s] [98/183] cumulate libsepol2-3.8.1-1.1
+[    6s] [99/183] preinstalled libsmartcols1-2.41-1.1
+[    6s] [100/183] cumulate libsqlite3-0-3.49.2-1.1
+[    6s] [101/183] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [102/183] cumulate libsubid5-4.17.4-2.1
+[    6s] [103/183] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [104/183] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [105/183] preinstalled libuuid1-2.41-1.1
+[    6s] [106/183] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [107/183] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [108/183] cumulate libyaml-0-2-0.2.5-2.7
+[    6s] [109/183] preinstalled libz1-1.3.1-1.3
+[    6s] [110/183] cumulate libzstd-devel-1.5.7-3.1
+[    6s] [111/183] preinstalled libzstd1-1.5.7-3.1
+[    6s] [112/183] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [113/183] cumulate login_defs-4.17.4-2.1
+[    6s] [114/183] preinstalled lua54-5.4.7-4.1
+[    6s] [115/183] preinstalled make-4.4.1-3.3
+[    6s] [116/183] cumulate mozilla-nspr-4.36-1.3
+[    6s] [117/183] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [118/183] preinstalled pam-1.7.0-3.1
+[    6s] [119/183] preinstalled patch-2.8-1.1
+[    6s] [120/183] preinstalled perl-5.40.2-2.1
+[    6s] [121/183] preinstalled perl-base-5.40.2-2.1
+[    6s] [122/183] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [123/183] preinstalled permctl-1699_20250120-1.3
+[    6s] [124/183] preinstalled permissions-1699_20250120-1.3
+[    6s] [125/183] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [126/183] preinstalled pkgconf-2.2.0-1.3
+[    6s] [127/183] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [128/183] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [129/183] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [130/183] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [131/183] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    6s] [132/183] preinstalled rpm-4.20.1-4.1
+[    6s] [133/183] preinstalled rpm-build-4.20.1-4.1
+[    6s] [134/183] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [135/183] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [136/183] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [137/183] preinstalled sed-4.9-2.8
+[    6s] [138/183] cumulate suse-module-tools-16.0.60-1.1
+[    6s] [139/183] preinstalled system-user-root-20190513-2.18
+[    6s] [140/183] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [141/183] cumulate sysuser-shadow-3.3-8.2
+[    6s] [142/183] preinstalled tar-1.35-4.1
+[    6s] [143/183] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [144/183] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [145/183] preinstalled util-linux-2.41-1.1
+[    6s] [146/183] preinstalled which-2.23-1.2
+[    6s] [147/183] preinstalled xz-5.8.1-1.1
+[    6s] [148/183] cumulate zlib-devel-1.3.1-1.3
+[    6s] [149/183] cumulate zstd-1.5.7-3.1
+[    6s] [150/183] cumulate kernel-devel-6.15.1-1.1
+[    6s] [151/183] cumulate kmod-34.2-1.1
+[    6s] [152/183] cumulate libdrm_amdgpu1-2.4.124-2.3
+[    6s] [153/183] cumulate libdrm_nouveau2-2.4.124-2.3
+[    6s] [154/183] cumulate libdrm_radeon1-2.4.124-2.3
+[    6s] [155/183] cumulate libdwarves1-1.30-1.1
+[    6s] [156/183] cumulate mozilla-nss-certs-3.110-1.1
+[    6s] [157/183] cumulate suse-module-tools-scriptlets-16.0.60-1.1
+[    6s] [158/183] cumulate libdrm_intel1-2.4.124-2.3
+[    6s] [159/183] cumulate libelf-devel-0.192-2.2
+[    6s] [160/183] cumulate libpciaccess-devel-0.18.1-1.5
+[    6s] [161/183] cumulate libsemanage2-3.8.1-1.1
+[    6s] [162/183] cumulate dwarves-1.30-1.1
+[    6s] [163/183] cumulate shadow-4.17.4-2.1
+[    6s] [164/183] cumulate libdrm-devel-2.4.124-2.3
+[    6s] [165/183] cumulate kernel-default-devel-6.15.1-1.1
+[    6s] [166/183] cumulate libfipscheck1-1.7.0-2.3
+[    6s] [167/183] cumulate openssl-3-3.5.0-3.1
+[    6s] [168/183] cumulate mozilla-nss-3.110-1.1
+[    6s] [169/183] cumulate python313-base-3.13.3-4.1
+[    6s] [170/183] cumulate fipscheck-1.7.0-2.3
+[    6s] [171/183] cumulate libpython3_13-1_0-3.13.3-4.1
+[    6s] [172/183] cumulate openssl-3.5.0-1.1
+[    6s] [173/183] cumulate python313-packaging-24.2-2.1
+[    6s] [174/183] cumulate python313-python-dateutil-2.9.0.post0-2.4
+[    6s] [175/183] cumulate mozilla-nss-tools-3.110-1.1
+[    6s] [176/183] cumulate python313-PyYAML-6.0.2-3.1
+[    6s] [177/183] cumulate libsoftokn3-3.110-1.1
+[    6s] [178/183] cumulate obs-service-obs_scm-common-0.10.50-1.1
+[    6s] [179/183] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    6s] [180/183] cumulate pesign-116-8.1
+[    6s] [181/183] cumulate obs-service-tar-0.10.50-1.1
+[    6s] [182/183] cumulate pesign-obs-integration-10.2+git20250219.c99462c-1.1
+[    6s] [183/183] cumulate kernel-syms-6.15.1-1.1
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] mozilla-nspr-4.36-1.3                 ########################################
+[    6s] libdrm2-2.4.124-2.3                   ########################################
+[    7s] suse-module-tools-16.0.60-1.1         ########################################
+[    7s] zlib-devel-1.3.1-1.3                  ########################################
+[    7s] libpciaccess0-0.18.1-1.5              ########################################
+[    7s] libfreebl3-3.110-1.1                  ########################################
+[    7s] libbpf1-1.5.1-2.1                     ########################################
+[    7s] libdwarves1-1.30-1.1                  ########################################
+[    7s] dwarves-1.30-1.1                      ########################################
+[    7s] libdrm_intel1-2.4.124-2.3             ########################################
+[    7s] libpciaccess-devel-0.18.1-1.5         ########################################
+[    7s] libdrm_amdgpu1-2.4.124-2.3            ########################################
+[    7s] libdrm_nouveau2-2.4.124-2.3           ########################################
+[    7s] libdrm_radeon1-2.4.124-2.3            ########################################
+[    7s] mozilla-nss-certs-3.110-1.1           ########################################
+[    7s] openssl-3.5.0-1.1                     ########################################
+[    7s] openssl-3-3.5.0-3.1                   ########################################
+[    7s] fipscheck-1.7.0-2.3                   ########################################
+[    7s] libfipscheck1-1.7.0-2.3               ########################################
+[    7s] zstd-1.5.7-3.1                        ########################################
+[    7s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    7s] login_defs-4.17.4-2.1                 ########################################
+[    7s] libzstd-devel-1.5.7-3.1               ########################################
+[    7s] libelf-devel-0.192-2.2                ########################################
+[    7s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    7s] libsubid5-4.17.4-2.1                  ########################################
+[    7s] libsqlite3-0-3.49.2-1.1               ########################################
+[    7s] mozilla-nss-3.110-1.1                 ########################################
+[    7s] libsoftokn3-3.110-1.1                 ########################################
+[    7s] mozilla-nss-tools-3.110-1.1           ########################################
+[    7s] libsepol2-3.8.1-1.1                   ########################################
+[    7s] libsemanage-conf-3.8.1-1.1            ########################################
+[    7s] libsemanage2-3.8.1-1.1                ########################################
+[    7s] shadow-4.17.4-2.1                     ########################################
+[    7s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] sysuser-shadow-3.3-8.2                ########################################
+[    7s] libmpdec4-4.0.1-2.1                   ########################################
+[    7s] libffi8-3.4.7-1.1                     ########################################
+[    7s] libexpat1-2.7.1-2.1                   ########################################
+[    7s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    7s] python313-base-3.13.3-4.1             ########################################
+[    7s] python313-packaging-24.2-2.1          ########################################
+[    7s] python313-python-dateutil-2.9.0.post0-########################################
+[    7s] python313-PyYAML-6.0.2-3.1            ########################################
+[    7s] obs-service-obs_scm-common-0.10.50-1.1########################################
+[    7s] libefivar1-38-3.3                     ########################################
+[    7s] /usr/sbin/useradd -r -c PE-COFF signing daemon -d /var/lib/pesign -U pesign -s /usr/sbin/nologin
+[    7s] pesign-116-8.1                        ########################################
+[    7s] pesign-obs-integration-10.2+git2025021########################################
+[    7s] kernel-macros-6.15.1-1.1              ########################################
+[    9s] kernel-devel-6.15.1-1.1               ########################################
+[   10s] kernel-default-devel-6.15.1-1.1       ########################################
+[   12s] kernel-syms-6.15.1-1.1                ########################################
+[   12s] obs-service-tar-0.10.50-1.1           ########################################
+[   12s] python-rpm-packaging-20210526+a18ca48-########################################
+[   12s] libdrm-devel-2.4.124-2.3              ########################################
+[   12s] kmod-34.2-1.1                         ########################################
+[   12s] suse-module-tools-scriptlets-16.0.60-1########################################
+[   12s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   12s] now finalizing build dir...
+[   12s] ... running 01-add_abuild_user_to_trusted_group
+[   12s] ... running 02-set_timezone_to_utc
+[   12s] ... running 03-set-permissions-secure
+[   12s] ... running 11-hack_uname_version_to_kernel_version
+[   12s] setting SOURCE_DATE_EPOCH_MTIME to 1744099994
+[   12s] Unpacking evdi-1.14.9.obscpio ...
+[   12s] setting SOURCE_DATE_EPOCH_MTIME to 1744099994
+[   12s] 742 blocks
+[   13s] Running build time source services...
+[   13s] spec file parser line 89: cannot expand %(...)
+[   13s] spec file parser line 101: cannot expand %(...)
+[   13s] -----------------------------------------------------------------
+[   13s] I have the following modifications for evdi.spec:
+[   13s] 23c23
+[   13s] < Release:        0
+[   13s] ---
+[   13s] > Release:        1.7
+[   13s] -----------------------------------------------------------------
+[   13s] ----- building evdi.spec (user abuild)
+[   13s] -----------------------------------------------------------------
+[   13s] -----------------------------------------------------------------
+[   13s] setting SOURCE_DATE_EPOCH_MTIME to 1744099994
+[   13s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/d052be4a94fa72bdaaa81db5a041c456-evdi' /home/abuild/rpmbuild/SOURCES/evdi.spec
+[   13s] Could not find certificate from /home/abuild/rpmbuild/SOURCES/_projectcert.crt
+[   13s] using SOURCE_DATE_EPOCH with value 1744099987 as build time
+[   13s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.hHZINc
+[   13s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.Af5NiD
+[   13s] + umask 022
+[   13s] + cd /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build
+[   13s] + cd /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build
+[   13s] + rm -rf evdi-1.14.9
+[   13s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/evdi-1.14.9.tar
+[   13s] + STATUS=0
+[   13s] + '[' 0 -ne 0 ']'
+[   13s] + cd evdi-1.14.9
+[   13s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   14s] + RPM_EC=0
+[   14s] ++ jobs -p
+[   14s] + exit 0
+[   14s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.2VeVXA
+[   14s] + umask 022
+[   14s] + cd /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build
+[   14s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/BUILDROOT
+[   14s] ++ dirname /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/BUILDROOT
+[   14s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build
+[   14s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/BUILDROOT
+[   14s] + cd evdi-1.14.9
+[   14s] + pushd library
+[   14s] ~/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9/library ~/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9
+[   14s] + /usr/bin/make -O -j4 V=1 VERBOSE=1
+[   14s] cc -I../module -std=gnu99 -fPIC -D_FILE_OFFSET_BITS=64  $(pkg-config --cflags-only-I libdrm)   -c -o evdi_procfs.o evdi_procfs.c
+[   14s] cc -I../module -std=gnu99 -fPIC -D_FILE_OFFSET_BITS=64  $(pkg-config --cflags-only-I libdrm)   -c -o evdi_lib.o evdi_lib.c
+[   14s] cc evdi_lib.o evdi_procfs.o -shared -Wl,-soname,libevdi.so.1 -o libevdi.so.1.14.9 -lc -lgcc 
+[   14s] cp libevdi.so.1.14.9 libevdi.so
+[   14s] ln -sf libevdi.so.1.14.9 libevdi.so.1
+[   14s] + mv LICENSE LICENSE.library
+[   14s] + popd
+[   14s] ~/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9
+[   14s] + pushd module
+[   14s] ~/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9/module ~/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9
+[   14s] + sed -i s:/kernel/drivers/gpu/drm/evdi:/extra: Makefile
+[   14s] + mv LICENSE LICENSE.module
+[   14s] + set -- Kconfig LICENSE.module Makefile README.md dkms.conf dkms_install.sh evdi_connector.c evdi_cursor.c evdi_cursor.h evdi_debug.c evdi_debug.h evdi_drm.h evdi_drm_drv.c evdi_drm_drv.h evdi_encoder.c evdi_fb.c evdi_gem.c evdi_i2c.c evdi_i2c.h evdi_ioc32.c evdi_modeset.c evdi_painter.c evdi_params.c evdi_params.h evdi_platform_dev.c evdi_platform_dev.h evdi_platform_drv.c evdi_platform_drv.h evdi_sysfs.c evdi_sysfs.h tests
+[   14s] + mkdir source
+[   14s] + mv Kconfig LICENSE.module Makefile README.md dkms.conf dkms_install.sh evdi_connector.c evdi_cursor.c evdi_cursor.h evdi_debug.c evdi_debug.h evdi_drm.h evdi_drm_drv.c evdi_drm_drv.h evdi_encoder.c evdi_fb.c evdi_gem.c evdi_i2c.c evdi_i2c.h evdi_ioc32.c evdi_modeset.c evdi_painter.c evdi_params.c evdi_params.h evdi_platform_dev.c evdi_platform_dev.h evdi_platform_drv.c evdi_platform_drv.h evdi_sysfs.c evdi_sysfs.h tests source/
+[   14s] + mkdir obj
+[   14s] + for flavor in default
+[   14s] + rm -rf obj/default
+[   14s] + cp -r source obj/default
+[   14s] + make -j4 -C /usr/lib/modules/6.15.1-1-default/build M=/home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9/module/obj/default modules
+[   14s] make: Entering directory '/usr/src/linux-6.15.1-1-obj/x86_64/default'
+[   14s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9/module/obj/default'
+[   14s]   CC [M]  evdi_platform_drv.o
+[   14s]   CC [M]  evdi_platform_dev.o
+[   14s]   CC [M]  evdi_sysfs.o
+[   14s]   CC [M]  evdi_modeset.o
+[   15s]   CC [M]  evdi_connector.o
+[   15s]   CC [M]  evdi_encoder.o
+[   15s]   CC [M]  evdi_drm_drv.o
+[   15s]   CC [M]  evdi_fb.o
+[   15s] evdi_connector.c:165:23: error: initialization of âenum drm_mode_status (*)(struct drm_connector *, const struct drm_display_mode *)â from incompatible pointer type âenum drm_mode_status (*)(struct drm_connector *, struct drm_display_mode *)â [-Wincompatible-pointer-types]
+[   15s]   165 |         .mode_valid = evdi_mode_valid,
+[   15s]       |                       ^~~~~~~~~~~~~~~
+[   15s] evdi_connector.c:165:23: note: (near initialization for âevdi_connector_helper_funcs.mode_validâ)
+[   15s] make[3]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: evdi_connector.o] Error 1
+[   15s] make[3]: *** Waiting for unfinished jobs....
+[   15s] evdi_fb.c:459:10: error: âstruct drm_fb_helper_funcsâ has no member named âfb_probeâ
+[   15s]   459 |         .fb_probe = evdifb_create,
+[   15s]       |          ^~~~~~~~
+[   15s] evdi_fb.c:459:21: error: initialization of âint (*)(struct drm_fb_helper *, struct drm_clip_rect *)â from incompatible pointer type âint (*)(struct drm_fb_helper *, struct drm_fb_helper_surface_size *)â [-Wincompatible-pointer-types]
+[   15s]   459 |         .fb_probe = evdifb_create,
+[   15s]       |                     ^~~~~~~~~~~~~
+[   15s] evdi_fb.c:459:21: note: (near initialization for âevdi_fb_helper_funcs.fb_dirtyâ)
+[   15s] make[3]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: evdi_fb.o] Error 1
+[   15s] make[2]: *** [/usr/src/linux-6.15.1-1/Makefile:2026: .] Error 2
+[   15s] make[1]: *** [/usr/src/linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   15s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/evdi-1.14.9-build/evdi-1.14.9/module/obj/default'
+[   15s] make: *** [../../../linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   15s] make: Leaving directory '/usr/src/linux-6.15.1-1-obj/x86_64/default'
+[   15s] error: Bad exit status from /var/tmp/rpm-tmp.2VeVXA (%build)
+[   15s] 
+[   15s] RPM build errors:
+[   15s]     Bad exit status from /var/tmp/rpm-tmp.2VeVXA (%build)
+[   15s] ### VM INTERACTION START ###
+[   15s] [   11.496200][    T1] sysrq: Power Off
+[   15s] ### VM INTERACTION END ###
+[   15s] 
+[   15s] i02-ch1a failed "build evdi.spec" at Tue Jun 10 11:39:44 UTC 2025.
+[   15s] 

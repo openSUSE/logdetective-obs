@@ -1,0 +1,1657 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_28/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_28/root
+[    0s] 
+[    0s] 
+[    0s] i04-ch2b started "build config.kiwi" at Wed Jun 11 14:58:02 UTC 2025.
+[    0s] 
+[    0s] Building opensuse-tumbleweed-dnf-image:networkd-microdnf for project 'openSUSE:Factory' repository 'images' arch 'x86_64' srcmd5 '73d536461a55cefd41aedcafeea197fa'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_28/.build-srcdir/config.kiwi ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_28/.build-srcdir/config.kiwi
+[    0s] init_buildsystem --configdir /var/run/obs/worker/28/build/configs --cachedir /var/cache/build --prepare --buildflavor networkd-microdnf --clean --rpmlist /var/cache/obs/worker/root_28/.build.rpmlist /var/cache/obs/worker/root_28/.build-srcdir/config.kiwi build ...
+[    1s] cycle: rpm-config-SUSE -> rpm
+[    1s]   breaking dependency rpm-config-SUSE -> rpm
+[    1s] [1/28] preinstalling compat-usrmerge-tools...
+[    1s] [2/28] preinstalling system-user-root...
+[    1s] [3/28] preinstalling terminfo-base...
+[    1s] [4/28] preinstalling filesystem...
+[    1s] [5/28] preinstalling glibc...
+[    2s] [6/28] preinstalling fillup...
+[    2s] [7/28] preinstalling libacl1...
+[    2s] [8/28] preinstalling libattr1...
+[    2s] [9/28] preinstalling libbz2-1...
+[    2s] [10/28] preinstalling libcap2...
+[    2s] [11/28] preinstalling libgmp10...
+[    2s] [12/28] preinstalling libgpg-error0...
+[    2s] [13/28] preinstalling libjitterentropy3...
+[    2s] [14/28] preinstalling liblua5_4-5...
+[    2s] [15/28] preinstalling liblzma5...
+[    2s] [16/28] preinstalling libpcre2-8-0...
+[    2s] [17/28] preinstalling libpopt0...
+[    2s] [18/28] preinstalling libz1...
+[    2s] [19/28] preinstalling libzstd1...
+[    2s] [20/28] preinstalling libncurses6...
+[    2s] [21/28] preinstalling libreadline8...
+[    2s] [22/28] preinstalling libselinux1...
+[    2s] [23/28] preinstalling libgcrypt20...
+[    2s] [24/28] preinstalling bash...
+[    2s] [25/28] preinstalling bash-sh...
+[    2s] [26/28] preinstalling coreutils...
+[    2s] [27/28] preinstalling rpm-config-SUSE...
+[    2s] [28/28] preinstalling rpm...
+[    2s] 
+[    2s] [1/18] preinstalling grep...
+[    2s] [2/18] preinstalling kernel-obs-build...
+[    2s] [3/18] preinstalling libaudit1...
+[    2s] [4/18] preinstalling libcap-ng0...
+[    2s] [5/18] preinstalling libcrypt1...
+[    2s] [6/18] preinstalling libeconf0...
+[    2s] [7/18] preinstalling libgcc_s1...
+[    2s] [8/18] preinstalling libsmartcols1...
+[    2s] [9/18] preinstalling libuuid1...
+[    2s] [10/18] preinstalling libblkid1...
+[    2s] [11/18] preinstalling perl-base...
+[    3s] [12/18] preinstalling permctl...
+[    3s] [13/18] preinstalling libmount1...
+[    3s] [14/18] preinstalling permissions-config...
+[    3s] [15/18] preinstalling libfdisk1...
+[    3s] [16/18] preinstalling permissions...
+[    3s] [17/18] preinstalling pam...
+[    3s] [18/18] preinstalling util-linux...
+[    3s] copying packages...
+[    3s] reordering...cycle: binutils -> libctf0
+[    3s]   breaking dependency libctf0 -> binutils
+[    3s] cycle: gio-branding-upstream -> libgio-2_0-0
+[    3s]   breaking dependency libgio-2_0-0 -> gio-branding-upstream
+[    3s] cycle: libgio-2_0-0 -> glib2-tools
+[    3s]   breaking dependency libgio-2_0-0 -> glib2-tools
+[    3s] cycle: girepository-1_0 -> libgirepository-1_0-1
+[    3s]   breaking dependency libgirepository-1_0-1 -> girepository-1_0
+[    3s] cycle: openssl -> openssl-3
+[    3s]   breaking dependency openssl-3 -> openssl
+[    3s] cycle: python313-base -> libpython3_13-1_0
+[    3s]   breaking dependency python313-base -> libpython3_13-1_0
+[    3s] cycle: rpm -> rpm-config-SUSE
+[    3s]   breaking dependency rpm-config-SUSE -> rpm
+[    3s] done
+[    3s] Detected virtio-serial support
+[    4s] booting kvm...
+[    4s] ### VM INTERACTION START ###
+[    4s] Using virtio-serial support and enabling console input
+[    4s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_28/.mount/boot/kernel -initrd /var/cache/obs/worker/root_28/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime elevator=noop nmi_watchdog=0 rw ia32_emulation=1 oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_28/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_28/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_28/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    5s] [!p]104[?7h[    0.618730][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    7s] 2nd stage started in virtual machine
+[    7s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    7s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    7s] Time: Wed Jun 11 14:58:08 UTC 2025
+[    7s] Increasing log level from now on...
+[    7s] [    2.635931][  T573] sysrq: Changing Loglevel
+[    7s] [    2.636002][  T573] sysrq: Loglevel set to 4
+[    7s] Enable sysrq operations
+[    7s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    7s] no label, UUID=0c6494bf-60d6-4498-9750-2da16ea872ae
+[    7s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe //.build-srcdir/config.kiwi ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build --buildflavor networkd-microdnf //.build-srcdir/config.kiwi build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[    8s] [1/279] cumulate boost-license1_88_0-1.88.0-1.1
+[    8s] [2/279] cumulate compat-usrmerge-tools-84.87-5.22
+[    8s] [3/279] cumulate crypto-policies-20250124.4d262e7-3.1
+[    8s] [4/279] cumulate file-magic-5.46-4.1
+[    8s] [5/279] cumulate kernel-obs-build-6.15.1-1.1
+[    8s] [6/279] cumulate libtirpc-netconfig-1.3.6-2.1
+[    8s] [7/279] cumulate pkgconf-m4-2.2.0-1.3
+[    8s] [8/279] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    8s] [9/279] cumulate rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    8s] [10/279] cumulate system-user-root-20190513-2.18
+[    8s] [11/279] cumulate terminfo-base-6.5.20250531-73.1
+[    8s] [12/279] cumulate filesystem-84.87-18.2
+[    8s] [13/279] cumulate glibc-2.41-2.1
+[    8s] [14/279] cumulate diffutils-3.12-1.1
+[    8s] [15/279] cumulate envsubst-mini-0.22.5-8.1
+[    8s] [16/279] cumulate fillup-1.42-281.3
+[    8s] [17/279] cumulate glibc-gconv-modules-extra-2.41-2.1
+[    8s] [18/279] cumulate glibc-locale-base-2.41-2.1
+[    8s] [19/279] cumulate libacl1-2.3.2-2.3
+[    8s] [20/279] cumulate libalternatives1-1.2+31.da24cd4-1.1
+[    8s] [21/279] cumulate libatomic1-15.1.1+git9739-2.1
+[    8s] [22/279] cumulate libattr1-2.5.2-1.4
+[    8s] [23/279] cumulate libaudit1-4.0-3.3
+[    8s] [24/279] cumulate libbrotlicommon1-1.1.0-1.6
+[    8s] [25/279] cumulate libbz2-1-1.0.8-5.12
+[    8s] [26/279] cumulate libcap-ng0-0.8.5-1.3
+[    8s] [27/279] cumulate libcap2-2.75-1.1
+[    8s] [28/279] cumulate libcom_err2-1.47.2-1.1
+[    8s] [29/279] cumulate libcrypt1-4.4.38-1.2
+[    8s] [30/279] cumulate libeconf0-0.7.9-1.1
+[    8s] [31/279] cumulate libexpat1-2.7.1-2.1
+[    8s] [32/279] cumulate libfa1-1.14.1-2.1
+[    8s] [33/279] cumulate libffi8-3.4.7-1.1
+[    8s] [34/279] cumulate libgcc_s1-15.1.1+git9739-2.1
+[    8s] [35/279] cumulate libgdbm6-1.24-2.1
+[    8s] [36/279] cumulate libgmp10-6.3.0-5.1
+[    8s] [37/279] cumulate libgomp1-15.1.1+git9739-2.1
+[    8s] [38/279] cumulate libgpg-error0-1.55-1.1
+[    8s] [39/279] cumulate libitm1-15.1.1+git9739-2.1
+[    8s] [40/279] cumulate libjitterentropy3-3.6.3-1.1
+[    8s] [41/279] cumulate libjson-c5-0.18-1.3
+[    8s] [42/279] cumulate liblua5_4-5-5.4.7-4.1
+[    8s] [43/279] cumulate liblz1-1.15-1.2
+[    8s] [44/279] cumulate liblz4-1-1.10.0-2.4
+[    8s] [45/279] cumulate liblzma5-5.8.1-1.1
+[    8s] [46/279] cumulate libmpdec4-4.0.1-2.1
+[    8s] [47/279] cumulate libnghttp2-14-1.65.0-1.1
+[    8s] [48/279] cumulate libnpth0-1.8-2.1
+[    8s] [49/279] cumulate libonig5-6.9.10-2.1
+[    8s] [50/279] cumulate libpcre2-8-0-10.45-1.1
+[    8s] [51/279] cumulate libpkgconf5-2.2.0-1.3
+[    8s] [52/279] cumulate libpopt0-1.19-1.10
+[    8s] [53/279] cumulate libsasl2-3-2.1.28-10.1
+[    8s] [54/279] cumulate libseccomp2-2.6.0-2.2
+[    8s] [55/279] cumulate libsmartcols1-2.41-1.1
+[    8s] [56/279] cumulate libsqlite3-0-3.50.1-1.1
+[    8s] [57/279] cumulate libtasn1-6-4.20.0-1.2
+[    8s] [58/279] cumulate libunistring5-1.3-1.3
+[    8s] [59/279] cumulate libuuid1-2.41-1.1
+[    8s] [60/279] cumulate libverto1-0.3.2-3.5
+[    8s] [61/279] cumulate libxxhash0-0.8.3-1.2
+[    8s] [62/279] cumulate libyaml-0-2-0.2.5-2.7
+[    8s] [63/279] cumulate libz1-1.3.1-1.3
+[    8s] [64/279] cumulate libzstd1-1.5.7-3.1
+[    8s] [65/279] cumulate patch-2.8-1.1
+[    8s] [66/279] cumulate update-alternatives-1.22.18-1.1
+[    8s] [67/279] cumulate which-2.23-1.2
+[    8s] [68/279] cumulate libncurses6-6.5.20250531-73.1
+[    8s] [69/279] cumulate alts-1.2+31.da24cd4-1.1
+[    8s] [70/279] cumulate libassuan9-3.0.2-1.2
+[    8s] [71/279] cumulate libblkid1-2.41-1.1
+[    8s] [72/279] cumulate libbrotlidec1-1.1.0-1.6
+[    8s] [73/279] cumulate libctf-nobfd0-2.43-7.1
+[    8s] [74/279] cumulate libgdbm_compat4-1.24-2.1
+[    8s] [75/279] cumulate libglib-2_0-0-2.84.2-1.1
+[    8s] [76/279] cumulate libidn2-0-2.3.8-1.1
+[    8s] [77/279] cumulate libisl23-0.27-1.2
+[    8s] [78/279] cumulate libjq1-1.7.1-3.1
+[    8s] [79/279] cumulate libksba8-1.6.7-1.3
+[    8s] [80/279] cumulate libmpfr6-4.2.2-1.1
+[    8s] [81/279] cumulate libp11-kit0-0.25.5-1.4
+[    8s] [82/279] cumulate libreadline8-8.2.13-2.3
+[    8s] [83/279] cumulate libselinux1-3.8.1-1.1
+[    8s] [84/279] cumulate libstdc++6-15.1.1+git9739-2.1
+[    8s] [85/279] cumulate libudev-mini1-257.6-1.1
+[    8s] [86/279] cumulate ncurses-utils-6.5.20250531-73.1
+[    8s] [87/279] cumulate perl-base-5.40.2-2.1
+[    8s] [88/279] cumulate pkgconf-2.2.0-1.3
+[    8s] [89/279] cumulate psmisc-23.7-4.1
+[    8s] [90/279] cumulate libelf1-0.192-2.2
+[    8s] [91/279] cumulate libgcrypt20-1.11.1-1.1
+[    8s] [92/279] cumulate libxml2-2-2.13.8-1.1
+[    8s] [93/279] cumulate libopenssl3-3.5.0-3.1
+[    8s] [94/279] cumulate permctl-1699_20250120-1.3
+[    8s] [95/279] cumulate libmagic1-5.46-4.1
+[    8s] [96/279] cumulate build-mkbaselibs-20250602-1.1
+[    8s] [97/279] cumulate bash-5.2.37-20.1
+[    8s] [98/279] cumulate dwz-0.15-6.1
+[    8s] [99/279] cumulate findutils-4.10.0-2.2
+[    8s] [100/279] cumulate jq-1.7.1-3.1
+[    8s] [101/279] cumulate libgmodule-2_0-0-2.84.2-1.1
+[    8s] [102/279] cumulate libusb-1_0-0-1.0.28-1.1
+[    8s] [103/279] cumulate libxslt1-1.1.43-1.1
+[    8s] [104/279] cumulate file-5.46-4.1
+[    8s] [105/279] cumulate libasan8-15.1.1+git9739-2.1
+[    8s] [106/279] cumulate libaugeas0-1.14.1-2.1
+[    8s] [107/279] cumulate libcomps0-0.1.20-3.4
+[    8s] [108/279] cumulate libfdisk1-2.41-1.1
+[    8s] [109/279] cumulate libgobject-2_0-0-2.84.2-1.1
+[    8s] [110/279] cumulate libhwasan0-15.1.1+git9739-2.1
+[    8s] [111/279] cumulate libldap2-2.6.8-2.5
+[    8s] [112/279] cumulate liblsan0-15.1.1+git9739-2.1
+[    8s] [113/279] cumulate libmount1-2.41-1.1
+[    8s] [114/279] cumulate libmpc3-1.3.1-1.10
+[    8s] [115/279] cumulate libpsl5-0.21.5-1.5
+[    8s] [116/279] cumulate libsigc-2_0-0-2.12.1-2.6
+[    8s] [117/279] cumulate libtsan2-15.1.1+git9739-2.1
+[    8s] [118/279] cumulate libubsan1-15.1.1+git9739-2.1
+[    8s] [119/279] cumulate libyaml-cpp0_8-0.8.0-4.1
+[    8s] [120/279] cumulate libzck1-1.5.1-1.3
+[    8s] [121/279] cumulate p11-kit-0.25.5-1.4
+[    8s] [122/279] cumulate p11-kit-tools-0.25.5-1.4
+[    8s] [123/279] cumulate sed-4.9-2.8
+[    8s] [124/279] cumulate tar-1.35-4.1
+[    8s] [125/279] cumulate libboost_thread1_88_0-1.88.0-1.1
+[    8s] [126/279] cumulate libdw1-0.192-2.2
+[    8s] [127/279] cumulate perl-5.40.2-2.1
+[    8s] [128/279] cumulate libarchive13-3.7.9-1.1
+[    8s] [129/279] cumulate bash-sh-5.2.37-20.1
+[    8s] [130/279] cumulate brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    8s] [131/279] cumulate perl-Class-Data-Inheritable-0.100.0-1.2
+[    8s] [132/279] cumulate perl-Class-Inspector-1.360.0-1.1
+[    8s] [133/279] cumulate perl-Class-Singleton-1.600.0-1.2
+[    8s] [134/279] cumulate perl-Devel-StackTrace-2.50.0-2.4
+[    8s] [135/279] cumulate perl-Eval-Closure-0.14-1.30
+[    8s] [136/279] cumulate perl-MRO-Compat-0.15-1.14
+[    8s] [137/279] cumulate perl-Module-Runtime-0.18.0-1.1
+[    8s] [138/279] cumulate perl-Role-Tiny-2.002004-1.19
+[    8s] [139/279] cumulate perl-Sub-Exporter-Progressive-0.001013-1.30
+[    8s] [140/279] cumulate perl-Sub-Quote-2.006008-1.8
+[    8s] [141/279] cumulate perl-TimeDate-2.33-1.21
+[    8s] [142/279] cumulate perl-Try-Tiny-0.320.0-1.2
+[    8s] [143/279] cumulate perl-Clone-0.470.0-1.3
+[    8s] [144/279] cumulate perl-Variable-Magic-0.640.0-1.4
+[    8s] [145/279] cumulate perl-XString-0.005-1.23
+[    8s] [146/279] cumulate perl-rpm-packaging-1.2-1.1
+[    8s] [147/279] cumulate typelib-1_0-GLib-2_0-2.84.2-1.1
+[    8s] [148/279] cumulate libasm1-0.192-2.2
+[    8s] [149/279] cumulate libexslt0-1.1.43-1.1
+[    8s] [150/279] cumulate libgirepository-2_0-0-2.84.2-1.1
+[    8s] [151/279] cumulate cpp14-14.3.0+git11799-3.1
+[    8s] [152/279] cumulate libssh-config-0.11.1-5.1
+[    8s] [153/279] cumulate cpio-2.15-5.1
+[    8s] [154/279] cumulate cpp-14-3.1
+[    8s] [155/279] cumulate gzip-1.14-1.1
+[    8s] [156/279] cumulate make-4.4.1-3.3
+[    8s] [157/279] cumulate perl-Dist-CheckConflicts-0.110.0-1.1
+[    8s] [158/279] cumulate perl-File-ShareDir-1.118-1.21
+[    8s] [159/279] cumulate perl-Test-Fatal-0.017-1.9
+[    8s] [160/279] cumulate typelib-1_0-GModule-2_0-2.84.2-1.1
+[    8s] [161/279] cumulate typelib-1_0-GObject-2_0-2.84.2-1.1
+[    8s] [162/279] cumulate bzip2-1.0.8-5.12
+[    8s] [163/279] cumulate grep-3.12-1.1
+[    8s] [164/279] cumulate mtools-4.0.45-2.1
+[    8s] [165/279] cumulate perl-Exception-Class-1.45-1.17
+[    8s] [166/279] cumulate perl-Module-Implementation-0.90.0-1.1
+[    8s] [167/279] cumulate pkgconf-pkg-config-2.2.0-1.3
+[    8s] [168/279] cumulate xz-5.8.1-1.1
+[    8s] [169/279] cumulate gettext-runtime-mini-0.22.5-8.1
+[    8s] [170/279] cumulate libxslt-tools-1.1.43-1.1
+[    8s] [171/279] cumulate gawk-5.3.2-1.1
+[    8s] [172/279] cumulate lua54-5.4.7-4.1
+[    8s] [173/279] cumulate shared-mime-info-2.4-3.4
+[    8s] [174/279] cumulate coreutils-9.7-2.1
+[    8s] [175/279] cumulate elfutils-0.192-2.2
+[    8s] [176/279] cumulate gpg2-2.5.7-2.1
+[    8s] [177/279] cumulate compat-usrmerge-build-84.87-5.22
+[    8s] [178/279] cumulate systemd-rpm-macros-24-1.8
+[    8s] [179/279] cumulate dnf-data-4.23.0-1.1
+[    8s] [180/279] cumulate libxcrypt-devel-4.4.38-1.2
+[    8s] [181/279] cumulate linux-glibc-devel-6.15-1.1
+[    8s] [182/279] cumulate obs-service-kiwi_label_helper-0.0-4.6
+[    8s] [183/279] cumulate libgpgme11-1.24.3-2.1
+[    8s] [184/279] cumulate obs-service-kiwi_metainfo_helper-0.6-9.1
+[    8s] [185/279] cumulate perl-B-Hooks-EndOfScope-0.280.0-1.4
+[    8s] [186/279] cumulate perl-Package-Stash-0.400.0-1.1
+[    8s] [187/279] cumulate perl-Params-ValidationCompiler-0.31-1.8
+[    8s] [188/279] cumulate ca-certificates-2+git20240805.fd24d50-1.2
+[    8s] [189/279] cumulate permissions-config-1699_20250120-1.3
+[    8s] [190/279] cumulate polkit-default-privs-1550+20250603.5d84a17-1.1
+[    8s] [191/279] cumulate gettext-tools-mini-0.22.5-8.1
+[    8s] [192/279] cumulate krb5-mini-1.21.3-3.1
+[    8s] [193/279] cumulate aaa_base-84.87+git20250429.1cad3bc-1.1
+[    8s] [194/279] cumulate perl-Specio-0.500.0-1.1
+[    8s] [195/279] cumulate rsync-3.4.1-3.1
+[    8s] [196/279] cumulate aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    8s] [197/279] cumulate ca-certificates-mozilla-2.74-4.1
+[    8s] [198/279] cumulate permissions-1699_20250120-1.3
+[    8s] [199/279] cumulate glibc-devel-2.41-2.1
+[    8s] [200/279] cumulate libtirpc3-1.3.6-2.1
+[    8s] [201/279] cumulate perl-namespace-clean-0.270.0-1.1
+[    8s] [202/279] cumulate libssh4-0.11.1-5.1
+[    8s] [203/279] cumulate rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    8s] [204/279] cumulate lsof-4.99.4-3.1
+[    8s] [205/279] cumulate perl-namespace-autoclean-0.310.0-1.2
+[    8s] [206/279] cumulate pam-1.7.0-3.1
+[    8s] [207/279] cumulate post-build-checks-84.87+git20240327.7996a0f-1.3
+[    8s] [208/279] cumulate libcurl4-8.14.1-1.1
+[    8s] [209/279] cumulate perl-DateTime-Locale-1.450000-1.1
+[    8s] [210/279] cumulate screen-4.9.1-5.1
+[    8s] [211/279] cumulate perl-DateTime-TimeZone-2.650.0-1.1
+[    8s] [212/279] cumulate util-linux-2.41-1.1
+[    8s] [213/279] cumulate perl-DateTime-1.660.0-1.1
+[    8s] [214/279] cumulate perl-DateTime-Format-DateParse-0.05-22.35
+[    8s] [215/279] cumulate rpm-config-SUSE-20250423-1.1
+[    8s] [216/279] cumulate libctf0-2.43-7.1
+[    8s] [217/279] cumulate libgirepository-1_0-1-1.84.0-2.1
+[    8s] [218/279] cumulate openssl-3-3.5.0-3.1
+[    8s] [219/279] cumulate libgio-2_0-0-2.84.2-1.1
+[    8s] [220/279] cumulate python313-base-3.13.3-4.1
+[    8s] [221/279] cumulate gio-branding-upstream-2.84.2-1.1
+[    8s] [222/279] cumulate girepository-1_0-1.84.0-2.1
+[    8s] [223/279] cumulate openssl-3.5.0-1.1
+[    8s] [224/279] cumulate python313-cssselect-1.3.0-1.1
+[    8s] [225/279] cumulate python313-docopt-0.6.2-10.1
+[    8s] [226/279] cumulate python313-idna-3.10-1.5
+[    8s] [227/279] cumulate python313-packaging-24.2-2.1
+[    8s] [228/279] cumulate python313-xmltodict-0.14.2-1.5
+[    8s] [229/279] cumulate libpython3_13-1_0-3.13.3-4.1
+[    8s] [230/279] cumulate python313-setuptools-78.1.1-1.1
+[    8s] [231/279] cumulate python313-simplejson-3.20.1-1.1
+[    8s] [232/279] cumulate python313-six-1.17.0-1.4
+[    8s] [233/279] cumulate python313-urllib3-2.4.0-1.1
+[    8s] [234/279] cumulate python313-PyYAML-6.0.2-3.1
+[    8s] [235/279] cumulate python313-certifi-2025.1.31-1.1
+[    8s] [236/279] cumulate python313-charset-normalizer-3.4.2-1.1
+[    8s] [237/279] cumulate python313-gpg-1.24.3-2.1
+[    8s] [238/279] cumulate python313-3.13.3-4.1
+[    8s] [239/279] cumulate typelib-1_0-Gio-2_0-2.84.2-1.1
+[    8s] [240/279] cumulate libpeas-1_0-0-1.36.0-3.1
+[    8s] [241/279] cumulate glib2-tools-2.84.2-1.1
+[    8s] [242/279] cumulate binutils-2.43-7.1
+[    8s] [243/279] cumulate librepo0-1.19.0-1.4
+[    8s] [244/279] cumulate rpm-4.20.1-5.1
+[    8s] [245/279] cumulate release-compare-0.9.2-1.2
+[    8s] [246/279] cumulate python313-curses-3.13.3-4.1
+[    8s] [247/279] cumulate libmodulemd2-2.15.0-3.4
+[    8s] [248/279] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    8s] [249/279] cumulate python3-libcomps-0.1.20-3.4
+[    8s] [250/279] cumulate deltarpm-3.6.5-1.3
+[    8s] [251/279] cumulate python313-lxml-5.4.0-1.1
+[    8s] [252/279] cumulate libsolv-tools-base-0.7.33-1.1
+[    8s] [253/279] cumulate python313-requests-2.32.3-5.1
+[    8s] [254/279] cumulate python313-gobject-3.52.3-3.1
+[    8s] [255/279] cumulate build-20250602-1.1
+[    8s] [256/279] cumulate build-compare-20240801T083050.024a3a7-1.4
+[    8s] [257/279] cumulate librpmbuild10-4.20.1-5.1
+[    8s] [258/279] cumulate debugedit-5.1-1.3
+[    8s] [259/279] cumulate gcc14-14.3.0+git11799-3.1
+[    8s] [260/279] cumulate gcc14-PIE-14.3.0+git11799-3.1
+[    8s] [261/279] cumulate gcc-14-3.1
+[    8s] [262/279] cumulate typelib-1_0-Modulemd-2_0-2.15.0-3.4
+[    8s] [263/279] cumulate python313-rpm-4.20.1-4.1
+[    8s] [264/279] cumulate containment-tik-img-to-rpm-1.0-4.3
+[    8s] [265/279] cumulate libcreaterepo_c1-1.2.1-1.1
+[    8s] [266/279] cumulate libdnf2-0.74.0-1.1
+[    8s] [267/279] cumulate libzypp-17.37.4-1.1
+[    8s] [268/279] cumulate gcc-PIE-14-3.1
+[    8s] [269/279] cumulate python3-libmodulemd-2.15.0-3.4
+[    8s] [270/279] cumulate createrepo_c-1.2.1-1.1
+[    8s] [271/279] cumulate python3-libdnf-0.74.0-1.1
+[    8s] [272/279] cumulate microdnf-3.9.1-1.12
+[    8s] [273/279] cumulate zypper-1.14.90-1.1
+[    8s] [274/279] cumulate rpm-build-4.20.1-5.1
+[    8s] [275/279] cumulate python3-hawkey-0.74.0-1.1
+[    8s] [276/279] cumulate python3-dnf-4.23.0-1.1
+[    8s] [277/279] cumulate dnf-4.23.0-1.1
+[    8s] [278/279] cumulate kiwi-systemdeps-core-10.2.16-1.1
+[    8s] [279/279] cumulate python3-kiwi-10.2.16-1.1
+[    8s] now installing cumulated packages
+[    8s] Preparing...                          ########################################
+[    8s] Updating / installing...
+[    8s] system-user-root-20190513-2.18        ########################################
+[    8s] crypto-policies-20250124.4d262e7-3.1  ########################################
+[    8s] terminfo-base-6.5.20250531-73.1       ########################################
+[    8s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    8s] pkgconf-m4-2.2.0-1.3                  ########################################
+[    8s] libtirpc-netconfig-1.3.6-2.1          ########################################
+[    8s] file-magic-5.46-4.1                   ########################################
+[    8s] compat-usrmerge-tools-84.87-5.22      ########################################
+[    8s] filesystem-84.87-18.2                 ########################################
+[    8s] glibc-2.41-2.1                        ########################################
+[    8s] libz1-1.3.1-1.3                       ########################################
+[    8s] libgcc_s1-15.1.1+git9739-2.1          ########################################
+[    8s] libstdc++6-15.1.1+git9739-2.1         ########################################
+[    8s] libzstd1-1.5.7-3.1                    ########################################
+[    8s] libbz2-1-1.0.8-5.12                   ########################################
+[    8s] liblzma5-5.8.1-1.1                    ########################################
+[    8s] libxml2-2-2.13.8-1.1                  ########################################
+[    8s] libelf1-0.192-2.2                     ########################################
+[    8s] libacl1-2.3.2-2.3                     ########################################
+[    8s] libgmp10-6.3.0-5.1                    ########################################
+[    8s] libcrypt1-4.4.38-1.2                  ########################################
+[    8s] perl-base-5.40.2-2.1                  ########################################
+[    9s] libffi8-3.4.7-1.1                     ########################################
+[    9s] libncurses6-6.5.20250531-73.1         ########################################
+[    9s] libreadline8-8.2.13-2.3               ########################################
+[    9s] bash-5.2.37-20.1                      ########################################
+[    9s] bash-sh-5.2.37-20.1                   ########################################
+[    9s] fillup-1.42-281.3                     ########################################
+[    9s] libcap2-2.75-1.1                      ########################################
+[    9s] libgpg-error0-1.55-1.1                ########################################
+[    9s] cpio-2.15-5.1                         ########################################
+[    9s] xz-5.8.1-1.1                          ########################################
+[    9s] libmpfr6-4.2.2-1.1                    ########################################
+[    9s] gawk-5.3.2-1.1                        ########################################
+[    9s] libdw1-0.192-2.2                      ########################################
+[    9s] libpopt0-1.19-1.10                    ########################################
+[    9s] libsmartcols1-2.41-1.1                ########################################
+[    9s] libsqlite3-0-3.50.1-1.1               ########################################
+[    9s] update-alternatives-1.22.18-1.1       ########################################
+[    9s] libxslt1-1.1.43-1.1                   ########################################
+[    9s] libeconf0-0.7.9-1.1                   ########################################
+[    9s] libblkid1-2.41-1.1                    ########################################
+[    9s] libgomp1-15.1.1+git9739-2.1           ########################################
+[    9s] liblua5_4-5-5.4.7-4.1                 ########################################
+[    9s] libpcre2-8-0-10.45-1.1                ########################################
+[    9s] libglib-2_0-0-2.84.2-1.1              ########################################
+[    9s] libgobject-2_0-0-2.84.2-1.1           ########################################
+[    9s] libselinux1-3.8.1-1.1                 ########################################
+[    9s] sed-4.9-2.8                           ########################################
+[    9s] typelib-1_0-GLib-2_0-2.84.2-1.1       ########################################
+[    9s] libgmodule-2_0-0-2.84.2-1.1           ########################################
+[    9s] grep-3.12-1.1                         ########################################
+[    9s] findutils-4.10.0-2.2                  ########################################
+[    9s] tar-1.35-4.1                          ########################################
+[    9s] libuuid1-2.41-1.1                     ########################################
+[    9s] girepository-1_0-1.84.0-2.1           ########################################
+[    9s] libgirepository-1_0-1-1.84.0-2.1      ########################################
+[    9s] typelib-1_0-GObject-2_0-2.84.2-1.1    ########################################
+[    9s] libmount1-2.41-1.1                    ########################################
+[    9s] libexslt0-1.1.43-1.1                  ########################################
+[    9s] libmpc3-1.3.1-1.10                    ########################################
+[    9s] libassuan9-3.0.2-1.2                  ########################################
+[    9s] libudev-mini1-257.6-1.1               ########################################
+[    9s] permctl-1699_20250120-1.3             ########################################
+[    9s] libp11-kit0-0.25.5-1.4                ########################################
+[    9s] libisl23-0.27-1.2                     ########################################
+[    9s] cpp14-14.3.0+git11799-3.1             ########################################
+[    9s] dwz-0.15-6.1                          ########################################
+[    9s] diffutils-3.12-1.1                    ########################################
+[    9s] glibc-gconv-modules-extra-2.41-2.1    ########################################
+[    9s] glibc-locale-base-2.41-2.1            ########################################
+[    9s] libaudit1-4.0-3.3                     ########################################
+[    9s] libexpat1-2.7.1-2.1                   ########################################
+[    9s] libgdbm6-1.24-2.1                     ########################################
+[    9s] libjitterentropy3-3.6.3-1.1           ########################################
+[    9s] libopenssl3-3.5.0-3.1                 ########################################
+[    9s] libzck1-1.5.1-1.3                     ########################################
+[    9s] libgcrypt20-1.11.1-1.1                ########################################
+[    9s] liblz4-1-1.10.0-2.4                   ########################################
+[    9s] libtasn1-6-4.20.0-1.2                 ########################################
+[    9s] libunistring5-1.3-1.3                 ########################################
+[    9s] libidn2-0-2.3.8-1.1                   ########################################
+[    9s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    9s] libpsl5-0.21.5-1.5                    ########################################
+[    9s] p11-kit-0.25.5-1.4                    ########################################
+[    9s] p11-kit-tools-0.25.5-1.4              ########################################
+[    9s] libarchive13-3.7.9-1.1                ########################################
+[    9s] libgdbm_compat4-1.24-2.1              ########################################
+[    9s] perl-5.40.2-2.1                       ########################################
+[   10s] perl-Try-Tiny-0.320.0-1.2             ########################################
+[   10s] perl-Module-Runtime-0.18.0-1.1        ########################################
+[   10s] perl-Dist-CheckConflicts-0.110.0-1.1  ########################################
+[   10s] perl-Module-Implementation-0.90.0-1.1 ########################################
+[   10s] perl-Devel-StackTrace-2.50.0-2.4      ########################################
+[   10s] perl-Eval-Closure-0.14-1.30           ########################################
+[   10s] perl-Package-Stash-0.400.0-1.1        ########################################
+[   10s] perl-Test-Fatal-0.017-1.9             ########################################
+[   10s] perl-Class-Data-Inheritable-0.100.0-1.########################################
+[   10s] perl-Exception-Class-1.45-1.17        ########################################
+[   10s] perl-Params-ValidationCompiler-0.31-1.########################################
+[   10s] perl-Class-Inspector-1.360.0-1.1      ########################################
+[   10s] perl-File-ShareDir-1.118-1.21         ########################################
+[   10s] perl-Class-Singleton-1.600.0-1.2      ########################################
+[   10s] perl-MRO-Compat-0.15-1.14             ########################################
+[   10s] perl-Role-Tiny-2.002004-1.19          ########################################
+[   10s] perl-Sub-Exporter-Progressive-0.001013########################################
+[   10s] perl-Sub-Quote-2.006008-1.8           ########################################
+[   10s] perl-TimeDate-2.33-1.21               ########################################
+[   10s] perl-Clone-0.470.0-1.3                ########################################
+[   10s] perl-Variable-Magic-0.640.0-1.4       ########################################
+[   10s] perl-B-Hooks-EndOfScope-0.280.0-1.4   ########################################
+[   10s] perl-namespace-clean-0.270.0-1.1      ########################################
+[   10s] perl-namespace-autoclean-0.310.0-1.2  ########################################
+[   10s] perl-XString-0.005-1.23               ########################################
+[   10s] perl-Specio-0.500.0-1.1               ########################################
+[   10s] perl-DateTime-Locale-1.450000-1.1     ########################################
+[   10s] perl-DateTime-TimeZone-2.650.0-1.1    ########################################
+[   10s] perl-DateTime-1.660.0-1.1             ########################################
+[   10s] perl-DateTime-Format-DateParse-0.05-22########################################
+[   10s] perl-rpm-packaging-1.2-1.1            ########################################
+[   10s] libcomps0-0.1.20-3.4                  ########################################
+[   10s] mtools-4.0.45-2.1                     ########################################
+[   10s] cpp-14-3.1                            ########################################
+[   10s] libusb-1_0-0-1.0.28-1.1               ########################################
+[   10s] libxslt-tools-1.1.43-1.1              ########################################
+[   10s] libfdisk1-2.41-1.1                    ########################################
+[   10s] libgirepository-2_0-0-2.84.2-1.1      ########################################
+[   10s] typelib-1_0-GModule-2_0-2.84.2-1.1    ########################################
+[   10s] shared-mime-info-2.4-3.4              ########################################
+[   11s] gio-branding-upstream-2.84.2-1.1      ########################################
+[   11s] libgio-2_0-0-2.84.2-1.1               ########################################
+[   11s] glib2-tools-2.84.2-1.1                ########################################
+[   11s] No schema files found: doing nothing.
+[   11s] typelib-1_0-Gio-2_0-2.84.2-1.1        ########################################
+[   11s] libpeas-1_0-0-1.36.0-3.1              ########################################
+[   11s] lua54-5.4.7-4.1                       ########################################
+[   11s] update-alternatives: using /usr/bin/lua5.4 to provide /usr/bin/lua (lua) in auto mode
+[   11s] libasm1-0.192-2.2                     ########################################
+[   11s] elfutils-0.192-2.2                    ########################################
+[   11s] libksba8-1.6.7-1.3                    ########################################
+[   11s] libssh-config-0.11.1-5.1              ########################################
+[   11s] gzip-1.14-1.1                         ########################################
+[   11s] make-4.4.1-3.3                        ########################################
+[   11s] bzip2-1.0.8-5.12                      ########################################
+[   11s] ncurses-utils-6.5.20250531-73.1       ########################################
+[   11s] psmisc-23.7-4.1                       ########################################
+[   11s] build-mkbaselibs-20250602-1.1         ########################################
+[   11s] libasan8-15.1.1+git9739-2.1           ########################################
+[   11s] libhwasan0-15.1.1+git9739-2.1         ########################################
+[   11s] liblsan0-15.1.1+git9739-2.1           ########################################
+[   11s] libsigc-2_0-0-2.12.1-2.6              ########################################
+[   11s] libtsan2-15.1.1+git9739-2.1           ########################################
+[   11s] libubsan1-15.1.1+git9739-2.1          ########################################
+[   11s] libyaml-cpp0_8-0.8.0-4.1              ########################################
+[   11s] libctf-nobfd0-2.43-7.1                ########################################
+[   11s] envsubst-mini-0.22.5-8.1              ########################################
+[   11s] gettext-runtime-mini-0.22.5-8.1       ########################################
+[   11s] gettext-tools-mini-0.22.5-8.1         ########################################
+[   11s] libalternatives1-1.2+31.da24cd4-1.1   ########################################
+[   11s] alts-1.2+31.da24cd4-1.1               ########################################
+[   11s] libatomic1-15.1.1+git9739-2.1         ########################################
+[   11s] libattr1-2.5.2-1.4                    ########################################
+[   11s] coreutils-9.7-2.1                     ########################################
+[   11s] rpm-config-SUSE-20250423-1.1          ########################################
+[   11s] rpm-4.20.1-5.1                        ########################################
+[   11s] Updating /etc/sysconfig/services ...
+[   11s] libctf0-2.43-7.1                      ########################################
+[   12s] binutils-2.43-7.1                     ########################################
+[   12s] update-alternatives: using /usr/bin/ld.bfd to provide /usr/bin/ld (ld) in auto mode
+[   12s] libmodulemd2-2.15.0-3.4               ########################################
+[   12s] ca-certificates-2+git20240805.fd24d50-########################################
+[   12s] ca-certificates-mozilla-2.74-4.1      ########################################
+[   13s] aaa_base-84.87+git20250429.1cad3bc-1.1########################################
+[   13s] Updating /etc/sysconfig/language ...
+[   13s] Updating /etc/sysconfig/proxy ...
+[   13s] aaa_base-malloccheck-84.87+git20250429########################################
+[   13s] typelib-1_0-Modulemd-2_0-2.15.0-3.4   ########################################
+[   13s] build-20250602-1.1                    ########################################
+[   13s] debugedit-5.1-1.3                     ########################################
+[   13s] deltarpm-3.6.5-1.3                    ########################################
+[   13s] libsolv-tools-base-0.7.33-1.1         ########################################
+[   13s] systemd-rpm-macros-24-1.8             ########################################
+[   13s] dnf-data-4.23.0-1.1                   ########################################
+[   13s] linux-glibc-devel-6.15-1.1            ########################################
+[   13s] permissions-config-1699_20250120-1.3  ########################################
+[   13s] Updating /etc/sysconfig/security ...
+[   13s] Checking permissions and ownerships - using the permissions files
+[   13s] 	/usr/share/permissions/permissions
+[   13s] 	/usr/share/permissions/permissions.easy
+[   13s] 	/etc/permissions.local
+[   13s] /usr/sbin/unix_chkpwd: setting to root:shadow 4755 (wrong owner/group root:root)
+[   13s] permissions-1699_20250120-1.3         ########################################
+[   13s] pam-1.7.0-3.1                         ########################################
+[   13s] screen-4.9.1-5.1                      ########################################
+[   13s] polkit-default-privs-1550+20250603.5d8########################################
+[   13s] Updating /etc/sysconfig/security ...
+[   13s] can't open /etc/polkit-1/rules.d/90-default-privs.rules.new: No such file or directory
+[   13s] warning: %post(polkit-default-privs-1550+20250603.5d84a17-1.1.noarch) scriptlet failed, exit status 2
+[   13s] openssl-3.5.0-1.1                     ########################################
+[   13s] openssl-3-3.5.0-3.1                   ########################################
+[   13s] libbrotlicommon1-1.1.0-1.6            ########################################
+[   13s] libbrotlidec1-1.1.0-1.6               ########################################
+[   13s] libcap-ng0-0.8.5-1.3                  ########################################
+[   13s] util-linux-2.41-1.1                   ########################################
+[   13s] libcom_err2-1.47.2-1.1                ########################################
+[   13s] libfa1-1.14.1-2.1                     ########################################
+[   13s] libaugeas0-1.14.1-2.1                 ########################################
+[   13s] libitm1-15.1.1+git9739-2.1            ########################################
+[   13s] libjson-c5-0.18-1.3                   ########################################
+[   13s] liblz1-1.15-1.2                       ########################################
+[   13s] libmagic1-5.46-4.1                    ########################################
+[   13s] librpmbuild10-4.20.1-5.1              ########################################
+[   13s] libmpdec4-4.0.1-2.1                   ########################################
+[   13s] python313-base-3.13.3-4.1             ########################################
+[   13s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[   13s] python313-3.13.3-4.1                  ########################################
+[   13s] python313-setuptools-78.1.1-1.1       ########################################
+[   13s] python313-PyYAML-6.0.2-3.1            ########################################
+[   13s] python313-curses-3.13.3-4.1           ########################################
+[   13s] python3-libcomps-0.1.20-3.4           ########################################
+[   13s] python313-cssselect-1.3.0-1.1         ########################################
+[   13s] python313-lxml-5.4.0-1.1              ########################################
+[   13s] python313-docopt-0.6.2-10.1           ########################################
+[   14s] python313-idna-3.10-1.5               ########################################
+[   14s] python313-packaging-24.2-2.1          ########################################
+[   14s] python-rpm-packaging-20210526+a18ca48-########################################
+[   14s] python313-xmltodict-0.14.2-1.5        ########################################
+[   14s] python313-simplejson-3.20.1-1.1       ########################################
+[   14s] python313-six-1.17.0-1.4              ########################################
+[   14s] python313-urllib3-2.4.0-1.1           ########################################
+[   14s] python313-certifi-2025.1.31-1.1       ########################################
+[   14s] python313-charset-normalizer-3.4.2-1.1########################################
+[   14s] python313-requests-2.32.3-5.1         ########################################
+[   14s] python313-gobject-3.52.3-3.1          ########################################
+[   14s] python3-libmodulemd-2.15.0-3.4        ########################################
+[   14s] python313-rpm-4.20.1-4.1              ########################################
+[   14s] libnghttp2-14-1.65.0-1.1              ########################################
+[   14s] libnpth0-1.8-2.1                      ########################################
+[   14s] gpg2-2.5.7-2.1                        ########################################
+[   14s] libgpgme11-1.24.3-2.1                 ########################################
+[   14s] python313-gpg-1.24.3-2.1              ########################################
+[   14s] libonig5-6.9.10-2.1                   ########################################
+[   14s] libjq1-1.7.1-3.1                      ########################################
+[   14s] jq-1.7.1-3.1                          ########################################
+[   14s] libpkgconf5-2.2.0-1.3                 ########################################
+[   14s] pkgconf-2.2.0-1.3                     ########################################
+[   14s] pkgconf-pkg-config-2.2.0-1.3          ########################################
+[   14s] libxcrypt-devel-4.4.38-1.2            ########################################
+[   14s] glibc-devel-2.41-2.1                  ########################################
+[   14s] gcc14-14.3.0+git11799-3.1             ########################################
+[   14s] gcc14-PIE-14.3.0+git11799-3.1         ########################################
+[   14s] gcc-14-3.1                            ########################################
+[   14s] libsasl2-3-2.1.28-10.1                ########################################
+[   14s] libldap2-2.6.8-2.5                    ########################################
+[   14s] libseccomp2-2.6.0-2.2                 ########################################
+[   14s] file-5.46-4.1                         ########################################
+[   14s] libverto1-0.3.2-3.5                   ########################################
+[   14s] krb5-mini-1.21.3-3.1                  ########################################
+[   14s] Updating /etc/sysconfig/kadmind ...
+[   14s] Updating /etc/sysconfig/krb5kdc ...
+[   14s] libtirpc3-1.3.6-2.1                   ########################################
+[   14s] lsof-4.99.4-3.1                       ########################################
+[   14s] libssh4-0.11.1-5.1                    ########################################
+[   14s] libcurl4-8.14.1-1.1                   ########################################
+[   14s] librepo0-1.19.0-1.4                   ########################################
+[   14s] libdnf2-0.74.0-1.1                    ########################################
+[   14s] python3-libdnf-0.74.0-1.1             ########################################
+[   14s] python3-hawkey-0.74.0-1.1             ########################################
+[   14s] python3-dnf-4.23.0-1.1                ########################################
+[   14s] dnf-4.23.0-1.1                        ########################################
+[   14s] microdnf-3.9.1-1.12                   ########################################
+[   14s] libcreaterepo_c1-1.2.1-1.1            ########################################
+[   14s] libxxhash0-0.8.3-1.2                  ########################################
+[   14s] rsync-3.4.1-3.1                       ########################################
+[   14s] patch-2.8-1.1                         ########################################
+[   14s] which-2.23-1.2                        ########################################
+[   14s] boost-license1_88_0-1.88.0-1.1        ########################################
+[   14s] libboost_thread1_88_0-1.88.0-1.1      ########################################
+[   14s] libzypp-17.37.4-1.1                   ########################################
+[   15s] zypper-1.14.90-1.1                    ########################################
+[   15s] kiwi-systemdeps-core-10.2.16-1.1      ########################################
+[   15s] python3-kiwi-10.2.16-1.1              ########################################
+[   15s] rpm-build-4.20.1-5.1                  ########################################
+[   15s] createrepo_c-1.2.1-1.1                ########################################
+[   15s] build-compare-20240801T083050.024a3a7-########################################
+[   15s] gcc-PIE-14-3.1                        ########################################
+[   15s] containment-tik-img-to-rpm-1.0-4.3    ########################################
+[   15s] release-compare-0.9.2-1.2             ########################################
+[   15s] rpmlint-mini-2.7.0+git20250603.a9db0eb########################################
+[   15s] post-build-checks-84.87+git20240327.79########################################
+[   15s] compat-usrmerge-build-84.87-5.22      ########################################
+[   15s] obs-service-kiwi_label_helper-0.0-4.6 ########################################
+[   15s] brp-check-suse-84.87+git20230324.8680c########################################
+[   15s] obs-service-kiwi_metainfo_helper-0.6-9########################################
+[   15s] rpmlint-strict-2.7.0+git20250603.a9db0########################################
+[   15s] kernel-obs-build-6.15.1-1.1           ########################################
+[   16s] now finalizing build dir...
+[   16s] ... running 01-add_abuild_user_to_trusted_group
+[   16s] ... running 02-set_timezone_to_utc
+[   16s] ... running 03-set-permissions-secure
+[   16s] ... running 11-hack_uname_version_to_kernel_version
+[   17s] Running build time source services...
+[   17s] warning: ./repos/openSUSE:Factory/standard/openSUSE-release-ftp.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   17s] warning: ./repos/openSUSE:Factory/standard/openSUSE-release.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   17s] -----------------------------------------------------------------
+[   17s] ----- building config.kiwi
+[   17s] -----------------------------------------------------------------
+[   17s] -----------------------------------------------------------------
+[   17s] creating repodata for openSUSE:Factory/containerfile
+[   17s] Directory walk started
+[   17s] Directory walk done - 0 packages
+[   17s] Temporary output repo path: /usr/src/packages/SOURCES/repos/openSUSE:/Factory/containerfile/.repodata/
+[   17s] Pool started (with 5 workers)
+[   17s] Pool finished
+[   17s] creating repodata for openSUSE:Factory/images
+[   17s] Directory walk started
+[   17s] Directory walk done - 0 packages
+[   17s] Temporary output repo path: /usr/src/packages/SOURCES/repos/openSUSE:/Factory/images/.repodata/
+[   17s] Pool started (with 5 workers)
+[   17s] Pool finished
+[   17s] creating repodata for openSUSE:Factory/standard
+[   18s] Directory walk started
+[   18s] Directory walk done - 160 packages
+[   18s] Temporary output repo path: /usr/src/packages/SOURCES/repos/openSUSE:/Factory/standard/.repodata/
+[   18s] Pool started (with 5 workers)
+[   18s] Pool finished
+[   18s] running kiwi system build for tbz, profile networkd-microdnf...
+[   18s] cd /usr/src/packages/SOURCES && rm -rf /usr/src/packages/KIWI-tbz && LANG=en_US.UTF-8 /usr/bin/kiwi --debug  --profile networkd-microdnf system build --allow-existing-root --description /usr/src/packages/SOURCES --target-dir /usr/src/packages/KIWI-tbz  --ignore-repos-used-for-build --add-repo dir:///./repos/openSUSE:/Factory/images,rpm-md,,1 --add-repo dir:///./repos/openSUSE:/Factory/containerfile,rpm-md,,2 --add-repo dir:///./repos/openSUSE:/Factory/standard,rpm-md,,3
+[   18s] setting SOURCE_DATE_EPOCH_MTIME to 1713361785
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build
+[   18s] [ INFO    ]: 14:58:19 | Loading XML description
+[   18s] [ INFO    ]: 14:58:19 | Support for XML markup available
+[   18s] [ INFO    ]: 14:58:19 | --> loaded /usr/src/packages/SOURCES/config.xml
+[   18s] [ INFO    ]: 14:58:19 | --> Selected build type: tbz
+[   18s] [ INFO    ]: 14:58:19 | --> Selected profiles: networkd-microdnf
+[   18s] [ INFO    ]: 14:58:19 | Preparing new root system
+[   18s] [ INFO    ]: 14:58:19 | Setup root directory: /usr/src/packages/KIWI-tbz/build/image-root
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root
+[   18s] [ DEBUG   ]: 14:58:19 | Check for extended attributes on /usr/src/packages/KIWI-tbz/build/image-root said: [Errno 61] No data available: '/usr/src/packages/KIWI-tbz/build/image-root'
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for rsync in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [rsync -a --ignore-existing /var/tmp/kiwi_root.hajis2gl/ /usr/src/packages/KIWI-tbz/build/image-root]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [cp /etc/hosts /usr/src/packages/KIWI-tbz/build/image-root/etc/hosts.kiwi]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for ln in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [ln -s -f hosts.kiwi /usr/src/packages/KIWI-tbz/build/image-root/etc/hosts]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [cp /etc/sysconfig/proxy /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy.kiwi]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for ln in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [ln -s -f proxy.kiwi /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mount -n --bind /usr/src/packages/KIWI-tbz/build/image-root /usr/src/packages/KIWI-tbz/build/image-root]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/proc
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/proc]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mount -n --bind /proc /usr/src/packages/KIWI-tbz/build/image-root/proc]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/dev
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/dev]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mount -n --bind /dev /usr/src/packages/KIWI-tbz/build/image-root/dev]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/sys
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/sys]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mount -n --bind /sys /usr/src/packages/KIWI-tbz/build/image-root/sys]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory //var/cache/kiwi
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [mount -n --bind /var/cache/kiwi /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /var/cache/kiwi/dnf/repos
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /var/cache/kiwi/dnf/cache
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /var/cache/kiwi/dnf/pluginconf
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /var/cache/kiwi/dnf/vars
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for rpmdb in /usr/src/packages/KIWI-tbz/build/image-root/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/sbin:/usr/src/packages/KIWI-tbz/build/image-root/root/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/bin:/usr/src/packages/KIWI-tbz/build/image-root/bin
+[   18s] [ DEBUG   ]: 14:58:19 | Looking for rpmdb in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:19 | EXEC: [rpmdb --showrc]
+[   18s] [ DEBUG   ]: 14:58:19 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/usr/lib/rpm/macros.d
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for rpm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [rpm --root /usr/src/packages/KIWI-tbz/build/image-root --initdb]
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for rpm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [rpm -E %_dbpath]
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/var/lib
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for ln in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [ln -s --no-target-directory ../../usr/lib/sysimage/rpm /usr/src/packages/KIWI-tbz/build/image-root/var/lib/rpm]
+[   18s] [ INFO    ]: 14:58:20 | Setting up repository dir:///./repos/openSUSE:/Factory/images
+[   18s] [ INFO    ]: 14:58:20 | --> Type: rpm-md
+[   18s] [ INFO    ]: 14:58:20 | --> Priority: 1
+[   18s] [ INFO    ]: 14:58:20 | --> Translated: /repos/openSUSE:/Factory/images
+[   18s] [ INFO    ]: 14:58:20 | --> Alias: fa98cc4664104df8b368986a865e7b21
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory //repos/openSUSE:/Factory/images
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mount -n --bind /repos/openSUSE:/Factory/images /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   18s] [ INFO    ]: 14:58:20 | Setting up repository dir:///./repos/openSUSE:/Factory/containerfile
+[   18s] [ INFO    ]: 14:58:20 | --> Type: rpm-md
+[   18s] [ INFO    ]: 14:58:20 | --> Priority: 2
+[   18s] [ INFO    ]: 14:58:20 | --> Translated: /repos/openSUSE:/Factory/containerfile
+[   18s] [ INFO    ]: 14:58:20 | --> Alias: 619832e731764368b5c9601d134ef224
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory //repos/openSUSE:/Factory/containerfile
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mount -n --bind /repos/openSUSE:/Factory/containerfile /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   18s] [ INFO    ]: 14:58:20 | Setting up repository dir:///./repos/openSUSE:/Factory/standard
+[   18s] [ INFO    ]: 14:58:20 | --> Type: rpm-md
+[   18s] [ INFO    ]: 14:58:20 | --> Priority: 3
+[   18s] [ INFO    ]: 14:58:20 | --> Translated: /repos/openSUSE:/Factory/standard
+[   18s] [ INFO    ]: 14:58:20 | --> Alias: 95a3e3ac12c744efb64ac982a63c479f
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory //repos/openSUSE:/Factory/standard
+[   18s] [ DEBUG   ]: 14:58:20 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for mount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [mount -n --bind /repos/openSUSE:/Factory/standard /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   18s] [ INFO    ]: 14:58:20 | Using package manager backend: microdnf
+[   18s] [ INFO    ]: 14:58:20 | Installing bootstrap packages
+[   18s] [ INFO    ]: 14:58:20 | --> collection type: onlyRequired
+[   18s] [ INFO    ]: 14:58:20 | --> package: aaa_base
+[   18s] [ INFO    ]: 14:58:20 | --> package: bash
+[   18s] [ INFO    ]: 14:58:20 | --> package: bzip2
+[   18s] [ INFO    ]: 14:58:20 | --> package: ca-certificates
+[   18s] [ INFO    ]: 14:58:20 | --> package: ca-certificates-mozilla
+[   18s] [ INFO    ]: 14:58:20 | --> package: coreutils
+[   18s] [ INFO    ]: 14:58:20 | --> package: cracklib-dict-small
+[   18s] [ INFO    ]: 14:58:20 | --> package: curl
+[   18s] [ INFO    ]: 14:58:20 | --> package: dnf-data
+[   18s] [ INFO    ]: 14:58:20 | --> package: filesystem
+[   18s] [ INFO    ]: 14:58:20 | --> package: glibc-locale-base
+[   18s] [ INFO    ]: 14:58:20 | --> package: gzip
+[   18s] [ INFO    ]: 14:58:20 | --> package: microdnf
+[   18s] [ INFO    ]: 14:58:20 | --> package: netcfg
+[   18s] [ INFO    ]: 14:58:20 | --> package: openSUSE-build-key
+[   18s] [ INFO    ]: 14:58:20 | --> package: openSUSE-release-ftp
+[   18s] [ INFO    ]: 14:58:20 | --> package: rpm-repos-openSUSE-Tumbleweed
+[   18s] [ INFO    ]: 14:58:20 | --> package: tar
+[   18s] [ INFO    ]: 14:58:20 | --> package: xz
+[   18s] [ INFO    ]: 14:58:20 | --> package: zstd
+[   18s] [ DEBUG   ]: 14:58:20 | EXEC: [microdnf --refresh --config /usr/src/packages/KIWI-tbz/build/image-root/kiwi_dnf4.conf -y --enableplugin=priorities --disableplugin=versionlock --installroot /usr/src/packages/KIWI-tbz/build/image-root --releasever=0 --noplugins --setopt=cachedir=/var/cache/kiwi/dnf/cache --setopt=reposdir=/var/cache/kiwi/dnf/repos --setopt=varsdir=/var/cache/kiwi/dnf/vars --setopt=install_weak_deps=0 install aaa_base bash bzip2 ca-certificates ca-certificates-mozilla coreutils cracklib-dict-small curl dnf-data filesystem glibc-locale-base gzip microdnf netcfg openSUSE-build-key openSUSE-release-ftp rpm-repos-openSUSE-Tumbleweed tar xz zstd]
+[   18s] [ DEBUG   ]: 14:58:20 | Looking for microdnf in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   19s] [ INFO    ]: Processing: [                                        ] 0%[ DEBUG   ]: 14:58:20 | bootstrap: Loading of plugins is disabled by command line argument "--noplugins". Use of "--enableplugin" and "--disableplugin" has no meaning.
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap: Package                                           Repository                           Size
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap: Installing:                                                                                
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  aaa_base-84.87+git20250429.1cad3bc-1.1.x86_64    95a3e3ac12c744efb64ac982a63c479f  81.2 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  bash-5.2.37-20.1.x86_64                          95a3e3ac12c744efb64ac982a63c479f 584.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  bash-sh-5.2.37-20.1.noarch                       95a3e3ac12c744efb64ac982a63c479f  23.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  bzip2-1.0.8-5.12.x86_64                          95a3e3ac12c744efb64ac982a63c479f  43.8 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  ca-certificates-2+git20240805.fd24d50-1.2.noarch 95a3e3ac12c744efb64ac982a63c479f  25.0 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  ca-certificates-mozilla-2.74-4.1.noarch          95a3e3ac12c744efb64ac982a63c479f 237.6 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  compat-usrmerge-tools-84.87-5.22.x86_64          95a3e3ac12c744efb64ac982a63c479f 300.8 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  coreutils-9.7-2.1.x86_64                         95a3e3ac12c744efb64ac982a63c479f   1.2 MB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  cracklib-dict-small-2.9.11-1.6.x86_64            95a3e3ac12c744efb64ac982a63c479f 111.2 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  crypto-policies-20250124.4d262e7-3.1.noarch      95a3e3ac12c744efb64ac982a63c479f  73.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  curl-8.14.1-1.1.x86_64                           95a3e3ac12c744efb64ac982a63c479f 403.3 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  dnf-data-4.23.0-1.1.noarch                       95a3e3ac12c744efb64ac982a63c479f  46.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  filesystem-84.87-18.2.x86_64                     95a3e3ac12c744efb64ac982a63c479f  73.1 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  fillup-1.42-281.3.x86_64                         95a3e3ac12c744efb64ac982a63c479f  24.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  gio-branding-openSUSE-42.1-2.2.noarch            95a3e3ac12c744efb64ac982a63c479f  14.0 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  girepository-1_0-1.84.0-2.1.x86_64               95a3e3ac12c744efb64ac982a63c479f  57.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  glib2-tools-2.84.2-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f 187.7 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  glibc-2.41-2.1.x86_64                            95a3e3ac12c744efb64ac982a63c479f   2.1 MB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  glibc-locale-base-2.41-2.1.x86_64                95a3e3ac12c744efb64ac982a63c479f 442.1 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  gpg2-2.5.7-2.1.x86_64                            95a3e3ac12c744efb64ac982a63c479f   2.6 MB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  grep-3.12-1.1.x86_64                             95a3e3ac12c744efb64ac982a63c479f 331.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  gzip-1.14-1.1.x86_64                             95a3e3ac12c744efb64ac982a63c479f 163.0 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  krb5-1.21.3-3.1.x86_64                           95a3e3ac12c744efb64ac982a63c479f 711.4 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libacl1-2.3.2-2.3.x86_64                         95a3e3ac12c744efb64ac982a63c479f  34.1 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libassuan9-3.0.2-1.2.x86_64                      95a3e3ac12c744efb64ac982a63c479f  91.2 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libattr1-2.5.2-1.4.x86_64                        95a3e3ac12c744efb64ac982a63c479f  29.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libblkid1-2.41-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 139.4 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libbrotlicommon1-1.1.0-1.6.x86_64                95a3e3ac12c744efb64ac982a63c479f  67.7 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libbrotlidec1-1.1.0-1.6.x86_64                   95a3e3ac12c744efb64ac982a63c479f  30.6 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libbz2-1-1.0.8-5.12.x86_64                       95a3e3ac12c744efb64ac982a63c479f  45.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libcap2-2.75-1.1.x86_64                          95a3e3ac12c744efb64ac982a63c479f  39.6 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libcom_err2-1.47.2-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f  27.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libcurl4-8.14.1-1.1.x86_64                       95a3e3ac12c744efb64ac982a63c479f 481.7 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libdnf2-0.74.0-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f   1.0 MB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libeconf0-0.7.9-1.1.x86_64                       95a3e3ac12c744efb64ac982a63c479f  37.2 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libelf1-0.192-2.2.x86_64                         95a3e3ac12c744efb64ac982a63c479f  59.4 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libffi8-3.4.7-1.1.x86_64                         95a3e3ac12c744efb64ac982a63c479f  30.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgcc_s1-15.1.1+git9739-2.1.x86_64              95a3e3ac12c744efb64ac982a63c479f  88.4 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgcrypt20-1.11.1-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f 875.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgio-2_0-0-2.84.2-1.1.x86_64                   95a3e3ac12c744efb64ac982a63c479f 742.3 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgirepository-1_0-1-1.84.0-2.1.x86_64          95a3e3ac12c744efb64ac982a63c479f  78.0 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libglib-2_0-0-2.84.2-1.1.x86_64                  95a3e3ac12c744efb64ac982a63c479f 761.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgmodule-2_0-0-2.84.2-1.1.x86_64               95a3e3ac12c744efb64ac982a63c479f  79.3 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgmp10-6.3.0-5.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 309.7 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgobject-2_0-0-2.84.2-1.1.x86_64               95a3e3ac12c744efb64ac982a63c479f 214.3 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgpg-error0-1.55-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f 306.9 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libgpgme11-1.24.3-2.1.x86_64                     95a3e3ac12c744efb64ac982a63c479f 174.5 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libidn2-0-2.3.8-1.1.x86_64                       95a3e3ac12c744efb64ac982a63c479f  81.8 kB
+[   19s] [ DEBUG   ]: 14:58:20 | bootstrap:  libjitterentropy3-3.6.3-1.1.x86_64               95a3e3ac12c744efb64ac982a63c479f  29.7 kB
+[   19s] [ DEBUG   ]: 14:58:21 | bootstrap:  libjson-c5-0.18-1.3.x86_64                       95a3e3ac12c744efb64ac982a63c479f  52.7 kB
+[   19s] [ DEBUG   ]: 14:58:21 | bootstrap:  libkeyutils1-1.6.3-7.4.x86_64                    95a3e3ac12c744efb64ac982a63c479f  26.5 kB
+[   19s] [ DEBUG   ]: 14:58:21 | bootstrap:  libksba8-1.6.7-1.3.x86_64                        95a3e3ac12c744efb64ac982a63c479f 161.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libldap2-2.6.8-2.5.x86_64                        95a3e3ac12c744efb64ac982a63c479f 192.0 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  liblua5_4-5-5.4.7-4.1.x86_64                     95a3e3ac12c744efb64ac982a63c479f 125.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  liblzma5-5.8.1-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 156.0 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libmodulemd2-2.15.0-3.4.x86_64                   95a3e3ac12c744efb64ac982a63c479f 161.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libmount1-2.41-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 175.8 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libncurses6-6.5.20250531-73.1.x86_64             95a3e3ac12c744efb64ac982a63c479f 420.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libnghttp2-14-1.65.0-1.1.x86_64                  95a3e3ac12c744efb64ac982a63c479f  88.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libnpth0-1.8-2.1.x86_64                          95a3e3ac12c744efb64ac982a63c479f  25.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libnss_usrfiles2-2.27.1-1.4.x86_64               95a3e3ac12c744efb64ac982a63c479f  28.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libopenssl3-3.5.0-3.1.x86_64                     95a3e3ac12c744efb64ac982a63c479f   2.4 MB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libp11-kit0-0.25.5-1.4.x86_64                    95a3e3ac12c744efb64ac982a63c479f 440.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libpcre2-8-0-10.45-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f 359.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libpeas-1_0-0-1.36.0-3.1.x86_64                  95a3e3ac12c744efb64ac982a63c479f  54.4 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libpopt0-1.19-1.10.x86_64                        95a3e3ac12c744efb64ac982a63c479f  34.7 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libpsl5-0.21.5-1.5.x86_64                        95a3e3ac12c744efb64ac982a63c479f  64.2 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libreadline8-8.2.13-2.3.x86_64                   95a3e3ac12c744efb64ac982a63c479f 174.7 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  librepo0-1.19.0-1.4.x86_64                       95a3e3ac12c744efb64ac982a63c479f  90.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libsasl2-3-2.1.28-10.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f  60.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libselinux1-3.8.1-1.1.x86_64                     95a3e3ac12c744efb64ac982a63c479f  96.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libsmartcols1-2.41-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f  98.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libsqlite3-0-3.50.1-1.1.x86_64                   95a3e3ac12c744efb64ac982a63c479f 790.8 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libssh-config-0.11.1-5.1.noarch                  95a3e3ac12c744efb64ac982a63c479f  12.8 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libssh4-0.11.1-5.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 222.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libstdc++6-15.1.1+git9739-2.1.x86_64             95a3e3ac12c744efb64ac982a63c479f 757.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libtasn1-6-4.20.0-1.2.x86_64                     95a3e3ac12c744efb64ac982a63c479f  57.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libudev1-257.6-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 200.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libunistring5-1.3-1.3.x86_64                     95a3e3ac12c744efb64ac982a63c479f 612.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libusb-1_0-0-1.0.28-1.1.x86_64                   95a3e3ac12c744efb64ac982a63c479f  79.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libverto1-0.3.2-3.5.x86_64                       95a3e3ac12c744efb64ac982a63c479f  19.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libxml2-2-2.13.8-1.1.x86_64                      95a3e3ac12c744efb64ac982a63c479f 675.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libyaml-0-2-0.2.5-2.7.x86_64                     95a3e3ac12c744efb64ac982a63c479f  58.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libz1-1.3.1-1.3.x86_64                           95a3e3ac12c744efb64ac982a63c479f  69.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libzck1-1.5.1-1.3.x86_64                         95a3e3ac12c744efb64ac982a63c479f  48.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  libzstd1-1.5.7-3.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 365.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  microdnf-3.9.1-1.12.x86_64                       95a3e3ac12c744efb64ac982a63c479f  46.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  ncurses-utils-6.5.20250531-73.1.x86_64           95a3e3ac12c744efb64ac982a63c479f 221.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  netcfg-11.6-13.5.noarch                          95a3e3ac12c744efb64ac982a63c479f 186.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  openSUSE-build-key-1.0-58.1.x86_64               95a3e3ac12c744efb64ac982a63c479f  36.0 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  openSUSE-release-20250611-3552.1.x86_64          95a3e3ac12c744efb64ac982a63c479f   2.3 MB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  openSUSE-release-ftp-20250611-3552.1.x86_64      95a3e3ac12c744efb64ac982a63c479f   7.2 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  p11-kit-0.25.5-1.4.x86_64                        95a3e3ac12c744efb64ac982a63c479f 206.7 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  p11-kit-tools-0.25.5-1.4.x86_64                  95a3e3ac12c744efb64ac982a63c479f 133.4 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  pinentry-1.3.1-2.4.x86_64                        95a3e3ac12c744efb64ac982a63c479f 116.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  rpm-4.20.1-5.1.x86_64                            95a3e3ac12c744efb64ac982a63c479f 977.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  rpm-config-SUSE-20250423-1.1.noarch              95a3e3ac12c744efb64ac982a63c479f  28.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  rpm-repo-keys-openSUSE-0-11.1.noarch             95a3e3ac12c744efb64ac982a63c479f   8.3 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  rpm-repos-openSUSE-Tumbleweed-1699-11.1.x86_64   95a3e3ac12c744efb64ac982a63c479f   9.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  sed-4.9-2.8.x86_64                               95a3e3ac12c744efb64ac982a63c479f 151.1 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  shared-mime-info-2.4-3.4.x86_64                  95a3e3ac12c744efb64ac982a63c479f 323.8 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  system-user-root-20190513-2.18.noarch            95a3e3ac12c744efb64ac982a63c479f   8.2 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  tar-1.35-4.1.x86_64                              95a3e3ac12c744efb64ac982a63c479f 227.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  terminfo-base-6.5.20250531-73.1.x86_64           95a3e3ac12c744efb64ac982a63c479f 189.9 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  xz-5.8.1-1.1.x86_64                              95a3e3ac12c744efb64ac982a63c479f 200.6 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  zstd-1.5.7-3.1.x86_64                            95a3e3ac12c744efb64ac982a63c479f 439.5 kB
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap: Transaction Summary:
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Installing:      106 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Reinstalling:      0 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Upgrading:         0 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Obsoleting:        0 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Removing:          0 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap:  Downgrading:       0 packages
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap: Running transaction test...
+[   20s] [ DEBUG   ]: 14:58:21 | bootstrap: Installing: crypto-policies;20250124.4d262e7-3.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   20s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: terminfo-base;6.5.20250531-73.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   20s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: system-user-root;20190513-2.18;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   20s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: openSUSE-release-ftp;20250611-3552.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: openSUSE-release;20250611-3552.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: compat-usrmerge-tools;84.87-5.22;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: filesystem;84.87-18.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: glibc;2.41-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libz1;1.3.1-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgpg-error0;1.55-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libzstd1;1.5.7-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libacl1;2.3.2-2.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libbz2-1;1.0.8-5.12;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgcc_s1;15.1.1+git9739-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: liblzma5;5.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libxml2-2;2.13.8-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libstdc++6;15.1.1+git9739-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libassuan9;3.0.2-1.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libcap2;2.75-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libffi8;3.4.7-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libncurses6;6.5.20250531-73.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libpcre2-8-0;10.45-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libglib-2_0-0;2.84.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgobject-2_0-0;2.84.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libselinux1;3.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgmodule-2_0-0;2.84.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: girepository-1_0;1.84.0-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgirepository-1_0-1;1.84.0-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libreadline8;8.2.13-2.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: bash;5.2.37-20.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: bash-sh;5.2.37-20.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libp11-kit0;0.25.5-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: fillup;1.42-281.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libjitterentropy3;3.6.3-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libopenssl3;3.5.0-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgcrypt20;1.11.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libsmartcols1;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libsqlite3-0;3.50.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libtasn1-6;4.20.0-1.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libunistring5;1.3-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libidn2-0;2.3.8-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libpsl5;0.21.5-1.5;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: p11-kit-tools;0.25.5-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: p11-kit;0.25.5-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libzck1;1.5.1-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: grep;3.12-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libssh-config;0.11.1-5.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: openSUSE-build-key;1.0-58.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: rpm-repo-keys-openSUSE;0-11.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: pinentry;1.3.1-2.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: shared-mime-info;2.4-3.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: xz;5.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: sed;4.9-2.8;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: ncurses-utils;6.5.20250531-73.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libudev1;257.6-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libusb-1_0-0;1.0.28-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libelf1;0.192-2.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libksba8;1.6.7-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libattr1;2.5.2-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libbrotlicommon1;1.1.0-1.6;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libbrotlidec1;1.1.0-1.6;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libcom_err2;1.47.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libeconf0;0.7.9-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libblkid1;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libmount1;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: gio-branding-openSUSE;42.1-2.2;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libgio-2_0-0;2.84.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: glib2-tools;2.84.2-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: No schema files found: doing nothing.
+[   21s] [ DEBUG   ]: 14:58:22 | bootstrap: Installing: libpeas-1_0-0;1.36.0-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libgmp10;6.3.0-5.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: coreutils;9.7-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: ca-certificates;2+git20240805.fd24d50-1.2;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libjson-c5;0.18-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libkeyutils1;1.6.3-7.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: liblua5_4-5;5.4.7-4.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libnghttp2-14;1.65.0-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libnpth0;1.8-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: gpg2;2.5.7-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libgpgme11;1.24.3-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libnss_usrfiles2;2.27.1-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libpopt0;1.19-1.10;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: rpm-config-SUSE;20250423-1.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: rpm;4.20.1-5.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Updating /etc/sysconfig/services ...
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libsasl2-3;2.1.28-10.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libldap2;2.6.8-2.5;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libverto1;0.3.2-3.5;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: krb5;1.21.3-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libssh4;0.11.1-5.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libcurl4;8.14.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: librepo0;1.19.0-1.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libyaml-0-2;0.2.5-2.7;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libmodulemd2;2.15.0-3.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: libdnf2;0.74.0-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: microdnf;3.9.1-1.12;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: curl;8.14.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: netcfg;11.6-13.5;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: ca-certificates-mozilla;2.74-4.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: aaa_base;84.87+git20250429.1cad3bc-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Updating /etc/sysconfig/language ...
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Updating /etc/sysconfig/proxy ...
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: dnf-data;4.23.0-1.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: rpm-repos-openSUSE-Tumbleweed;1699-11.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: bzip2;1.0.8-5.12;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: gzip;1.14-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: zstd;1.5.7-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: tar;1.35-4.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: glibc-locale-base;2.41-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Installing: cracklib-dict-small;2.9.11-1.6;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   22s] [ DEBUG   ]: 14:58:23 | bootstrap: Complete.
+[   22s] [ INFO    ]: Processing: [########################################] 100%
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for rpmdb in /usr/src/packages/KIWI-tbz/build/image-root/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/sbin:/usr/src/packages/KIWI-tbz/build/image-root/root/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/bin:/usr/src/packages/KIWI-tbz/build/image-root/bin
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for chroot in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [chroot /usr/src/packages/KIWI-tbz/build/image-root rpmdb --rebuilddb]
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for rm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [rm -r -f /usr/src/packages/KIWI-tbz/build/image-root/usr/lib/rpm/macros.d/macros.kiwi-bootstrap-config]
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for chroot in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [chroot /usr/src/packages/KIWI-tbz/build/image-root rpm -E %_dbpath]
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for rpm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [rpm -E %_dbpath]
+[   22s] [ INFO    ]: 14:58:23 | Importing Image description to system tree
+[   22s] [ INFO    ]: 14:58:23 | --> Importing state XML description to /usr/src/packages/KIWI-tbz/build/image-root/image/config.xml
+[   22s] [ DEBUG   ]: 14:58:23 | Creating directory /usr/src/packages/KIWI-tbz/build/image-root/image
+[   22s] [ INFO    ]: 14:58:23 | --> Importing config.sh script to /usr/src/packages/KIWI-tbz/build/image-root/image/config.sh
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [cp /usr/src/packages/SOURCES/config.sh /usr/src/packages/KIWI-tbz/build/image-root/image/config.sh]
+[   22s] [ INFO    ]: 14:58:23 | --> Importing script helper functions
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [cp /usr/lib/python3.13/site-packages/kiwi/config/functions.sh /usr/src/packages/KIWI-tbz/build/image-root/.kconfig]
+[   22s] [ INFO    ]: 14:58:23 | Installing system (chroot) for build type: tbz
+[   22s] [ INFO    ]: 14:58:23 | --> collection type: onlyRequired
+[   22s] [ INFO    ]: 14:58:23 | --> package: iproute2
+[   22s] [ INFO    ]: 14:58:23 | --> package: systemd
+[   22s] [ INFO    ]: 14:58:23 | --> package: systemd-network
+[   22s] [ INFO    ]: 14:58:23 | --> package: systemd-sysvinit
+[   22s] [ DEBUG   ]: 14:58:23 | EXEC: [chroot /usr/src/packages/KIWI-tbz/build/image-root microdnf --config /kiwi_dnf4.conf -y --enableplugin=priorities --disableplugin=versionlock --releasever=0 --setopt=install_weak_deps=0 install iproute2 systemd systemd-network systemd-sysvinit]
+[   22s] [ DEBUG   ]: 14:58:23 | Looking for chroot in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   22s] [ INFO    ]: Processing: [                                        ] 0%[ DEBUG   ]: 14:58:24 | system: Package                                                     Repository                           Size
+[   22s] [ DEBUG   ]: 14:58:24 | system: Installing:                                                                                          
+[   23s] [ DEBUG   ]: 14:58:24 | system:  alts-1.2+31.da24cd4-1.1.x86_64                             95a3e3ac12c744efb64ac982a63c479f  22.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  dbus-1-1.14.10-4.4.x86_64                                  95a3e3ac12c744efb64ac982a63c479f 109.4 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  dbus-1-common-1.14.10-4.4.noarch                           95a3e3ac12c744efb64ac982a63c479f  29.3 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  dbus-1-tools-1.14.10-4.4.x86_64                            95a3e3ac12c744efb64ac982a63c479f  51.8 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  dbus-broker-36-2.3.x86_64                                  95a3e3ac12c744efb64ac982a63c479f 154.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  dbus-broker-block-restart-36-2.3.noarch                    95a3e3ac12c744efb64ac982a63c479f  15.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  diffutils-3.12-1.1.x86_64                                  95a3e3ac12c744efb64ac982a63c479f 196.4 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  findutils-4.10.0-2.2.x86_64                                95a3e3ac12c744efb64ac982a63c479f 293.7 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  iproute2-6.15-1.1.x86_64                                   95a3e3ac12c744efb64ac982a63c479f   1.2 MB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  kbd-2.7.1-2.1.x86_64                                       95a3e3ac12c744efb64ac982a63c479f   2.3 MB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libalternatives1-1.2+31.da24cd4-1.1.x86_64                 95a3e3ac12c744efb64ac982a63c479f  19.7 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libapparmor1-4.1.0-4.1.x86_64                              95a3e3ac12c744efb64ac982a63c479f  58.5 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libaudit1-4.0-3.3.x86_64                                   95a3e3ac12c744efb64ac982a63c479f  53.7 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libbpf1-1.5.1-2.1.x86_64                                   95a3e3ac12c744efb64ac982a63c479f 201.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libcap-ng0-0.8.5-1.3.x86_64                                95a3e3ac12c744efb64ac982a63c479f  30.3 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libcrypt1-4.4.38-1.2.x86_64                                95a3e3ac12c744efb64ac982a63c479f 109.6 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libdbus-1-3-1.14.10-4.4.x86_64                             95a3e3ac12c744efb64ac982a63c479f 153.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libexpat1-2.7.1-2.1.x86_64                                 95a3e3ac12c744efb64ac982a63c479f  93.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libfdisk1-2.41-1.1.x86_64                                  95a3e3ac12c744efb64ac982a63c479f 176.4 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libkbdfile1-2.7.1-2.1.x86_64                               95a3e3ac12c744efb64ac982a63c479f  21.5 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libkeymap1-2.7.1-2.1.x86_64                                95a3e3ac12c744efb64ac982a63c479f  68.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libkfont0-2.7.1-2.1.x86_64                                 95a3e3ac12c744efb64ac982a63c479f  36.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libmnl0-1.0.5-2.3.x86_64                                   95a3e3ac12c744efb64ac982a63c479f  26.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libpkgconf5-2.2.0-1.3.x86_64                               95a3e3ac12c744efb64ac982a63c479f  40.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libseccomp2-2.6.0-2.2.x86_64                               95a3e3ac12c744efb64ac982a63c479f  66.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libsemanage-conf-3.8.1-1.1.x86_64                          95a3e3ac12c744efb64ac982a63c479f  11.3 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libsemanage2-3.8.1-1.1.x86_64                              95a3e3ac12c744efb64ac982a63c479f 105.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libsepol2-3.8.1-1.1.x86_64                                 95a3e3ac12c744efb64ac982a63c479f 326.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libsubid5-4.17.4-2.1.x86_64                                95a3e3ac12c744efb64ac982a63c479f  44.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libsystemd0-257.6-1.1.x86_64                               95a3e3ac12c744efb64ac982a63c479f 526.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libuuid1-2.41-1.1.x86_64                                   95a3e3ac12c744efb64ac982a63c479f  50.4 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  libxtables12-1.8.11-4.1.x86_64                             95a3e3ac12c744efb64ac982a63c479f  35.1 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  login_defs-4.17.4-2.1.noarch                               95a3e3ac12c744efb64ac982a63c479f  43.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pam-1.7.0-3.1.x86_64                                       95a3e3ac12c744efb64ac982a63c479f 334.4 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pam-config-2.12+git.20250411-1.1.x86_64                    95a3e3ac12c744efb64ac982a63c479f 151.8 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pam-extra-1.7.0-3.1.x86_64                                 95a3e3ac12c744efb64ac982a63c479f  41.7 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  permctl-1699_20250120-1.3.x86_64                           95a3e3ac12c744efb64ac982a63c479f 430.1 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  permissions-1699_20250120-1.3.x86_64                       95a3e3ac12c744efb64ac982a63c479f  13.5 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  permissions-config-1699_20250120-1.3.noarch                95a3e3ac12c744efb64ac982a63c479f  26.6 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pkgconf-2.2.0-1.3.x86_64                                   95a3e3ac12c744efb64ac982a63c479f  51.0 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pkgconf-m4-2.2.0-1.3.noarch                                95a3e3ac12c744efb64ac982a63c479f  18.1 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  pkgconf-pkg-config-2.2.0-1.3.x86_64                        95a3e3ac12c744efb64ac982a63c479f  13.3 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  shadow-4.17.4-2.1.x86_64                                   95a3e3ac12c744efb64ac982a63c479f 744.1 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-257.6-1.1.x86_64                                   95a3e3ac12c744efb64ac982a63c479f   4.6 MB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-default-settings-0.10-1.3.noarch                   95a3e3ac12c744efb64ac982a63c479f  10.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-default-settings-branding-openSUSE-0.10-1.3.noarch 95a3e3ac12c744efb64ac982a63c479f   8.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-networkd-257.6-1.1.x86_64                          95a3e3ac12c744efb64ac982a63c479f 738.6 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-presets-branding-openSUSE-12.2-25.1.noarch         95a3e3ac12c744efb64ac982a63c479f  10.3 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-presets-common-SUSE-15-39.1.noarch                 95a3e3ac12c744efb64ac982a63c479f  14.9 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  systemd-sysvcompat-257.6-1.1.x86_64                        95a3e3ac12c744efb64ac982a63c479f 121.1 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  sysuser-shadow-3.3-8.2.noarch                              95a3e3ac12c744efb64ac982a63c479f  10.2 kB
+[   23s] [ DEBUG   ]: 14:58:24 | system:  util-linux-2.41-1.1.x86_64                                 95a3e3ac12c744efb64ac982a63c479f   1.4 MB
+[   23s] [ DEBUG   ]: 14:58:24 | system: Transaction Summary:
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Installing:       52 packages
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Reinstalling:      0 packages
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Upgrading:         0 packages
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Obsoleting:        0 packages
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Removing:          0 packages
+[   23s] [ DEBUG   ]: 14:58:24 | system:  Downgrading:       0 packages
+[   23s] [ DEBUG   ]: 14:58:25 | system: Running transaction test...
+[   23s] [ DEBUG   ]: 14:58:25 | system: Installing: libaudit1;4.0-3.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   23s] [ DEBUG   ]: 14:58:25 | system: Installing: libsystemd0;257.6-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   23s] [ DEBUG   ]: 14:58:25 | system: Installing: libcrypt1;4.4.38-1.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libkbdfile1;2.7.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-default-settings;0.10-1.3;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-default-settings-branding-openSUSE;0.10-1.3;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: permctl;1699_20250120-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libuuid1;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libexpat1;2.7.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libcap-ng0;0.8.5-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libfdisk1;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: permissions-config;1699_20250120-1.3;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Updating /etc/sysconfig/security ...
+[   24s] [ DEBUG   ]: 14:58:25 | system: Checking permissions and ownerships - using the permissions files
+[   24s] [ DEBUG   ]: 14:58:25 | system: 	/usr/share/permissions/permissions
+[   24s] [ DEBUG   ]: 14:58:25 | system: 	/usr/share/permissions/permissions.easy
+[   24s] [ DEBUG   ]: 14:58:25 | system: 	/etc/permissions.local
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: permissions;1699_20250120-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pam;1.7.0-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pam-extra;1.7.0-3.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pam-config;2.12+git.20250411-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (account, /etc/pam.d/common-account-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_access.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd_home.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix2.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix.so (account, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_krb5.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_localuser.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_sss.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ldap.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_nam.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_winbind.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_time.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_himmelblau.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kanidm.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (auth, /etc/pam.d/common-auth-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_env.so (auth, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_faildelay.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_group.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_pkcs11.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fp.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fprint.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fprintd.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_thinkfinger.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_gnome_keyring.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kwallet5.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd_home.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ssh.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ecryptfs.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fscrypt.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix2.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix.so (auth, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_krb5.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_sss.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ldap.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_nam.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_winbind.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_himmelblau.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kanidm.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (password, /etc/pam.d/common-password-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_winbind.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_pwcheck.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_passwdqc.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_pwquality.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_cracklib.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_pwhistory.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_gnome_keyring.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kwallet5.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ecryptfs.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd_home.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix2.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix.so (password, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fscrypt.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_make.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_exec.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_krb5.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_sss.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ldap.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_nam.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (session, /etc/pam.d/common-session-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_limits.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ecryptfs.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fscrypt.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_mkhomedir.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd_home.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix2.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_apparmor.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_krb5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_sss.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ldap.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_winbind.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_nam.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_umask.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ssh.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_gnome_keyring.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kwallet5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_exec.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_env.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_mktemp.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_himmelblau.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kanidm.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (session, /etc/pam.d/common-session-nonlogin-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ecryptfs.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_fscrypt.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_mkhomedir.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_systemd_home.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_limits.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix2.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_unix.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_apparmor.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_krb5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_sss.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ldap.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_winbind.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_nam.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_umask.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_ssh.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_gnome_keyring.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_kwallet5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_exec.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_env.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_mktemp.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (account, /etc/pam.d/postlogin-account-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (auth, /etc/pam.d/postlogin-auth-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (password, /etc/pam.d/postlogin-password-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** write_config (session, /etc/pam.d/postlogin-session-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_wtmpdb.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** write config for pam_lastlog2.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: util-linux;2.41-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libkeymap1;2.7.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libkfont0;2.7.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: kbd;2.7.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Updating /etc/sysconfig/console ...
+[   24s] [ DEBUG   ]: 14:58:25 | system: Updating /etc/sysconfig/keyboard ...
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libsubid5;4.17.4-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-presets-common-SUSE;15-39.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-presets-branding-openSUSE;12.2-25.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pkgconf-m4;2.2.0-1.3;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: login_defs;4.17.4-2.1;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libxtables12;1.8.11-4.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libsepol2;3.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libsemanage-conf;3.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libsemanage2;3.8.1-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: shadow;4.17.4-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   24s] [ DEBUG   ]: 14:58:25 | system: /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: sysuser-shadow;3.3-8.2;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: /usr/sbin/useradd -r -c User for D-Bus -d /run/dbus -U messagebus -s /usr/sbin/nologin
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: dbus-1-common;1.14.10-4.4;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libdbus-1-3;1.14.10-4.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: dbus-1-tools;1.14.10-4.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libseccomp2;2.6.0-2.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libpkgconf5;2.2.0-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pkgconf;2.2.0-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: pkgconf-pkg-config;2.2.0-1.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libmnl0;1.0.5-2.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libbpf1;1.5.1-2.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libapparmor1;4.1.0-4.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: libalternatives1;1.2+31.da24cd4-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: alts;1.2+31.da24cd4-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: findutils;4.10.0-2.2;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: diffutils;3.12-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: dbus-broker-block-restart;36-2.3;noarch;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: dbus-1;1.14.10-4.4;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd;257.6-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: dbus-broker;36-2.3;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-networkd;257.6-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: systemd-sysvcompat;257.6-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: Installing: iproute2;6.15-1.1;x86_64;95a3e3ac12c744efb64ac982a63c479f
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (common-account-pc, account, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/common-account-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/common-account-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [account, required, pam_unix.so, try_first_pass ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_unix.so] (account): 'try_first_pass '
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (common-auth-pc, auth, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/common-auth-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/common-auth-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [auth, required, pam_env.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_env.so] (auth): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [auth, required, pam_unix.so, try_first_pass ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_unix.so] (auth): 'try_first_pass '
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (common-password-pc, password, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/common-password-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/common-password-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [password, required, pam_unix.so, nullok shadow try_first_pass ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_unix.so] (password): 'nullok shadow try_first_pass '
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (common-session-pc, session, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/common-session-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/common-session-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, required, pam_limits.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_limits.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, optional, pam_systemd.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** parse_config_pam_systemd.so (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, required, pam_unix.so, try_first_pass ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_unix.so] (session): 'try_first_pass '
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, optional, pam_umask.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_umask.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, optional, pam_env.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_env.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (common-session-nonlogin-pc, session, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/common-session-nonlogin-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/common-session-nonlogin-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, required, pam_limits.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_limits.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, required, pam_unix.so, try_first_pass ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_unix.so] (session): 'try_first_pass '
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, optional, pam_umask.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_umask.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** [session, optional, pam_env.so, ]
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** def_parse_config [pam_env.so] (session): ''
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (postlogin-account-pc, account, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/postlogin-account-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/postlogin-account-pc
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** load_config (postlogin-auth-pc, auth, ...)
+[   24s] [ DEBUG   ]: 14:58:25 | system: **** Trying /etc/pam.d/postlogin-auth-pc...
+[   24s] [ DEBUG   ]: 14:58:25 | system: *** Using config file /etc/pam.d/postlogin-auth-pc
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** load_config (postlogin-password-pc, password, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** Trying /etc/pam.d/postlogin-password-pc...
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** Using config file /etc/pam.d/postlogin-password-pc
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** load_config (postlogin-session-pc, session, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** Trying /etc/pam.d/postlogin-session-pc...
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** Using config file /etc/pam.d/postlogin-session-pc
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** write_config (account, /etc/pam.d/common-account-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_access.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd_home.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix2.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix.so (account, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_krb5.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_localuser.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_sss.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ldap.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_nam.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_winbind.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_time.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_himmelblau.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kanidm.so (account, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** write_config (auth, /etc/pam.d/common-auth-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_env.so (auth, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_faildelay.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_group.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_pkcs11.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fp.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fprint.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fprintd.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_thinkfinger.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_gnome_keyring.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kwallet5.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd_home.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ssh.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ecryptfs.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fscrypt.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix2.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix.so (auth, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_krb5.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_sss.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ldap.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_nam.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_winbind.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_himmelblau.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kanidm.so (auth, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** write_config (password, /etc/pam.d/common-password-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_winbind.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_pwcheck.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_passwdqc.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_pwquality.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_cracklib.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_pwhistory.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_gnome_keyring.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kwallet5.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ecryptfs.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd_home.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix2.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix.so (password, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fscrypt.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_make.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_exec.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_krb5.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_sss.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ldap.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_nam.so (password, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** write_config (session, /etc/pam.d/common-session-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_limits.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ecryptfs.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fscrypt.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_mkhomedir.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd_home.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix2.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_apparmor.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_krb5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_sss.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ldap.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_winbind.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_nam.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_umask.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ssh.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_selinux.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_gnome_keyring.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kwallet5.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_exec.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_env.so (session, enabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_mktemp.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_himmelblau.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kanidm.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: *** write_config (session, /etc/pam.d/common-session-nonlogin-pc, ...)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ecryptfs.so (session, disabled)
+[   24s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_fscrypt.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_selinux.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_mkhomedir.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_systemd_home.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_limits.so (session, enabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix2.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_unix.so (session, enabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_apparmor.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_krb5.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_sss.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ldap.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_winbind.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_nam.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_umask.so (session, enabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_ssh.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_selinux.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_gnome_keyring.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_kwallet5.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_exec.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_env.so (session, enabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_mktemp.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: *** write_config (account, /etc/pam.d/postlogin-account-pc, ...)
+[   25s] [ DEBUG   ]: 14:58:26 | system: *** write_config (auth, /etc/pam.d/postlogin-auth-pc, ...)
+[   25s] [ DEBUG   ]: 14:58:26 | system: *** write_config (password, /etc/pam.d/postlogin-password-pc, ...)
+[   25s] [ DEBUG   ]: 14:58:26 | system: *** write_config (session, /etc/pam.d/postlogin-session-pc, ...)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_wtmpdb.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: **** write config for pam_lastlog2.so (session, disabled)
+[   25s] [ DEBUG   ]: 14:58:26 | system: Complete.
+[   25s] [ INFO    ]: Processing: [########################################] 100%
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [cp /var/tmp/kiwi_pyk0b_6m /var/tmp/kiwi_q6ywd2xq]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for bash in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [bash -c source /usr/lib/python3.13/site-packages/kiwi/config/functions.sh; baseQuoteFile /var/tmp/kiwi_q6ywd2xq]
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_align='1048576'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_boot_timeout=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_bootkernel=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_bootloader='grub2'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_bootloader_console='default:default'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_bootprofile=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_btrfs_root_is_snapper_snapshot=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_btrfs_root_is_snapshot=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_cmdline=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_compressed=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_delete=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_devicepersistency=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_displayname='opensuse-tumbleweed-dnf-image'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_drivers=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_firmware=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_fsmountoptions=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_gpt_hybrid_mbr=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_hybridpersistent=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_hybridpersistent_filesystem=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_iname='opensuse-tumbleweed-dnf-image'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_initrd_system='none'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_installboot=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_iversion='1.0.0'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_luks_empty_passphrase='false'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_profiles='networkd-microdnf'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_ramonly=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_revision='$Format:%H$'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_rootpartuuid=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_sectorsize='512'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_showlicense=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_startsector='2048'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_strip_delete=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_strip_libs=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_strip_tools=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_target_blocksize=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_target_removable=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_type='tbz'
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_vga=''
+[   25s] [ DEBUG   ]: 14:58:26 | --> kiwi_wwid_wait_timeout=''
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for plymouth-set-default-theme in /usr/src/packages/KIWI-tbz/build/image-root/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/sbin:/usr/src/packages/KIWI-tbz/build/image-root/root/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/bin:/usr/src/packages/KIWI-tbz/build/image-root/bin
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for chkstat in /usr/src/packages/KIWI-tbz/build/image-root/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/sbin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/sbin:/usr/src/packages/KIWI-tbz/build/image-root/root/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/local/bin:/usr/src/packages/KIWI-tbz/build/image-root/usr/bin:/usr/src/packages/KIWI-tbz/build/image-root/bin
+[   25s] [ INFO    ]: 14:58:26 | Check/Fix File Permissions
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for chroot in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [chroot /usr/src/packages/KIWI-tbz/build/image-root chkstat --system --set]
+[   25s] [ DEBUG   ]: 14:58:26 | Creating directory /var/cache/kiwi/dnf/repos
+[   25s] [ DEBUG   ]: 14:58:26 | Creating directory /var/cache/kiwi/dnf/cache
+[   25s] [ DEBUG   ]: 14:58:26 | Creating directory /var/cache/kiwi/dnf/pluginconf
+[   25s] [ DEBUG   ]: 14:58:26 | Creating directory /var/cache/kiwi/dnf/vars
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [chroot /usr/src/packages/KIWI-tbz/build/image-root /image/config.sh]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for chroot in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ INFO    ]: 14:58:26 | Calling config.sh script
+[   25s] [ DEBUG   ]: 14:58:26 | --------------out start-------------
+[   25s] [ DEBUG   ]: 14:58:26 | Configure image: [opensuse-tumbleweed-dnf-image]...
+[   25s] [ DEBUG   ]: 14:58:26 | /usr/lib/rpm/gnupg/keys /
+[   25s] [ DEBUG   ]: 14:58:26 | Importing gpg-pubkey-09d9ea69-67c857f3 to rpm database
+[   25s] [ DEBUG   ]: 14:58:26 | Importing gpg-pubkey-287a0027-682477e3 to rpm database
+[   25s] [ DEBUG   ]: 14:58:26 | Importing gpg-pubkey-29b700a4-62b07e22 to rpm database
+[   25s] [ DEBUG   ]: 14:58:26 | Importing gpg-pubkey-39db7c82-66c5d91a to rpm database
+[   25s] [ DEBUG   ]: 14:58:26 | Importing gpg-pubkey-3fa1d6ce-67c856ee to rpm database
+[   25s] [ DEBUG   ]: 14:58:26 | /
+[   25s] [ DEBUG   ]: 14:58:26 | --------------out stop--------------
+[   25s] [ DEBUG   ]: 14:58:26 | --------------err start-------------
+[   25s] [ DEBUG   ]: 14:58:26 | + echo 'Configure image: [opensuse-tumbleweed-dnf-image]...'+ suseImportBuildKey+ local KEY+ local TDIR+ local KFN+ local dumpsigs=/usr/lib/rpm/gnupg/dumpsigs++ mktemp -d+ TDIR=/tmp/tmp.ElnKC2lQ3s+ '[' '!' -d /tmp/tmp.ElnKC2lQ3s ']'+ '[' -d /usr/lib/rpm/gnupg/keys ']'+ pushd /usr/lib/rpm/gnupg/keys+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-09d9ea69-67c857f3.asc ']'++ basename gpg-pubkey-09d9ea69-67c857f3.asc .asc+ KEY=gpg-pubkey-09d9ea69-67c857f3+ rpm -q gpg-pubkey-09d9ea69-67c857f3+ echo 'Importing gpg-pubkey-09d9ea69-67c857f3 to rpm database'+ rpm --import gpg-pubkey-09d9ea69-67c857f3.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-287a0027-682477e3.asc ']'++ basename gpg-pubkey-287a0027-682477e3.asc .asc+ KEY=gpg-pubkey-287a0027-682477e3+ rpm -q gpg-pubkey-287a0027-682477e3+ echo 'Importing gpg-pubkey-287a0027-682477e3 to rpm database'+ rpm --import gpg-pubkey-287a0027-682477e3.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-29b700a4-62b07e22.asc ']'++ basename gpg-pubkey-29b700a4-62b07e22.asc .asc+ KEY=gpg-pubkey-29b700a4-62b07e22+ rpm -q gpg-pubkey-29b700a4-62b07e22+ echo 'Importing gpg-pubkey-29b700a4-62b07e22 to rpm database'+ rpm --import gpg-pubkey-29b700a4-62b07e22.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-39db7c82-66c5d91a.asc ']'++ basename gpg-pubkey-39db7c82-66c5d91a.asc .asc+ KEY=gpg-pubkey-39db7c82-66c5d91a+ rpm -q gpg-pubkey-39db7c82-66c5d91a+ echo 'Importing gpg-pubkey-39db7c82-66c5d91a to rpm database'+ rpm --import gpg-pubkey-39db7c82-66c5d91a.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-3fa1d6ce-67c856ee.asc ']'++ basename gpg-pubkey-3fa1d6ce-67c856ee.asc .asc+ KEY=gpg-pubkey-3fa1d6ce-67c856ee+ rpm -q gpg-pubkey-3fa1d6ce-67c856ee+ echo 'Importing gpg-pubkey-3fa1d6ce-67c856ee to rpm database'+ rpm --import gpg-pubkey-3fa1d6ce-67c856ee.asc+ popd+ rm -rf /tmp/tmp.ElnKC2lQ3s+ echo install_weak_deps=False+ echo tsflags=nodocs+ shopt -s globstar+ rm -f /usr/share/locale/af/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/af/LC_MESSAGES/pam-config.mo /usr/share/locale/ar/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ar/LC_MESSAGES/p11-kit.mo /usr/share/locale/ar/LC_MESSAGES/pam-config.mo /usr/share/locale/ar/LC_MESSAGES/rpm.mo /usr/share/locale/as/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/as/LC_MESSAGES/libdnf.mo /usr/share/locale/as/LC_MESSAGES/p11-kit.mo /usr/share/locale/ast/LC_MESSAGES/p11-kit.mo /usr/share/locale/az/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/az/LC_MESSAGES/p11-kit.mo /usr/share/locale/be/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bg/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bg/LC_MESSAGES/libdnf.mo /usr/share/locale/bg/LC_MESSAGES/p11-kit.mo /usr/share/locale/bg/LC_MESSAGES/pam-config.mo /usr/share/locale/bn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bn/LC_MESSAGES/libdnf.mo /usr/share/locale/bn/LC_MESSAGES/pam-config.mo /usr/share/locale/bn_IN/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bn_IN/LC_MESSAGES/libdnf.mo /usr/share/locale/bn_IN/LC_MESSAGES/p11-kit.mo /usr/share/locale/br/LC_MESSAGES/rpm.mo /usr/share/locale/bs/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bs/LC_MESSAGES/pam-config.mo /usr/share/locale/bs/LC_MESSAGES/shadow.mo /usr/share/locale/ca/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ca/LC_MESSAGES/libdnf.mo /usr/share/locale/ca/LC_MESSAGES/p11-kit.mo /usr/share/locale/ca/LC_MESSAGES/pam-config.mo /usr/share/locale/ca/LC_MESSAGES/rpm.mo /usr/share/locale/ca/LC_MESSAGES/shadow.mo /usr/share/locale/ca@valencia/LC_MESSAGES/p11-kit.mo /usr/share/locale/cs/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/cs/LC_MESSAGES/kbd.mo /usr/share/locale/cs/LC_MESSAGES/libdnf.mo /usr/share/locale/cs/LC_MESSAGES/libgpg-error.mo /usr/share/locale/cs/LC_MESSAGES/p11-kit.mo /usr/share/locale/cs/LC_MESSAGES/pam-config.mo /usr/share/locale/cs/LC_MESSAGES/rpm.mo /usr/share/locale/cs/LC_MESSAGES/shadow.mo /usr/share/locale/cy/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/cy/LC_MESSAGES/p11-kit.mo /usr/share/locale/cy/LC_MESSAGES/pam-config.mo /usr/share/locale/da/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/da/LC_MESSAGES/kbd.mo /usr/share/locale/da/LC_MESSAGES/libdnf.mo /usr/share/locale/da/LC_MESSAGES/libgpg-error.mo /usr/share/locale/da/LC_MESSAGES/p11-kit.mo /usr/share/locale/da/LC_MESSAGES/pam-config.mo /usr/share/locale/da/LC_MESSAGES/rpm.mo /usr/share/locale/da/LC_MESSAGES/shadow.mo /usr/share/locale/de/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/de/LC_MESSAGES/kbd.mo /usr/share/locale/de/LC_MESSAGES/libdnf.mo /usr/share/locale/de/LC_MESSAGES/libgpg-error.mo /usr/share/locale/de/LC_MESSAGES/mit-krb5.mo /usr/share/locale/de/LC_MESSAGES/p11-kit.mo /usr/share/locale/de/LC_MESSAGES/pam-config.mo /usr/share/locale/de/LC_MESSAGES/shadow.mo /usr/share/locale/de_CH/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/dz/LC_MESSAGES/shadow.mo /usr/share/locale/el/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/el/LC_MESSAGES/kbd.mo /usr/share/locale/el/LC_MESSAGES/libdnf.mo /usr/share/locale/el/LC_MESSAGES/p11-kit.mo /usr/share/locale/el/LC_MESSAGES/pam-config.mo /usr/share/locale/el/LC_MESSAGES/rpm.mo /usr/share/locale/el/LC_MESSAGES/shadow.mo /usr/share/locale/en_GB/LC_MESSAGES/p11-kit.mo /usr/share/locale/en_GB/LC_MESSAGES/pam-config.mo /usr/share/locale/en_US/LC_MESSAGES/mit-krb5.mo /usr/share/locale/en_US/LC_MESSAGES/pam-config.mo /usr/share/locale/eo/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/eo/LC_MESSAGES/kbd.mo /usr/share/locale/eo/LC_MESSAGES/libgpg-error.mo /usr/share/locale/eo/LC_MESSAGES/p11-kit.mo /usr/share/locale/eo/LC_MESSAGES/rpm.mo /usr/share/locale/es/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/es/LC_MESSAGES/kbd.mo /usr/share/locale/es/LC_MESSAGES/libdnf.mo /usr/share/locale/es/LC_MESSAGES/libgpg-error.mo /usr/share/locale/es/LC_MESSAGES/p11-kit.mo /usr/share/locale/es/LC_MESSAGES/pam-config.mo /usr/share/locale/es/LC_MESSAGES/rpm.mo /usr/share/locale/es/LC_MESSAGES/shadow.mo /usr/share/locale/et/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/et/LC_MESSAGES/p11-kit.mo /usr/share/locale/et/LC_MESSAGES/pam-config.mo /usr/share/locale/eu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/eu/LC_MESSAGES/libdnf.mo /usr/share/locale/eu/LC_MESSAGES/p11-kit.mo /usr/share/locale/eu/LC_MESSAGES/shadow.mo /usr/share/locale/fa/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fa/LC_MESSAGES/libdnf.mo /usr/share/locale/fa/LC_MESSAGES/p11-kit.mo /usr/share/locale/fi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fi/LC_MESSAGES/libdnf.mo /usr/share/locale/fi/LC_MESSAGES/p11-kit.mo /usr/share/locale/fi/LC_MESSAGES/pam-config.mo /usr/share/locale/fi/LC_MESSAGES/rpm.mo /usr/share/locale/fi/LC_MESSAGES/shadow.mo /usr/share/locale/fr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fr/LC_MESSAGES/libdnf.mo /usr/share/locale/fr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/fr/LC_MESSAGES/p11-kit.mo /usr/share/locale/fr/LC_MESSAGES/pam-config.mo /usr/share/locale/fr/LC_MESSAGES/rpm.mo /usr/share/locale/fr/LC_MESSAGES/shadow.mo /usr/share/locale/fur/LC_MESSAGES/libdnf.mo /usr/share/locale/fur/LC_MESSAGES/p11-kit.mo /usr/share/locale/ga/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ga/LC_MESSAGES/p11-kit.mo /usr/share/locale/gl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/gl/LC_MESSAGES/p11-kit.mo /usr/share/locale/gl/LC_MESSAGES/pam-config.mo /usr/share/locale/gl/LC_MESSAGES/shadow.mo /usr/share/locale/gu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/gu/LC_MESSAGES/libdnf.mo /usr/share/locale/gu/LC_MESSAGES/p11-kit.mo /usr/share/locale/gu/LC_MESSAGES/pam-config.mo /usr/share/locale/gu/LC_MESSAGES/rpm.mo /usr/share/locale/he/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/he/LC_MESSAGES/p11-kit.mo /usr/share/locale/he/LC_MESSAGES/pam-config.mo /usr/share/locale/he/LC_MESSAGES/rpm.mo /usr/share/locale/he/LC_MESSAGES/shadow.mo /usr/share/locale/hi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hi/LC_MESSAGES/libdnf.mo /usr/share/locale/hi/LC_MESSAGES/p11-kit.mo /usr/share/locale/hi/LC_MESSAGES/pam-config.mo /usr/share/locale/hr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hr/LC_MESSAGES/p11-kit.mo /usr/share/locale/hr/LC_MESSAGES/pam-config.mo /usr/share/locale/hu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hu/LC_MESSAGES/kbd.mo /usr/share/locale/hu/LC_MESSAGES/libdnf.mo /usr/share/locale/hu/LC_MESSAGES/libgpg-error.mo /usr/share/locale/hu/LC_MESSAGES/p11-kit.mo /usr/share/locale/hu/LC_MESSAGES/pam-config.mo /usr/share/locale/hu/LC_MESSAGES/shadow.mo /usr/share/locale/ia/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ia/LC_MESSAGES/libdnf.mo /usr/share/locale/ia/LC_MESSAGES/p11-kit.mo /usr/share/locale/id/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/id/LC_MESSAGES/kbd.mo /usr/share/locale/id/LC_MESSAGES/libdnf.mo /usr/share/locale/id/LC_MESSAGES/p11-kit.mo /usr/share/locale/id/LC_MESSAGES/pam-config.mo /usr/share/locale/id/LC_MESSAGES/rpm.mo /usr/share/locale/id/LC_MESSAGES/shadow.mo /usr/share/locale/is/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/is/LC_MESSAGES/libdnf.mo /usr/share/locale/is/LC_MESSAGES/rpm.mo /usr/share/locale/it/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/it/LC_MESSAGES/kbd.mo /usr/share/locale/it/LC_MESSAGES/libdnf.mo /usr/share/locale/it/LC_MESSAGES/libgpg-error.mo /usr/share/locale/it/LC_MESSAGES/p11-kit.mo /usr/share/locale/it/LC_MESSAGES/pam-config.mo /usr/share/locale/it/LC_MESSAGES/rpm.mo /usr/share/locale/it/LC_MESSAGES/shadow.mo /usr/share/locale/ja/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ja/LC_MESSAGES/libdnf.mo /usr/share/locale/ja/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ja/LC_MESSAGES/p11-kit.mo /usr/share/locale/ja/LC_MESSAGES/pam-config.mo /usr/share/locale/ja/LC_MESSAGES/rpm.mo /usr/share/locale/ja/LC_MESSAGES/shadow.mo /usr/share/locale/ka/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ka/LC_MESSAGES/kbd.mo /usr/share/locale/ka/LC_MESSAGES/libdnf.mo /usr/share/locale/ka/LC_MESSAGES/mit-krb5.mo /usr/share/locale/ka/LC_MESSAGES/p11-kit.mo /usr/share/locale/ka/LC_MESSAGES/pam-config.mo /usr/share/locale/ka/LC_MESSAGES/rpm.mo /usr/share/locale/ka/LC_MESSAGES/shadow.mo /usr/share/locale/kk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/kk/LC_MESSAGES/p11-kit.mo /usr/share/locale/kk/LC_MESSAGES/shadow.mo /usr/share/locale/km/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/km/LC_MESSAGES/pam-config.mo /usr/share/locale/km/LC_MESSAGES/shadow.mo /usr/share/locale/kn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/kn/LC_MESSAGES/libdnf.mo /usr/share/locale/kn/LC_MESSAGES/p11-kit.mo /usr/share/locale/ko/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ko/LC_MESSAGES/libdnf.mo /usr/share/locale/ko/LC_MESSAGES/p11-kit.mo /usr/share/locale/ko/LC_MESSAGES/pam-config.mo /usr/share/locale/ko/LC_MESSAGES/rpm.mo /usr/share/locale/ko/LC_MESSAGES/shadow.mo /usr/share/locale/lt/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/lt/LC_MESSAGES/p11-kit.mo /usr/share/locale/lt/LC_MESSAGES/pam-config.mo /usr/share/locale/lv/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/lv/LC_MESSAGES/p11-kit.mo /usr/share/locale/mai/LC_MESSAGES/libdnf.mo /usr/share/locale/mk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/mk/LC_MESSAGES/pam-config.mo /usr/share/locale/ml/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ml/LC_MESSAGES/libdnf.mo /usr/share/locale/ml/LC_MESSAGES/p11-kit.mo /usr/share/locale/mr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/mr/LC_MESSAGES/libdnf.mo /usr/share/locale/mr/LC_MESSAGES/p11-kit.mo /usr/share/locale/mr/LC_MESSAGES/pam-config.mo /usr/share/locale/ms/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ms/LC_MESSAGES/p11-kit.mo /usr/share/locale/ms/LC_MESSAGES/rpm.mo /usr/share/locale/nb/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nb/LC_MESSAGES/libdnf.mo /usr/share/locale/nb/LC_MESSAGES/p11-kit.mo /usr/share/locale/nb/LC_MESSAGES/pam-config.mo /usr/share/locale/nb/LC_MESSAGES/rpm.mo /usr/share/locale/nb/LC_MESSAGES/shadow.mo /usr/share/locale/ne/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ne/LC_MESSAGES/shadow.mo /usr/share/locale/nl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nl/LC_MESSAGES/kbd.mo /usr/share/locale/nl/LC_MESSAGES/libdnf.mo /usr/share/locale/nl/LC_MESSAGES/libgpg-error.mo /usr/share/locale/nl/LC_MESSAGES/p11-kit.mo /usr/share/locale/nl/LC_MESSAGES/pam-config.mo /usr/share/locale/nl/LC_MESSAGES/rpm.mo /usr/share/locale/nl/LC_MESSAGES/shadow.mo /usr/share/locale/nn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nn/LC_MESSAGES/p11-kit.mo /usr/share/locale/nn/LC_MESSAGES/shadow.mo /usr/share/locale/oc/LC_MESSAGES/p11-kit.mo /usr/share/locale/or/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/or/LC_MESSAGES/libdnf.mo /usr/share/locale/or/LC_MESSAGES/p11-kit.mo /usr/share/locale/pa/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pa/LC_MESSAGES/libdnf.mo /usr/share/locale/pa/LC_MESSAGES/p11-kit.mo /usr/share/locale/pa/LC_MESSAGES/pam-config.mo /usr/share/locale/pa/LC_MESSAGES/rpm.mo /usr/share/locale/pl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pl/LC_MESSAGES/kbd.mo /usr/share/locale/pl/LC_MESSAGES/libdnf.mo /usr/share/locale/pl/LC_MESSAGES/libgpg-error.mo /usr/share/locale/pl/LC_MESSAGES/p11-kit.mo /usr/share/locale/pl/LC_MESSAGES/pam-config.mo /usr/share/locale/pl/LC_MESSAGES/rpm.mo /usr/share/locale/pl/LC_MESSAGES/shadow.mo /usr/share/locale/pt/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pt/LC_MESSAGES/kbd.mo /usr/share/locale/pt/LC_MESSAGES/libdnf.mo /usr/share/locale/pt/LC_MESSAGES/libgpg-error.mo /usr/share/locale/pt/LC_MESSAGES/p11-kit.mo /usr/share/locale/pt/LC_MESSAGES/pam-config.mo /usr/share/locale/pt/LC_MESSAGES/rpm.mo /usr/share/locale/pt/LC_MESSAGES/shadow.mo /usr/share/locale/pt_BR/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pt_BR/LC_MESSAGES/kbd.mo /usr/share/locale/pt_BR/LC_MESSAGES/libdnf.mo /usr/share/locale/pt_BR/LC_MESSAGES/p11-kit.mo /usr/share/locale/pt_BR/LC_MESSAGES/pam-config.mo /usr/share/locale/pt_BR/LC_MESSAGES/rpm.mo /usr/share/locale/pt_BR/LC_MESSAGES/shadow.mo /usr/share/locale/ro/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ro/LC_MESSAGES/kbd.mo /usr/share/locale/ro/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ro/LC_MESSAGES/p11-kit.mo /usr/share/locale/ro/LC_MESSAGES/pam-config.mo /usr/share/locale/ro/LC_MESSAGES/shadow.mo /usr/share/locale/ru/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ru/LC_MESSAGES/kbd.mo /usr/share/locale/ru/LC_MESSAGES/libdnf.mo /usr/share/locale/ru/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ru/LC_MESSAGES/p11-kit.mo /usr/share/locale/ru/LC_MESSAGES/pam-config.mo /usr/share/locale/ru/LC_MESSAGES/rpm.mo /usr/share/locale/ru/LC_MESSAGES/shadow.mo /usr/share/locale/si/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/si/LC_MESSAGES/libdnf.mo /usr/share/locale/si/LC_MESSAGES/p11-kit.mo /usr/share/locale/si/LC_MESSAGES/pam-config.mo /usr/share/locale/si/LC_MESSAGES/rpm.mo /usr/share/locale/sk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sk/LC_MESSAGES/libdnf.mo /usr/share/locale/sk/LC_MESSAGES/p11-kit.mo /usr/share/locale/sk/LC_MESSAGES/pam-config.mo /usr/share/locale/sk/LC_MESSAGES/rpm.mo /usr/share/locale/sk/LC_MESSAGES/shadow.mo /usr/share/locale/sl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sl/LC_MESSAGES/p11-kit.mo /usr/share/locale/sl/LC_MESSAGES/pam-config.mo /usr/share/locale/sl/LC_MESSAGES/rpm.mo /usr/share/locale/sq/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sq/LC_MESSAGES/kbd.mo /usr/share/locale/sq/LC_MESSAGES/libdnf.mo /usr/share/locale/sq/LC_MESSAGES/p11-kit.mo /usr/share/locale/sq/LC_MESSAGES/shadow.mo /usr/share/locale/sr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sr/LC_MESSAGES/kbd.mo /usr/share/locale/sr/LC_MESSAGES/libdnf.mo /usr/share/locale/sr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/sr/LC_MESSAGES/p11-kit.mo /usr/share/locale/sr/LC_MESSAGES/pam-config.mo /usr/share/locale/sr/LC_MESSAGES/rpm.mo /usr/share/locale/sr@latin/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sr@latin/LC_MESSAGES/libdnf.mo /usr/share/locale/sr@latin/LC_MESSAGES/p11-kit.mo /usr/share/locale/sr@latin/LC_MESSAGES/rpm.mo /usr/share/locale/sv/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sv/LC_MESSAGES/kbd.mo /usr/share/locale/sv/LC_MESSAGES/libdnf.mo /usr/share/locale/sv/LC_MESSAGES/libgpg-error.mo /usr/share/locale/sv/LC_MESSAGES/p11-kit.mo /usr/share/locale/sv/LC_MESSAGES/pam-config.mo /usr/share/locale/sv/LC_MESSAGES/rpm.mo /usr/share/locale/sv/LC_MESSAGES/shadow.mo /usr/share/locale/ta/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ta/LC_MESSAGES/libdnf.mo /usr/share/locale/ta/LC_MESSAGES/p11-kit.mo /usr/share/locale/ta/LC_MESSAGES/pam-config.mo /usr/share/locale/te/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/te/LC_MESSAGES/libdnf.mo /usr/share/locale/te/LC_MESSAGES/p11-kit.mo /usr/share/locale/te/LC_MESSAGES/rpm.mo /usr/share/locale/th/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/th/LC_MESSAGES/libdnf.mo /usr/share/locale/th/LC_MESSAGES/p11-kit.mo /usr/share/locale/th/LC_MESSAGES/pam-config.mo /usr/share/locale/tr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/tr/LC_MESSAGES/kbd.mo /usr/share/locale/tr/LC_MESSAGES/libdnf.mo /usr/share/locale/tr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/tr/LC_MESSAGES/p11-kit.mo /usr/share/locale/tr/LC_MESSAGES/pam-config.mo /usr/share/locale/tr/LC_MESSAGES/rpm.mo /usr/share/locale/tr/LC_MESSAGES/shadow.mo /usr/share/locale/uk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/uk/LC_MESSAGES/kbd.mo /usr/share/locale/uk/LC_MESSAGES/libdnf.mo /usr/share/locale/uk/LC_MESSAGES/libgpg-error.mo /usr/share/locale/uk/LC_MESSAGES/p11-kit.mo /usr/share/locale/uk/LC_MESSAGES/pam-config.mo /usr/share/locale/uk/LC_MESSAGES/rpm.mo /usr/share/locale/uk/LC_MESSAGES/shadow.mo /usr/share/locale/vi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/vi/LC_MESSAGES/kbd.mo /usr/share/locale/vi/LC_MESSAGES/libgpg-error.mo /usr/share/locale/vi/LC_MESSAGES/p11-kit.mo /usr/share/locale/vi/LC_MESSAGES/pam-config.mo /usr/share/locale/vi/LC_MESSAGES/rpm.mo /usr/share/locale/vi/LC_MESSAGES/shadow.mo /usr/share/locale/wa/LC_MESSAGES/p11-kit.mo /usr/share/locale/wa/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_CN/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_CN/LC_MESSAGES/kbd.mo /usr/share/locale/zh_CN/LC_MESSAGES/libdnf.mo /usr/share/locale/zh_CN/LC_MESSAGES/libgpg-error.mo /usr/share/locale/zh_CN/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_CN/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_CN/LC_MESSAGES/rpm.mo /usr/share/locale/zh_CN/LC_MESSAGES/shadow.mo /usr/share/locale/zh_HK/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_HK/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_TW/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_TW/LC_MESSAGES/libdnf.mo /usr/share/locale/zh_TW/LC_MESSAGES/libgpg-error.mo /usr/share/locale/zh_TW/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_TW/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_TW/LC_MESSAGES/rpm.mo /usr/share/locale/zh_TW/LC_MESSAGES/shadow.mo+ rm -rf '/var/cache/dnf/*'+ rm -rf /var/cache/yum/lock /var/cache/yum/metadata /var/cache/yum/solv+ [[ networkd-microdnf == *\n\e\t\w\o\r\k\d* ]]+ systemctl enable systemd-networkdCreated symlink '/etc/systemd/system/dbus-org.freedesktop.network1.service' -> '/usr/lib/systemd/system/systemd-networkd.service'.Created symlink '/etc/systemd/system/multi-user.target.wants/systemd-networkd.service' -> '/usr/lib/systemd/system/systemd-networkd.service'.Created symlink '/etc/systemd/system/sockets.target.wants/systemd-networkd.socket' -> '/usr/lib/systemd/system/systemd-networkd.socket'.Failed to enable auxiliary unit systemd-network-generator.service, ignoring.Created symlink '/etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service' -> '/usr/lib/systemd/system/systemd-networkd-wait-online.service'.+ systemctl enable systemd-resolvedFailed to enable unit: Unit systemd-resolved.service does not exist
+[   25s] [ DEBUG   ]: 14:58:26 | --------------err stop--------------
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/sys]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/sys]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/sys]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/dev]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/dev]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/dev]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/proc]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root/proc]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root/proc]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for mountpoint in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [mountpoint -q /usr/src/packages/KIWI-tbz/build/image-root]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for umount in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [umount -l /usr/src/packages/KIWI-tbz/build/image-root]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/standard]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/containerfile]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory/images]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:/Factory]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos/openSUSE:]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/repos]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/var/cache/kiwi]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/var/cache]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rmdir in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rmdir --ignore-fail-on-non-empty /usr/src/packages/KIWI-tbz/build/image-root/var]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rm -f /usr/src/packages/KIWI-tbz/build/image-root/etc/hosts]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rm -f /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for cp in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [cp /usr/src/packages/KIWI-tbz/build/image-root/usr/share/fillup-templates/sysconfig.proxy /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy]
+[   25s] [ DEBUG   ]: 14:58:26 | Looking for rm in /sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin
+[   25s] [ DEBUG   ]: 14:58:26 | EXEC: [rm -f /usr/src/packages/KIWI-tbz/build/image-root/etc/hosts.kiwi /usr/src/packages/KIWI-tbz/build/image-root/etc/hosts.sha /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy.kiwi /usr/src/packages/KIWI-tbz/build/image-root/etc/sysconfig/proxy.sha]
+[   25s] [ ERROR   ]: 14:58:26 | KiwiScriptFailed: config.sh failed: + echo 'Configure image: [opensuse-tumbleweed-dnf-image]...'+ suseImportBuildKey+ local KEY+ local TDIR+ local KFN+ local dumpsigs=/usr/lib/rpm/gnupg/dumpsigs++ mktemp -d+ TDIR=/tmp/tmp.ElnKC2lQ3s+ '[' '!' -d /tmp/tmp.ElnKC2lQ3s ']'+ '[' -d /usr/lib/rpm/gnupg/keys ']'+ pushd /usr/lib/rpm/gnupg/keys+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-09d9ea69-67c857f3.asc ']'++ basename gpg-pubkey-09d9ea69-67c857f3.asc .asc+ KEY=gpg-pubkey-09d9ea69-67c857f3+ rpm -q gpg-pubkey-09d9ea69-67c857f3+ echo 'Importing gpg-pubkey-09d9ea69-67c857f3 to rpm database'+ rpm --import gpg-pubkey-09d9ea69-67c857f3.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-287a0027-682477e3.asc ']'++ basename gpg-pubkey-287a0027-682477e3.asc .asc+ KEY=gpg-pubkey-287a0027-682477e3+ rpm -q gpg-pubkey-287a0027-682477e3+ echo 'Importing gpg-pubkey-287a0027-682477e3 to rpm database'+ rpm --import gpg-pubkey-287a0027-682477e3.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-29b700a4-62b07e22.asc ']'++ basename gpg-pubkey-29b700a4-62b07e22.asc .asc+ KEY=gpg-pubkey-29b700a4-62b07e22+ rpm -q gpg-pubkey-29b700a4-62b07e22+ echo 'Importing gpg-pubkey-29b700a4-62b07e22 to rpm database'+ rpm --import gpg-pubkey-29b700a4-62b07e22.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-39db7c82-66c5d91a.asc ']'++ basename gpg-pubkey-39db7c82-66c5d91a.asc .asc+ KEY=gpg-pubkey-39db7c82-66c5d91a+ rpm -q gpg-pubkey-39db7c82-66c5d91a+ echo 'Importing gpg-pubkey-39db7c82-66c5d91a to rpm database'+ rpm --import gpg-pubkey-39db7c82-66c5d91a.asc+ for KFN in gpg-pubkey-*.asc+ '[' '!' -e gpg-pubkey-3fa1d6ce-67c856ee.asc ']'++ basename gpg-pubkey-3fa1d6ce-67c856ee.asc .asc+ KEY=gpg-pubkey-3fa1d6ce-67c856ee+ rpm -q gpg-pubkey-3fa1d6ce-67c856ee+ echo 'Importing gpg-pubkey-3fa1d6ce-67c856ee to rpm database'+ rpm --import gpg-pubkey-3fa1d6ce-67c856ee.asc+ popd+ rm -rf /tmp/tmp.ElnKC2lQ3s+ echo install_weak_deps=False+ echo tsflags=nodocs+ shopt -s globstar+ rm -f /usr/share/locale/af/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/af/LC_MESSAGES/pam-config.mo /usr/share/locale/ar/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ar/LC_MESSAGES/p11-kit.mo /usr/share/locale/ar/LC_MESSAGES/pam-config.mo /usr/share/locale/ar/LC_MESSAGES/rpm.mo /usr/share/locale/as/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/as/LC_MESSAGES/libdnf.mo /usr/share/locale/as/LC_MESSAGES/p11-kit.mo /usr/share/locale/ast/LC_MESSAGES/p11-kit.mo /usr/share/locale/az/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/az/LC_MESSAGES/p11-kit.mo /usr/share/locale/be/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bg/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bg/LC_MESSAGES/libdnf.mo /usr/share/locale/bg/LC_MESSAGES/p11-kit.mo /usr/share/locale/bg/LC_MESSAGES/pam-config.mo /usr/share/locale/bn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bn/LC_MESSAGES/libdnf.mo /usr/share/locale/bn/LC_MESSAGES/pam-config.mo /usr/share/locale/bn_IN/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bn_IN/LC_MESSAGES/libdnf.mo /usr/share/locale/bn_IN/LC_MESSAGES/p11-kit.mo /usr/share/locale/br/LC_MESSAGES/rpm.mo /usr/share/locale/bs/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/bs/LC_MESSAGES/pam-config.mo /usr/share/locale/bs/LC_MESSAGES/shadow.mo /usr/share/locale/ca/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ca/LC_MESSAGES/libdnf.mo /usr/share/locale/ca/LC_MESSAGES/p11-kit.mo /usr/share/locale/ca/LC_MESSAGES/pam-config.mo /usr/share/locale/ca/LC_MESSAGES/rpm.mo /usr/share/locale/ca/LC_MESSAGES/shadow.mo /usr/share/locale/ca@valencia/LC_MESSAGES/p11-kit.mo /usr/share/locale/cs/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/cs/LC_MESSAGES/kbd.mo /usr/share/locale/cs/LC_MESSAGES/libdnf.mo /usr/share/locale/cs/LC_MESSAGES/libgpg-error.mo /usr/share/locale/cs/LC_MESSAGES/p11-kit.mo /usr/share/locale/cs/LC_MESSAGES/pam-config.mo /usr/share/locale/cs/LC_MESSAGES/rpm.mo /usr/share/locale/cs/LC_MESSAGES/shadow.mo /usr/share/locale/cy/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/cy/LC_MESSAGES/p11-kit.mo /usr/share/locale/cy/LC_MESSAGES/pam-config.mo /usr/share/locale/da/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/da/LC_MESSAGES/kbd.mo /usr/share/locale/da/LC_MESSAGES/libdnf.mo /usr/share/locale/da/LC_MESSAGES/libgpg-error.mo /usr/share/locale/da/LC_MESSAGES/p11-kit.mo /usr/share/locale/da/LC_MESSAGES/pam-config.mo /usr/share/locale/da/LC_MESSAGES/rpm.mo /usr/share/locale/da/LC_MESSAGES/shadow.mo /usr/share/locale/de/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/de/LC_MESSAGES/kbd.mo /usr/share/locale/de/LC_MESSAGES/libdnf.mo /usr/share/locale/de/LC_MESSAGES/libgpg-error.mo /usr/share/locale/de/LC_MESSAGES/mit-krb5.mo /usr/share/locale/de/LC_MESSAGES/p11-kit.mo /usr/share/locale/de/LC_MESSAGES/pam-config.mo /usr/share/locale/de/LC_MESSAGES/shadow.mo /usr/share/locale/de_CH/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/dz/LC_MESSAGES/shadow.mo /usr/share/locale/el/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/el/LC_MESSAGES/kbd.mo /usr/share/locale/el/LC_MESSAGES/libdnf.mo /usr/share/locale/el/LC_MESSAGES/p11-kit.mo /usr/share/locale/el/LC_MESSAGES/pam-config.mo /usr/share/locale/el/LC_MESSAGES/rpm.mo /usr/share/locale/el/LC_MESSAGES/shadow.mo /usr/share/locale/en_GB/LC_MESSAGES/p11-kit.mo /usr/share/locale/en_GB/LC_MESSAGES/pam-config.mo /usr/share/locale/en_US/LC_MESSAGES/mit-krb5.mo /usr/share/locale/en_US/LC_MESSAGES/pam-config.mo /usr/share/locale/eo/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/eo/LC_MESSAGES/kbd.mo /usr/share/locale/eo/LC_MESSAGES/libgpg-error.mo /usr/share/locale/eo/LC_MESSAGES/p11-kit.mo /usr/share/locale/eo/LC_MESSAGES/rpm.mo /usr/share/locale/es/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/es/LC_MESSAGES/kbd.mo /usr/share/locale/es/LC_MESSAGES/libdnf.mo /usr/share/locale/es/LC_MESSAGES/libgpg-error.mo /usr/share/locale/es/LC_MESSAGES/p11-kit.mo /usr/share/locale/es/LC_MESSAGES/pam-config.mo /usr/share/locale/es/LC_MESSAGES/rpm.mo /usr/share/locale/es/LC_MESSAGES/shadow.mo /usr/share/locale/et/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/et/LC_MESSAGES/p11-kit.mo /usr/share/locale/et/LC_MESSAGES/pam-config.mo /usr/share/locale/eu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/eu/LC_MESSAGES/libdnf.mo /usr/share/locale/eu/LC_MESSAGES/p11-kit.mo /usr/share/locale/eu/LC_MESSAGES/shadow.mo /usr/share/locale/fa/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fa/LC_MESSAGES/libdnf.mo /usr/share/locale/fa/LC_MESSAGES/p11-kit.mo /usr/share/locale/fi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fi/LC_MESSAGES/libdnf.mo /usr/share/locale/fi/LC_MESSAGES/p11-kit.mo /usr/share/locale/fi/LC_MESSAGES/pam-config.mo /usr/share/locale/fi/LC_MESSAGES/rpm.mo /usr/share/locale/fi/LC_MESSAGES/shadow.mo /usr/share/locale/fr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/fr/LC_MESSAGES/libdnf.mo /usr/share/locale/fr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/fr/LC_MESSAGES/p11-kit.mo /usr/share/locale/fr/LC_MESSAGES/pam-config.mo /usr/share/locale/fr/LC_MESSAGES/rpm.mo /usr/share/locale/fr/LC_MESSAGES/shadow.mo /usr/share/locale/fur/LC_MESSAGES/libdnf.mo /usr/share/locale/fur/LC_MESSAGES/p11-kit.mo /usr/share/locale/ga/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ga/LC_MESSAGES/p11-kit.mo /usr/share/locale/gl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/gl/LC_MESSAGES/p11-kit.mo /usr/share/locale/gl/LC_MESSAGES/pam-config.mo /usr/share/locale/gl/LC_MESSAGES/shadow.mo /usr/share/locale/gu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/gu/LC_MESSAGES/libdnf.mo /usr/share/locale/gu/LC_MESSAGES/p11-kit.mo /usr/share/locale/gu/LC_MESSAGES/pam-config.mo /usr/share/locale/gu/LC_MESSAGES/rpm.mo /usr/share/locale/he/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/he/LC_MESSAGES/p11-kit.mo /usr/share/locale/he/LC_MESSAGES/pam-config.mo /usr/share/locale/he/LC_MESSAGES/rpm.mo /usr/share/locale/he/LC_MESSAGES/shadow.mo /usr/share/locale/hi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hi/LC_MESSAGES/libdnf.mo /usr/share/locale/hi/LC_MESSAGES/p11-kit.mo /usr/share/locale/hi/LC_MESSAGES/pam-config.mo /usr/share/locale/hr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hr/LC_MESSAGES/p11-kit.mo /usr/share/locale/hr/LC_MESSAGES/pam-config.mo /usr/share/locale/hu/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/hu/LC_MESSAGES/kbd.mo /usr/share/locale/hu/LC_MESSAGES/libdnf.mo /usr/share/locale/hu/LC_MESSAGES/libgpg-error.mo /usr/share/locale/hu/LC_MESSAGES/p11-kit.mo /usr/share/locale/hu/LC_MESSAGES/pam-config.mo /usr/share/locale/hu/LC_MESSAGES/shadow.mo /usr/share/locale/ia/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ia/LC_MESSAGES/libdnf.mo /usr/share/locale/ia/LC_MESSAGES/p11-kit.mo /usr/share/locale/id/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/id/LC_MESSAGES/kbd.mo /usr/share/locale/id/LC_MESSAGES/libdnf.mo /usr/share/locale/id/LC_MESSAGES/p11-kit.mo /usr/share/locale/id/LC_MESSAGES/pam-config.mo /usr/share/locale/id/LC_MESSAGES/rpm.mo /usr/share/locale/id/LC_MESSAGES/shadow.mo /usr/share/locale/is/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/is/LC_MESSAGES/libdnf.mo /usr/share/locale/is/LC_MESSAGES/rpm.mo /usr/share/locale/it/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/it/LC_MESSAGES/kbd.mo /usr/share/locale/it/LC_MESSAGES/libdnf.mo /usr/share/locale/it/LC_MESSAGES/libgpg-error.mo /usr/share/locale/it/LC_MESSAGES/p11-kit.mo /usr/share/locale/it/LC_MESSAGES/pam-config.mo /usr/share/locale/it/LC_MESSAGES/rpm.mo /usr/share/locale/it/LC_MESSAGES/shadow.mo /usr/share/locale/ja/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ja/LC_MESSAGES/libdnf.mo /usr/share/locale/ja/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ja/LC_MESSAGES/p11-kit.mo /usr/share/locale/ja/LC_MESSAGES/pam-config.mo /usr/share/locale/ja/LC_MESSAGES/rpm.mo /usr/share/locale/ja/LC_MESSAGES/shadow.mo /usr/share/locale/ka/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ka/LC_MESSAGES/kbd.mo /usr/share/locale/ka/LC_MESSAGES/libdnf.mo /usr/share/locale/ka/LC_MESSAGES/mit-krb5.mo /usr/share/locale/ka/LC_MESSAGES/p11-kit.mo /usr/share/locale/ka/LC_MESSAGES/pam-config.mo /usr/share/locale/ka/LC_MESSAGES/rpm.mo /usr/share/locale/ka/LC_MESSAGES/shadow.mo /usr/share/locale/kk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/kk/LC_MESSAGES/p11-kit.mo /usr/share/locale/kk/LC_MESSAGES/shadow.mo /usr/share/locale/km/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/km/LC_MESSAGES/pam-config.mo /usr/share/locale/km/LC_MESSAGES/shadow.mo /usr/share/locale/kn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/kn/LC_MESSAGES/libdnf.mo /usr/share/locale/kn/LC_MESSAGES/p11-kit.mo /usr/share/locale/ko/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ko/LC_MESSAGES/libdnf.mo /usr/share/locale/ko/LC_MESSAGES/p11-kit.mo /usr/share/locale/ko/LC_MESSAGES/pam-config.mo /usr/share/locale/ko/LC_MESSAGES/rpm.mo /usr/share/locale/ko/LC_MESSAGES/shadow.mo /usr/share/locale/lt/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/lt/LC_MESSAGES/p11-kit.mo /usr/share/locale/lt/LC_MESSAGES/pam-config.mo /usr/share/locale/lv/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/lv/LC_MESSAGES/p11-kit.mo /usr/share/locale/mai/LC_MESSAGES/libdnf.mo /usr/share/locale/mk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/mk/LC_MESSAGES/pam-config.mo /usr/share/locale/ml/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ml/LC_MESSAGES/libdnf.mo /usr/share/locale/ml/LC_MESSAGES/p11-kit.mo /usr/share/locale/mr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/mr/LC_MESSAGES/libdnf.mo /usr/share/locale/mr/LC_MESSAGES/p11-kit.mo /usr/share/locale/mr/LC_MESSAGES/pam-config.mo /usr/share/locale/ms/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ms/LC_MESSAGES/p11-kit.mo /usr/share/locale/ms/LC_MESSAGES/rpm.mo /usr/share/locale/nb/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nb/LC_MESSAGES/libdnf.mo /usr/share/locale/nb/LC_MESSAGES/p11-kit.mo /usr/share/locale/nb/LC_MESSAGES/pam-config.mo /usr/share/locale/nb/LC_MESSAGES/rpm.mo /usr/share/locale/nb/LC_MESSAGES/shadow.mo /usr/share/locale/ne/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ne/LC_MESSAGES/shadow.mo /usr/share/locale/nl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nl/LC_MESSAGES/kbd.mo /usr/share/locale/nl/LC_MESSAGES/libdnf.mo /usr/share/locale/nl/LC_MESSAGES/libgpg-error.mo /usr/share/locale/nl/LC_MESSAGES/p11-kit.mo /usr/share/locale/nl/LC_MESSAGES/pam-config.mo /usr/share/locale/nl/LC_MESSAGES/rpm.mo /usr/share/locale/nl/LC_MESSAGES/shadow.mo /usr/share/locale/nn/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/nn/LC_MESSAGES/p11-kit.mo /usr/share/locale/nn/LC_MESSAGES/shadow.mo /usr/share/locale/oc/LC_MESSAGES/p11-kit.mo /usr/share/locale/or/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/or/LC_MESSAGES/libdnf.mo /usr/share/locale/or/LC_MESSAGES/p11-kit.mo /usr/share/locale/pa/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pa/LC_MESSAGES/libdnf.mo /usr/share/locale/pa/LC_MESSAGES/p11-kit.mo /usr/share/locale/pa/LC_MESSAGES/pam-config.mo /usr/share/locale/pa/LC_MESSAGES/rpm.mo /usr/share/locale/pl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pl/LC_MESSAGES/kbd.mo /usr/share/locale/pl/LC_MESSAGES/libdnf.mo /usr/share/locale/pl/LC_MESSAGES/libgpg-error.mo /usr/share/locale/pl/LC_MESSAGES/p11-kit.mo /usr/share/locale/pl/LC_MESSAGES/pam-config.mo /usr/share/locale/pl/LC_MESSAGES/rpm.mo /usr/share/locale/pl/LC_MESSAGES/shadow.mo /usr/share/locale/pt/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pt/LC_MESSAGES/kbd.mo /usr/share/locale/pt/LC_MESSAGES/libdnf.mo /usr/share/locale/pt/LC_MESSAGES/libgpg-error.mo /usr/share/locale/pt/LC_MESSAGES/p11-kit.mo /usr/share/locale/pt/LC_MESSAGES/pam-config.mo /usr/share/locale/pt/LC_MESSAGES/rpm.mo /usr/share/locale/pt/LC_MESSAGES/shadow.mo /usr/share/locale/pt_BR/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/pt_BR/LC_MESSAGES/kbd.mo /usr/share/locale/pt_BR/LC_MESSAGES/libdnf.mo /usr/share/locale/pt_BR/LC_MESSAGES/p11-kit.mo /usr/share/locale/pt_BR/LC_MESSAGES/pam-config.mo /usr/share/locale/pt_BR/LC_MESSAGES/rpm.mo /usr/share/locale/pt_BR/LC_MESSAGES/shadow.mo /usr/share/locale/ro/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ro/LC_MESSAGES/kbd.mo /usr/share/locale/ro/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ro/LC_MESSAGES/p11-kit.mo /usr/share/locale/ro/LC_MESSAGES/pam-config.mo /usr/share/locale/ro/LC_MESSAGES/shadow.mo /usr/share/locale/ru/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ru/LC_MESSAGES/kbd.mo /usr/share/locale/ru/LC_MESSAGES/libdnf.mo /usr/share/locale/ru/LC_MESSAGES/libgpg-error.mo /usr/share/locale/ru/LC_MESSAGES/p11-kit.mo /usr/share/locale/ru/LC_MESSAGES/pam-config.mo /usr/share/locale/ru/LC_MESSAGES/rpm.mo /usr/share/locale/ru/LC_MESSAGES/shadow.mo /usr/share/locale/si/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/si/LC_MESSAGES/libdnf.mo /usr/share/locale/si/LC_MESSAGES/p11-kit.mo /usr/share/locale/si/LC_MESSAGES/pam-config.mo /usr/share/locale/si/LC_MESSAGES/rpm.mo /usr/share/locale/sk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sk/LC_MESSAGES/libdnf.mo /usr/share/locale/sk/LC_MESSAGES/p11-kit.mo /usr/share/locale/sk/LC_MESSAGES/pam-config.mo /usr/share/locale/sk/LC_MESSAGES/rpm.mo /usr/share/locale/sk/LC_MESSAGES/shadow.mo /usr/share/locale/sl/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sl/LC_MESSAGES/p11-kit.mo /usr/share/locale/sl/LC_MESSAGES/pam-config.mo /usr/share/locale/sl/LC_MESSAGES/rpm.mo /usr/share/locale/sq/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sq/LC_MESSAGES/kbd.mo /usr/share/locale/sq/LC_MESSAGES/libdnf.mo /usr/share/locale/sq/LC_MESSAGES/p11-kit.mo /usr/share/locale/sq/LC_MESSAGES/shadow.mo /usr/share/locale/sr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sr/LC_MESSAGES/kbd.mo /usr/share/locale/sr/LC_MESSAGES/libdnf.mo /usr/share/locale/sr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/sr/LC_MESSAGES/p11-kit.mo /usr/share/locale/sr/LC_MESSAGES/pam-config.mo /usr/share/locale/sr/LC_MESSAGES/rpm.mo /usr/share/locale/sr@latin/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sr@latin/LC_MESSAGES/libdnf.mo /usr/share/locale/sr@latin/LC_MESSAGES/p11-kit.mo /usr/share/locale/sr@latin/LC_MESSAGES/rpm.mo /usr/share/locale/sv/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/sv/LC_MESSAGES/kbd.mo /usr/share/locale/sv/LC_MESSAGES/libdnf.mo /usr/share/locale/sv/LC_MESSAGES/libgpg-error.mo /usr/share/locale/sv/LC_MESSAGES/p11-kit.mo /usr/share/locale/sv/LC_MESSAGES/pam-config.mo /usr/share/locale/sv/LC_MESSAGES/rpm.mo /usr/share/locale/sv/LC_MESSAGES/shadow.mo /usr/share/locale/ta/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/ta/LC_MESSAGES/libdnf.mo /usr/share/locale/ta/LC_MESSAGES/p11-kit.mo /usr/share/locale/ta/LC_MESSAGES/pam-config.mo /usr/share/locale/te/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/te/LC_MESSAGES/libdnf.mo /usr/share/locale/te/LC_MESSAGES/p11-kit.mo /usr/share/locale/te/LC_MESSAGES/rpm.mo /usr/share/locale/th/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/th/LC_MESSAGES/libdnf.mo /usr/share/locale/th/LC_MESSAGES/p11-kit.mo /usr/share/locale/th/LC_MESSAGES/pam-config.mo /usr/share/locale/tr/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/tr/LC_MESSAGES/kbd.mo /usr/share/locale/tr/LC_MESSAGES/libdnf.mo /usr/share/locale/tr/LC_MESSAGES/libgpg-error.mo /usr/share/locale/tr/LC_MESSAGES/p11-kit.mo /usr/share/locale/tr/LC_MESSAGES/pam-config.mo /usr/share/locale/tr/LC_MESSAGES/rpm.mo /usr/share/locale/tr/LC_MESSAGES/shadow.mo /usr/share/locale/uk/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/uk/LC_MESSAGES/kbd.mo /usr/share/locale/uk/LC_MESSAGES/libdnf.mo /usr/share/locale/uk/LC_MESSAGES/libgpg-error.mo /usr/share/locale/uk/LC_MESSAGES/p11-kit.mo /usr/share/locale/uk/LC_MESSAGES/pam-config.mo /usr/share/locale/uk/LC_MESSAGES/rpm.mo /usr/share/locale/uk/LC_MESSAGES/shadow.mo /usr/share/locale/vi/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/vi/LC_MESSAGES/kbd.mo /usr/share/locale/vi/LC_MESSAGES/libgpg-error.mo /usr/share/locale/vi/LC_MESSAGES/p11-kit.mo /usr/share/locale/vi/LC_MESSAGES/pam-config.mo /usr/share/locale/vi/LC_MESSAGES/rpm.mo /usr/share/locale/vi/LC_MESSAGES/shadow.mo /usr/share/locale/wa/LC_MESSAGES/p11-kit.mo /usr/share/locale/wa/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_CN/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_CN/LC_MESSAGES/kbd.mo /usr/share/locale/zh_CN/LC_MESSAGES/libdnf.mo /usr/share/locale/zh_CN/LC_MESSAGES/libgpg-error.mo /usr/share/locale/zh_CN/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_CN/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_CN/LC_MESSAGES/rpm.mo /usr/share/locale/zh_CN/LC_MESSAGES/shadow.mo /usr/share/locale/zh_HK/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_HK/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_TW/LC_MESSAGES/Linux-PAM.mo /usr/share/locale/zh_TW/LC_MESSAGES/libdnf.mo /usr/share/locale/zh_TW/LC_MESSAGES/libgpg-error.mo /usr/share/locale/zh_TW/LC_MESSAGES/p11-kit.mo /usr/share/locale/zh_TW/LC_MESSAGES/pam-config.mo /usr/share/locale/zh_TW/LC_MESSAGES/rpm.mo /usr/share/locale/zh_TW/LC_MESSAGES/shadow.mo+ rm -rf '/var/cache/dnf/*'+ rm -rf /var/cache/yum/lock /var/cache/yum/metadata /var/cache/yum/solv+ [[ networkd-microdnf == *\n\e\t\w\o\r\k\d* ]]+ systemctl enable systemd-networkdCreated symlink '/etc/systemd/system/dbus-org.freedesktop.network1.service' -> '/usr/lib/systemd/system/systemd-networkd.service'.Created symlink '/etc/systemd/system/multi-user.target.wants/systemd-networkd.service' -> '/usr/lib/systemd/system/systemd-networkd.service'.Created symlink '/etc/systemd/system/sockets.target.wants/systemd-networkd.socket' -> '/usr/lib/systemd/system/systemd-networkd.socket'.Failed to enable auxiliary unit systemd-network-generator.service, ignoring.Created symlink '/etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service' -> '/usr/lib/systemd/system/systemd-networkd-wait-online.service'.+ systemctl enable systemd-resolvedFailed to enable unit: Unit systemd-resolved.service does not exist
+[   25s] ### VM INTERACTION START ###
+[   25s] [   20.516642][    T1] sysrq: Power Off
+[   25s] ### VM INTERACTION END ###
+[   25s] 
+[   25s] i04-ch2b failed "build config.kiwi" at Wed Jun 11 14:58:27 UTC 2025.
+[   25s] 

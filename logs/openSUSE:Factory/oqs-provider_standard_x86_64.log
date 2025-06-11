@@ -1,0 +1,554 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_17/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_17/root
+[    0s] 
+[    0s] 
+[    0s] i03-ch2a started "build oqs-provider.spec" at Tue Jun 10 11:39:32 UTC 2025.
+[    0s] 
+[    0s] Building oqs-provider for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '37140e3d5fd7d3c0ffb8f6dace005311'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_17/.build-srcdir/oqs-provider.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_17/.build-srcdir/oqs-provider.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/17/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_17/.build.rpmlist /var/cache/obs/worker/root_17/.build-srcdir/oqs-provider.spec build ...
+[    0s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: libpython3_13-1_0 -> python313-base
+[    2s]   breaking dependency python313-base -> libpython3_13-1_0
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_17/.mount/boot/kernel -initrd /var/cache/obs/worker/root_17/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_17/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_17/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_17/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.411111][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    5s] 2nd stage started in virtual machine
+[    5s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    5s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    5s] Time: Tue Jun 10 11:39:37 UTC 2025
+[    5s] Increasing log level from now on...
+[    5s] [    1.910005][  T573] sysrq: Changing Loglevel
+[    5s] [    1.910051][  T573] sysrq: Loglevel set to 4
+[    5s] Enable sysrq operations
+[    5s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    5s] no label, UUID=631369a8-3d68-4008-8ee5-7701404319e9
+[    5s] WARNING: udev not running, creating extra device nodes
+[    5s] logging output to //.build.log...
+[    5s] processing recipe //.build-srcdir/oqs-provider.spec ...
+[    5s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/oqs-provider.spec build ...
+[    5s] initializing rpm db...
+[    5s] querying package ids...
+[    6s] [1/144] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/144] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/144] preinstalled bash-5.2.37-20.1
+[    6s] [4/144] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/144] preinstalled binutils-2.43-7.1
+[    6s] [6/144] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [7/144] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [8/144] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [9/144] preinstalled bzip2-1.0.8-5.12
+[    6s] [10/144] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [11/144] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [12/144] preinstalled coreutils-9.7-2.1
+[    6s] [13/144] preinstalled cpio-2.15-5.1
+[    6s] [14/144] preinstalled cpp-14-3.1
+[    6s] [15/144] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [16/144] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [17/144] preinstalled debugedit-5.1-1.3
+[    6s] [18/144] preinstalled diffutils-3.12-1.1
+[    6s] [19/144] preinstalled dwz-0.15-6.1
+[    6s] [20/144] preinstalled elfutils-0.192-2.2
+[    6s] [21/144] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [22/144] preinstalled file-5.46-4.1
+[    6s] [23/144] preinstalled file-magic-5.46-4.1
+[    6s] [24/144] preinstalled filesystem-84.87-18.2
+[    6s] [25/144] preinstalled fillup-1.42-281.3
+[    6s] [26/144] preinstalled findutils-4.10.0-2.2
+[    6s] [27/144] preinstalled gawk-5.3.2-1.1
+[    6s] [28/144] preinstalled gcc-14-3.1
+[    6s] [29/144] preinstalled gcc-PIE-14-3.1
+[    6s] [30/144] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [31/144] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [32/144] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [33/144] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [34/144] preinstalled glibc-2.41-2.1
+[    6s] [35/144] preinstalled glibc-devel-2.41-2.1
+[    6s] [36/144] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [37/144] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [38/144] preinstalled grep-3.12-1.1
+[    6s] [39/144] preinstalled gzip-1.14-1.1
+[    6s] [40/144] cumulate jitterentropy-devel-3.6.3-1.1
+[    6s] [41/144] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [42/144] preinstalled libacl1-2.3.2-2.3
+[    6s] [43/144] preinstalled libarchive13-3.7.9-1.1
+[    6s] [44/144] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [45/144] preinstalled libasm1-0.192-2.2
+[    6s] [46/144] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [47/144] preinstalled libattr1-2.5.2-1.4
+[    6s] [48/144] preinstalled libaudit1-4.0-3.3
+[    6s] [49/144] preinstalled libblkid1-2.41-1.1
+[    6s] [50/144] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [51/144] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [52/144] preinstalled libcap2-2.75-1.1
+[    6s] [53/144] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [54/144] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [55/144] preinstalled libctf0-2.43-7.1
+[    6s] [56/144] preinstalled libdw1-0.192-2.2
+[    6s] [57/144] preinstalled libeconf0-0.7.9-1.1
+[    6s] [58/144] preinstalled libelf1-0.192-2.2
+[    6s] [59/144] cumulate libexpat1-2.7.1-2.1
+[    6s] [60/144] preinstalled libfdisk1-2.41-1.1
+[    6s] [61/144] cumulate libffi8-3.4.7-1.1
+[    6s] [62/144] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [63/144] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [64/144] preinstalled libgdbm6-1.24-2.1
+[    6s] [65/144] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [66/144] preinstalled libgmp10-6.3.0-5.1
+[    6s] [67/144] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [68/144] preinstalled libgpg-error0-1.55-1.1
+[    6s] [69/144] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [70/144] preinstalled libisl23-0.27-1.2
+[    6s] [71/144] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [72/144] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [73/144] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [74/144] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [75/144] preinstalled liblz1-1.15-1.2
+[    6s] [76/144] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [77/144] preinstalled liblzma5-5.8.1-1.1
+[    6s] [78/144] preinstalled libmagic1-5.46-4.1
+[    6s] [79/144] preinstalled libmount1-2.41-1.1
+[    6s] [80/144] preinstalled libmpc3-1.3.1-1.10
+[    6s] [81/144] cumulate libmpdec4-4.0.1-2.1
+[    6s] [82/144] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [83/144] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [84/144] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [85/144] cumulate liboqs7-0.13.0-2.1
+[    6s] [86/144] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [87/144] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [88/144] preinstalled libpopt0-1.19-1.10
+[    6s] [89/144] preinstalled libreadline8-8.2.13-2.3
+[    6s] [90/144] cumulate librhash1-1.4.5-1.2
+[    6s] [91/144] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [92/144] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [93/144] preinstalled libselinux1-3.8.1-1.1
+[    6s] [94/144] preinstalled libsmartcols1-2.41-1.1
+[    6s] [95/144] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [96/144] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [97/144] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [98/144] preinstalled libuuid1-2.41-1.1
+[    6s] [99/144] cumulate libuv1-1.50.0-1.1
+[    6s] [100/144] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [101/144] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [102/144] preinstalled libz1-1.3.1-1.3
+[    6s] [103/144] preinstalled libzstd1-1.5.7-3.1
+[    6s] [104/144] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [105/144] preinstalled lua54-5.4.7-4.1
+[    6s] [106/144] preinstalled make-4.4.1-3.3
+[    6s] [107/144] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [108/144] preinstalled pam-1.7.0-3.1
+[    6s] [109/144] preinstalled patch-2.8-1.1
+[    6s] [110/144] preinstalled perl-5.40.2-2.1
+[    6s] [111/144] preinstalled perl-base-5.40.2-2.1
+[    6s] [112/144] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [113/144] preinstalled permctl-1699_20250120-1.3
+[    6s] [114/144] preinstalled permissions-1699_20250120-1.3
+[    6s] [115/144] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [116/144] preinstalled pkgconf-2.2.0-1.3
+[    6s] [117/144] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [118/144] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [119/144] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [120/144] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [121/144] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    6s] [122/144] preinstalled rpm-4.20.1-4.1
+[    6s] [123/144] preinstalled rpm-build-4.20.1-4.1
+[    6s] [124/144] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [125/144] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [126/144] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [127/144] preinstalled sed-4.9-2.8
+[    6s] [128/144] preinstalled system-user-root-20190513-2.18
+[    6s] [129/144] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [130/144] preinstalled tar-1.35-4.1
+[    6s] [131/144] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [132/144] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [133/144] preinstalled util-linux-2.41-1.1
+[    6s] [134/144] preinstalled which-2.23-1.2
+[    6s] [135/144] preinstalled xz-5.8.1-1.1
+[    6s] [136/144] cumulate zlib-devel-1.3.1-1.3
+[    6s] [137/144] cumulate libopenssl-3-devel-3.5.0-3.1
+[    6s] [138/144] cumulate liboqs-devel-0.13.0-2.1
+[    6s] [139/144] cumulate python313-base-3.13.3-4.1
+[    6s] [140/144] cumulate libpython3_13-1_0-3.13.3-4.1
+[    6s] [141/144] cumulate python313-packaging-24.2-2.1
+[    6s] [142/144] cumulate cmake-mini-3.31.7-2.1
+[    6s] [143/144] cumulate cmake-3.31.7-2.1
+[    6s] [144/144] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] libuv1-1.50.0-1.1                     ########################################
+[    6s] libexpat1-2.7.1-2.1                   ########################################
+[    6s] zlib-devel-1.3.1-1.3                  ########################################
+[    6s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    6s] librhash1-1.4.5-1.2                   ########################################
+[    6s] liboqs7-0.13.0-2.1                    ########################################
+[    6s] libmpdec4-4.0.1-2.1                   ########################################
+[    6s] libffi8-3.4.7-1.1                     ########################################
+[    6s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    6s] python313-base-3.13.3-4.1             ########################################
+[    6s] python313-packaging-24.2-2.1          ########################################
+[    6s] cmake-mini-3.31.7-2.1                 ########################################
+[    6s] jitterentropy-devel-3.6.3-1.1         ########################################
+[    7s] libopenssl-3-devel-3.5.0-3.1          ########################################
+[    7s] liboqs-devel-0.13.0-2.1               ########################################
+[    7s] cmake-3.31.7-2.1                      ########################################
+[    7s] python-rpm-packaging-20210526+a18ca48-########################################
+[    7s] now finalizing build dir...
+[    7s] ... running 01-add_abuild_user_to_trusted_group
+[    7s] ... running 02-set_timezone_to_utc
+[    7s] ... running 03-set-permissions-secure
+[    7s] ... running 11-hack_uname_version_to_kernel_version
+[    7s] setting SOURCE_DATE_EPOCH_MTIME to 1739874967
+[    7s] -----------------------------------------------------------------
+[    7s] I have the following modifications for oqs-provider.spec:
+[    7s] 21c21
+[    7s] < Release:        0
+[    7s] ---
+[    7s] > Release:        1.2
+[    8s] -----------------------------------------------------------------
+[    8s] ----- building oqs-provider.spec (user abuild)
+[    8s] -----------------------------------------------------------------
+[    8s] -----------------------------------------------------------------
+[    8s] setting SOURCE_DATE_EPOCH_MTIME to 1739874967
+[    8s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/37140e3d5fd7d3c0ffb8f6dace005311-oqs-provider' /home/abuild/rpmbuild/SOURCES/oqs-provider.spec
+[    8s] using SOURCE_DATE_EPOCH with value 1739874965 as build time
+[    8s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.L2g6qI
+[    8s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.9wTT2g
+[    8s] + umask 022
+[    8s] + cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    8s] + cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    8s] + rm -rf oqs-provider-0.8.0
+[    8s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/oqs-provider-0.8.0.tar.gz
+[    8s] + STATUS=0
+[    8s] + '[' 0 -ne 0 ']'
+[    8s] + cd oqs-provider-0.8.0
+[    8s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[    8s] + RPM_EC=0
+[    8s] ++ jobs -p
+[    8s] + exit 0
+[    8s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.IHaPEe
+[    8s] + umask 022
+[    8s] + cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    8s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT
+[    8s] ++ dirname /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT
+[    8s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    8s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT
+[    8s] + cd oqs-provider-0.8.0
+[    8s] + mkdir build
+[    8s] + export 'RPM_OPT_FLAGS=-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -std=gnu11'
+[    8s] + RPM_OPT_FLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -std=gnu11'
+[    8s] + cd build
+[    8s] + cmake -DBUILD_SHARED_LIBS=ON ..
+[    8s] CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[    8s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[    8s]   CMake.
+[    8s] 
+[    8s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[    8s]   to tell CMake that the project requires at least <min> but has been updated
+[    8s]   to work with policies introduced by <max> or earlier.
+[    8s] 
+[    8s] 
+[    8s] -- The C compiler identification is GNU 14.3.0
+[    8s] -- Detecting C compiler ABI info
+[    8s] -- Detecting C compiler ABI info - done
+[    8s] -- Check for working C compiler: /usr/bin/cc - skipped
+[    8s] -- Detecting C compile features
+[    8s] -- Detecting C compile features - done
+[    8s] -- Creating Release build
+[    8s] -- Build will store public keys in PKCS#8 structures
+[    8s] -- Found OpenSSL: /usr/lib64/libcrypto.so (found suitable version "3.5.0", minimum required is "3.0")
+[    8s] -- liboqs found: Include dir at /usr/include;/usr/include/oqs (SHARED_LIBRARY)
+[    8s] -- Building commit  in /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0
+[    8s] Adding liboqs as dynamic dependency for the debian package
+[    8s] -- Configuring done (0.2s)
+[    8s] -- Generating done (0.0s)
+[    8s] -- Build files have been written to: /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build
+[    8s] + /usr/bin/make -O VERBOSE=1 -j4
+[    8s] /usr/bin/cmake -S/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 -B/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build --check-build-system CMakeFiles/Makefile.cmake 0
+[    8s] /usr/bin/cmake -E cmake_progress_start /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/CMakeFiles /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build//CMakeFiles/progress.marks
+[    8s] /usr/bin/make  -f CMakeFiles/Makefile2 all
+[    8s] /usr/bin/make  -f oqsprov/CMakeFiles/oqsprovider.dir/build.make oqsprov/CMakeFiles/oqsprovider.dir/depend
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_signatures.dir/build.make test/CMakeFiles/oqs_test_signatures.dir/depend
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_kems.dir/build.make test/CMakeFiles/oqs_test_kems.dir/depend
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_groups.dir/build.make test/CMakeFiles/oqs_test_groups.dir/depend
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_groups.dir/DependInfo.cmake "--color="
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov/CMakeFiles/oqsprovider.dir/DependInfo.cmake "--color="
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_groups.dir/build.make test/CMakeFiles/oqs_test_groups.dir/build
+[    8s] /usr/bin/make  -f oqsprov/CMakeFiles/oqsprovider.dir/build.make oqsprov/CMakeFiles/oqsprovider.dir/build
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_kems.dir/DependInfo.cmake "--color="
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_signatures.dir/DependInfo.cmake "--color="
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_kems.dir/build.make test/CMakeFiles/oqs_test_kems.dir/build
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_signatures.dir/build.make test/CMakeFiles/oqs_test_signatures.dir/build
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [  6%] Building C object test/CMakeFiles/oqs_test_signatures.dir/oqs_test_signatures.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_signatures.dir/oqs_test_signatures.c.o -MF CMakeFiles/oqs_test_signatures.dir/oqs_test_signatures.c.o.d -o CMakeFiles/oqs_test_signatures.dir/oqs_test_signatures.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_signatures.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [  3%] Building C object test/CMakeFiles/oqs_test_groups.dir/oqs_test_groups.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_groups.dir/oqs_test_groups.c.o -MF CMakeFiles/oqs_test_groups.dir/oqs_test_groups.c.o.d -o CMakeFiles/oqs_test_groups.dir/oqs_test_groups.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_groups.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 12%] Building C object test/CMakeFiles/oqs_test_kems.dir/oqs_test_kems.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_kems.dir/oqs_test_kems.c.o -MF CMakeFiles/oqs_test_kems.dir/oqs_test_kems.c.o.d -o CMakeFiles/oqs_test_kems.dir/oqs_test_kems.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_kems.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 16%] Building C object test/CMakeFiles/oqs_test_signatures.dir/test_common.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_signatures.dir/test_common.c.o -MF CMakeFiles/oqs_test_signatures.dir/test_common.c.o.d -o CMakeFiles/oqs_test_signatures.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 19%] Building C object test/CMakeFiles/oqs_test_groups.dir/test_common.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_groups.dir/test_common.c.o -MF CMakeFiles/oqs_test_groups.dir/test_common.c.o.d -o CMakeFiles/oqs_test_groups.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 12%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqsprov.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqsprov.c.o -MF CMakeFiles/oqsprovider.dir/oqsprov.c.o.d -o CMakeFiles/oqsprovider.dir/oqsprov.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqsprov.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 22%] Building C object test/CMakeFiles/oqs_test_kems.dir/test_common.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_kems.dir/test_common.c.o -MF CMakeFiles/oqs_test_kems.dir/test_common.c.o.d -o CMakeFiles/oqs_test_kems.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 25%] Linking C executable oqs_test_signatures
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_signatures.dir/link.txt --verbose=1
+[    8s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_signatures.dir/link.d CMakeFiles/oqs_test_signatures.dir/oqs_test_signatures.c.o CMakeFiles/oqs_test_signatures.dir/test_common.c.o -o oqs_test_signatures  /usr/lib64/libcrypto.so
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 35%] Built target oqs_test_signatures
+[    8s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 35%] Linking C executable oqs_test_kems
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_kems.dir/link.txt --verbose=1
+[    8s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_kems.dir/link.d CMakeFiles/oqs_test_kems.dir/oqs_test_kems.c.o CMakeFiles/oqs_test_kems.dir/test_common.c.o -o oqs_test_kems  /usr/lib64/libcrypto.so
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 38%] Built target oqs_test_kems
+[    8s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 29%] Building C object test/CMakeFiles/oqs_test_groups.dir/tlstest_helpers.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_groups.dir/tlstest_helpers.c.o -MF CMakeFiles/oqs_test_groups.dir/tlstest_helpers.c.o.d -o CMakeFiles/oqs_test_groups.dir/tlstest_helpers.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/tlstest_helpers.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 32%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_capabilities.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_capabilities.c.o -MF CMakeFiles/oqsprovider.dir/oqsprov_capabilities.c.o.d -o CMakeFiles/oqsprovider.dir/oqsprov_capabilities.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqsprov_capabilities.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_tlssig.dir/build.make test/CMakeFiles/oqs_test_tlssig.dir/depend
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_tlssig.dir/DependInfo.cmake "--color="
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] /usr/bin/make  -f test/CMakeFiles/oqs_test_tlssig.dir/build.make test/CMakeFiles/oqs_test_tlssig.dir/build
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 45%] Linking C executable oqs_test_groups
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_groups.dir/link.txt --verbose=1
+[    8s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_groups.dir/link.d CMakeFiles/oqs_test_groups.dir/oqs_test_groups.c.o CMakeFiles/oqs_test_groups.dir/test_common.c.o CMakeFiles/oqs_test_groups.dir/tlstest_helpers.c.o -o oqs_test_groups  /usr/lib64/libssl.so /usr/lib64/libcrypto.so
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 48%] Built target oqs_test_groups
+[    8s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 38%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_keys.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_keys.c.o -MF CMakeFiles/oqsprovider.dir/oqsprov_keys.c.o.d -o CMakeFiles/oqsprovider.dir/oqsprov_keys.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqsprov_keys.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 48%] Building C object test/CMakeFiles/oqs_test_tlssig.dir/oqs_test_tlssig.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_tlssig.dir/oqs_test_tlssig.c.o -MF CMakeFiles/oqs_test_tlssig.dir/oqs_test_tlssig.c.o.d -o CMakeFiles/oqs_test_tlssig.dir/oqs_test_tlssig.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_tlssig.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    8s] [ 54%] Building C object test/CMakeFiles/oqs_test_tlssig.dir/test_common.c.o
+[    8s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_tlssig.dir/test_common.c.o -MF CMakeFiles/oqs_test_tlssig.dir/test_common.c.o.d -o CMakeFiles/oqs_test_tlssig.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    8s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 41%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_kmgmt.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_kmgmt.c.o -MF CMakeFiles/oqsprovider.dir/oqs_kmgmt.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_kmgmt.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_kmgmt.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] /usr/bin/make  -f test/CMakeFiles/oqs_test_endecode.dir/build.make test/CMakeFiles/oqs_test_endecode.dir/depend
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_endecode.dir/DependInfo.cmake "--color="
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] /usr/bin/make  -f test/CMakeFiles/oqs_test_endecode.dir/build.make test/CMakeFiles/oqs_test_endecode.dir/build
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 51%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_sig.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_sig.c.o -MF CMakeFiles/oqsprovider.dir/oqs_sig.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_sig.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_sig.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 58%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_kem.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_kem.c.o -MF CMakeFiles/oqsprovider.dir/oqs_kem.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_kem.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_kem.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] /usr/bin/make  -f test/CMakeFiles/oqs_test_evp_pkey_params.dir/build.make test/CMakeFiles/oqs_test_evp_pkey_params.dir/depend
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0 /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test/CMakeFiles/oqs_test_evp_pkey_params.dir/DependInfo.cmake "--color="
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] /usr/bin/make  -f test/CMakeFiles/oqs_test_evp_pkey_params.dir/build.make test/CMakeFiles/oqs_test_evp_pkey_params.dir/build
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 61%] Building C object test/CMakeFiles/oqs_test_tlssig.dir/tlstest_helpers.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_tlssig.dir/tlstest_helpers.c.o -MF CMakeFiles/oqs_test_tlssig.dir/tlstest_helpers.c.o.d -o CMakeFiles/oqs_test_tlssig.dir/tlstest_helpers.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/tlstest_helpers.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 64%] Building C object test/CMakeFiles/oqs_test_endecode.dir/oqs_test_endecode.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_endecode.dir/oqs_test_endecode.c.o -MF CMakeFiles/oqs_test_endecode.dir/oqs_test_endecode.c.o.d -o CMakeFiles/oqs_test_endecode.dir/oqs_test_endecode.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_endecode.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 74%] Linking C executable oqs_test_tlssig
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_tlssig.dir/link.txt --verbose=1
+[    9s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_tlssig.dir/link.d CMakeFiles/oqs_test_tlssig.dir/oqs_test_tlssig.c.o CMakeFiles/oqs_test_tlssig.dir/test_common.c.o CMakeFiles/oqs_test_tlssig.dir/tlstest_helpers.c.o -o oqs_test_tlssig  /usr/lib64/libssl.so /usr/lib64/libcrypto.so
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 77%] Built target oqs_test_tlssig
+[    9s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 70%] Building C object test/CMakeFiles/oqs_test_evp_pkey_params.dir/oqs_test_evp_pkey_params.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -I/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/../oqsprov -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_evp_pkey_params.dir/oqs_test_evp_pkey_params.c.o -MF CMakeFiles/oqs_test_evp_pkey_params.dir/oqs_test_evp_pkey_params.c.o.d -o CMakeFiles/oqs_test_evp_pkey_params.dir/oqs_test_evp_pkey_params.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/oqs_test_evp_pkey_params.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 77%] Building C object test/CMakeFiles/oqs_test_endecode.dir/test_common.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_endecode.dir/test_common.c.o -MF CMakeFiles/oqs_test_endecode.dir/test_common.c.o.d -o CMakeFiles/oqs_test_endecode.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 80%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_endecoder_common.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_endecoder_common.c.o -MF CMakeFiles/oqsprovider.dir/oqs_endecoder_common.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_endecoder_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_endecoder_common.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 83%] Building C object test/CMakeFiles/oqs_test_evp_pkey_params.dir/test_common.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cc -DNDEBUG -I/usr/include/oqs -I/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/../oqsprov -std=gnu11 -Wunused-function -MD -MT test/CMakeFiles/oqs_test_evp_pkey_params.dir/test_common.c.o -MF CMakeFiles/oqs_test_evp_pkey_params.dir/test_common.c.o.d -o CMakeFiles/oqs_test_evp_pkey_params.dir/test_common.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 87%] Linking C executable oqs_test_endecode
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_endecode.dir/link.txt --verbose=1
+[    9s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_endecode.dir/link.d CMakeFiles/oqs_test_endecode.dir/oqs_test_endecode.c.o CMakeFiles/oqs_test_endecode.dir/test_common.c.o -o oqs_test_endecode  /usr/lib64/libcrypto.so
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 93%] Built target oqs_test_endecode
+[    9s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 93%] Linking C executable oqs_test_evp_pkey_params
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/test && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqs_test_evp_pkey_params.dir/link.txt --verbose=1
+[    9s] /usr/bin/cc -Wl,--dependency-file=CMakeFiles/oqs_test_evp_pkey_params.dir/link.d CMakeFiles/oqs_test_evp_pkey_params.dir/oqs_test_evp_pkey_params.c.o CMakeFiles/oqs_test_evp_pkey_params.dir/test_common.c.o -o oqs_test_evp_pkey_params  /usr/lib64/libcrypto.so
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 96%] Built target oqs_test_evp_pkey_params
+[    9s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 96%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_bio.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqsprov_bio.c.o -MF CMakeFiles/oqsprovider.dir/oqsprov_bio.c.o.d -o CMakeFiles/oqsprovider.dir/oqsprov_bio.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqsprov_bio.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 90%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_decode_der2key.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_decode_der2key.c.o -MF CMakeFiles/oqsprovider.dir/oqs_decode_der2key.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_decode_der2key.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_decode_der2key.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [ 67%] Building C object oqsprov/CMakeFiles/oqsprovider.dir/oqs_encode_key2any.c.o
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cc -DNDEBUG -DOQSPROVIDER_VERSION_TEXT=\"0.8.0\" -DOQS_PROVIDER_COMMIT="\" ()\"" -Doqsprovider_EXPORTS -isystem /usr/include/oqs -std=gnu11 -fPIC -Wunused-function -MD -MT oqsprov/CMakeFiles/oqsprovider.dir/oqs_encode_key2any.c.o -MF CMakeFiles/oqsprovider.dir/oqs_encode_key2any.c.o.d -o CMakeFiles/oqsprovider.dir/oqs_encode_key2any.c.o -c /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/oqsprov/oqs_encode_key2any.c
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [100%] Linking C shared module ../lib/oqsprovider.so
+[    9s] cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/oqsprov && /usr/bin/cmake -E cmake_link_script CMakeFiles/oqsprovider.dir/link.txt --verbose=1
+[    9s] /usr/bin/cc -fPIC -Wl,--dependency-file=CMakeFiles/oqsprovider.dir/link.d -shared  -o ../lib/oqsprovider.so CMakeFiles/oqsprovider.dir/oqsprov.c.o CMakeFiles/oqsprovider.dir/oqsprov_capabilities.c.o CMakeFiles/oqsprovider.dir/oqsprov_keys.c.o CMakeFiles/oqsprovider.dir/oqs_kmgmt.c.o CMakeFiles/oqsprovider.dir/oqs_sig.c.o CMakeFiles/oqsprovider.dir/oqs_kem.c.o CMakeFiles/oqsprovider.dir/oqs_encode_key2any.c.o CMakeFiles/oqsprovider.dir/oqs_endecoder_common.c.o CMakeFiles/oqsprovider.dir/oqs_decode_der2key.c.o CMakeFiles/oqsprovider.dir/oqsprov_bio.c.o  /usr/lib64/liboqs.so.0.13.0 /usr/lib64/libcrypto.so
+[    9s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] [100%] Built target oqsprovider
+[    9s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build'
+[    9s] /usr/bin/cmake -E cmake_progress_start /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build/CMakeFiles 0
+[    9s] + RPM_EC=0
+[    9s] ++ jobs -p
+[    9s] + exit 0
+[    9s] Executing(%install): /usr/bin/bash -e /var/tmp/rpm-tmp.TToOLr
+[    9s] + umask 022
+[    9s] + cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    9s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT
+[    9s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[    9s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT
+[    9s] + cd oqs-provider-0.8.0
+[    9s] + install -d /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT//usr/lib64/ossl-modules/
+[    9s] + install -m 755 -c build/lib/oqsprovider.so /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/BUILDROOT//usr/lib64/ossl-modules/
+[    9s] + /usr/lib/rpm/find-debuginfo -j4 -n --run-dwz --dwz-low-mem-die-limit 10000000 --dwz-max-die-limit 50000000 -S debugsourcefiles.list /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0
+[    9s] find-debuginfo: starting
+[    9s] Extracting debug info from 1 files
+[    9s] DWARF-compressing 1 files
+[    9s] sepdebugcrcfix: Updated 1 CRC32s, 0 CRC32s did match.
+[    9s] find-debuginfo: done
+[    9s] + /usr/lib/rpm/brp-compress
+[    9s] + /usr/lib/rpm/brp-suse
+[    9s] calling /usr/lib/rpm/brp-suse.d/brp-05-permissions
+[   10s] calling /usr/lib/rpm/brp-suse.d/brp-15-strip-debug
+[   10s] calling /usr/lib/rpm/brp-suse.d/brp-25-symlink
+[   10s] calling /usr/lib/rpm/brp-suse.d/brp-50-generate-fips-hmac
+[   10s] calling /usr/lib/rpm/brp-suse.d/brp-75-ar
+[   10s] Executing(%check): /usr/bin/bash -e /var/tmp/rpm-tmp.IYaTlg
+[   10s] + umask 022
+[   10s] + cd /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build
+[   10s] + cd oqs-provider-0.8.0
+[   10s] + cd build
+[   10s] + /usr/bin/ctest --output-on-failure --force-new-ctest-process -j4 .
+[   10s] Test project /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/build
+[   10s]     Start 1: oqs_signatures
+[   10s]     Start 2: oqs_kems
+[   10s]     Start 3: oqs_groups
+[   10s]     Start 4: oqs_tlssig
+[   10s] 1/6 Test #1: oqs_signatures ...................Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s]     Start 5: oqs_endecode
+[   10s] 2/6 Test #2: oqs_kems .........................Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s]     Start 6: oqs_evp_pkey_params
+[   10s] 3/6 Test #3: oqs_groups .......................Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s] 4/6 Test #4: oqs_tlssig .......................Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s] 5/6 Test #5: oqs_endecode .....................Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s] 6/6 Test #6: oqs_evp_pkey_params ..............Subprocess aborted***Exception:   0.00 sec
+[   10s] error registering mldsa44 with no hash
+[   10s] /home/abuild/rpmbuild/BUILD/oqs-provider-0.8.0-build/oqs-provider-0.8.0/test/test_common.c:55: OpenSSL internal error: OSSL_PROVIDER_available(libctx, modulename)
+[   10s] 
+[   10s] 
+[   10s] 0% tests passed, 6 tests failed out of 6
+[   10s] 
+[   10s] Total Test time (real) =   0.01 sec
+[   10s] 
+[   10s] The following tests FAILED:
+[   10s] 	  1 - oqs_signatures (Subprocess aborted)
+[   10s] 	  2 - oqs_kems (Subprocess aborted)
+[   10s] 	  3 - oqs_groups (Subprocess aborted)
+[   10s] 	  4 - oqs_tlssig (Subprocess aborted)
+[   10s] 	  5 - oqs_endecode (Subprocess aborted)
+[   10s] 	  6 - oqs_evp_pkey_params (Subprocess aborted)
+[   10s] Errors while running CTest
+[   10s] error: Bad exit status from /var/tmp/rpm-tmp.IYaTlg (%check)
+[   10s] 
+[   10s] RPM build errors:
+[   10s]     Bad exit status from /var/tmp/rpm-tmp.IYaTlg (%check)
+[   10s] ### VM INTERACTION START ###
+[   10s] [    6.213083][    T1] sysrq: Power Off
+[   10s] ### VM INTERACTION END ###
+[   10s] 
+[   10s] i03-ch2a failed "build oqs-provider.spec" at Tue Jun 10 11:39:42 UTC 2025.
+[   10s] 

@@ -1,0 +1,697 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_11/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_11/root
+[    0s] 
+[    0s] 
+[    0s] i01-ch2b started "build kismet.spec" at Tue Jun 10 11:39:38 UTC 2025.
+[    0s] 
+[    0s] Building kismet for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 'eebd8c1b1fdcc271b91cd17210aa5be8'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_11/.build-srcdir/kismet.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_11/.build-srcdir/kismet.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/11/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_11/.build.rpmlist /var/cache/obs/worker/root_11/.build-srcdir/kismet.spec build ...
+[    0s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: NetworkManager-branding-openSUSE -> NetworkManager
+[    2s]   breaking dependency NetworkManager -> NetworkManager-branding-openSUSE
+[    2s] cycle: libgio-2_0-0 -> gio-branding-upstream
+[    2s]   breaking dependency libgio-2_0-0 -> gio-branding-upstream
+[    2s] cycle: libgio-2_0-0 -> glib2-tools
+[    2s]   breaking dependency libgio-2_0-0 -> glib2-tools
+[    2s] cycle: mozilla-nss -> libsoftokn3
+[    2s]   breaking dependency mozilla-nss -> libsoftokn3
+[    2s] cycle: libabsl_2501_0_0 -> libabsl_lite_2501_0_0
+[    2s]   breaking dependency libabsl_lite_2501_0_0 -> libabsl_2501_0_0
+[    2s] cycle: libpython3_13-1_0 -> python313-base
+[    2s]   breaking dependency python313-base -> libpython3_13-1_0
+[    2s] cycle: libwebsockets19 -> libwebsockets-evlib_uv
+[    2s]   breaking dependency libwebsockets19 -> libwebsockets-evlib_uv
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_11/.mount/boot/kernel -initrd /var/cache/obs/worker/root_11/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_11/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_11/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_11/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.407377][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    5s] 2nd stage started in virtual machine
+[    5s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    5s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    5s] Time: Tue Jun 10 11:39:43 UTC 2025
+[    5s] Increasing log level from now on...
+[    5s] [    1.902808][  T574] sysrq: Changing Loglevel
+[    5s] [    1.902856][  T574] sysrq: Loglevel set to 4
+[    5s] Enable sysrq operations
+[    5s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    5s] no label, UUID=30560427-036e-47aa-bcf4-d1802a1a8060
+[    5s] WARNING: udev not running, creating extra device nodes
+[    5s] logging output to //.build.log...
+[    5s] processing recipe //.build-srcdir/kismet.spec ...
+[    5s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/kismet.spec build ...
+[    5s] initializing rpm db...
+[    5s] querying package ids...
+[    6s] [1/244] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/244] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/244] preinstalled bash-5.2.37-20.1
+[    6s] [4/244] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/244] preinstalled binutils-2.43-7.1
+[    6s] [6/244] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [7/244] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [8/244] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [9/244] preinstalled bzip2-1.0.8-5.12
+[    6s] [10/244] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [11/244] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [12/244] preinstalled coreutils-9.7-2.1
+[    6s] [13/244] preinstalled cpio-2.15-5.1
+[    6s] [14/244] preinstalled cpp-14-3.1
+[    6s] [15/244] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [16/244] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [17/244] cumulate dbus-broker-block-restart-36-2.3
+[    6s] [18/244] preinstalled debugedit-5.1-1.3
+[    6s] [19/244] preinstalled diffutils-3.12-1.1
+[    6s] [20/244] preinstalled dwz-0.15-6.1
+[    6s] [21/244] preinstalled elfutils-0.192-2.2
+[    6s] [22/244] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [23/244] cumulate fdupes-2.4.0-1.1
+[    6s] [24/244] preinstalled file-5.46-4.1
+[    6s] [25/244] preinstalled file-magic-5.46-4.1
+[    6s] [26/244] preinstalled filesystem-84.87-18.2
+[    6s] [27/244] preinstalled fillup-1.42-281.3
+[    6s] [28/244] preinstalled findutils-4.10.0-2.2
+[    6s] [29/244] preinstalled gawk-5.3.2-1.1
+[    6s] [30/244] preinstalled gcc-14-3.1
+[    6s] [31/244] preinstalled gcc-PIE-14-3.1
+[    6s] [32/244] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [33/244] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [34/244] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [35/244] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [36/244] preinstalled glibc-2.41-2.1
+[    6s] [37/244] preinstalled glibc-devel-2.41-2.1
+[    6s] [38/244] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [39/244] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [40/244] preinstalled grep-3.12-1.1
+[    6s] [41/244] preinstalled gzip-1.14-1.1
+[    6s] [42/244] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [43/244] preinstalled libacl1-2.3.2-2.3
+[    6s] [44/244] cumulate libalternatives1-1.2+31.da24cd4-1.1
+[    6s] [45/244] preinstalled libarchive13-3.7.9-1.1
+[    6s] [46/244] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [47/244] preinstalled libasm1-0.192-2.2
+[    6s] [48/244] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [49/244] preinstalled libattr1-2.5.2-1.4
+[    6s] [50/244] preinstalled libaudit1-4.0-3.3
+[    6s] [51/244] preinstalled libblkid1-2.41-1.1
+[    6s] [52/244] cumulate libbrotlicommon1-1.1.0-1.6
+[    6s] [53/244] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [54/244] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [55/244] preinstalled libcap2-2.75-1.1
+[    6s] [56/244] cumulate libcom_err2-1.47.2-1.1
+[    6s] [57/244] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [58/244] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [59/244] preinstalled libctf0-2.43-7.1
+[    6s] [60/244] preinstalled libdw1-0.192-2.2
+[    6s] [61/244] cumulate libeconf-devel-0.7.9-1.1
+[    6s] [62/244] preinstalled libeconf0-0.7.9-1.1
+[    6s] [63/244] preinstalled libelf1-0.192-2.2
+[    6s] [64/244] cumulate libexpat1-2.7.1-2.1
+[    6s] [65/244] preinstalled libfdisk1-2.41-1.1
+[    6s] [66/244] cumulate libffi8-3.4.7-1.1
+[    6s] [67/244] cumulate libfreebl3-3.110-1.1
+[    6s] [68/244] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [69/244] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [70/244] preinstalled libgdbm6-1.24-2.1
+[    6s] [71/244] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [72/244] cumulate libglib-2_0-0-2.84.2-1.1
+[    6s] [73/244] preinstalled libgmp10-6.3.0-5.1
+[    6s] [74/244] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [75/244] preinstalled libgpg-error0-1.55-1.1
+[    6s] [76/244] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [77/244] preinstalled libisl23-0.27-1.2
+[    6s] [78/244] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [79/244] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [80/244] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [81/244] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [82/244] preinstalled liblz1-1.15-1.2
+[    6s] [83/244] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [84/244] preinstalled liblzma5-5.8.1-1.1
+[    6s] [85/244] preinstalled libmagic1-5.46-4.1
+[    6s] [86/244] preinstalled libmount1-2.41-1.1
+[    6s] [87/244] preinstalled libmpc3-1.3.1-1.10
+[    6s] [88/244] cumulate libmpdec4-4.0.1-2.1
+[    6s] [89/244] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [90/244] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [91/244] cumulate libndp0-1.8-2.3
+[    6s] [92/244] cumulate libnghttp2-14-1.65.0-1.1
+[    6s] [93/244] cumulate libnl-config-3.11.0-1.3
+[    6s] [94/244] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [95/244] cumulate libpcre2-16-0-10.45-1.1
+[    6s] [96/244] cumulate libpcre2-32-0-10.45-1.1
+[    6s] [97/244] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [98/244] cumulate libpcre2-posix3-10.45-1.1
+[    6s] [99/244] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [100/244] preinstalled libpopt0-1.19-1.10
+[    6s] [101/244] cumulate libprotobuf-c1-1.5.2-1.1
+[    6s] [102/244] cumulate libpsx2-2.75-1.1
+[    6s] [103/244] preinstalled libreadline8-8.2.13-2.3
+[    6s] [104/244] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [105/244] cumulate libsasl2-3-2.1.28-10.1
+[    6s] [106/244] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [107/244] preinstalled libselinux1-3.8.1-1.1
+[    6s] [108/244] cumulate libsemanage-conf-3.8.1-1.1
+[    6s] [109/244] cumulate libsensors4-3.6.2-3.4
+[    6s] [110/244] cumulate libsepol2-3.8.1-1.1
+[    6s] [111/244] preinstalled libsmartcols1-2.41-1.1
+[    6s] [112/244] cumulate libsqlite3-0-3.49.2-1.1
+[    6s] [113/244] cumulate libssh-config-0.11.1-5.1
+[    6s] [114/244] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [115/244] cumulate libstdc++6-devel-gcc14-14.3.0+git11799-3.1
+[    6s] [116/244] cumulate libsubid5-4.17.4-2.1
+[    6s] [117/244] cumulate libsystemd0-mini-257.6-1.1
+[    6s] [118/244] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [119/244] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [120/244] cumulate libudev-mini1-257.6-1.1
+[    6s] [121/244] cumulate libunistring5-1.3-1.3
+[    6s] [122/244] cumulate libutf8_range-30_2_0-30.2-1.1
+[    6s] [123/244] preinstalled libuuid1-2.41-1.1
+[    6s] [124/244] cumulate libuv1-1.50.0-1.1
+[    6s] [125/244] cumulate libverto1-0.3.2-3.5
+[    6s] [126/244] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [127/244] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [128/244] preinstalled libz1-1.3.1-1.3
+[    6s] [129/244] preinstalled libzstd1-1.5.7-3.1
+[    6s] [130/244] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [131/244] cumulate login_defs-4.17.4-2.1
+[    6s] [132/244] preinstalled lua54-5.4.7-4.1
+[    6s] [133/244] preinstalled make-4.4.1-3.3
+[    6s] [134/244] cumulate memory-constraints-20180406-5.2
+[    6s] [135/244] cumulate mozilla-nspr-4.36-1.3
+[    6s] [136/244] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [137/244] preinstalled pam-1.7.0-3.1
+[    6s] [138/244] preinstalled patch-2.8-1.1
+[    6s] [139/244] preinstalled perl-5.40.2-2.1
+[    6s] [140/244] preinstalled perl-base-5.40.2-2.1
+[    6s] [141/244] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [142/244] preinstalled permctl-1699_20250120-1.3
+[    6s] [143/244] preinstalled permissions-1699_20250120-1.3
+[    6s] [144/244] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [145/244] preinstalled pkgconf-2.2.0-1.3
+[    6s] [146/244] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [147/244] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [148/244] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [149/244] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [150/244] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    6s] [151/244] preinstalled rpm-4.20.1-4.1
+[    6s] [152/244] preinstalled rpm-build-4.20.1-4.1
+[    6s] [153/244] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [154/244] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [155/244] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [156/244] preinstalled sed-4.9-2.8
+[    6s] [157/244] preinstalled system-user-root-20190513-2.18
+[    6s] [158/244] cumulate systemd-mini-257.6-1.1
+[    6s] [159/244] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [160/244] cumulate sysuser-shadow-3.3-8.2
+[    6s] [161/244] preinstalled tar-1.35-4.1
+[    6s] [162/244] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [163/244] cumulate typelib-1_0-GIRepository-3_0-2.84.2-1.1
+[    6s] [164/244] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [165/244] preinstalled util-linux-2.41-1.1
+[    6s] [166/244] preinstalled which-2.23-1.2
+[    6s] [167/244] preinstalled xz-5.8.1-1.1
+[    6s] [168/244] cumulate zlib-devel-1.3.1-1.3
+[    6s] [169/244] cumulate alts-1.2+31.da24cd4-1.1
+[    6s] [170/244] cumulate dbus-1-common-1.14.10-4.4
+[    6s] [171/244] cumulate gcc14-c++-14.3.0+git11799-3.1
+[    6s] [172/244] cumulate kismet-common-2023_07_R1-4.2
+[    6s] [173/244] cumulate libblkid-devel-2.41-1.1
+[    6s] [174/244] cumulate libbrotlidec1-1.1.0-1.6
+[    6s] [175/244] cumulate libcap-devel-2.75-1.1
+[    6s] [176/244] cumulate libffi-devel-3.4.7-1.1
+[    6s] [177/244] cumulate libgmodule-2_0-0-2.84.2-1.1
+[    6s] [178/244] cumulate libgthread-2_0-0-2.84.2-1.1
+[    6s] [179/244] cumulate libidn2-0-2.3.8-1.1
+[    6s] [180/244] cumulate libldap2-2.6.8-2.5
+[    6s] [181/244] cumulate libnl3-200-3.11.0-1.3
+[    6s] [182/244] cumulate libsensors4-devel-3.6.2-3.4
+[    6s] [183/244] cumulate libsepol-devel-3.8.1-1.1
+[    6s] [184/244] cumulate libstdc++-devel-14-3.1
+[    6s] [185/244] cumulate libusb-1_0-0-1.0.28-1.1
+[    6s] [186/244] cumulate mozilla-nss-certs-3.110-1.1
+[    6s] [187/244] cumulate shared-mime-info-2.4-3.4
+[    6s] [188/244] cumulate sqlite3-devel-3.49.2-1.1
+[    6s] [189/244] cumulate sysuser-tools-3.3-8.2
+[    6s] [190/244] cumulate krb5-mini-1.21.3-3.1
+[    6s] [191/244] cumulate libgobject-2_0-0-2.84.2-1.1
+[    6s] [192/244] cumulate libsemanage2-3.8.1-1.1
+[    6s] [193/244] cumulate dbus-broker-36-2.3
+[    6s] [194/244] cumulate gcc-c++-14-3.1
+[    6s] [195/244] cumulate libnl3-devel-3.11.0-1.3
+[    6s] [196/244] cumulate libusb-1_0-devel-1.0.28-1.1
+[    6s] [197/244] cumulate libdbus-1-3-1.14.10-4.4
+[    6s] [198/244] cumulate libpsl5-0.21.5-1.5
+[    6s] [199/244] cumulate libssh4-0.11.1-5.1
+[    6s] [200/244] cumulate typelib-1_0-GLib-2_0-2.84.2-1.1
+[    6s] [201/244] cumulate shadow-4.17.4-2.1
+[    6s] [202/244] cumulate libgirepository-2_0-0-2.84.2-1.1
+[    6s] [203/244] cumulate pcre2-devel-10.45-1.1
+[    6s] [204/244] cumulate dbus-1-tools-1.14.10-4.4
+[    6s] [205/244] cumulate libpcap1-1.10.5-2.3
+[    6s] [206/244] cumulate libselinux-devel-3.8.1-1.1
+[    6s] [207/244] cumulate typelib-1_0-GModule-2_0-2.84.2-1.1
+[    6s] [208/244] cumulate typelib-1_0-GObject-2_0-2.84.2-1.1
+[    6s] [209/244] cumulate dbus-1-daemon-1.14.10-4.4
+[    6s] [210/244] cumulate typelib-1_0-GLibUnix-2_0-2.84.2-1.1
+[    6s] [211/244] cumulate libcurl4-8.14.1-1.1
+[    6s] [212/244] cumulate libmount-devel-2.41-1.1
+[    6s] [213/244] cumulate dbus-1-1.14.10-4.4
+[    6s] [214/244] cumulate dbus-1-devel-1.14.10-4.4
+[    6s] [215/244] cumulate libpcap-devel-1.10.5-2.3
+[    6s] [216/244] cumulate libabsl_lite_2501_0_0-20250127.1-2.1
+[    6s] [217/244] cumulate libwebsockets19-4.3.5-1.1
+[    6s] [218/244] cumulate mozilla-nss-3.110-1.1
+[    6s] [219/244] cumulate python313-base-3.13.3-4.1
+[    6s] [220/244] cumulate libgio-2_0-0-2.84.2-1.1
+[    6s] [221/244] cumulate gio-branding-upstream-2.84.2-1.1
+[    6s] [222/244] cumulate libabsl_2501_0_0-20250127.1-2.1
+[    6s] [223/244] cumulate libpython3_13-1_0-3.13.3-4.1
+[    6s] [224/244] cumulate libwebsockets-devel-4.3.5-1.1
+[    6s] [225/244] cumulate python313-packaging-24.2-2.1
+[    6s] [226/244] cumulate python313-setuptools-78.1.1-1.1
+[    6s] [227/244] cumulate libprotobuf-lite30_2_0-30.2-1.1
+[    6s] [228/244] cumulate libwebsockets-evlib_uv-4.3.5-1.1
+[    6s] [229/244] cumulate python313-3.13.3-4.1
+[    6s] [230/244] cumulate glib2-tools-2.84.2-1.1
+[    6s] [231/244] cumulate libsoftokn3-3.110-1.1
+[    6s] [232/244] cumulate typelib-1_0-Gio-2_0-2.84.2-1.1
+[    6s] [233/244] cumulate libnm0-1.52.0-3.1
+[    6s] [234/244] cumulate abseil-cpp-devel-20250127.1-2.1
+[    6s] [235/244] cumulate libprotobuf30_2_0-30.2-1.1
+[    6s] [236/244] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    6s] [237/244] cumulate typelib-1_0-NM-1_0-1.52.0-3.1
+[    6s] [238/244] cumulate NetworkManager-1.52.0-3.1
+[    6s] [239/244] cumulate glib2-devel-2.84.2-1.1
+[    6s] [240/244] cumulate NetworkManager-branding-openSUSE-42.1-7.14
+[    6s] [241/244] cumulate libprotoc30_2_0-30.2-1.1
+[    6s] [242/244] cumulate NetworkManager-devel-1.52.0-3.1
+[    6s] [243/244] cumulate protobuf-c-devel-1.5.2-1.1
+[    6s] [244/244] cumulate protobuf-devel-30.2-1.1
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] libglib-2_0-0-2.84.2-1.1              ########################################
+[    6s] libgmodule-2_0-0-2.84.2-1.1           ########################################
+[    6s] libabsl_2501_0_0-20250127.1-2.1       ########################################
+[    6s] libabsl_lite_2501_0_0-20250127.1-2.1  ########################################
+[    6s] mozilla-nspr-4.36-1.3                 ########################################
+[    6s] libsystemd0-mini-257.6-1.1            ########################################
+[    6s] libffi8-3.4.7-1.1                     ########################################
+[    6s] libgobject-2_0-0-2.84.2-1.1           ########################################
+[    6s] typelib-1_0-GLib-2_0-2.84.2-1.1       ########################################
+[    6s] libexpat1-2.7.1-2.1                   ########################################
+[    6s] typelib-1_0-GModule-2_0-2.84.2-1.1    ########################################
+[    6s] typelib-1_0-GObject-2_0-2.84.2-1.1    ########################################
+[    6s] libutf8_range-30_2_0-30.2-1.1         ########################################
+[    6s] libprotobuf30_2_0-30.2-1.1            ########################################
+[    6s] libudev-mini1-257.6-1.1               ########################################
+[    6s] libsqlite3-0-3.49.2-1.1               ########################################
+[    6s] libprotoc30_2_0-30.2-1.1              ########################################
+[    6s] systemd-mini-257.6-1.1                ########################################
+[    6s] Running in chroot, ignoring command 'daemon-reexec'
+[    6s] libunistring5-1.3-1.3                 ########################################
+[    6s] libidn2-0-2.3.8-1.1                   ########################################
+[    6s] libpsl5-0.21.5-1.5                    ########################################
+[    6s] libstdc++6-devel-gcc14-14.3.0+git11799########################################
+[    6s] libsepol2-3.8.1-1.1                   ########################################
+[    6s] libfreebl3-3.110-1.1                  ########################################
+[    7s] libeconf-devel-0.7.9-1.1              ########################################
+[    7s] libblkid-devel-2.41-1.1               ########################################
+[    7s] libsepol-devel-3.8.1-1.1              ########################################
+[    7s] gcc14-c++-14.3.0+git11799-3.1         ########################################
+[    7s] libstdc++-devel-14-3.1                ########################################
+[    7s] libusb-1_0-0-1.0.28-1.1               ########################################
+[    7s] libprotobuf-lite30_2_0-30.2-1.1       ########################################
+[    7s] typelib-1_0-GLibUnix-2_0-2.84.2-1.1   ########################################
+[    7s] libgirepository-2_0-0-2.84.2-1.1      ########################################
+[    7s] libffi-devel-3.4.7-1.1                ########################################
+[    7s] mozilla-nss-certs-3.110-1.1           ########################################
+[    7s] mozilla-nss-3.110-1.1                 ########################################
+[    7s] libsoftokn3-3.110-1.1                 ########################################
+[    7s] abseil-cpp-devel-20250127.1-2.1       ########################################
+[    7s] libgthread-2_0-0-2.84.2-1.1           ########################################
+[    7s] shared-mime-info-2.4-3.4              ########################################
+[    7s] zlib-devel-1.3.1-1.3                  ########################################
+[    7s] typelib-1_0-GIRepository-3_0-2.84.2-1.########################################
+[    7s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    7s] login_defs-4.17.4-2.1                 ########################################
+[    7s] libverto1-0.3.2-3.5                   ########################################
+[    7s] libuv1-1.50.0-1.1                     ########################################
+[    7s] libwebsockets19-4.3.5-1.1             ########################################
+[    7s] libwebsockets-evlib_uv-4.3.5-1.1      ########################################
+[    7s] libsubid5-4.17.4-2.1                  ########################################
+[    7s] libssh-config-0.11.1-5.1              ########################################
+[    7s] libsensors4-3.6.2-3.4                 ########################################
+[    7s] libsemanage-conf-3.8.1-1.1            ########################################
+[    7s] libsemanage2-3.8.1-1.1                ########################################
+[    7s] shadow-4.17.4-2.1                     ########################################
+[    7s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] sysuser-shadow-3.3-8.2                ########################################
+[    7s] /usr/bin/systemd-sysusers --replace=/usr/lib/sysusers.d/dbus.conf -
+[    7s] Creating group 'systemd-journal' with GID 499.
+[    7s] Creating group 'messagebus' with GID 498.
+[    7s] Creating user 'messagebus' (User for D-Bus) with UID 498 and GID 498.
+[    7s] dbus-1-common-1.14.10-4.4             ########################################
+[    7s] libdbus-1-3-1.14.10-4.4               ########################################
+[    7s] dbus-1-tools-1.14.10-4.4              ########################################
+[    7s] dbus-1-daemon-1.14.10-4.4             ########################################
+[    7s] libsasl2-3-2.1.28-10.1                ########################################
+[    7s] libldap2-2.6.8-2.5                    ########################################
+[    7s] libpsx2-2.75-1.1                      ########################################
+[    7s] libprotobuf-c1-1.5.2-1.1              ########################################
+[    7s] libpcre2-posix3-10.45-1.1             ########################################
+[    7s] libpcre2-32-0-10.45-1.1               ########################################
+[    7s] libpcre2-16-0-10.45-1.1               ########################################
+[    7s] pcre2-devel-10.45-1.1                 ########################################
+[    7s] libselinux-devel-3.8.1-1.1            ########################################
+[    7s] libmount-devel-2.41-1.1               ########################################
+[    7s] libnl-config-3.11.0-1.3               ########################################
+[    7s] libnl3-200-3.11.0-1.3                 ########################################
+[    7s] libnl3-devel-3.11.0-1.3               ########################################
+[    7s] libpcap1-1.10.5-2.3                   ########################################
+[    7s] libnghttp2-14-1.65.0-1.1              ########################################
+[    7s] libndp0-1.8-2.3                       ########################################
+[    7s] libmpdec4-4.0.1-2.1                   ########################################
+[    7s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    7s] python313-base-3.13.3-4.1             ########################################
+[    8s] python313-packaging-24.2-2.1          ########################################
+[    8s] libcom_err2-1.47.2-1.1                ########################################
+[    8s] krb5-mini-1.21.3-3.1                  ########################################
+[    8s] Updating /etc/sysconfig/kadmind ...
+[    8s] Updating /etc/sysconfig/krb5kdc ...
+[    8s] libssh4-0.11.1-5.1                    ########################################
+[    8s] libbrotlicommon1-1.1.0-1.6            ########################################
+[    8s] libbrotlidec1-1.1.0-1.6               ########################################
+[    8s] libcurl4-8.14.1-1.1                   ########################################
+[    8s] libalternatives1-1.2+31.da24cd4-1.1   ########################################
+[    8s] alts-1.2+31.da24cd4-1.1               ########################################
+[    8s] dbus-broker-block-restart-36-2.3      ########################################
+[    8s] dbus-broker-36-2.3                    ########################################
+[    8s] dbus-1-1.14.10-4.4                    ########################################
+[    8s] gio-branding-upstream-2.84.2-1.1      ########################################
+[    8s] libgio-2_0-0-2.84.2-1.1               ########################################
+[    8s] glib2-tools-2.84.2-1.1                ########################################
+[    8s] No schema files found: doing nothing.
+[    8s] libnm0-1.52.0-3.1                     ########################################
+[    8s] NetworkManager-branding-openSUSE-42.1-########################################
+[    8s] NetworkManager-1.52.0-3.1             ########################################
+[    8s] typelib-1_0-Gio-2_0-2.84.2-1.1        ########################################
+[    8s] typelib-1_0-NM-1_0-1.52.0-3.1         ########################################
+[    8s] glib2-devel-2.84.2-1.1                ########################################
+[    8s] No schema files found: doing nothing.
+[    8s] dbus-1-devel-1.14.10-4.4              ########################################
+[    8s] libpcap-devel-1.10.5-2.3              ########################################
+[    8s] NetworkManager-devel-1.52.0-3.1       ########################################
+[    8s] python-rpm-packaging-20210526+a18ca48-########################################
+[    8s] python313-setuptools-78.1.1-1.1       ########################################
+[    8s] python313-3.13.3-4.1                  ########################################
+[    8s] protobuf-c-devel-1.5.2-1.1            ########################################
+[    8s] libcap-devel-2.75-1.1                 ########################################
+[    8s] /usr/bin/systemd-sysusers --replace=/usr/lib/sysusers.d/kismet.conf -
+[    8s] Creating group 'kismet' with GID 497.
+[    8s] Creating user 'kismet' (Kismet packet sniffer) with UID 497 and GID 497.
+[    8s] kismet-common-2023_07_R1-4.2          ########################################
+[    8s] sysuser-tools-3.3-8.2                 ########################################
+[    8s] libsensors4-devel-3.6.2-3.4           ########################################
+[    8s] libwebsockets-devel-4.3.5-1.1         ########################################
+[    8s] protobuf-devel-30.2-1.1               ########################################
+[    8s] libusb-1_0-devel-1.0.28-1.1           ########################################
+[    8s] gcc-c++-14-3.1                        ########################################
+[    8s] sqlite3-devel-3.49.2-1.1              ########################################
+[    8s] memory-constraints-20180406-5.2       ########################################
+[    8s] fdupes-2.4.0-1.1                      ########################################
+[    8s] now finalizing build dir...
+[    8s] ... running 01-add_abuild_user_to_trusted_group
+[    8s] ... running 02-set_timezone_to_utc
+[    8s] ... running 03-set-permissions-secure
+[    8s] ... running 11-hack_uname_version_to_kernel_version
+[    8s] setting SOURCE_DATE_EPOCH_MTIME to 1742401838
+[    9s] -----------------------------------------------------------------
+[    9s] I have the following modifications for kismet.spec:
+[    9s] 26c26
+[    9s] < Release:        0
+[    9s] ---
+[    9s] > Release:        4.3
+[    9s] -----------------------------------------------------------------
+[    9s] ----- building kismet.spec (user abuild)
+[    9s] -----------------------------------------------------------------
+[    9s] -----------------------------------------------------------------
+[    9s] setting SOURCE_DATE_EPOCH_MTIME to 1742401838
+[   10s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/eebd8c1b1fdcc271b91cd17210aa5be8-kismet' /home/abuild/rpmbuild/SOURCES/kismet.spec
+[   10s] using SOURCE_DATE_EPOCH with value 1742401835 as build time
+[   10s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.PxqDXH
+[   10s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.yaFxeV
+[   10s] + umask 022
+[   10s] + cd /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build
+[   10s] + cd /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build
+[   10s] + rm -rf kismet-kismet-2023-07-R1
+[   10s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/kismet-2023-07-R1.tar.gz
+[   10s] + STATUS=0
+[   10s] + '[' 0 -ne 0 ']'
+[   10s] + cd kismet-kismet-2023-07-R1
+[   10s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   10s] + echo 'Patch #0 (kismet-fix-build.patch):'
+[   10s] Patch #0 (kismet-fix-build.patch):
+[   10s] + /usr/bin/patch --no-backup-if-mismatch -f -p1 --fuzz=0
+[   10s] patching file Makefile.in
+[   10s] Hunk #1 succeeded at 270 (offset 20 lines).
+[   10s] + find . -type f -name 'Makefile*' -exec sed -i 's|setup.py install|setup.py install --root=$(DESTDIR)|g' '{}' ';'
+[   10s] + sed -i 's/\r$//' http_data/css/layout.css
+[   10s] + chmod a-x http_data/css/Control.Loading.css http_data/css/dark.css http_data/css/dataTables.jqueryui.min.css http_data/css/datatables-dark.css http_data/css/datatables.min.css http_data/css/font-awesome.min.css http_data/css/grid.css http_data/css/ie.css http_data/css/ie6.css http_data/css/jquery-ui.min.css http_data/css/jquery.jspanel.min.css http_data/css/jquery.kismet.alert.css http_data/css/jquery.kismet.auth.css http_data/css/jquery.kismet.battery.css http_data/css/jquery.kismet.channeldisplay.css http_data/css/jquery.kismet.gps.css http_data/css/jquery.kismet.messagebus.css http_data/css/jqueryui-editable.css http_data/css/kismet-dark.css http_data/css/kismet.css http_data/css/kismet.ui.base.css http_data/css/kismet.ui.datasources.css http_data/css/kismet.ui.gadgets.css http_data/css/kismet.ui.iconbar.css http_data/css/kismet.ui.settings.css http_data/css/kismet.ui.sidebar.css http_data/css/kismet.ui.tabpane.css http_data/css/layout-default-1.4.0.css http_data/css/layout.css http_data/css/leaflet.css http_data/css/light.css http_data/css/morris.css http_data/css/nav.css http_data/css/pushmenu.css http_data/css/reset.css http_data/css/spectrum.css http_data/css/text.css http_data/css/tooltipster.bundle.min.css
+[   10s] + echo 'Patch #1 (harden_kismet.service.patch):'
+[   10s] Patch #1 (harden_kismet.service.patch):
+[   10s] + /usr/bin/patch --no-backup-if-mismatch -f -p1 --fuzz=0
+[   10s] patching file packaging/systemd/kismet.service.in
+[   10s] + RPM_EC=0
+[   10s] ++ jobs -p
+[   10s] + exit 0
+[   10s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.6S6mfB
+[   10s] + umask 022
+[   10s] + cd /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build
+[   10s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build/BUILDROOT
+[   10s] ++ dirname /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build/BUILDROOT
+[   10s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build
+[   10s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/kismet-2023_07_R1-build/BUILDROOT
+[   10s] + cd kismet-kismet-2023-07-R1
+[   10s] ++ /usr/bin/getconf _NPROCESSORS_ONLN
+[   10s] + _threads=4
+[   10s] + _core_memory=2500
+[   10s] + echo 'Available memory:'
+[   10s] Available memory:
+[   10s] + cat /proc/meminfo
+[   10s] MemTotal:       16378872 kB
+[   10s] MemFree:        15659440 kB
+[   10s] MemAvailable:   15880636 kB
+[   10s] Buffers:           16488 kB
+[   10s] Cached:           444508 kB
+[   10s] SwapCached:            0 kB
+[   10s] Active:            55684 kB
+[   10s] Inactive:         420376 kB
+[   10s] Active(anon):         36 kB
+[   10s] Inactive(anon):    23232 kB
+[   10s] Active(file):      55648 kB
+[   10s] Inactive(file):   397144 kB
+[   10s] Unevictable:           0 kB
+[   10s] Mlocked:               0 kB
+[   10s] SwapTotal:       4194300 kB
+[   10s] SwapFree:        4194300 kB
+[   10s] Zswap:                 0 kB
+[   10s] Zswapped:              0 kB
+[   10s] Dirty:             76248 kB
+[   10s] Writeback:            40 kB
+[   10s] AnonPages:         15208 kB
+[   10s] Mapped:             8700 kB
+[   10s] Shmem:              8208 kB
+[   10s] KReclaimable:      43476 kB
+[   10s] Slab:              85672 kB
+[   10s] SReclaimable:      43476 kB
+[   10s] SUnreclaim:        42196 kB
+[   10s] KernelStack:        1772 kB
+[   10s] PageTables:         1360 kB
+[   10s] SecPageTables:         0 kB
+[   10s] NFS_Unstable:          0 kB
+[   10s] Bounce:                0 kB
+[   10s] WritebackTmp:          0 kB
+[   10s] CommitLimit:    12383736 kB
+[   10s] Committed_AS:      29988 kB
+[   10s] VmallocTotal:   34359738367 kB
+[   10s] VmallocUsed:       25624 kB
+[   10s] VmallocChunk:          0 kB
+[   10s] Percpu:             1376 kB
+[   10s] HardwareCorrupted:     0 kB
+[   10s] AnonHugePages:         0 kB
+[   10s] ShmemHugePages:        0 kB
+[   10s] ShmemPmdMapped:        0 kB
+[   10s] FileHugePages:         0 kB
+[   10s] FilePmdMapped:         0 kB
+[   10s] CmaTotal:              0 kB
+[   10s] CmaFree:               0 kB
+[   10s] Unaccepted:            0 kB
+[   10s] Balloon:               0 kB
+[   10s] HugePages_Total:       0
+[   10s] HugePages_Free:        0
+[   10s] HugePages_Rsvd:        0
+[   10s] HugePages_Surp:        0
+[   10s] Hugepagesize:       2048 kB
+[   10s] Hugetlb:               0 kB
+[   10s] DirectMap4k:       71680 kB
+[   10s] DirectMap2M:     2025472 kB
+[   10s] DirectMap1G:    16777216 kB
+[   10s] + echo 'System limits:'
+[   10s] System limits:
+[   10s] + ulimit -a
+[   10s] real-time non-blocking time  (microseconds, -R) unlimited
+[   10s] core file size              (blocks, -c) unlimited
+[   10s] data seg size               (kbytes, -d) unlimited
+[   10s] scheduling priority                 (-e) 0
+[   10s] file size                   (blocks, -f) unlimited
+[   10s] pending signals                     (-i) 63886
+[   10s] max locked memory           (kbytes, -l) 8192
+[   10s] max memory size             (kbytes, -m) unlimited
+[   10s] open files                          (-n) 1024
+[   10s] pipe size                (512 bytes, -p) 8
+[   10s] POSIX message queues         (bytes, -q) 819200
+[   10s] real-time priority                  (-r) 0
+[   10s] stack size                  (kbytes, -s) 8192
+[   10s] cpu time                   (seconds, -t) unlimited
+[   10s] max user processes                  (-u) 63886
+[   10s] virtual memory              (kbytes, -v) unlimited
+[   10s] file locks                          (-x) unlimited
+[   10s] + echo 'System jobs: 4'
+[   10s] System jobs: 4
+[   10s] + test 4 -gt 1
+[   10s] + mem_per_process=2500
+[   10s] ++ awk '/MemTotal/ { print $2 }' /proc/meminfo
+[   10s] + max_physmem=16378872
+[   10s] ++ awk '/SwapTotal/ { print $2 }' /proc/meminfo
+[   10s] + max_swapmem=4194300
+[   10s] + max_jobs=8
+[   10s] + test 4 -gt 8
+[   10s] + test 4 -le 0
+[   10s] + CONFIG_SHELL=/usr/bin/bash
+[   10s] + export CONFIG_SHELL
+[   10s] + CFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   10s] + export CFLAGS
+[   10s] + CXXFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   10s] + export CXXFLAGS
+[   10s] + FFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   10s] + export FFLAGS
+[   10s] + FCFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   10s] + export FCFLAGS
+[   10s] + LDFLAGS=-flto=auto
+[   10s] + export LDFLAGS
+[   10s] + ./configure --host=x86_64-suse-linux --build=x86_64-suse-linux --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc/kismet --enable-btgeiger --disable-wifi-coconut --disable-optimization --enable-require-pcre2
+[   10s] configure: WARNING: unrecognized options: --disable-dependency-tracking
+[   10s] checking build system type... x86_64-suse-linux-gnu
+[   10s] checking host system type... x86_64-suse-linux-gnu
+[   10s] checking for x86_64-suse-linux-gcc... no
+[   10s] checking for gcc... gcc
+[   10s] checking whether the C compiler works... yes
+[   10s] checking for C compiler default output file name... a.out
+[   10s] checking for suffix of executables... 
+[   10s] checking whether we are cross compiling... no
+[   10s] checking for suffix of object files... o
+[   10s] checking whether the compiler supports GNU C... yes
+[   10s] checking whether gcc accepts -g... yes
+[   10s] checking for gcc option to enable C11 features... none needed
+[   10s] checking for x86_64-suse-linux-g++... no
+[   10s] checking for x86_64-suse-linux-c++... no
+[   10s] checking for x86_64-suse-linux-gpp... no
+[   10s] checking for x86_64-suse-linux-aCC... no
+[   10s] checking for x86_64-suse-linux-CC... no
+[   10s] checking for x86_64-suse-linux-cxx... no
+[   10s] checking for x86_64-suse-linux-cc++... no
+[   10s] checking for x86_64-suse-linux-cl.exe... no
+[   10s] checking for x86_64-suse-linux-FCC... no
+[   10s] checking for x86_64-suse-linux-KCC... no
+[   10s] checking for x86_64-suse-linux-RCC... no
+[   10s] checking for x86_64-suse-linux-xlC_r... no
+[   10s] checking for x86_64-suse-linux-xlC... no
+[   10s] checking for x86_64-suse-linux-clang++... no
+[   10s] checking for g++... g++
+[   10s] checking whether the compiler supports GNU C++... yes
+[   10s] checking whether g++ accepts -g... yes
+[   10s] checking for g++ option to enable C++11 features... none needed
+[   10s] checking for a BSD-compatible install... /usr/bin/install -c
+[   10s] checking whether make sets $(MAKE)... yes
+[   10s] checking how to run the C preprocessor... gcc -E
+[   10s] checking for platform-specific compiler flags... none needed
+[   10s] checking gcc version... 14
+[   11s] checking whether g++ supports C++17 features with -std=gnu++17... yes
+[   11s] checking for stdio.h... yes
+[   11s] checking for stdlib.h... yes
+[   11s] checking for string.h... yes
+[   11s] checking for inttypes.h... yes
+[   11s] checking for stdint.h... yes
+[   11s] checking for strings.h... yes
+[   11s] checking for sys/stat.h... yes
+[   11s] checking for sys/types.h... yes
+[   11s] checking for unistd.h... yes
+[   11s] checking whether byte ordering is bigendian... no
+[   11s] checking python3 module: setuptools... yes
+[   11s] checking for dwarf_begin in -ldw... no
+[   11s] checking for bfd_alloc in -lbfd... no
+[   11s] checking for unwind.h... yes
+[   11s] checking for execinfo.h... yes
+[   11s] checking for stdint.h... (cached) yes
+[   11s] checking for strerror_r() return... char *
+[   11s] checking for accept() addrlen type... socklen_t
+[   11s] checking for pipe2... yes
+[   11s] checking for special C compiler options needed for large files... no
+[   11s] checking for _FILE_OFFSET_BITS value needed for large files... no
+[   12s] checking for dlopen in -ldl... yes
+[   12s] checking for deflate in -lz... yes
+[   12s] checking for libatomic... yes
+[   12s] checking for pthread_mutex_timedlock... yes
+[   12s] checking for libm math function in std libs... yes
+[   12s] checking for main in -lstdc++... yes
+[   13s] checking for group 'root'... yes
+[   13s] checking for setproctitle... no
+[   13s] checking for libutil.h... no
+[   13s] checking for setproctitle in -lutil... no
+[   13s] checking for sys/pstat.h... no
+[   13s] checking how to run the C++ preprocessor... g++ -std=gnu++17 -E
+[   13s] checking for grep that handles long lines and -e... /usr/bin/grep
+[   13s] checking for egrep... /usr/bin/grep -E
+[   13s] checking whether __progname and __progname_full are available... yes
+[   13s] checking which argv replacement method to use... writeable
+[   13s] checking for linux/wireless.h... yes
+[   13s] checking that linux/wireless.h is what we expect... yes
+[   13s] checking can we use iw_freq.flags... yes
+[   13s] checking for cap_init in -lcap... yes
+[   14s] checking for sys/prctl.h... yes
+[   14s] checking for sys/capability.h... yes
+[   14s] checking Checking C++17 parallel functions... ok
+[   15s] checking for sqlite3_libversion in -lsqlite3... yes
+[   15s] checking for sqlite3.h... yes
+[   15s] checking for x86_64-suse-linux-pkg-config... no
+[   15s] checking for pkg-config... pkg-config
+[   15s] checking for include/openssl/ssl.h in /usr/local/ssl... no
+[   15s] checking for include/openssl/ssl.h in /usr/lib/ssl... no
+[   15s] checking for include/openssl/ssl.h in /usr/ssl... no
+[   15s] checking for include/openssl/ssl.h in /usr/pkg... no
+[   15s] checking for include/openssl/ssl.h in /usr/local... no
+[   15s] checking for include/openssl/ssl.h in /usr... no
+[   15s] checking whether compiling and linking against OpenSSL works... no
+[   15s] configure: error: Failed to find OpenSSL library
+[   15s] error: Bad exit status from /var/tmp/rpm-tmp.6S6mfB (%build)
+[   15s] 
+[   15s] RPM build errors:
+[   15s]     Bad exit status from /var/tmp/rpm-tmp.6S6mfB (%build)
+[   15s] ### VM INTERACTION START ###
+[   15s] Powering off.
+[   15s] ### VM INTERACTION END ###
+[   15s] 
+[   15s] i01-ch2b failed "build kismet.spec" at Tue Jun 10 11:39:53 UTC 2025.
+[   15s] 

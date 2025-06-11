@@ -1,0 +1,1125 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_2/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_2/root
+[    0s] 
+[    0s] 
+[    0s] h02-ch2d started "build rmt-server.spec" at Tue Jun 10 11:39:39 UTC 2025.
+[    0s] 
+[    0s] Building rmt-server for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '6c4e27cc434b080324f978f09e119cfa'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_2/.build-srcdir/rmt-server.spec ...
+[    1s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_2/.build-srcdir/rmt-server.spec
+[    1s] init_buildsystem --configdir /var/run/obs/worker/2/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_2/.build.rpmlist /var/cache/obs/worker/root_2/.build-srcdir/rmt-server.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: openssl -> openssl-3
+[    2s]   breaking dependency openssl-3 -> openssl
+[    2s] cycle: ruby3.4 -> ruby-common -> ruby3.4-rubygem-gem2rpm
+[    2s]   breaking dependency ruby3.4-rubygem-gem2rpm -> ruby3.4
+[    2s] cycle: libopenssl-devel -> libopenssl-3-devel
+[    2s]   breaking dependency libopenssl-devel -> libopenssl-3-devel
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_2/.mount/boot/kernel -initrd /var/cache/obs/worker/root_2/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_2/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_2/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_2/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.367837][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    6s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    6s] 2nd stage started in virtual machine
+[    6s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    6s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    6s] Time: Tue Jun 10 11:39:44 UTC 2025
+[    6s] Increasing log level from now on...
+[    6s] [    1.884075][  T572] sysrq: Changing Loglevel
+[    6s] [    1.884128][  T572] sysrq: Loglevel set to 4
+[    6s] Enable sysrq operations
+[    6s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    6s] no label, UUID=8951a390-0f1a-4045-9c24-0fd75f0feb4c
+[    6s] WARNING: udev not running, creating extra device nodes
+[    6s] logging output to //.build.log...
+[    6s] processing recipe //.build-srcdir/rmt-server.spec ...
+[    6s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/rmt-server.spec build ...
+[    6s] initializing rpm db...
+[    6s] querying package ids...
+[    6s] [1/192] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/192] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/192] preinstalled bash-5.2.37-20.1
+[    6s] [4/192] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/192] preinstalled binutils-2.43-7.1
+[    6s] [6/192] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [7/192] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [8/192] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [9/192] preinstalled bzip2-1.0.8-5.12
+[    6s] [10/192] cumulate chrpath-0.17-1.3
+[    6s] [11/192] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [12/192] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [13/192] preinstalled coreutils-9.7-2.1
+[    6s] [14/192] preinstalled cpio-2.15-5.1
+[    6s] [15/192] preinstalled cpp-14-3.1
+[    6s] [16/192] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [17/192] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [18/192] preinstalled debugedit-5.1-1.3
+[    6s] [19/192] preinstalled diffutils-3.12-1.1
+[    6s] [20/192] preinstalled dwz-0.15-6.1
+[    6s] [21/192] preinstalled elfutils-0.192-2.2
+[    6s] [22/192] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [23/192] cumulate fdupes-2.4.0-1.1
+[    6s] [24/192] preinstalled file-5.46-4.1
+[    6s] [25/192] preinstalled file-magic-5.46-4.1
+[    6s] [26/192] preinstalled filesystem-84.87-18.2
+[    6s] [27/192] preinstalled fillup-1.42-281.3
+[    6s] [28/192] preinstalled findutils-4.10.0-2.2
+[    6s] [29/192] preinstalled gawk-5.3.2-1.1
+[    6s] [30/192] preinstalled gcc-14-3.1
+[    6s] [31/192] preinstalled gcc-PIE-14-3.1
+[    6s] [32/192] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [33/192] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [34/192] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [35/192] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [36/192] preinstalled glibc-2.41-2.1
+[    6s] [37/192] preinstalled glibc-devel-2.41-2.1
+[    6s] [38/192] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [39/192] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [40/192] preinstalled grep-3.12-1.1
+[    6s] [41/192] preinstalled gzip-1.14-1.1
+[    6s] [42/192] cumulate jitterentropy-devel-3.6.3-1.1
+[    6s] [43/192] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [44/192] preinstalled libacl1-2.3.2-2.3
+[    6s] [45/192] preinstalled libarchive13-3.7.9-1.1
+[    6s] [46/192] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [47/192] preinstalled libasm1-0.192-2.2
+[    6s] [48/192] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [49/192] preinstalled libattr1-2.5.2-1.4
+[    6s] [50/192] preinstalled libaudit1-4.0-3.3
+[    6s] [51/192] preinstalled libblkid1-2.41-1.1
+[    6s] [52/192] cumulate libbrotlicommon1-1.1.0-1.6
+[    6s] [53/192] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [54/192] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [55/192] preinstalled libcap2-2.75-1.1
+[    6s] [56/192] cumulate libcom_err2-1.47.2-1.1
+[    6s] [57/192] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [58/192] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [59/192] preinstalled libctf0-2.43-7.1
+[    6s] [60/192] preinstalled libdw1-0.192-2.2
+[    6s] [61/192] preinstalled libeconf0-0.7.9-1.1
+[    6s] [62/192] preinstalled libelf1-0.192-2.2
+[    6s] [63/192] preinstalled libfdisk1-2.41-1.1
+[    6s] [64/192] cumulate libffi8-3.4.7-1.1
+[    6s] [65/192] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [66/192] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [67/192] preinstalled libgdbm6-1.24-2.1
+[    6s] [68/192] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [69/192] preinstalled libgmp10-6.3.0-5.1
+[    6s] [70/192] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [71/192] preinstalled libgpg-error0-1.55-1.1
+[    6s] [72/192] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [73/192] preinstalled libisl23-0.27-1.2
+[    6s] [74/192] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [75/192] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [76/192] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [77/192] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [78/192] preinstalled liblz1-1.15-1.2
+[    6s] [79/192] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [80/192] preinstalled liblzma5-5.8.1-1.1
+[    6s] [81/192] preinstalled libmagic1-5.46-4.1
+[    6s] [82/192] cumulate libmariadb3-3.4.5-2.1
+[    6s] [83/192] preinstalled libmount1-2.41-1.1
+[    6s] [84/192] preinstalled libmpc3-1.3.1-1.10
+[    6s] [85/192] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [86/192] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [87/192] cumulate libnghttp2-14-1.65.0-1.1
+[    6s] [88/192] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [89/192] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [90/192] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [91/192] preinstalled libpopt0-1.19-1.10
+[    6s] [92/192] preinstalled libreadline8-8.2.13-2.3
+[    6s] [93/192] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [94/192] cumulate libruby3_4-3_4-3.4.4-1.1
+[    6s] [95/192] cumulate libsasl2-3-2.1.28-10.1
+[    6s] [96/192] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [97/192] preinstalled libselinux1-3.8.1-1.1
+[    6s] [98/192] cumulate libsemanage-conf-3.8.1-1.1
+[    6s] [99/192] cumulate libsepol2-3.8.1-1.1
+[    6s] [100/192] preinstalled libsmartcols1-2.41-1.1
+[    6s] [101/192] cumulate libsqlite3-0-3.49.2-1.1
+[    6s] [102/192] cumulate libssh-config-0.11.1-5.1
+[    6s] [103/192] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [104/192] cumulate libsubid5-4.17.4-2.1
+[    6s] [105/192] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [106/192] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [107/192] cumulate libunistring5-1.3-1.3
+[    6s] [108/192] preinstalled libuuid1-2.41-1.1
+[    6s] [109/192] cumulate libverto1-0.3.2-3.5
+[    6s] [110/192] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [111/192] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [112/192] cumulate libxml2-tools-2.13.8-1.1
+[    6s] [113/192] cumulate libxslt1-1.1.43-1.1
+[    6s] [114/192] cumulate libyaml-0-2-0.2.5-2.7
+[    6s] [115/192] preinstalled libz1-1.3.1-1.3
+[    6s] [116/192] cumulate libzio1-1.09-1.4
+[    6s] [117/192] cumulate libzstd-devel-1.5.7-3.1
+[    6s] [118/192] preinstalled libzstd1-1.5.7-3.1
+[    6s] [119/192] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [120/192] cumulate login_defs-4.17.4-2.1
+[    6s] [121/192] preinstalled lua54-5.4.7-4.1
+[    6s] [122/192] preinstalled make-4.4.1-3.3
+[    6s] [123/192] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [124/192] preinstalled pam-1.7.0-3.1
+[    6s] [125/192] preinstalled patch-2.8-1.1
+[    6s] [126/192] preinstalled perl-5.40.2-2.1
+[    6s] [127/192] preinstalled perl-base-5.40.2-2.1
+[    6s] [128/192] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [129/192] preinstalled permctl-1699_20250120-1.3
+[    6s] [130/192] preinstalled permissions-1699_20250120-1.3
+[    6s] [131/192] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [132/192] preinstalled pkgconf-2.2.0-1.3
+[    6s] [133/192] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [134/192] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [135/192] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [136/192] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [137/192] preinstalled rpm-4.20.1-4.1
+[    6s] [138/192] preinstalled rpm-build-4.20.1-4.1
+[    6s] [139/192] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [140/192] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [141/192] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [142/192] preinstalled sed-4.9-2.8
+[    6s] [143/192] preinstalled system-user-root-20190513-2.18
+[    6s] [144/192] cumulate systemd-mini-257.6-1.1
+[    6s] [145/192] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [146/192] preinstalled tar-1.35-4.1
+[    6s] [147/192] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [148/192] cumulate timezone-2025b-1.1
+[    6s] [149/192] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [150/192] preinstalled util-linux-2.41-1.1
+[    6s] [151/192] preinstalled which-2.23-1.2
+[    6s] [152/192] preinstalled xz-5.8.1-1.1
+[    6s] [153/192] cumulate xz-devel-5.8.1-1.1
+[    6s] [154/192] cumulate zlib-devel-1.3.1-1.3
+[    6s] [155/192] cumulate info-7.1-2.2
+[    6s] [156/192] cumulate libbrotlidec1-1.1.0-1.6
+[    6s] [157/192] cumulate libbrotlienc1-1.1.0-1.6
+[    6s] [158/192] cumulate libcom_err-devel-1.47.2-1.1
+[    6s] [159/192] cumulate libexslt0-1.1.43-1.1
+[    6s] [160/192] cumulate libffi-devel-3.4.7-1.1
+[    6s] [161/192] cumulate libidn2-0-2.3.8-1.1
+[    6s] [162/192] cumulate libldap2-2.6.8-2.5
+[    6s] [163/192] cumulate libnghttp2-devel-1.65.0-1.1
+[    6s] [164/192] cumulate libverto-devel-0.3.2-3.5
+[    6s] [165/192] cumulate sqlite3-devel-3.49.2-1.1
+[    6s] [166/192] cumulate krb5-mini-1.21.3-3.1
+[    6s] [167/192] cumulate libsemanage2-3.8.1-1.1
+[    6s] [168/192] cumulate libxml2-devel-2.13.8-1.1
+[    6s] [169/192] cumulate libgpg-error-devel-1.55-1.1
+[    6s] [170/192] cumulate libidn2-devel-2.3.8-1.1
+[    6s] [171/192] cumulate libpsl5-0.21.5-1.5
+[    6s] [172/192] cumulate libssh4-0.11.1-5.1
+[    6s] [173/192] cumulate libxslt-tools-1.1.43-1.1
+[    6s] [174/192] cumulate krb5-mini-devel-1.21.3-3.1
+[    6s] [175/192] cumulate libbrotli-devel-1.1.0-1.6
+[    6s] [176/192] cumulate shadow-4.17.4-2.1
+[    6s] [177/192] cumulate libpsl-devel-0.21.5-1.5
+[    6s] [178/192] cumulate libssh-devel-0.11.1-5.1
+[    6s] [179/192] cumulate libgcrypt-devel-1.11.1-1.1
+[    6s] [180/192] cumulate libcurl4-8.14.1-1.1
+[    6s] [181/192] cumulate libxslt-devel-1.1.43-1.1
+[    6s] [182/192] cumulate openssl-3-3.5.0-3.1
+[    6s] [183/192] cumulate ruby3.4-rubygem-gem2rpm-0.10.1-26.2
+[    6s] [184/192] cumulate openssl-3.5.0-1.1
+[    6s] [185/192] cumulate ruby-common-3.2.1-7.2
+[    6s] [186/192] cumulate libopenssl-devel-3.5.0-1.1
+[    6s] [187/192] cumulate ruby3.4-3.4.4-1.1
+[    6s] [188/192] cumulate ruby3.4-devel-3.4.4-1.1
+[    6s] [189/192] cumulate ruby3.4-rubygem-bundler-2.6.3-1.2
+[    6s] [190/192] cumulate libopenssl-3-devel-3.5.0-3.1
+[    6s] [191/192] cumulate libmariadb-devel-3.4.5-2.1
+[    6s] [192/192] cumulate libcurl-devel-8.14.1-1.1
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] zlib-devel-1.3.1-1.3                  ########################################
+[    6s] libxslt1-1.1.43-1.1                   ########################################
+[    6s] libbrotlicommon1-1.1.0-1.6            ########################################
+[    6s] libbrotlidec1-1.1.0-1.6               ########################################
+[    6s] libexslt0-1.1.43-1.1                  ########################################
+[    6s] libverto1-0.3.2-3.5                   ########################################
+[    6s] libunistring5-1.3-1.3                 ########################################
+[    6s] libidn2-0-2.3.8-1.1                   ########################################
+[    6s] libpsl5-0.21.5-1.5                    ########################################
+[    6s] libnghttp2-14-1.65.0-1.1              ########################################
+[    6s] libffi8-3.4.7-1.1                     ########################################
+[    6s] libcom_err2-1.47.2-1.1                ########################################
+[    6s] krb5-mini-1.21.3-3.1                  ########################################
+[    6s] Updating /etc/sysconfig/kadmind ...
+[    6s] Updating /etc/sysconfig/krb5kdc ...
+[    6s] jitterentropy-devel-3.6.3-1.1         ########################################
+[    6s] libopenssl-3-devel-3.5.0-3.1          ########################################
+[    6s] libcom_err-devel-1.47.2-1.1           ########################################
+[    6s] libnghttp2-devel-1.65.0-1.1           ########################################
+[    6s] libpsl-devel-0.21.5-1.5               ########################################
+[    6s] libidn2-devel-2.3.8-1.1               ########################################
+[    6s] libverto-devel-0.3.2-3.5              ########################################
+[    6s] krb5-mini-devel-1.21.3-3.1            ########################################
+[    6s] libxslt-tools-1.1.43-1.1              ########################################
+[    6s] libbrotlienc1-1.1.0-1.6               ########################################
+[    6s] libbrotli-devel-1.1.0-1.6             ########################################
+[    6s] openssl-3.5.0-1.1                     ########################################
+[    6s] openssl-3-3.5.0-3.1                   ########################################
+[    7s] libopenssl-devel-3.5.0-1.1            ########################################
+[    7s] xz-devel-5.8.1-1.1                    ########################################
+[    7s] login_defs-4.17.4-2.1                 ########################################
+[    7s] libzstd-devel-1.5.7-3.1               ########################################
+[    7s] libzio1-1.09-1.4                      ########################################
+[    7s] info-7.1-2.2                          ########################################
+[    7s] libgpg-error-devel-1.55-1.1           ########################################
+[    7s] libgcrypt-devel-1.11.1-1.1            ########################################
+[    7s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    7s] libxml2-tools-2.13.8-1.1              ########################################
+[    7s] libxml2-devel-2.13.8-1.1              ########################################
+[    7s] libsubid5-4.17.4-2.1                  ########################################
+[    7s] libssh-config-0.11.1-5.1              ########################################
+[    7s] libssh4-0.11.1-5.1                    ########################################
+[    7s] libssh-devel-0.11.1-5.1               ########################################
+[    7s] libsqlite3-0-3.49.2-1.1               ########################################
+[    7s] libsepol2-3.8.1-1.1                   ########################################
+[    7s] libsemanage-conf-3.8.1-1.1            ########################################
+[    7s] libsemanage2-3.8.1-1.1                ########################################
+[    7s] libsasl2-3-2.1.28-10.1                ########################################
+[    7s] libldap2-2.6.8-2.5                    ########################################
+[    7s] libcurl4-8.14.1-1.1                   ########################################
+[    7s] libruby3_4-3_4-3.4.4-1.1              ########################################
+[    7s] libmariadb3-3.4.5-2.1                 ########################################
+[    7s] fdupes-2.4.0-1.1                      ########################################
+[    7s] ruby3.4-rubygem-gem2rpm-0.10.1-26.2   ########################################
+[    7s] update-alternatives: using /usr/bin/gem2rpm.ruby3.4-0.10.1 to provide /usr/bin/gem2rpm (gem2rpm) in auto mode
+[    7s] update-alternatives: using /usr/bin/gem2rpm.ruby3.4-0.10.1 to provide /usr/bin/gem2rpm-0.10.1 (gem2rpm-0.10.1) in auto mode
+[    7s] update-alternatives: using /usr/bin/gem2rpm.ruby3.4-0.10.1 to provide /usr/bin/gem2rpm.ruby3.4 (gem2rpm.ruby3.4) in auto mode
+[    7s] ruby-common-3.2.1-7.2                 ########################################
+[    7s] ruby3.4-3.4.4-1.1                     ########################################
+[    7s] update-alternatives: using /usr/bin/bundle.ruby.ruby3.4 to provide /usr/bin/bundle (bundle) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundle.ruby.ruby3.4 to provide /usr/bin/bundle.ruby3.4 (bundle.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundler.ruby.ruby3.4 to provide /usr/bin/bundler (bundler) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundler.ruby.ruby3.4 to provide /usr/bin/bundler.ruby3.4 (bundler.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/racc.ruby.ruby3.4 to provide /usr/bin/racc (racc) in auto mode
+[    7s] update-alternatives: using /usr/bin/racc.ruby.ruby3.4 to provide /usr/bin/racc.ruby3.4 (racc.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/rake.ruby.ruby3.4 to provide /usr/bin/rake (rake) in auto mode
+[    7s] update-alternatives: using /usr/bin/rake.ruby.ruby3.4 to provide /usr/bin/rake.ruby3.4 (rake.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/rbs.ruby.ruby3.4 to provide /usr/bin/rbs (rbs) in auto mode
+[    7s] update-alternatives: using /usr/bin/rbs.ruby.ruby3.4 to provide /usr/bin/rbs.ruby3.4 (rbs.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/rdoc.ruby.ruby3.4 to provide /usr/bin/rdoc (rdoc) in auto mode
+[    7s] update-alternatives: using /usr/bin/rdoc.ruby.ruby3.4 to provide /usr/bin/rdoc.ruby3.4 (rdoc.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/ri.ruby.ruby3.4 to provide /usr/bin/ri (ri) in auto mode
+[    7s] update-alternatives: using /usr/bin/ri.ruby.ruby3.4 to provide /usr/bin/ri.ruby3.4 (ri.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/typeprof.ruby.ruby3.4 to provide /usr/bin/typeprof (typeprof) in auto mode
+[    7s] update-alternatives: using /usr/bin/typeprof.ruby.ruby3.4 to provide /usr/bin/typeprof.ruby3.4 (typeprof.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/rdbg.ruby.ruby3.4 to provide /usr/bin/rdbg (rdbg) in auto mode
+[    7s] update-alternatives: using /usr/bin/rdbg.ruby.ruby3.4 to provide /usr/bin/rdbg.ruby3.4 (rdbg.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/syntax_suggest.ruby.ruby3.4 to provide /usr/bin/syntax_suggest (syntax_suggest) in auto mode
+[    7s] update-alternatives: using /usr/bin/syntax_suggest.ruby.ruby3.4 to provide /usr/bin/syntax_suggest.ruby3.4 (syntax_suggest.ruby3.4) in auto mode
+[    7s] ruby3.4-devel-3.4.4-1.1               ########################################
+[    7s] ruby3.4-rubygem-bundler-2.6.3-1.2     ########################################
+[    7s] update-alternatives: using /usr/bin/bundle.ruby3.4-2.6.3 to provide /usr/bin/bundle (bundle) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundle.ruby3.4-2.6.3 to provide /usr/bin/bundle-2.6.3 (bundle-2.6.3) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundle.ruby3.4-2.6.3 to provide /usr/bin/bundle.ruby3.4 (bundle.ruby3.4) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundler.ruby3.4-2.6.3 to provide /usr/bin/bundler (bundler) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundler.ruby3.4-2.6.3 to provide /usr/bin/bundler-2.6.3 (bundler-2.6.3) in auto mode
+[    7s] update-alternatives: using /usr/bin/bundler.ruby3.4-2.6.3 to provide /usr/bin/bundler.ruby3.4 (bundler.ruby3.4) in auto mode
+[    7s] libmariadb-devel-3.4.5-2.1            ########################################
+[    7s] libcurl-devel-8.14.1-1.1              ########################################
+[    7s] shadow-4.17.4-2.1                     ########################################
+[    7s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    7s] sqlite3-devel-3.49.2-1.1              ########################################
+[    7s] libxslt-devel-1.1.43-1.1              ########################################
+[    7s] libffi-devel-3.4.7-1.1                ########################################
+[    7s] timezone-2025b-1.1                    ########################################
+[    7s] systemd-mini-257.6-1.1                ########################################
+[    7s] Running in chroot, ignoring command 'daemon-reexec'
+[    7s] chrpath-0.17-1.3                      ########################################
+[    7s] now finalizing build dir...
+[    7s] ... running 01-add_abuild_user_to_trusted_group
+[    7s] ... running 02-set_timezone_to_utc
+[    7s] ... running 03-set-permissions-secure
+[    7s] ... running 11-hack_uname_version_to_kernel_version
+[    7s] setting SOURCE_DATE_EPOCH_MTIME to 1719837756
+[    8s] -----------------------------------------------------------------
+[    8s] I have the following modifications for rmt-server.spec:
+[    8s] 38c38
+[    8s] < Release:        0
+[    8s] ---
+[    8s] > Release:        1.2
+[    8s] -----------------------------------------------------------------
+[    8s] ----- building rmt-server.spec (user abuild)
+[    8s] -----------------------------------------------------------------
+[    8s] -----------------------------------------------------------------
+[    9s] setting SOURCE_DATE_EPOCH_MTIME to 1719837756
+[    9s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/6c4e27cc434b080324f978f09e119cfa-rmt-server' /home/abuild/rpmbuild/SOURCES/rmt-server.spec
+[    9s] using SOURCE_DATE_EPOCH with value 1719837754 as build time
+[    9s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.d1N2hW
+[    9s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.sEp6na
+[    9s] + umask 022
+[    9s] + cd /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build
+[    9s] + cp -p /home/abuild/rpmbuild/SOURCES/rmt.conf .
+[    9s] + cd /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build
+[    9s] + rm -rf rmt-server-2.18
+[    9s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/rmt-server-2.18.tar.bz2
+[    9s] + STATUS=0
+[    9s] + '[' 0 -ne 0 ']'
+[    9s] + cd rmt-server-2.18
+[    9s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[    9s] + sed -i '1 s|/usr/bin/env\ ruby|/usr/bin/ruby.ruby3.4|' bin/rails bin/rmt-cli bin/rmt-data-import bin/rmt-manual-instance-verify bin/rmt-test-regsharing
+[    9s] + RPM_EC=0
+[    9s] ++ jobs -p
+[    9s] + exit 0
+[    9s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.veKLqI
+[    9s] + umask 022
+[    9s] + cd /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build
+[    9s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/BUILDROOT
+[    9s] ++ dirname /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/BUILDROOT
+[    9s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build
+[    9s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/BUILDROOT
+[    9s] + cd rmt-server-2.18
+[    9s] + bundle.ruby3.4 config build.nio4r '--with-cflags=-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -Wno-return-type'
+[   10s] + bundle.ruby3.4 config set deployment true
+[   10s] + bundle.ruby3.4 config set without 'test development'
+[   10s] You are replacing the current local value of without, which is currently "test:development"
+[   10s] + bundle.ruby3.4 install --jobs 4
+[   10s] Bundler 2.6.3 is running, but your lockfile was generated with 1.17.3. Installing Bundler 1.17.3 and restarting using that version.
+[   10s] There was an error installing the locked bundler version (1.17.3), rerun with the `--verbose` flag for more details. Going on using bundler 2.6.3.
+[   10s] Installing rake 13.2.1
+[   10s] Installing builder 3.2.4
+[   10s] Installing zeitwerk 2.6.15
+[   10s] Installing minitest 5.15.0
+[   10s] Installing concurrent-ruby 1.3.1
+[   10s] Installing erubi 1.12.0
+[   10s] Installing mini_portile2 2.6.1
+[   10s] Installing racc 1.8.0 with native extensions
+[   10s] Installing crass 1.0.6
+[   11s] Installing rack 2.2.9
+[   11s] Installing jsonapi-renderer 0.2.2
+[   11s] Installing base32 0.3.4
+[   11s] Installing base64 0.2.0
+[   11s] Installing ffi 1.16.3 with native extensions
+[   11s] Installing deep_merge 1.2.1
+[   11s] Installing dry-equalizer 0.3.0
+[   11s] Installing dry-initializer 3.0.4
+[   11s] Installing dry-inflector 0.2.0
+[   11s] Installing fast_gettext 2.3.0
+[   11s] Installing method_source 1.1.0
+[   11s] Installing mysql2 0.5.6 with native extensions
+[   11s] Installing nio4r 2.7.0 with native extensions
+[   11s] Installing thor 1.2.2
+[   11s] Installing zstd-ruby 1.5.6.1 with native extensions
+[   14s] Installing sqlite3 1.4.4 with native extensions
+[   17s] Installing unicode-display_width 2.3.0
+[   18s] Installing yard 0.9.35
+[   18s] Installing jwt 2.8.2
+[   18s] Installing rack-test 2.1.0
+[   18s] Installing i18n 1.14.5
+[   18s] Installing tzinfo 2.0.6
+[   18s] Installing dry-core 0.5.0
+[   18s] Installing gettext_i18n_rails 1.12.0
+[   18s] Installing nokogiri 1.12.5 with native extensions
+[   18s] Installing puma 5.6.8 with native extensions
+[   19s] Installing terminal-table 3.0.2
+[   19s] Installing activesupport 6.1.7.8
+[   19s] Installing dry-configurable 0.12.1
+[   19s] Installing dry-logic 1.1.0
+[   19s] Installing bzip2-ffi 1.1.1
+[   19s] Installing ethon 0.16.0
+[   19s] Installing activemodel 6.1.7.8
+[   19s] Installing case_transform 0.2
+[   19s] Installing dry-container 0.7.2
+[   19s] Installing typhoeus 1.4.1
+[   19s] Installing activerecord 6.1.7.8
+[   19s] Installing dry-types 1.5.1
+[   19s] Installing strong_migrations 0.7.9
+[   19s] Installing dry-schema 1.6.1
+[   19s] Installing dry-validation 1.6.0
+[   19s] Installing config 3.0.0
+[   28s] Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/nokogiri-1.12.5/ext/nokogiri
+[   28s] /usr/bin/ruby.ruby3.4 extconf.rb --use-system-libraries
+[   28s] checking for whether -std=c99 is accepted as CFLAGS... yes
+[   28s] checking for whether -Wno-declaration-after-statement is accepted as CFLAGS...
+[   28s] yes
+[   28s] checking for whether -g is accepted as CFLAGS... yes
+[   28s] checking for whether -Winline is accepted as CFLAGS... yes
+[   28s] checking for whether -Wmissing-noreturn is accepted as CFLAGS... yes
+[   28s] Building nokogiri using system libraries.
+[   28s] checking for gzdopen() in -lz... yes
+[   28s] checking for xmlParseDoc() in -lxml2... yes
+[   28s] checking for xsltParseStylesheetDoc() in -lxslt... yes
+[   28s] checking for exsltFuncRegister() in -lexslt... yes
+[   28s] Using mini_portile version 2.6.1
+[   28s] ---------- IMPORTANT NOTICE ----------
+[   28s] Building Nokogiri with a packaged version of libgumbo-1.0.0-nokogiri.
+[   28s] Configuration options: --enable-shared --disable-static
+[   28s] Copying gumbo-parser files into
+[   28s] tmp/x86_64-suse-linux/ports/libgumbo/1.0.0-nokogiri/gumbo-parser...
+[   28s] Running 'compile' for libgumbo 1.0.0-nokogiri... OK
+[   28s] Activating libgumbo 1.0.0-nokogiri (from
+[   28s] ports/x86_64-suse-linux/libgumbo/1.0.0-nokogiri)...
+[   28s] checking for whether
+[   28s] -I/home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/nokogiri-1.12.5/ext/nokogiri/ports/x86_64-suse-linux/libgumbo/1.0.0-nokogiri/include
+[   28s] is accepted as CPPFLAGS... yes
+[   28s] checking for gumbo_parse_with_options() in gumbo.h... yes
+[   28s] checking for xmlHasFeature()... yes
+[   28s] checking for xmlFirstElementChild()... yes
+[   28s] checking for xmlRelaxNGSetParserStructuredErrors()... yes
+[   28s] checking for xmlRelaxNGSetValidStructuredErrors()... yes
+[   28s] checking for xmlSchemaSetValidStructuredErrors()... yes
+[   28s] checking for xmlSchemaSetParserStructuredErrors()... yes
+[   28s] checking for vasprintf()... yes
+[   28s] checking for whether
+[   28s] -DNOKOGIRI_OTHER_LIBRARY_VERSIONS="\"libgumbo:1.0.0-nokogiri\"" is accepted as
+[   28s] CPPFLAGS... yes
+[   28s] creating Makefile
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/nokogiri-1.12.5/ext/nokogiri
+[   28s] make DESTDIR\= sitearchdir\=./.gem.20250610-1330-iz8grl
+[   28s] sitelibdir\=./.gem.20250610-1330-iz8grl clean
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/nokogiri-1.12.5/ext/nokogiri
+[   28s] make DESTDIR\= sitearchdir\=./.gem.20250610-1330-iz8grl
+[   28s] sitelibdir\=./.gem.20250610-1330-iz8grl
+[   28s] compiling gumbo.c
+[   28s] gumbo.c: In function âextract_xml_nodeâ:
+[   28s] gumbo.c:404:3: warning: ârb_data_object_get_warningâ is deprecated: by TypedData
+[   28s] [-Wdeprecated-declarations]
+[   28s]   404 |   Data_Get_Struct(node, xmlNode, xml_node);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] In file included from /usr/include/ruby-3.4.0/ruby/internal/core.h:27,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby/ruby.h:29,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby.h:38,
+[   28s]                  from ./nokogiri.h:68,
+[   28s]                  from gumbo.c:30:
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] gumbo.c: In function ânoko_init_gumboâ:
+[   28s] gumbo.c:569:1: warning: old-style function definition [-Wold-style-definition]
+[   28s]   569 | noko_init_gumbo()
+[   28s]       | ^~~~~~~~~~~~~~~
+[   28s] At top level:
+[   28s] cc1: note: unrecognized command-line option â-Wno-self-assignâ may have been
+[   28s] intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-parentheses-equalityâ may have
+[   28s] been intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-constant-logical-operandâ may
+[   28s] have been intended to silence earlier diagnostics
+[   28s] compiling html4_document.c
+[   28s] html4_document.c: In function ârb_html_document_s_read_ioâ:
+[   28s] html4_document.c:49:52: error: passing argument 2 of âxmlSetStructuredErrorFuncâ
+[   28s] from incompatible pointer type [-Wincompatible-pointer-types]
+[   28s] 49 |   xmlSetStructuredErrorFunc((void *)rb_error_list,
+[   28s] Nokogiri_error_array_pusher);
+[   28s] |                                                   
+[   28s] ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s]       |                                                    |
+[   28s] |                                                    void (*)(void *,
+[   28s] xmlError *) {aka void (*)(void *, struct _xmlError *)}
+[   28s] In file included from /usr/include/libxml/valid.h:16,
+[   28s]                  from /usr/include/libxml/parser.h:20,
+[   28s]                  from ./nokogiri.h:34,
+[   28s]                  from html4_document.c:1:
+[   28s] /usr/include/libxml/xmlerror.h:905:57: note: expected âxmlStructuredErrorFuncâ
+[   28s] {aka âvoid (*)(void *, const struct _xmlError *)â} but argument is of type âvoid
+[   28s] (*)(void *, xmlError *)â {aka âvoid (*)(void *, struct _xmlError *)â}
+[   28s]   905 |                                  xmlStructuredErrorFunc handler);
+[   28s]       |                                  ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[   28s] html4_document.c: In function ârb_html_document_s_read_memoryâ:
+[   28s] html4_document.c:109:52: error: passing argument 2 of
+[   28s] âxmlSetStructuredErrorFuncâ from incompatible pointer type
+[   28s] [-Wincompatible-pointer-types]
+[   28s] 109 |   xmlSetStructuredErrorFunc((void *)rb_error_list,
+[   28s] Nokogiri_error_array_pusher);
+[   28s] |                                                   
+[   28s] ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s]       |                                                    |
+[   28s] |                                                    void (*)(void *,
+[   28s] xmlError *) {aka void (*)(void *, struct _xmlError *)}
+[   28s] /usr/include/libxml/xmlerror.h:905:57: note: expected âxmlStructuredErrorFuncâ
+[   28s] {aka âvoid (*)(void *, const struct _xmlError *)â} but argument is of type âvoid
+[   28s] (*)(void *, xmlError *)â {aka âvoid (*)(void *, struct _xmlError *)â}
+[   28s]   905 |                                  xmlStructuredErrorFunc handler);
+[   28s]       |                                  ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[   28s] html4_document.c: In function ârb_html_document_typeâ:
+[   28s] html4_document.c:148:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   148 |   Data_Get_Struct(self, xmlDoc, doc);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] In file included from /usr/include/ruby-3.4.0/ruby/internal/core.h:27,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby/ruby.h:29,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby.h:38,
+[   28s]                  from ./nokogiri.h:68:
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] html4_document.c: In function ânoko_init_html_documentâ:
+[   28s] html4_document.c:153:1: warning: old-style function definition
+[   28s] [-Wold-style-definition]
+[   28s]   153 | noko_init_html_document()
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~
+[   28s] At top level:
+[   28s] cc1: note: unrecognized command-line option â-Wno-self-assignâ may have been
+[   28s] intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-parentheses-equalityâ may have
+[   28s] been intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-constant-logical-operandâ may
+[   28s] have been intended to silence earlier diagnostics
+[   28s] make: *** [Makefile:251: html4_document.o] Error 1
+[   28s] 
+[   28s] make failed, exit code 2
+[   28s] 
+[   28s] Gem files will remain installed in
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/nokogiri-1.12.5
+[   28s] for inspection.
+[   28s] Results logged to
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/extensions/x86_64-linux-gnu/3.4.0/nokogiri-1.12.5/gem_make.out
+[   28s] 
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:126:in 'Gem::Ext::Builder.run'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:52:in 'block in
+[   28s] Gem::Ext::Builder.make'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:44:in 'Array#each'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:44:in 'Gem::Ext::Builder.make'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/ext_conf_builder.rb:44:in
+[   28s] 'Gem::Ext::ExtConfBuilder.build'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:195:in
+[   28s] 'Gem::Ext::Builder#build_extension'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:229:in 'block in
+[   28s] Gem::Ext::Builder#build_extensions'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:226:in 'Array#each'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:226:in
+[   28s] 'Gem::Ext::Builder#build_extensions'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/installer.rb:844:in
+[   28s] 'Gem::Installer#build_extensions'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/rubygems_gem_installer.rb:111:in
+[   28s] 'Bundler::RubyGemsGemInstaller#build_extensions'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/rubygems_gem_installer.rb:30:in
+[   28s] 'Bundler::RubyGemsGemInstaller#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/source/rubygems.rb:205:in
+[   28s] 'Bundler::Source::Rubygems#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/gem_installer.rb:55:in
+[   28s] 'Bundler::GemInstaller#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/gem_installer.rb:17:in
+[   28s] 'Bundler::GemInstaller#install_from_spec'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/parallel_installer.rb:133:in
+[   28s] 'Bundler::ParallelInstaller#do_install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/parallel_installer.rb:124:in
+[   28s] 'block in Bundler::ParallelInstaller#worker_pool'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:62:in
+[   28s] 'Bundler::Worker#apply_func'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:57:in
+[   28s] 'block in Bundler::Worker#process_queue'
+[   28s]   <internal:kernel>:168:in 'Kernel#loop'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:54:in
+[   28s] 'Bundler::Worker#process_queue'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:90:in
+[   28s] 'block (2 levels) in Bundler::Worker#create_threads'
+[   28s] 
+[   28s] An error occurred while installing nokogiri (1.12.5), and Bundler cannot
+[   28s] continue.
+[   28s] 
+[   28s] In Gemfile:
+[   28s]   active_model_serializers was resolved to 0.10.14, which depends on
+[   28s]     actionpack was resolved to 6.1.7.8, which depends on
+[   28s]       actionview was resolved to 6.1.7.8, which depends on
+[   28s]         rails-dom-testing was resolved to 2.2.0, which depends on
+[   28s]           nokogiri
+[   28s] 
+[   28s] 
+[   28s] Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/sqlite3-1.4.4/ext/sqlite3
+[   28s] /usr/bin/ruby.ruby3.4 extconf.rb
+[   28s] checking for pkg-config for sqlite3... [" ", "", "-lsqlite3"]
+[   28s] checking for sqlite3.h... yes
+[   28s] checking for pthread_create() in -lpthread... yes
+[   28s] checking for -ldl... yes
+[   28s] checking for sqlite3_libversion_number() in -lsqlite3... yes
+[   28s] checking for rb_proc_arity()... yes
+[   28s] checking for rb_integer_pack()... yes
+[   28s] checking for sqlite3_initialize()... yes
+[   28s] checking for sqlite3_backup_init()... yes
+[   28s] checking for sqlite3_column_database_name()... yes
+[   28s] checking for sqlite3_enable_load_extension()... yes
+[   28s] checking for sqlite3_load_extension()... yes
+[   28s] checking for sqlite3_open_v2()... yes
+[   28s] checking for sqlite3_prepare_v2()... yes
+[   28s] checking for sqlite3_int64 in sqlite3.h... yes
+[   28s] checking for sqlite3_uint64 in sqlite3.h... yes
+[   28s] creating Makefile
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/sqlite3-1.4.4/ext/sqlite3
+[   28s] make DESTDIR\= sitearchdir\=./.gem.20250610-1330-zoi9v7
+[   28s] sitelibdir\=./.gem.20250610-1330-zoi9v7 clean
+[   28s] 
+[   28s] current directory:
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/sqlite3-1.4.4/ext/sqlite3
+[   28s] make DESTDIR\= sitearchdir\=./.gem.20250610-1330-zoi9v7
+[   28s] sitelibdir\=./.gem.20250610-1330-zoi9v7
+[   28s] compiling aggregator.c
+[   28s] aggregator.c: In function ârb_sqlite3_define_aggregator2â:
+[   28s] aggregator.c:214:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   214 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] In file included from /usr/include/ruby-3.4.0/ruby/internal/core.h:27,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby/ruby.h:29,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby.h:38,
+[   28s]                  from ./sqlite3_ruby.h:4,
+[   28s]                  from ./aggregator.h:4,
+[   28s]                  from aggregator.c:1:
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] At top level:
+[   28s] cc1: note: unrecognized command-line option â-Wno-self-assignâ may have been
+[   28s] intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-parentheses-equalityâ may have
+[   28s] been intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-constant-logical-operandâ may
+[   28s] have been intended to silence earlier diagnostics
+[   28s] compiling backup.c
+[   28s] backup.c: In function âallocateâ:
+[   28s] backup.c:20:3: warning: ârb_data_object_wrap_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]    20 |   return Data_Wrap_Struct(klass, NULL, deallocate, ctx);
+[   28s]       |   ^~~~~~
+[   28s] In file included from /usr/include/ruby-3.4.0/ruby/internal/core.h:27,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby/ruby.h:29,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby.h:38,
+[   28s]                  from ./sqlite3_ruby.h:4,
+[   28s]                  from backup.c:3:
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:293:1: note: declared here
+[   28s] 293 | rb_data_object_wrap_warning(VALUE klass, void *ptr, RUBY_DATA_FUNC mark,
+[   28s] RUBY_DATA_FUNC free)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âinitializeâ:
+[   28s] backup.c:65:3: warning: ârb_data_object_get_warningâ is deprecated: by TypedData
+[   28s] [-Wdeprecated-declarations]
+[   28s]    65 |   Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c:66:3: warning: ârb_data_object_get_warningâ is deprecated: by TypedData
+[   28s] [-Wdeprecated-declarations]
+[   28s]    66 |   Data_Get_Struct(dstdb, sqlite3Ruby, ddb_ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c:67:3: warning: ârb_data_object_get_warningâ is deprecated: by TypedData
+[   28s] [-Wdeprecated-declarations]
+[   28s]    67 |   Data_Get_Struct(srcdb, sqlite3Ruby, sdb_ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âstepâ:
+[   28s] backup.c:100:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   100 |   Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âfinishâ:
+[   28s] backup.c:114:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   114 |   Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âremainingâ:
+[   28s] backup.c:132:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   132 |   Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âpagecountâ:
+[   28s] backup.c:148:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   148 |   Data_Get_Struct(self, sqlite3BackupRuby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] backup.c: In function âinit_sqlite3_backupâ:
+[   28s] backup.c:153:6: warning: old-style function definition [-Wold-style-definition]
+[   28s]   153 | void init_sqlite3_backup()
+[   28s]       |      ^~~~~~~~~~~~~~~~~~~
+[   28s] At top level:
+[   28s] cc1: note: unrecognized command-line option â-Wno-self-assignâ may have been
+[   28s] intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-parentheses-equalityâ may have
+[   28s] been intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-constant-logical-operandâ may
+[   28s] have been intended to silence earlier diagnostics
+[   28s] compiling database.c
+[   28s] database.c:4:5: warning: "_MSC_VER" is not defined, evaluates to 0 [-Wundef]
+[   28s]     4 | #if _MSC_VER
+[   28s]       |     ^~~~~~~~
+[   28s] database.c: In function âallocateâ:
+[   28s] database.c:27:3: warning: ârb_data_object_wrap_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]    27 |   return Data_Wrap_Struct(klass, NULL, deallocate, ctx);
+[   28s]       |   ^~~~~~
+[   28s] In file included from /usr/include/ruby-3.4.0/ruby/internal/core.h:27,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby/ruby.h:29,
+[   28s]                  from /usr/include/ruby-3.4.0/ruby.h:38,
+[   28s]                  from ./sqlite3_ruby.h:4,
+[   28s]                  from database.c:1:
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:293:1: note: declared here
+[   28s] 293 | rb_data_object_wrap_warning(VALUE klass, void *ptr, RUBY_DATA_FUNC mark,
+[   28s] RUBY_DATA_FUNC free)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function ârb_sqlite3_open_v2â:
+[   28s] database.c:46:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]    46 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c:43:9: warning: unused variable âflagsâ [-Wunused-variable]
+[   28s]    43 |   VALUE flags;
+[   28s]       |         ^~~~~
+[   28s] database.c: In function ârb_sqlite3_disable_quirk_modeâ:
+[   28s] database.c:73:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]    73 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âsqlite3_rb_closeâ:
+[   28s] database.c:94:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]    94 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âclosed_pâ:
+[   28s] database.c:113:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   113 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âtotal_changesâ:
+[   28s] database.c:128:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   128 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âtraceâ:
+[   28s] database.c:154:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   154 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âbusy_handlerâ:
+[   28s] database.c:199:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   199 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âlast_insert_row_idâ:
+[   28s] database.c:224:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   224 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âdefine_function_with_flagsâ:
+[   28s] database.c:344:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   344 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âinterruptâ:
+[   28s] database.c:384:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   384 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âerrmsgâ:
+[   28s] database.c:400:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   400 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âerrcode_â:
+[   28s] database.c:414:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   414 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âchangesâ:
+[   28s] database.c:442:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   442 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âset_authorizerâ:
+[   28s] database.c:487:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   487 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âset_busy_timeoutâ:
+[   28s] database.c:514:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   514 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âset_extended_result_codesâ:
+[   28s] database.c:530:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   530 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âcollationâ:
+[   28s] database.c:575:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   575 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âload_extensionâ:
+[   28s] database.c:604:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   604 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âenable_load_extensionâ:
+[   28s] database.c:628:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   628 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âdb_encodingâ:
+[   28s] database.c:665:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   665 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âtransaction_active_pâ:
+[   28s] database.c:685:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   685 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âexec_batchâ:
+[   28s] database.c:744:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   744 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c:748:57: error: passing argument 3 of âsqlite3_execâ from incompatible
+[   28s] pointer type [-Wincompatible-pointer-types]
+[   28s] 748 |     status = sqlite3_exec(ctx->db, StringValuePtr(sql),
+[   28s] hash_callback_function, callback_ary, &errMsg);
+[   28s] |                                                        
+[   28s] ^~~~~~~~~~~~~~~~~~~~~~
+[   28s]       |                                                         |
+[   28s] |                                                         int (*)(VALUE, 
+[   28s] int,  char **, char **) {aka int (*)(long unsigned int,  int,  char **, char
+[   28s] **)}
+[   28s] In file included from ./sqlite3_ruby.h:25:
+[   28s] /usr/include/sqlite3.h:430:9: note: expected âint (*)(void *, int,  char **,
+[   28s] char **)â but argument is of type âint (*)(VALUE,  int,  char **, char **)â {aka
+[   28s] âint (*)(long unsigned int,  int,  char **, char **)â}
+[   28s]   430 |   int (*callback)(void*,int,char**,char**),  /* Callback function */
+[   28s]       |   ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c:748:81: error: passing argument 4 of âsqlite3_execâ makes pointer
+[   28s] from integer without a cast [-Wint-conversion]
+[   28s] 748 |     status = sqlite3_exec(ctx->db, StringValuePtr(sql),
+[   28s] hash_callback_function, callback_ary, &errMsg);
+[   28s] |                                                                         
+[   28s] ^~~~~~~~~~~~
+[   28s] |                                                                         
+[   28s] |
+[   28s] |                                                                         
+[   28s] VALUE {aka long unsigned int}
+[   28s] /usr/include/sqlite3.h:431:3: note: expected âvoid *â but argument is of type
+[   28s] âVALUEâ {aka âlong unsigned intâ}
+[   28s] 431 |   void *,                                    /* 1st argument to callback
+[   28s] */
+[   28s]       |   ^~~~~~
+[   28s] database.c:750:57: error: passing argument 3 of âsqlite3_execâ from incompatible
+[   28s] pointer type [-Wincompatible-pointer-types]
+[   28s] 750 |     status = sqlite3_exec(ctx->db, StringValuePtr(sql),
+[   28s] regular_callback_function, callback_ary, &errMsg);
+[   28s] |                                                        
+[   28s] ^~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s]       |                                                         |
+[   28s] |                                                         int (*)(VALUE, 
+[   28s] int,  char **, char **) {aka int (*)(long unsigned int,  int,  char **, char
+[   28s] **)}
+[   28s] /usr/include/sqlite3.h:430:9: note: expected âint (*)(void *, int,  char **,
+[   28s] char **)â but argument is of type âint (*)(VALUE,  int,  char **, char **)â {aka
+[   28s] âint (*)(long unsigned int,  int,  char **, char **)â}
+[   28s]   430 |   int (*callback)(void*,int,char**,char**),  /* Callback function */
+[   28s]       |   ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c:750:84: error: passing argument 4 of âsqlite3_execâ makes pointer
+[   28s] from integer without a cast [-Wint-conversion]
+[   28s] 750 |     status = sqlite3_exec(ctx->db, StringValuePtr(sql),
+[   28s] regular_callback_function, callback_ary, &errMsg);
+[   28s] |                                                                         
+[   28s] ^~~~~~~~~~~~
+[   28s] |                                                                         
+[   28s] |
+[   28s] |                                                                         
+[   28s] VALUE {aka long unsigned int}
+[   28s] /usr/include/sqlite3.h:431:3: note: expected âvoid *â but argument is of type
+[   28s] âVALUEâ {aka âlong unsigned intâ}
+[   28s] 431 |   void *,                                    /* 1st argument to callback
+[   28s] */
+[   28s]       |   ^~~~~~
+[   28s] database.c: In function âdb_filenameâ:
+[   28s] database.c:772:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   772 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function ârb_sqlite3_open16â:
+[   28s] database.c:786:3: warning: ârb_data_object_get_warningâ is deprecated: by
+[   28s] TypedData [-Wdeprecated-declarations]
+[   28s]   786 |   Data_Get_Struct(self, sqlite3Ruby, ctx);
+[   28s]       |   ^~~~~~~~~~~~~~~
+[   28s] /usr/include/ruby-3.4.0/ruby/internal/core/rdata.h:325:1: note: declared here
+[   28s]   325 | rb_data_object_get_warning(VALUE obj)
+[   28s]       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: In function âinit_sqlite3_databaseâ:
+[   28s] database.c:804:6: warning: old-style function definition
+[   28s] [-Wold-style-definition]
+[   28s]   804 | void init_sqlite3_database()
+[   28s]       |      ^~~~~~~~~~~~~~~~~~~~~
+[   28s] database.c: At top level:
+[   28s] database.c:852:5: warning: "_MSC_VER" is not defined, evaluates to 0 [-Wundef]
+[   28s]   852 | #if _MSC_VER
+[   28s]       |     ^~~~~~~~
+[   28s] cc1: note: unrecognized command-line option â-Wno-self-assignâ may have been
+[   28s] intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-parentheses-equalityâ may have
+[   28s] been intended to silence earlier diagnostics
+[   28s] cc1: note: unrecognized command-line option â-Wno-constant-logical-operandâ may
+[   28s] have been intended to silence earlier diagnostics
+[   28s] make: *** [Makefile:251: database.o] Error 1
+[   28s] 
+[   28s] make failed, exit code 2
+[   28s] 
+[   28s] Gem files will remain installed in
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/gems/sqlite3-1.4.4
+[   28s] for inspection.
+[   28s] Results logged to
+[   28s] /home/abuild/rpmbuild/BUILD/rmt-server-2.18-build/rmt-server-2.18/vendor/bundle/ruby/3.4.0/extensions/x86_64-linux-gnu/3.4.0/sqlite3-1.4.4/gem_make.out
+[   28s] 
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:126:in 'Gem::Ext::Builder.run'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:52:in 'block in
+[   28s] Gem::Ext::Builder.make'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:44:in 'Array#each'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:44:in 'Gem::Ext::Builder.make'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/ext_conf_builder.rb:44:in
+[   28s] 'Gem::Ext::ExtConfBuilder.build'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:195:in
+[   28s] 'Gem::Ext::Builder#build_extension'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:229:in 'block in
+[   28s] Gem::Ext::Builder#build_extensions'
+[   28s]   /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:226:in 'Array#each'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/ext/builder.rb:226:in
+[   28s] 'Gem::Ext::Builder#build_extensions'
+[   28s] /usr/lib64/ruby/3.4.0/rubygems/installer.rb:844:in
+[   28s] 'Gem::Installer#build_extensions'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/rubygems_gem_installer.rb:111:in
+[   28s] 'Bundler::RubyGemsGemInstaller#build_extensions'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/rubygems_gem_installer.rb:30:in
+[   28s] 'Bundler::RubyGemsGemInstaller#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/source/rubygems.rb:205:in
+[   28s] 'Bundler::Source::Rubygems#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/gem_installer.rb:55:in
+[   28s] 'Bundler::GemInstaller#install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/gem_installer.rb:17:in
+[   28s] 'Bundler::GemInstaller#install_from_spec'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/parallel_installer.rb:133:in
+[   28s] 'Bundler::ParallelInstaller#do_install'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/installer/parallel_installer.rb:124:in
+[   28s] 'block in Bundler::ParallelInstaller#worker_pool'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:62:in
+[   28s] 'Bundler::Worker#apply_func'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:57:in
+[   28s] 'block in Bundler::Worker#process_queue'
+[   28s]   <internal:kernel>:168:in 'Kernel#loop'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:54:in
+[   28s] 'Bundler::Worker#process_queue'
+[   28s] /usr/lib64/ruby/gems/3.4.0/gems/bundler-2.6.3/lib/bundler/worker.rb:90:in
+[   28s] 'block (2 levels) in Bundler::Worker#create_threads'
+[   28s] 
+[   28s] An error occurred while installing sqlite3 (1.4.4), and Bundler cannot continue.
+[   28s] 
+[   28s] In Gemfile:
+[   28s]   sqlite3
+[   28s] error: Bad exit status from /var/tmp/rpm-tmp.veKLqI (%build)
+[   28s] 
+[   28s] RPM build errors:
+[   28s]     Bad exit status from /var/tmp/rpm-tmp.veKLqI (%build)
+[   28s] ### VM INTERACTION START ###
+[   28s] Powering off.
+[   28s] ### VM INTERACTION END ###
+[   28s] 
+[   28s] h02-ch2d failed "build rmt-server.spec" at Tue Jun 10 11:40:07 UTC 2025.
+[   28s] 
