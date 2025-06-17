@@ -38,7 +38,10 @@ Install the logdetective project using pip/pipx
 ```
 pipx install logdetective
 ```
-
+Then you can run the script file (eg. command)
+```
+python3 get-logs.py openSUSE:Factory -e
+```
 
 This repository is related to the
 [2025 Google Summer of Code project](https://github.com/openSUSE/mentoring/issues/236)
