@@ -130,7 +130,7 @@ if __name__ == "__main__":
                         if args.local:
                             explained_path = run_log_detective(log_path, project)
                         else:
-                           explained_path = run_log_detective_remote(url, log_path, project)
+                            explained_path = run_log_detective_remote(url, log_path, project)
                         if explained_path:
                             explained_files.append(explained_path)
             except ValueError as ve:
