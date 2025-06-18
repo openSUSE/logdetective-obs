@@ -24,10 +24,10 @@ def parse_args():
         help="Try to explain the log using log-detective.com",
     )
     parser.add_argument(
-    "-l",
-    "--local",
-    action="store_true",
-    help="Try to explain the log using a local log-detective model"
+        "-l",
+        "--local",
+        action="store_true",
+        help="Try to explain the log using a local log-detective model"
     )
     return parser.parse_args()
 
