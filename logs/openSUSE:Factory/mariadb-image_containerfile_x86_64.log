@@ -1,0 +1,1162 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_21/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_21/root
+[    0s] 
+[    0s] 
+[    0s] i03-ch1c started "build Dockerfile" at Wed Jun 11 16:34:53 UTC 2025.
+[    0s] 
+[    0s] Building mariadb-image for project 'openSUSE:Factory' repository 'containerfile' arch 'x86_64' srcmd5 'cb10ef11891226c46eebec5e5faf1986'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_21/.build-srcdir/Dockerfile ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_21/.build-srcdir/Dockerfile
+[    0s] init_buildsystem --configdir /var/run/obs/worker/21/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_21/.build.rpmlist /var/cache/obs/worker/root_21/.build-srcdir/Dockerfile build ...
+[    1s] cycle: rpm-config-SUSE -> rpm
+[    1s]   breaking dependency rpm-config-SUSE -> rpm
+[    1s] [1/28] preinstalling compat-usrmerge-tools...
+[    1s] [2/28] preinstalling system-user-root...
+[    1s] [3/28] preinstalling terminfo-base...
+[    1s] [4/28] preinstalling filesystem...
+[    1s] [5/28] preinstalling glibc...
+[    1s] [6/28] preinstalling fillup...
+[    1s] [7/28] preinstalling libacl1...
+[    1s] [8/28] preinstalling libattr1...
+[    1s] [9/28] preinstalling libbz2-1...
+[    1s] [10/28] preinstalling libcap2...
+[    1s] [11/28] preinstalling libgmp10...
+[    1s] [12/28] preinstalling libgpg-error0...
+[    1s] [13/28] preinstalling libjitterentropy3...
+[    1s] [14/28] preinstalling liblua5_4-5...
+[    1s] [15/28] preinstalling liblzma5...
+[    1s] [16/28] preinstalling libpcre2-8-0...
+[    1s] [17/28] preinstalling libpopt0...
+[    1s] [18/28] preinstalling libz1...
+[    1s] [19/28] preinstalling libzstd1...
+[    1s] [20/28] preinstalling libncurses6...
+[    1s] [21/28] preinstalling libreadline8...
+[    1s] [22/28] preinstalling libselinux1...
+[    1s] [23/28] preinstalling libgcrypt20...
+[    1s] [24/28] preinstalling bash...
+[    1s] [25/28] preinstalling bash-sh...
+[    1s] [26/28] preinstalling coreutils...
+[    1s] [27/28] preinstalling rpm-config-SUSE...
+[    2s] [28/28] preinstalling rpm...
+[    2s] 
+[    2s] [1/18] preinstalling grep...
+[    2s] [2/18] preinstalling kernel-obs-build...
+[    2s] [3/18] preinstalling libaudit1...
+[    2s] [4/18] preinstalling libcap-ng0...
+[    2s] [5/18] preinstalling libcrypt1...
+[    2s] [6/18] preinstalling libeconf0...
+[    2s] [7/18] preinstalling libgcc_s1...
+[    2s] [8/18] preinstalling libsmartcols1...
+[    2s] [9/18] preinstalling libuuid1...
+[    2s] [10/18] preinstalling libblkid1...
+[    2s] [11/18] preinstalling perl-base...
+[    2s] [12/18] preinstalling permctl...
+[    2s] [13/18] preinstalling libmount1...
+[    2s] [14/18] preinstalling permissions-config...
+[    2s] [15/18] preinstalling libfdisk1...
+[    2s] [16/18] preinstalling permissions...
+[    2s] [17/18] preinstalling pam...
+[    2s] [18/18] preinstalling util-linux...
+[    2s] copying packages...
+[    3s] reordering...cycle: python313-base -> libpython3_13-1_0
+[    3s]   breaking dependency python313-base -> libpython3_13-1_0
+[    3s] cycle: container-build-checks-vendor-openSUSE -> container-build-checks
+[    3s]   breaking dependency container-build-checks -> container-build-checks-vendor-openSUSE
+[    3s] cycle: binutils -> libctf0
+[    3s]   breaking dependency libctf0 -> binutils
+[    3s] cycle: gio-branding-upstream -> libgio-2_0-0
+[    3s]   breaking dependency libgio-2_0-0 -> gio-branding-upstream
+[    3s] cycle: libgio-2_0-0 -> glib2-tools
+[    3s]   breaking dependency libgio-2_0-0 -> glib2-tools
+[    3s] cycle: rpm-config-SUSE -> rpm
+[    3s]   breaking dependency rpm-config-SUSE -> rpm
+[    3s] done
+[    3s] Detected virtio-serial support
+[    4s] booting kvm...
+[    4s] ### VM INTERACTION START ###
+[    4s] Using virtio-serial support and enabling console input
+[    4s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_21/.mount/boot/kernel -initrd /var/cache/obs/worker/root_21/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime elevator=noop nmi_watchdog=0 rw ia32_emulation=1 oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_21/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_21/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_21/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    5s] [!p]104[?7h[    0.674525][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    6s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    7s] 2nd stage started in virtual machine
+[    7s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    7s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    7s] Time: Wed Jun 11 16:34:59 UTC 2025
+[    7s] Increasing log level from now on...
+[    7s] [    2.707175][  T567] sysrq: Changing Loglevel
+[    7s] [    2.707243][  T567] sysrq: Loglevel set to 4
+[    7s] Enable sysrq operations
+[    7s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    7s] no label, UUID=738a14b6-b80d-4c97-815c-c12a370196ef
+[    7s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe //.build-srcdir/Dockerfile ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/Dockerfile build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[    8s] [1/189] cumulate catatonit-0.2.1-1.3
+[    8s] [2/189] cumulate compat-usrmerge-tools-84.87-5.22
+[    8s] [3/189] cumulate container-build-checks-strict-1723452932.412e7f6-1.2
+[    8s] [4/189] cumulate crypto-policies-20250124.4d262e7-3.1
+[    8s] [5/189] cumulate file-magic-5.46-4.1
+[    8s] [6/189] cumulate kernel-obs-build-6.15.1-1.1
+[    8s] [7/189] cumulate libcontainers-openSUSE-policy-20250409-2.1
+[    8s] [8/189] cumulate pkgconf-m4-2.2.0-1.3
+[    8s] [9/189] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    8s] [10/189] cumulate registries-conf-default-20250409-2.1
+[    8s] [11/189] cumulate system-user-root-20190513-2.18
+[    8s] [12/189] cumulate terminfo-base-6.5.20250531-73.1
+[    8s] [13/189] cumulate filesystem-84.87-18.2
+[    8s] [14/189] cumulate glibc-2.41-2.1
+[    8s] [15/189] cumulate diffutils-3.12-1.1
+[    8s] [16/189] cumulate envsubst-mini-0.22.5-8.1
+[    8s] [17/189] cumulate fillup-1.42-281.3
+[    8s] [18/189] cumulate glibc-gconv-modules-extra-2.41-2.1
+[    8s] [19/189] cumulate glibc-locale-base-2.41-2.1
+[    8s] [20/189] cumulate libacl1-2.3.2-2.3
+[    8s] [21/189] cumulate libatomic1-15.1.1+git9739-2.1
+[    8s] [22/189] cumulate libattr1-2.5.2-1.4
+[    8s] [23/189] cumulate libaudit1-4.0-3.3
+[    8s] [24/189] cumulate libbrotlicommon1-1.1.0-1.6
+[    8s] [25/189] cumulate libbz2-1-1.0.8-5.12
+[    8s] [26/189] cumulate libcap-ng0-0.8.5-1.3
+[    8s] [27/189] cumulate libcap2-2.75-1.1
+[    8s] [28/189] cumulate libcom_err2-1.47.2-1.1
+[    8s] [29/189] cumulate libcrypt1-4.4.38-1.2
+[    8s] [30/189] cumulate libeconf0-0.7.9-1.1
+[    8s] [31/189] cumulate libexpat1-2.7.1-2.1
+[    8s] [32/189] cumulate libffi8-3.4.7-1.1
+[    8s] [33/189] cumulate libfuse3-4-3.17.2-1.1
+[    8s] [34/189] cumulate libgcc_s1-15.1.1+git9739-2.1
+[    8s] [35/189] cumulate libgmp10-6.3.0-5.1
+[    8s] [36/189] cumulate libgomp1-15.1.1+git9739-2.1
+[    8s] [37/189] cumulate libgpg-error0-1.55-1.1
+[    8s] [38/189] cumulate libitm1-15.1.1+git9739-2.1
+[    8s] [39/189] cumulate libjansson4-2.14.1-1.1
+[    8s] [40/189] cumulate libjitterentropy3-3.6.3-1.1
+[    8s] [41/189] cumulate liblua5_4-5-5.4.7-4.1
+[    8s] [42/189] cumulate liblz1-1.15-1.2
+[    8s] [43/189] cumulate liblz4-1-1.10.0-2.4
+[    8s] [44/189] cumulate liblzma5-5.8.1-1.1
+[    8s] [45/189] cumulate libmnl0-1.0.5-2.3
+[    8s] [46/189] cumulate libmpdec4-4.0.1-2.1
+[    8s] [47/189] cumulate libnghttp2-14-1.65.0-1.1
+[    8s] [48/189] cumulate libnpth0-1.8-2.1
+[    8s] [49/189] cumulate libpcre2-8-0-10.45-1.1
+[    8s] [50/189] cumulate libpkgconf5-2.2.0-1.3
+[    8s] [51/189] cumulate libpopt0-1.19-1.10
+[    8s] [52/189] cumulate libsasl2-3-2.1.28-10.1
+[    8s] [53/189] cumulate libseccomp2-2.6.0-2.2
+[    8s] [54/189] cumulate libsmartcols1-2.41-1.1
+[    8s] [55/189] cumulate libsqlite3-0-3.50.1-1.1
+[    8s] [56/189] cumulate libunistring5-1.3-1.3
+[    8s] [57/189] cumulate libuuid1-2.41-1.1
+[    8s] [58/189] cumulate libverto1-0.3.2-3.5
+[    8s] [59/189] cumulate libyaml-0-2-0.2.5-2.7
+[    8s] [60/189] cumulate libz1-1.3.1-1.3
+[    8s] [61/189] cumulate libzstd1-1.5.7-3.1
+[    8s] [62/189] cumulate passt-20250512.8ec1341-1.1
+[    8s] [63/189] cumulate patch-2.8-1.1
+[    8s] [64/189] cumulate timezone-2025b-1.1
+[    8s] [65/189] cumulate umoci-0.5.0-1.1
+[    8s] [66/189] cumulate update-alternatives-1.22.18-1.1
+[    8s] [67/189] cumulate which-2.23-1.2
+[    8s] [68/189] cumulate libncurses6-6.5.20250531-73.1
+[    8s] [69/189] cumulate aardvark-dns-1.15.0-1.1
+[    8s] [70/189] cumulate fuse-overlayfs-1.15-1.1
+[    8s] [71/189] cumulate libassuan9-3.0.2-1.2
+[    8s] [72/189] cumulate libblkid1-2.41-1.1
+[    8s] [73/189] cumulate libbrotlidec1-1.1.0-1.6
+[    8s] [74/189] cumulate libctf-nobfd0-2.43-7.1
+[    8s] [75/189] cumulate libedit0-20250104.3.1-1.1
+[    8s] [76/189] cumulate libglib-2_0-0-2.84.2-1.1
+[    8s] [77/189] cumulate libidn2-0-2.3.8-1.1
+[    8s] [78/189] cumulate libisl23-0.27-1.2
+[    8s] [79/189] cumulate libksba8-1.6.7-1.3
+[    8s] [80/189] cumulate libmpfr6-4.2.2-1.1
+[    8s] [81/189] cumulate libnftnl11-1.2.9-2.1
+[    8s] [82/189] cumulate libreadline8-8.2.13-2.3
+[    8s] [83/189] cumulate libselinux1-3.8.1-1.1
+[    8s] [84/189] cumulate libstdc++6-15.1.1+git9739-2.1
+[    8s] [85/189] cumulate libsystemd0-mini-257.6-1.1
+[    8s] [86/189] cumulate libudev-mini1-257.6-1.1
+[    8s] [87/189] cumulate perl-base-5.40.2-2.1
+[    8s] [88/189] cumulate pkgconf-2.2.0-1.3
+[    8s] [89/189] cumulate runc-1.3.0-1.1
+[    8s] [90/189] cumulate libelf1-0.192-2.2
+[    8s] [91/189] cumulate libgcrypt20-1.11.1-1.1
+[    8s] [92/189] cumulate libxml2-2-2.13.8-1.1
+[    8s] [93/189] cumulate libopenssl3-3.5.0-3.1
+[    8s] [94/189] cumulate permctl-1699_20250120-1.3
+[    8s] [95/189] cumulate libmagic1-5.46-4.1
+[    8s] [96/189] cumulate bash-5.2.37-20.1
+[    8s] [97/189] cumulate dwz-0.15-6.1
+[    8s] [98/189] cumulate findutils-4.10.0-2.2
+[    8s] [99/189] cumulate libgmodule-2_0-0-2.84.2-1.1
+[    8s] [100/189] cumulate libslirp0-4.9.1+1-1.1
+[    8s] [101/189] cumulate libusb-1_0-0-1.0.28-1.1
+[    8s] [102/189] cumulate conmon-2.1.13-1.2
+[    8s] [103/189] cumulate file-5.46-4.1
+[    8s] [104/189] cumulate libasan8-15.1.1+git9739-2.1
+[    8s] [105/189] cumulate libfdisk1-2.41-1.1
+[    8s] [106/189] cumulate libgobject-2_0-0-2.84.2-1.1
+[    8s] [107/189] cumulate libhwasan0-15.1.1+git9739-2.1
+[    8s] [108/189] cumulate libldap2-2.6.8-2.5
+[    8s] [109/189] cumulate liblsan0-15.1.1+git9739-2.1
+[    8s] [110/189] cumulate libmount1-2.41-1.1
+[    8s] [111/189] cumulate libmpc3-1.3.1-1.10
+[    8s] [112/189] cumulate libpsl5-0.21.5-1.5
+[    8s] [113/189] cumulate libtsan2-15.1.1+git9739-2.1
+[    8s] [114/189] cumulate libubsan1-15.1.1+git9739-2.1
+[    8s] [115/189] cumulate libzck1-1.5.1-1.3
+[    8s] [116/189] cumulate sed-4.9-2.8
+[    8s] [117/189] cumulate tar-1.35-4.1
+[    8s] [118/189] cumulate libnftables1-1.1.3-1.1
+[    8s] [119/189] cumulate libdw1-0.192-2.2
+[    8s] [120/189] cumulate libarchive13-3.7.9-1.1
+[    8s] [121/189] cumulate bash-sh-5.2.37-20.1
+[    8s] [122/189] cumulate libasm1-0.192-2.2
+[    8s] [123/189] cumulate slirp4netns-1.3.3-1.1
+[    8s] [124/189] cumulate cpp14-14.3.0+git11799-3.1
+[    8s] [125/189] cumulate libssh-config-0.11.1-5.1
+[    8s] [126/189] cumulate cpio-2.15-5.1
+[    8s] [127/189] cumulate cpp-14-3.1
+[    8s] [128/189] cumulate gzip-1.14-1.1
+[    8s] [129/189] cumulate make-4.4.1-3.3
+[    8s] [130/189] cumulate bzip2-1.0.8-5.12
+[    8s] [131/189] cumulate grep-3.12-1.1
+[    8s] [132/189] cumulate pkgconf-pkg-config-2.2.0-1.3
+[    8s] [133/189] cumulate xz-5.8.1-1.1
+[    8s] [134/189] cumulate gettext-runtime-mini-0.22.5-8.1
+[    8s] [135/189] cumulate libcontainers-common-20250409-2.1
+[    8s] [136/189] cumulate nftables-1.1.3-1.1
+[    8s] [137/189] cumulate gawk-5.3.2-1.1
+[    8s] [138/189] cumulate shared-mime-info-2.4-3.4
+[    8s] [139/189] cumulate coreutils-9.7-2.1
+[    8s] [140/189] cumulate elfutils-0.192-2.2
+[    8s] [141/189] cumulate gpg2-2.5.7-2.1
+[    8s] [142/189] cumulate systemd-rpm-macros-24-1.8
+[    8s] [143/189] cumulate libxcrypt-devel-4.4.38-1.2
+[    8s] [144/189] cumulate linux-glibc-devel-6.15-1.1
+[    8s] [145/189] cumulate obs-service-docker_label_helper-0.0-7.3
+[    8s] [146/189] cumulate libgpgme11-1.24.3-2.1
+[    8s] [147/189] cumulate obs-service-kiwi_metainfo_helper-0.6-9.1
+[    8s] [148/189] cumulate netavark-1.15.2-1.1
+[    8s] [149/189] cumulate permissions-config-1699_20250120-1.3
+[    8s] [150/189] cumulate gettext-tools-mini-0.22.5-8.1
+[    8s] [151/189] cumulate krb5-mini-1.21.3-3.1
+[    8s] [152/189] cumulate permissions-1699_20250120-1.3
+[    8s] [153/189] cumulate glibc-devel-2.41-2.1
+[    8s] [154/189] cumulate skopeo-1.19.0-1.1
+[    8s] [155/189] cumulate libssh4-0.11.1-5.1
+[    8s] [156/189] cumulate buildah-1.40.1-1.1
+[    8s] [157/189] cumulate podman-5.5.1-1.1
+[    8s] [158/189] cumulate pam-1.7.0-3.1
+[    8s] [159/189] cumulate libcurl4-8.14.1-1.1
+[    8s] [160/189] cumulate util-linux-2.41-1.1
+[    8s] [161/189] cumulate rpm-config-SUSE-20250423-1.1
+[    8s] [162/189] cumulate libctf0-2.43-7.1
+[    8s] [163/189] cumulate libgio-2_0-0-2.84.2-1.1
+[    8s] [164/189] cumulate python313-base-3.13.3-4.1
+[    8s] [165/189] cumulate gio-branding-upstream-2.84.2-1.1
+[    8s] [166/189] cumulate python313-docopt-0.6.2-10.1
+[    8s] [167/189] cumulate python313-packaging-24.2-2.1
+[    8s] [168/189] cumulate container-build-checks-1723452932.412e7f6-1.2
+[    8s] [169/189] cumulate libpython3_13-1_0-3.13.3-4.1
+[    8s] [170/189] cumulate python313-setuptools-78.1.1-1.1
+[    8s] [171/189] cumulate python313-PyYAML-6.0.2-3.1
+[    8s] [172/189] cumulate glib2-tools-2.84.2-1.1
+[    8s] [173/189] cumulate binutils-2.43-7.1
+[    8s] [174/189] cumulate rpm-4.20.1-5.1
+[    8s] [175/189] cumulate container-build-checks-vendor-openSUSE-1723452932.412e7f6-1.2
+[    8s] [176/189] cumulate release-compare-0.9.2-1.2
+[    8s] [177/189] cumulate libmodulemd2-2.15.0-3.4
+[    8s] [178/189] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    8s] [179/189] cumulate librpmbuild10-4.20.1-5.1
+[    8s] [180/189] cumulate debugedit-5.1-1.3
+[    8s] [181/189] cumulate gcc14-14.3.0+git11799-3.1
+[    8s] [182/189] cumulate gcc14-PIE-14.3.0+git11799-3.1
+[    8s] [183/189] cumulate gcc-14-3.1
+[    8s] [184/189] cumulate python313-rpm-4.20.1-5.1
+[    8s] [185/189] cumulate libcreaterepo_c1-1.2.1-1.1
+[    8s] [186/189] cumulate gcc-PIE-14-3.1
+[    8s] [187/189] cumulate obs-service-replace_using_package_version-0.0.11-1.2
+[    8s] [188/189] cumulate createrepo_c-1.2.1-1.1
+[    8s] [189/189] cumulate rpm-build-4.20.1-5.1
+[    8s] now installing cumulated packages
+[    8s] Preparing...                          ########################################
+[    8s] Updating / installing...
+[    8s] system-user-root-20190513-2.18        ########################################
+[    8s] crypto-policies-20250124.4d262e7-3.1  ########################################
+[    8s] terminfo-base-6.5.20250531-73.1       ########################################
+[    8s] registries-conf-default-20250409-2.1  ########################################
+[    8s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    8s] pkgconf-m4-2.2.0-1.3                  ########################################
+[    8s] libcontainers-openSUSE-policy-20250409########################################
+[    8s] file-magic-5.46-4.1                   ########################################
+[    8s] compat-usrmerge-tools-84.87-5.22      ########################################
+[    8s] filesystem-84.87-18.2                 ########################################
+[    8s] glibc-2.41-2.1                        ########################################
+[    8s] libz1-1.3.1-1.3                       ########################################
+[    8s] libgcc_s1-15.1.1+git9739-2.1          ########################################
+[    8s] libzstd1-1.5.7-3.1                    ########################################
+[    8s] libstdc++6-15.1.1+git9739-2.1         ########################################
+[    8s] libelf1-0.192-2.2                     ########################################
+[    8s] libbz2-1-1.0.8-5.12                   ########################################
+[    8s] libgmp10-6.3.0-5.1                    ########################################
+[    8s] liblzma5-5.8.1-1.1                    ########################################
+[    8s] libacl1-2.3.2-2.3                     ########################################
+[    8s] libcap2-2.75-1.1                      ########################################
+[    8s] libgpg-error0-1.55-1.1                ########################################
+[    8s] libseccomp2-2.6.0-2.2                 ########################################
+[    8s] libdw1-0.192-2.2                      ########################################
+[    8s] libmpfr6-4.2.2-1.1                    ########################################
+[    8s] libcrypt1-4.4.38-1.2                  ########################################
+[    8s] libxml2-2-2.13.8-1.1                  ########################################
+[    8s] fillup-1.42-281.3                     ########################################
+[    8s] libeconf0-0.7.9-1.1                   ########################################
+[    8s] libblkid1-2.41-1.1                    ########################################
+[    8s] libgomp1-15.1.1+git9739-2.1           ########################################
+[    8s] libpcre2-8-0-10.45-1.1                ########################################
+[    8s] libglib-2_0-0-2.84.2-1.1              ########################################
+[    8s] libselinux1-3.8.1-1.1                 ########################################
+[    8s] findutils-4.10.0-2.2                  ########################################
+[    8s] sed-4.9-2.8                           ########################################
+[    8s] libpopt0-1.19-1.10                    ########################################
+[    8s] libuuid1-2.41-1.1                     ########################################
+[    8s] update-alternatives-1.22.18-1.1       ########################################
+[    8s] libncurses6-6.5.20250531-73.1         ########################################
+[    8s] libreadline8-8.2.13-2.3               ########################################
+[    8s] bash-5.2.37-20.1                      ########################################
+[    8s] bash-sh-5.2.37-20.1                   ########################################
+[    8s] grep-3.12-1.1                         ########################################
+[    8s] xz-5.8.1-1.1                          ########################################
+[    8s] libcontainers-common-20250409-2.1     ########################################
+[    8s] gawk-5.3.2-1.1                        ########################################
+[    8s] libmount1-2.41-1.1                    ########################################
+[    8s] libgmodule-2_0-0-2.84.2-1.1           ########################################
+[    8s] libmpc3-1.3.1-1.10                    ########################################
+[    8s] runc-1.3.0-1.1                        ########################################
+[    8s] libassuan9-3.0.2-1.2                  ########################################
+[    8s] permctl-1699_20250120-1.3             ########################################
+[    8s] libisl23-0.27-1.2                     ########################################
+[    8s] cpp14-14.3.0+git11799-3.1             ########################################
+[    8s] dwz-0.15-6.1                          ########################################
+[    8s] libaudit1-4.0-3.3                     ########################################
+[    8s] libffi8-3.4.7-1.1                     ########################################
+[    8s] libgobject-2_0-0-2.84.2-1.1           ########################################
+[    8s] libjitterentropy3-3.6.3-1.1           ########################################
+[    8s] libopenssl3-3.5.0-3.1                 ########################################
+[    8s] libgcrypt20-1.11.1-1.1                ########################################
+[    8s] liblua5_4-5-5.4.7-4.1                 ########################################
+[    9s] libmnl0-1.0.5-2.3                     ########################################
+[    9s] libsqlite3-0-3.50.1-1.1               ########################################
+[    9s] libunistring5-1.3-1.3                 ########################################
+[    9s] libidn2-0-2.3.8-1.1                   ########################################
+[    9s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    9s] passt-20250512.8ec1341-1.1            ########################################
+[    9s] libpsl5-0.21.5-1.5                    ########################################
+[    9s] libnftnl11-1.2.9-2.1                  ########################################
+[    9s] libzck1-1.5.1-1.3                     ########################################
+[    9s] cpp-14-3.1                            ########################################
+[    9s] libssh-config-0.11.1-5.1              ########################################
+[    9s] cpio-2.15-5.1                         ########################################
+[    9s] gzip-1.14-1.1                         ########################################
+[    9s] make-4.4.1-3.3                        ########################################
+[    9s] bzip2-1.0.8-5.12                      ########################################
+[    9s] shared-mime-info-2.4-3.4              ########################################
+[    9s] gio-branding-upstream-2.84.2-1.1      ########################################
+[    9s] libgio-2_0-0-2.84.2-1.1               ########################################
+[    9s] glib2-tools-2.84.2-1.1                ########################################
+[    9s] No schema files found: doing nothing.
+[    9s] libedit0-20250104.3.1-1.1             ########################################
+[    9s] libfdisk1-2.41-1.1                    ########################################
+[    9s] tar-1.35-4.1                          ########################################
+[    9s] libslirp0-4.9.1+1-1.1                 ########################################
+[    9s] slirp4netns-1.3.3-1.1                 ########################################
+[    9s] libasm1-0.192-2.2                     ########################################
+[    9s] elfutils-0.192-2.2                    ########################################
+[    9s] libksba8-1.6.7-1.3                    ########################################
+[    9s] libsystemd0-mini-257.6-1.1            ########################################
+[    9s] conmon-2.1.13-1.2                     ########################################
+[    9s] libudev-mini1-257.6-1.1               ########################################
+[    9s] libusb-1_0-0-1.0.28-1.1               ########################################
+[    9s] libasan8-15.1.1+git9739-2.1           ########################################
+[    9s] libhwasan0-15.1.1+git9739-2.1         ########################################
+[    9s] liblsan0-15.1.1+git9739-2.1           ########################################
+[    9s] libtsan2-15.1.1+git9739-2.1           ########################################
+[    9s] libubsan1-15.1.1+git9739-2.1          ########################################
+[    9s] aardvark-dns-1.15.0-1.1               ########################################
+[    9s] libctf-nobfd0-2.43-7.1                ########################################
+[    9s] diffutils-3.12-1.1                    ########################################
+[    9s] envsubst-mini-0.22.5-8.1              ########################################
+[    9s] gettext-runtime-mini-0.22.5-8.1       ########################################
+[    9s] glibc-gconv-modules-extra-2.41-2.1    ########################################
+[   10s] gettext-tools-mini-0.22.5-8.1         ########################################
+[   10s] glibc-locale-base-2.41-2.1            ########################################
+[   10s] libatomic1-15.1.1+git9739-2.1         ########################################
+[   10s] libattr1-2.5.2-1.4                    ########################################
+[   10s] coreutils-9.7-2.1                     ########################################
+[   10s] rpm-config-SUSE-20250423-1.1          ########################################
+[   10s] rpm-4.20.1-5.1                        ########################################
+[   10s] Updating /etc/sysconfig/services ...
+[   10s] libctf0-2.43-7.1                      ########################################
+[   10s] binutils-2.43-7.1                     ########################################
+[   11s] update-alternatives: using /usr/bin/ld.bfd to provide /usr/bin/ld (ld) in auto mode
+[   11s] libmodulemd2-2.15.0-3.4               ########################################
+[   11s] debugedit-5.1-1.3                     ########################################
+[   11s] systemd-rpm-macros-24-1.8             ########################################
+[   11s] linux-glibc-devel-6.15-1.1            ########################################
+[   11s] permissions-config-1699_20250120-1.3  ########################################
+[   11s] Updating /etc/sysconfig/security ...
+[   11s] Checking permissions and ownerships - using the permissions files
+[   11s] 	/usr/share/permissions/permissions
+[   11s] 	/usr/share/permissions/permissions.easy
+[   11s] 	/etc/permissions.local
+[   11s] /usr/sbin/unix_chkpwd: setting to root:shadow 4755 (wrong owner/group root:root)
+[   11s] permissions-1699_20250120-1.3         ########################################
+[   11s] pam-1.7.0-3.1                         ########################################
+[   11s] libbrotlicommon1-1.1.0-1.6            ########################################
+[   11s] libbrotlidec1-1.1.0-1.6               ########################################
+[   11s] libcap-ng0-0.8.5-1.3                  ########################################
+[   11s] libcom_err2-1.47.2-1.1                ########################################
+[   11s] libexpat1-2.7.1-2.1                   ########################################
+[   11s] libfuse3-4-3.17.2-1.1                 ########################################
+[   11s] fuse-overlayfs-1.15-1.1               ########################################
+[   11s] libitm1-15.1.1+git9739-2.1            ########################################
+[   11s] libjansson4-2.14.1-1.1                ########################################
+[   11s] libnftables1-1.1.3-1.1                ########################################
+[   11s] nftables-1.1.3-1.1                    ########################################
+[   11s] netavark-1.15.2-1.1                   ########################################
+[   11s] liblz1-1.15-1.2                       ########################################
+[   11s] libmagic1-5.46-4.1                    ########################################
+[   11s] librpmbuild10-4.20.1-5.1              ########################################
+[   11s] file-5.46-4.1                         ########################################
+[   11s] liblz4-1-1.10.0-2.4                   ########################################
+[   11s] libarchive13-3.7.9-1.1                ########################################
+[   11s] libmpdec4-4.0.1-2.1                   ########################################
+[   11s] python313-base-3.13.3-4.1             ########################################
+[   11s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[   11s] python313-docopt-0.6.2-10.1           ########################################
+[   11s] python313-packaging-24.2-2.1          ########################################
+[   11s] python-rpm-packaging-20210526+a18ca48-########################################
+[   11s] container-build-checks-vendor-openSUSE########################################
+[   11s] container-build-checks-1723452932.412e########################################
+[   11s] python313-setuptools-78.1.1-1.1       ########################################
+[   11s] python313-PyYAML-6.0.2-3.1            ########################################
+[   11s] python313-rpm-4.20.1-5.1              ########################################
+[   11s] libnghttp2-14-1.65.0-1.1              ########################################
+[   11s] libnpth0-1.8-2.1                      ########################################
+[   11s] gpg2-2.5.7-2.1                        ########################################
+[   11s] libgpgme11-1.24.3-2.1                 ########################################
+[   11s] libpkgconf5-2.2.0-1.3                 ########################################
+[   11s] pkgconf-2.2.0-1.3                     ########################################
+[   11s] pkgconf-pkg-config-2.2.0-1.3          ########################################
+[   11s] libxcrypt-devel-4.4.38-1.2            ########################################
+[   12s] glibc-devel-2.41-2.1                  ########################################
+[   12s] gcc14-14.3.0+git11799-3.1             ########################################
+[   12s] gcc14-PIE-14.3.0+git11799-3.1         ########################################
+[   12s] gcc-14-3.1                            ########################################
+[   12s] libsasl2-3-2.1.28-10.1                ########################################
+[   12s] libldap2-2.6.8-2.5                    ########################################
+[   12s] libsmartcols1-2.41-1.1                ########################################
+[   12s] util-linux-2.41-1.1                   ########################################
+[   12s] libverto1-0.3.2-3.5                   ########################################
+[   12s] krb5-mini-1.21.3-3.1                  ########################################
+[   12s] Updating /etc/sysconfig/kadmind ...
+[   12s] Updating /etc/sysconfig/krb5kdc ...
+[   12s] libssh4-0.11.1-5.1                    ########################################
+[   12s] libcurl4-8.14.1-1.1                   ########################################
+[   12s] libcreaterepo_c1-1.2.1-1.1            ########################################
+[   12s] patch-2.8-1.1                         ########################################
+[   12s] timezone-2025b-1.1                    ########################################
+[   12s] which-2.23-1.2                        ########################################
+[   12s] catatonit-0.2.1-1.3                   ########################################
+[   12s] podman-5.5.1-1.1                      ########################################
+[   13s] rpm-build-4.20.1-5.1                  ########################################
+[   13s] createrepo_c-1.2.1-1.1                ########################################
+[   13s] gcc-PIE-14-3.1                        ########################################
+[   13s] skopeo-1.19.0-1.1                     ########################################
+[   13s] buildah-1.40.1-1.1                    ########################################
+[   13s] obs-service-replace_using_package_vers########################################
+[   13s] release-compare-0.9.2-1.2             ########################################
+[   13s] obs-service-docker_label_helper-0.0-7.########################################
+[   13s] obs-service-kiwi_metainfo_helper-0.6-9########################################
+[   13s] perl-base-5.40.2-2.1                  ########################################
+[   13s] umoci-0.5.0-1.1                       ########################################
+[   13s] kernel-obs-build-6.15.1-1.1           ########################################
+[   13s] container-build-checks-strict-17234529########################################
+[   14s] now finalizing build dir...
+[   15s] Running build time source services...
+[   15s] warning: ./repos/openSUSE:Factory/standard/libmariadb3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-client.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-errormessages.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-tools.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/libmariadb3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-client.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-errormessages.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] warning: ./repos/openSUSE:Factory/standard/mariadb-tools.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   15s] -----------------------------------------------------------------
+[   15s] ----- building Dockerfile
+[   15s] -----------------------------------------------------------------
+[   15s] -----------------------------------------------------------------
+[   15s] Loading base image container_opensuse-tumbleweed-image-docker.tar
+[   15s] Unsharing environment
+[   16s] Getting image source signatures
+[   16s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   17s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   17s] Writing manifest to image destination
+[   17s] Getting image source signatures
+[   17s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   17s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   17s] Writing manifest to image destination
+[   18s] Getting image source signatures
+[   18s] Copying blob sha256:90839933d443e99ce599341f417c3c566a603ac13f41197ea3699d15db2fd913
+[   18s] Copying config sha256:ba4070604d3f4e16f2757c36726fff109325d51a7f9d21ce9859b6f0d3e31f6c
+[   18s] Writing manifest to image destination
+[   18s] Loaded image: localhost/opensuse/tumbleweed:latest
+[   18s] Loaded image: localhost/opensuse/tumbleweed:20250611
+[   18s] Loaded image: localhost/opensuse/tumbleweed:20250611.34.53
+[   18s] Loading base image container_opensuse-bci-bci-micro.tar
+[   18s] Unsharing environment
+[   18s] Getting image source signatures
+[   18s] Copying blob sha256:5af20d37a4d1913846c7932d0ef54f5b9810911959f119b8f725f94813ff9e64
+[   19s] Copying config sha256:45471b1b9427413e1bcf6f660c9b26ea91de8afb976dbfcb13c3b0e9bddf9f82
+[   19s] Writing manifest to image destination
+[   19s] Getting image source signatures
+[   19s] Copying blob sha256:5af20d37a4d1913846c7932d0ef54f5b9810911959f119b8f725f94813ff9e64
+[   19s] Copying config sha256:45471b1b9427413e1bcf6f660c9b26ea91de8afb976dbfcb13c3b0e9bddf9f82
+[   19s] Writing manifest to image destination
+[   19s] Getting image source signatures
+[   19s] Copying blob sha256:5af20d37a4d1913846c7932d0ef54f5b9810911959f119b8f725f94813ff9e64
+[   19s] Copying config sha256:45471b1b9427413e1bcf6f660c9b26ea91de8afb976dbfcb13c3b0e9bddf9f82
+[   19s] Writing manifest to image destination
+[   19s] Loaded image: localhost/opensuse/bci/bci-micro:20250611.0-6.30
+[   19s] Loaded image: localhost/opensuse/bci/bci-micro:20250611.0
+[   19s] Loaded image: localhost/opensuse/bci/bci-micro:latest
+[   20s] Building image opensuse/mariadb:11.8.2-53.28 opensuse/mariadb:11.8.2 opensuse/mariadb:11.7 opensuse/mariadb:latest
+[   20s] Unsharing environment
+[   20s] [1/3] STEP 1/1: FROM opensuse/bci/bci-micro:latest AS target
+[   20s] --> 45471b1b9427
+[   20s] [2/3] STEP 1/8: FROM opensuse/tumbleweed:latest AS builder
+[   20s] [2/3] STEP 2/8: COPY .obs-docker-support /usr/local/sbin/obs-docker-support
+[   20s] [2/3] STEP 3/8: RUN obs-docker-support --install
+[   20s] Retrieving repository 'obs_repository' metadata [.done]
+[   20s] Building repository 'obs_repository' cache [....done]
+[   20s] All repositories have been refreshed.
+[   20s] [2/3] STEP 4/8: COPY --from=target / /target
+[   21s] [2/3] STEP 5/8: RUN set -euo pipefail;     zypper -n --installroot /target --gpg-auto-import-keys install --no-recommends coreutils findutils gawk mariadb mariadb-tools openssl sed timezone util-linux zstd
+[   21s] Loading repository data...
+[   21s] Reading installed packages...
+[   21s] 'coreutils' is already installed.
+[   21s] No update candidate for 'coreutils-9.7-2.1.x86_64'. The highest available version is already installed.
+[   21s] Resolving package dependencies...
+[   21s] 
+[   21s] The following 72 NEW packages are going to be installed:
+[   21s]   crypto-policies fillup findutils gawk hostname krb5 libJudy1 libaio1 libaudit1 libblkid1 libbz2-1 libcap-ng0 libcom_err2 libcrypt1 libeconf0 libedit0 libexpat1 libfdisk1 libffi8 libgcc_s1 libgdbm6 libgdbm_compat4 libjitterentropy3 libkeyutils1 libltdl7 liblz4-1 liblzma5 liblzo2-2 libmariadb3 libmount1 libmpdec4 libmpfr6 libodbc2 libopenssl3 libpcre2-posix3 libpython3_13-1_0 libsemanage-conf libsemanage2 libsepol2 libsmartcols1 libstdc++6 libsubid5 libsystemd0 libuuid1 libverto1 libwrap0 libxml2-2 libz1 libzstd1 login_defs mariadb mariadb-client mariadb-errormessages mariadb-tools openssl openssl-3 pam perl perl-DBD-mysql perl-DBI perl-base permctl permissions permissions-config python313-base python313-mysqlclient sed shadow sysuser-shadow timezone util-linux zstd
+[   21s] 
+[   21s] 72 new packages to install.
+[   21s] 
+[   21s] Package download size:    69.4 MiB
+[   21s] 
+[   21s] Package install size change:
+[   21s]               |     323.8 MiB  required by packages that will be installed
+[   21s]    323.8 MiB  |  -      0 B    released by packages that will be removed
+[   21s] 
+[   21s] Backend:  classic_rpmtrans
+[   21s] Continue? [y/n/v/...? shows all options] (y): y
+[   21s] 
+[   21s] Checking for file conflicts: [...done]
+[   21s] Warning: 72 packages had to be excluded from file conflicts check because they are not yet downloaded.
+[   21s] 
+[   21s]     Note: Checking for file conflicts requires not installed packages to be downloaded in advance in
+[   21s]     order to access their file lists. See option '--download-in-advance / --dry-run --download-only'
+[   21s]     in the zypper manual page for details.
+[   21s] 
+[   21s] Retrieving: crypto-policies-20250124.4d262e7-3.1.noarch (obs_repository) (1/72),  71.8 KiB    
+[   21s] ( 1/72) Installing: crypto-policies-20250124.4d262e7-3.1.noarch [.
+[   21s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/crypto-policies.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   21s] .done]
+[   21s] Retrieving: fillup-1.42-281.3.x86_64 (obs_repository) (2/72),  24.3 KiB    
+[   21s] ( 2/72) Installing: fillup-1.42-281.3.x86_64 [.
+[   21s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/fillup.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   21s] .done]
+[   21s] Retrieving: findutils-4.10.0-2.2.x86_64 (obs_repository) (3/72), 286.8 KiB    
+[   21s] ( 3/72) Installing: findutils-4.10.0-2.2.x86_64 [.
+[   21s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/findutils.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   21s] .done]
+[   21s] Retrieving: hostname-3.25-1.2.x86_64 (obs_repository) (4/72),  26.1 KiB    
+[   21s] ( 4/72) Installing: hostname-3.25-1.2.x86_64 [.
+[   21s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/hostname.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   22s] .done]
+[   22s] Retrieving: libJudy1-1.0.5-11.3.x86_64 (obs_repository) (5/72), 112.6 KiB    
+[   22s] ( 5/72) Installing: libJudy1-1.0.5-11.3.x86_64 [.
+[   22s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libJudy1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   22s] .done]
+[   22s] Retrieving: libaio1-0.3.113-4.3.x86_64 (obs_repository) (6/72),  21.7 KiB    
+[   22s] ( 6/72) Installing: libaio1-0.3.113-4.3.x86_64 [.
+[   22s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libaio1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   22s] .done]
+[   22s] Retrieving: libaudit1-4.0-3.3.x86_64 (obs_repository) (7/72),  52.5 KiB    
+[   22s] ( 7/72) Installing: libaudit1-4.0-3.3.x86_64 [.
+[   22s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libaudit1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   22s] .done]
+[   22s] Retrieving: libbz2-1-1.0.8-5.12.x86_64 (obs_repository) (8/72),  44.4 KiB    
+[   22s] ( 8/72) Installing: libbz2-1-1.0.8-5.12.x86_64 [.
+[   22s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libbz2-1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   23s] .done]
+[   23s] Retrieving: libcap-ng0-0.8.5-1.3.x86_64 (obs_repository) (9/72),  29.6 KiB    
+[   23s] ( 9/72) Installing: libcap-ng0-0.8.5-1.3.x86_64 [.
+[   23s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libcap-ng0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   23s] .done]
+[   23s] Retrieving: libcom_err2-1.47.2-1.1.x86_64 (obs_repository) (10/72),  27.2 KiB    
+[   23s] (10/72) Installing: libcom_err2-1.47.2-1.1.x86_64 [.
+[   23s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libcom_err2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   23s] .done]
+[   23s] Retrieving: libcrypt1-4.4.38-1.2.x86_64 (obs_repository) (11/72), 107.1 KiB    
+[   23s] (11/72) Installing: libcrypt1-4.4.38-1.2.x86_64 [.
+[   23s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libcrypt1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   23s] .done]
+[   23s] Retrieving: libeconf0-0.7.9-1.1.x86_64 (obs_repository) (12/72),  36.3 KiB    
+[   24s] (12/72) Installing: libeconf0-0.7.9-1.1.x86_64 [.
+[   24s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libeconf0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   24s] .done]
+[   24s] Retrieving: libedit0-20250104.3.1-1.1.x86_64 (obs_repository) (13/72), 101.0 KiB    
+[   24s] (13/72) Installing: libedit0-20250104.3.1-1.1.x86_64 [.
+[   24s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libedit0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   24s] .done]
+[   24s] Retrieving: libexpat1-2.7.1-2.1.x86_64 (obs_repository) (14/72),  91.1 KiB    
+[   24s] (14/72) Installing: libexpat1-2.7.1-2.1.x86_64 [.
+[   24s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libexpat1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   24s] .done]
+[   24s] Retrieving: libffi8-3.4.7-1.1.x86_64 (obs_repository) (15/72),  29.8 KiB    
+[   24s] (15/72) Installing: libffi8-3.4.7-1.1.x86_64 [.
+[   24s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libffi8.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   25s] .done]
+[   25s] Retrieving: libgcc_s1-15.1.1+git9739-2.1.x86_64 (obs_repository) (16/72),  86.3 KiB    
+[   25s] (16/72) Installing: libgcc_s1-15.1.1+git9739-2.1.x86_64 [.
+[   25s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libgcc_s1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   25s] .done]
+[   25s] Retrieving: libgdbm6-1.24-2.1.x86_64 (obs_repository) (17/72),  52.4 KiB    
+[   25s] (17/72) Installing: libgdbm6-1.24-2.1.x86_64 [.
+[   25s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libgdbm6.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   25s] .done]
+[   25s] Retrieving: libjitterentropy3-3.6.3-1.1.x86_64 (obs_repository) (18/72),  29.0 KiB    
+[   25s] (18/72) Installing: libjitterentropy3-3.6.3-1.1.x86_64 [.
+[   25s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libjitterentropy3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   26s] .done]
+[   26s] Retrieving: libkeyutils1-1.6.3-7.4.x86_64 (obs_repository) (19/72),  25.9 KiB    
+[   26s] (19/72) Installing: libkeyutils1-1.6.3-7.4.x86_64 [.
+[   26s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libkeyutils1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   26s] .done]
+[   26s] Retrieving: libltdl7-2.4.7-3.11.x86_64 (obs_repository) (20/72),  25.5 KiB    
+[   26s] (20/72) Installing: libltdl7-2.4.7-3.11.x86_64 [.
+[   26s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libltdl7.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   26s] .done]
+[   26s] Retrieving: liblz4-1-1.10.0-2.4.x86_64 (obs_repository) (21/72),  75.4 KiB    
+[   26s] (21/72) Installing: liblz4-1-1.10.0-2.4.x86_64 [.
+[   26s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/liblz4-1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   26s] .done]
+[   26s] Retrieving: liblzma5-5.8.1-1.1.x86_64 (obs_repository) (22/72), 152.4 KiB    
+[   26s] (22/72) Installing: liblzma5-5.8.1-1.1.x86_64 [.
+[   26s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/liblzma5.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   27s] .done]
+[   27s] Retrieving: liblzo2-2-2.10-9.3.x86_64 (obs_repository) (23/72),  59.9 KiB    
+[   27s] (23/72) Installing: liblzo2-2-2.10-9.3.x86_64 [.
+[   27s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/liblzo2-2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   27s] .done]
+[   27s] Retrieving: libmpdec4-4.0.1-2.1.x86_64 (obs_repository) (24/72),  86.2 KiB    
+[   27s] (24/72) Installing: libmpdec4-4.0.1-2.1.x86_64 [.
+[   27s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libmpdec4.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   27s] .done]
+[   27s] Retrieving: libmpfr6-4.2.2-1.1.x86_64 (obs_repository) (25/72), 338.7 KiB    
+[   27s] (25/72) Installing: libmpfr6-4.2.2-1.1.x86_64 [.
+[   27s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libmpfr6.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   28s] .done]
+[   28s] Retrieving: libpcre2-posix3-10.45-1.1.x86_64 (obs_repository) (26/72),  18.8 KiB    
+[   28s] (26/72) Installing: libpcre2-posix3-10.45-1.1.x86_64 [.
+[   28s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libpcre2-posix3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   28s] .done]
+[   28s] Retrieving: libsemanage-conf-3.8.1-1.1.x86_64 (obs_repository) (27/72),  11.0 KiB    
+[   28s] (27/72) Installing: libsemanage-conf-3.8.1-1.1.x86_64 [.
+[   28s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsemanage-conf.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   28s] .done]
+[   28s] Retrieving: libsepol2-3.8.1-1.1.x86_64 (obs_repository) (28/72), 319.3 KiB    
+[   28s] (28/72) Installing: libsepol2-3.8.1-1.1.x86_64 [.
+[   28s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsepol2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   28s] .done]
+[   28s] Retrieving: libsmartcols1-2.41-1.1.x86_64 (obs_repository) (29/72),  96.3 KiB    
+[   28s] (29/72) Installing: libsmartcols1-2.41-1.1.x86_64 [.
+[   28s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsmartcols1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   28s] .done]
+[   28s] Retrieving: libsystemd0-257.6-1.1.x86_64 (obs_repository) (30/72), 513.7 KiB    
+[   28s] (30/72) Installing: libsystemd0-257.6-1.1.x86_64 [.
+[   28s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsystemd0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   29s] .done]
+[   29s] Retrieving: libuuid1-2.41-1.1.x86_64 (obs_repository) (31/72),  49.2 KiB    
+[   29s] (31/72) Installing: libuuid1-2.41-1.1.x86_64 [.
+[   29s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libuuid1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   29s] .done]
+[   29s] Retrieving: libverto1-0.3.2-3.5.x86_64 (obs_repository) (32/72),  19.2 KiB    
+[   29s] (32/72) Installing: libverto1-0.3.2-3.5.x86_64 [.
+[   29s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libverto1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   29s] .done]
+[   29s] Retrieving: libwrap0-7.6-900.1.x86_64 (obs_repository) (33/72),  26.7 KiB    
+[   29s] (33/72) Installing: libwrap0-7.6-900.1.x86_64 [.
+[   29s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libwrap0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   30s] .done]
+[   30s] Retrieving: libz1-1.3.1-1.3.x86_64 (obs_repository) (34/72),  68.3 KiB    
+[   30s] (34/72) Installing: libz1-1.3.1-1.3.x86_64 [.
+[   30s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libz1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   30s] .done]
+[   30s] Retrieving: libzstd1-1.5.7-3.1.x86_64 (obs_repository) (35/72), 356.5 KiB    
+[   30s] (35/72) Installing: libzstd1-1.5.7-3.1.x86_64 [.
+[   30s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libzstd1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   30s] .done]
+[   30s] Retrieving: login_defs-4.17.4-2.1.noarch (obs_repository) (36/72),  42.2 KiB    
+[   30s] (36/72) Installing: login_defs-4.17.4-2.1.noarch [.
+[   30s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/login_defs.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   30s] ..done]
+[   30s] Retrieving: mariadb-errormessages-11.8.2-1.1.noarch (obs_repository) (37/72), 223.9 KiB    
+[   30s] (37/72) Installing: mariadb-errormessages-11.8.2-1.1.noarch [.
+[   30s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/mariadb-errormessages.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   30s] .done]
+[   30s] Retrieving: sed-4.9-2.8.x86_64 (obs_repository) (38/72), 147.6 KiB    
+[   31s] (38/72) Installing: sed-4.9-2.8.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/sed.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] .done]
+[   31s] Retrieving: timezone-2025b-1.1.x86_64 (obs_repository) (39/72), 443.3 KiB    
+[   31s] (39/72) Installing: timezone-2025b-1.1.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/timezone.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] ..done]
+[   31s] Retrieving: libsubid5-4.17.4-2.1.x86_64 (obs_repository) (40/72),  43.2 KiB    
+[   31s] (40/72) Installing: libsubid5-4.17.4-2.1.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsubid5.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] .done]
+[   31s] Retrieving: perl-base-5.40.2-2.1.x86_64 (obs_repository) (41/72),   1.6 MiB    
+[   31s] (41/72) Installing: perl-base-5.40.2-2.1.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/perl-base.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] .done]
+[   31s] Retrieving: libblkid1-2.41-1.1.x86_64 (obs_repository) (42/72), 136.2 KiB    
+[   31s] (42/72) Installing: libblkid1-2.41-1.1.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libblkid1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] .done]
+[   31s] Retrieving: permctl-1699_20250120-1.3.x86_64 (obs_repository) (43/72), 420.1 KiB    
+[   31s] (43/72) Installing: permctl-1699_20250120-1.3.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/permctl.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   31s] .done]
+[   31s] Retrieving: libstdc++6-15.1.1+git9739-2.1.x86_64 (obs_repository) (44/72), 740.1 KiB    
+[   31s] (44/72) Installing: libstdc++6-15.1.1+git9739-2.1.x86_64 [.
+[   31s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libstdc++6.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   32s] .done]
+[   32s] Retrieving: libgdbm_compat4-1.24-2.1.x86_64 (obs_repository) (45/72),  26.7 KiB    
+[   32s] (45/72) Installing: libgdbm_compat4-1.24-2.1.x86_64 [.
+[   32s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libgdbm_compat4.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   32s] .done]
+[   32s] Retrieving: libodbc2-2.3.12-4.1.x86_64 (obs_repository) (46/72), 192.1 KiB    
+[   32s] (46/72) Installing: libodbc2-2.3.12-4.1.x86_64 [.
+[   32s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libodbc2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   32s] .done]
+[   32s] Retrieving: gawk-5.3.2-1.1.x86_64 (obs_repository) (47/72),   1.6 MiB    
+[   32s] (47/72) Installing: gawk-5.3.2-1.1.x86_64 [.
+[   32s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/gawk.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   32s] .done]
+[   32s] Retrieving: libsemanage2-3.8.1-1.1.x86_64 (obs_repository) (48/72), 103.5 KiB    
+[   32s] (48/72) Installing: libsemanage2-3.8.1-1.1.x86_64 [.
+[   32s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libsemanage2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   33s] .done]
+[   33s] Retrieving: libxml2-2-2.13.8-1.1.x86_64 (obs_repository) (49/72), 659.7 KiB    
+[   33s] (49/72) Installing: libxml2-2-2.13.8-1.1.x86_64 [.
+[   33s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libxml2-2.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   33s] .done]
+[   33s] Retrieving: libopenssl3-3.5.0-3.1.x86_64 (obs_repository) (50/72),   2.3 MiB    
+[   33s] (50/72) Installing: libopenssl3-3.5.0-3.1.x86_64 [.
+[   33s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libopenssl3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   33s] .done]
+[   33s] Retrieving: libmount1-2.41-1.1.x86_64 (obs_repository) (51/72), 171.7 KiB    
+[   33s] (51/72) Installing: libmount1-2.41-1.1.x86_64 [.
+[   33s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libmount1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   33s] .done]
+[   33s] Retrieving: libfdisk1-2.41-1.1.x86_64 (obs_repository) (52/72), 172.2 KiB    
+[   33s] (52/72) Installing: libfdisk1-2.41-1.1.x86_64 [.
+[   33s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libfdisk1.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   34s] .done]
+[   34s] Retrieving: permissions-config-1699_20250120-1.3.noarch (obs_repository) (53/72),  25.9 KiB    
+[   34s] (53/72) Installing: permissions-config-1699_20250120-1.3.noarch [.
+[   34s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/permissions-config.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   34s] .
+[   34s] Updating /etc/sysconfig/security ...
+[   34s] Checking permissions and ownerships - using the permissions files
+[   34s] 	/usr/share/permissions/permissions
+[   34s] 	/usr/share/permissions/permissions.easy
+[   34s] 	/etc/permissions.local
+[   34s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   34s] ERROR: not all operations were successful.
+[   34s] done]
+[   34s] Retrieving: zstd-1.5.7-3.1.x86_64 (obs_repository) (54/72), 429.2 KiB    
+[   34s] (54/72) Installing: zstd-1.5.7-3.1.x86_64 [.
+[   34s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/zstd.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   34s] .done]
+[   34s] Retrieving: perl-5.40.2-2.1.x86_64 (obs_repository) (55/72),   8.2 MiB    
+[   34s] (55/72) Installing: perl-5.40.2-2.1.x86_64 [.
+[   34s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/perl.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   35s] ......done]
+[   35s] Retrieving: openssl-3.5.0-1.1.noarch (obs_repository) (56/72),   8.9 KiB    
+[   35s] (56/72) Installing: openssl-3.5.0-1.1.noarch [.
+[   35s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/openssl.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   35s] .done]
+[   35s] Retrieving: openssl-3-3.5.0-3.1.x86_64 (obs_repository) (57/72),   1.5 MiB    
+[   35s] (57/72) Installing: openssl-3-3.5.0-3.1.x86_64 [.
+[   35s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/openssl-3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   35s] ..done]
+[   35s] Retrieving: libpython3_13-1_0-3.13.3-4.1.x86_64 (obs_repository) (58/72),   1.9 MiB    
+[   35s] (58/72) Installing: libpython3_13-1_0-3.13.3-4.1.x86_64 [.
+[   35s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libpython3_13-1_0.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   36s] .done]
+[   36s] Retrieving: python313-base-3.13.3-4.1.x86_64 (obs_repository) (59/72),   9.1 MiB    
+[   36s] (59/72) Installing: python313-base-3.13.3-4.1.x86_64 [.
+[   36s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/python313-base.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   36s] ....done]
+[   36s] Retrieving: libmariadb3-3.4.5-2.1.x86_64 (obs_repository) (60/72), 141.9 KiB    
+[   36s] (60/72) Installing: libmariadb3-3.4.5-2.1.x86_64 [.
+[   36s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/libmariadb3.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   36s] .done]
+[   36s] Retrieving: krb5-1.21.3-3.1.x86_64 (obs_repository) (61/72), 694.7 KiB    
+[   36s] (61/72) Installing: krb5-1.21.3-3.1.x86_64 [.
+[   36s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/krb5.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   37s] .done]
+[   37s] Retrieving: permissions-1699_20250120-1.3.x86_64 (obs_repository) (62/72),  13.2 KiB    
+[   37s] (62/72) Installing: permissions-1699_20250120-1.3.x86_64 [.
+[   37s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/permissions.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   37s] .done]
+[   37s] Retrieving: perl-DBI-1.647.0-1.2.x86_64 (obs_repository) (63/72), 832.8 KiB    
+[   37s] (63/72) Installing: perl-DBI-1.647.0-1.2.x86_64 [.
+[   37s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/perl-DBI.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   37s] .done]
+[   37s] Retrieving: pam-1.7.0-3.1.x86_64 (obs_repository) (64/72), 326.5 KiB    
+[   37s] (64/72) Installing: pam-1.7.0-3.1.x86_64 [.
+[   37s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/pam.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   37s] ..
+[   37s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   37s] ERROR: not all operations were successful.
+[   37s] done]
+[   37s] Retrieving: perl-DBD-mysql-4.050-3.4.x86_64 (obs_repository) (65/72), 147.9 KiB    
+[   37s] (65/72) Installing: perl-DBD-mysql-4.050-3.4.x86_64 [.
+[   37s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/perl-DBD-mysql.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   37s] .done]
+[   37s] Retrieving: util-linux-2.41-1.1.x86_64 (obs_repository) (66/72),   1.4 MiB    
+[   37s] (66/72) Installing: util-linux-2.41-1.1.x86_64 [.
+[   37s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/util-linux.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   38s] ..
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] done]
+[   38s] Retrieving: shadow-4.17.4-2.1.x86_64 (obs_repository) (67/72), 726.6 KiB    
+[   38s] (67/72) Installing: shadow-4.17.4-2.1.x86_64 [.
+[   38s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/shadow.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   38s] ..
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] /usr/bin/newgidmap: should be root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   38s] ERROR: not all operations were successful.
+[   38s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   38s] /usr/bin/newuidmap: should be root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   38s] ERROR: not all operations were successful.
+[   38s] done]
+[   38s] Retrieving: mariadb-tools-11.8.2-1.1.x86_64 (obs_repository) (68/72),   6.4 MiB    
+[   38s] (68/72) Installing: mariadb-tools-11.8.2-1.1.x86_64 [.
+[   38s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/mariadb-tools.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   39s] ..done]
+[   39s] Retrieving: sysuser-shadow-3.3-8.2.noarch (obs_repository) (69/72),   9.9 KiB    
+[   39s] (69/72) Installing: sysuser-shadow-3.3-8.2.noarch [.
+[   39s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/sysuser-shadow.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   39s] .done]
+[   39s] Retrieving: mariadb-client-11.8.2-1.1.x86_64 (obs_repository) (70/72),   1.4 MiB    
+[   39s] (70/72) Installing: mariadb-client-11.8.2-1.1.x86_64 [.
+[   39s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/mariadb-client.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   39s] .
+[   39s] /usr/sbin/useradd -r -c MySQL database admin -d /var/lib/mysql -U -u 60 mysql -s /usr/sbin/nologin
+[   39s] .done]
+[   39s] Retrieving: python313-mysqlclient-2.2.7-2.1.x86_64 (obs_repository) (71/72), 113.1 KiB    
+[   39s] (71/72) Installing: python313-mysqlclient-2.2.7-2.1.x86_64 [.
+[   39s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/python313-mysqlclient.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   39s] .done]
+[   39s] Retrieving: mariadb-11.8.2-1.1.x86_64 (obs_repository) (72/72),  23.8 MiB    
+[   39s] (72/72) Installing: mariadb-11.8.2-1.1.x86_64 [.
+[   39s] warning: /var/cache/zypp/packages/obs_repository/openSUSE:Factory/standard/mariadb.rpm: Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   40s] ......
+[   40s] ERROR: /proc is not available - unable to fix policy violations. Will continue in warn-only mode.
+[   40s] ERROR: not all operations were successful.
+[   40s] done]
+[   41s] Running post-transaction scripts [..
+[   41s] %posttrans(login_defs-4.17.4-2.1.noarch) script output:
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] .
+[   41s] %posttrans(pam-1.7.0-3.1.x86_64) script output:
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] .
+[   41s] %posttrans(util-linux-2.41-1.1.x86_64) script output:
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] %posttrans(shadow-4.17.4-2.1.x86_64) script output:
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Header V3 RSA/SHA512 Signature, key ID 29b700a4: NOKEY
+[   41s] Header SHA256 digest: OK
+[   41s] Header SHA1 digest: OK
+[   41s] Running %posttrans(login_defs-4.17.4-2.1.noarch)
+[   41s] Running %posttrans(pam-1.7.0-3.1.x86_64)
+[   41s] Running %posttrans(util-linux-2.41-1.1.x86_64)
+[   41s] Running %posttrans(shadow-4.17.4-2.1.x86_64)
+[   41s] ..done]
+[   41s] Update notifications were received from the following packages:
+[   41s] mariadb-11.8.2-1.1.x86_64 ((/target)/var/adm/update-messages/mariadb-11.8.2-1.1-something)
+[   41s] View the notifications now? [y/n] (n): n
+[   41s] [2/3] STEP 6/8: RUN set -euo pipefail;     [ "$(rpm --root /target -q --qf '%{version}' mariadb |     cut -d '.' -f -2)" = "11.7" ]
+[   42s] Error: building at STEP "RUN set -euo pipefail;     [ "$(rpm --root /target -q --qf '%{version}' mariadb |     cut -d '.' -f -2)" = "11.7" ]": while running runtime: exit status 1
+[   42s] podman build command failed
+[   42s] ### VM INTERACTION START ###
+[   42s] [   38.219741][    T1] sysrq: Power Off
+[   43s] ### VM INTERACTION END ###
+[   43s] 
+[   43s] i03-ch1c failed "build Dockerfile" at Wed Jun 11 16:35:36 UTC 2025.
+[   43s] 

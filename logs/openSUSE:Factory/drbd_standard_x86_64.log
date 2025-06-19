@@ -1,0 +1,931 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_5/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_5/root
+[    0s] 
+[    1s] 
+[    1s] i02-ch1d started "build drbd.spec" at Tue Jun 10 11:39:41 UTC 2025.
+[    1s] 
+[    1s] Building drbd for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '155510aa446c22261dcac0a12ce764e8'
+[    1s] 
+[    1s] processing recipe /var/cache/obs/worker/root_5/.build-srcdir/drbd.spec ...
+[    1s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_5/.build-srcdir/drbd.spec
+[    1s] init_buildsystem --configdir /var/run/obs/worker/5/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_5/.build.rpmlist /var/cache/obs/worker/root_5/.build-srcdir/drbd.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    3s] reordering...cycle: fipscheck -> libfipscheck1
+[    3s]   breaking dependency libfipscheck1 -> fipscheck
+[    3s] cycle: libpython3_13-1_0 -> python313-base
+[    3s]   breaking dependency python313-base -> libpython3_13-1_0
+[    3s] cycle: ocaml-runtime -> ocaml
+[    3s]   breaking dependency ocaml-runtime -> ocaml
+[    3s] cycle: openssl -> openssl-3
+[    3s]   breaking dependency openssl-3 -> openssl
+[    3s] cycle: mozilla-nss -> libsoftokn3
+[    3s]   breaking dependency mozilla-nss -> libsoftokn3
+[    3s] cycle: ocaml-compiler-libs -> ocaml-compiler-libs-devel
+[    3s]   breaking dependency ocaml-compiler-libs-devel -> ocaml-compiler-libs
+[    3s] done
+[    3s] Detected virtio-serial support
+[    4s] booting kvm...
+[    4s] ### VM INTERACTION START ###
+[    4s] Using virtio-serial support and enabling console input
+[    4s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_5/.mount/boot/kernel -initrd /var/cache/obs/worker/root_5/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_5/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_5/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_5/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    5s] [!p]104[?7h[    0.373007][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    6s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    7s] 2nd stage started in virtual machine
+[    7s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    7s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    7s] Time: Tue Jun 10 11:39:47 UTC 2025
+[    7s] Increasing log level from now on...
+[    7s] [    1.885493][  T571] sysrq: Changing Loglevel
+[    7s] [    1.885540][  T571] sysrq: Loglevel set to 4
+[    7s] Enable sysrq operations
+[    7s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    7s] no label, UUID=b928b695-bd31-4c19-9459-d0261ccd8dcc
+[    7s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe //.build-srcdir/drbd.spec ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/drbd.spec build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[    7s] [1/190] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    7s] [2/190] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    7s] [3/190] preinstalled bash-5.2.37-20.1
+[    7s] [4/190] preinstalled bash-sh-5.2.37-20.1
+[    7s] [5/190] preinstalled binutils-2.43-7.1
+[    7s] [6/190] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    7s] [7/190] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    7s] [8/190] preinstalled build-mkbaselibs-20250602-1.1
+[    7s] [9/190] preinstalled bzip2-1.0.8-5.12
+[    7s] [10/190] preinstalled compat-usrmerge-build-84.87-5.22
+[    7s] [11/190] preinstalled compat-usrmerge-tools-84.87-5.22
+[    7s] [12/190] preinstalled coreutils-9.7-2.1
+[    7s] [13/190] preinstalled cpio-2.15-5.1
+[    7s] [14/190] preinstalled cpp-14-3.1
+[    7s] [15/190] preinstalled cpp14-14.3.0+git11799-3.1
+[    7s] [16/190] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    7s] [17/190] preinstalled debugedit-5.1-1.3
+[    7s] [18/190] preinstalled diffutils-3.12-1.1
+[    7s] [19/190] preinstalled dwz-0.15-6.1
+[    7s] [20/190] preinstalled elfutils-0.192-2.2
+[    7s] [21/190] preinstalled envsubst-mini-0.22.5-8.1
+[    7s] [22/190] preinstalled file-5.46-4.1
+[    7s] [23/190] preinstalled file-magic-5.46-4.1
+[    7s] [24/190] preinstalled filesystem-84.87-18.2
+[    7s] [25/190] preinstalled fillup-1.42-281.3
+[    7s] [26/190] preinstalled findutils-4.10.0-2.2
+[    7s] [27/190] preinstalled gawk-5.3.2-1.1
+[    7s] [28/190] preinstalled gcc-14-3.1
+[    7s] [29/190] preinstalled gcc-PIE-14-3.1
+[    7s] [30/190] preinstalled gcc14-14.3.0+git11799-3.1
+[    7s] [31/190] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    7s] [32/190] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    7s] [33/190] preinstalled gettext-tools-mini-0.22.5-8.1
+[    7s] [34/190] preinstalled glibc-2.41-2.1
+[    7s] [35/190] preinstalled glibc-devel-2.41-2.1
+[    7s] [36/190] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    7s] [37/190] preinstalled glibc-locale-base-2.41-2.1
+[    7s] [38/190] preinstalled grep-3.12-1.1
+[    7s] [39/190] preinstalled gzip-1.14-1.1
+[    7s] [40/190] cumulate kernel-macros-6.15.1-1.1
+[    7s] [41/190] preinstalled kernel-obs-build-6.15.1-1.1
+[    7s] [42/190] preinstalled libacl1-2.3.2-2.3
+[    7s] [43/190] preinstalled libarchive13-3.7.9-1.1
+[    7s] [44/190] preinstalled libasan8-15.1.1+git9739-2.1
+[    7s] [45/190] preinstalled libasm1-0.192-2.2
+[    7s] [46/190] preinstalled libatomic1-15.1.1+git9739-2.1
+[    7s] [47/190] preinstalled libattr1-2.5.2-1.4
+[    7s] [48/190] preinstalled libaudit1-4.0-3.3
+[    7s] [49/190] preinstalled libblkid1-2.41-1.1
+[    7s] [50/190] cumulate libbpf1-1.5.1-2.1
+[    7s] [51/190] preinstalled libbz2-1-1.0.8-5.12
+[    7s] [52/190] preinstalled libcap-ng0-0.8.5-1.3
+[    7s] [53/190] preinstalled libcap2-2.75-1.1
+[    7s] [54/190] preinstalled libcrypt1-4.4.38-1.2
+[    7s] [55/190] preinstalled libctf-nobfd0-2.43-7.1
+[    7s] [56/190] preinstalled libctf0-2.43-7.1
+[    7s] [57/190] preinstalled libdw1-0.192-2.2
+[    7s] [58/190] preinstalled libeconf0-0.7.9-1.1
+[    7s] [59/190] cumulate libefivar1-38-3.3
+[    7s] [60/190] preinstalled libelf1-0.192-2.2
+[    7s] [61/190] cumulate libexpat1-2.7.1-2.1
+[    7s] [62/190] preinstalled libfdisk1-2.41-1.1
+[    7s] [63/190] cumulate libffi8-3.4.7-1.1
+[    7s] [64/190] cumulate libfreebl3-3.110-1.1
+[    7s] [65/190] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    7s] [66/190] preinstalled libgcrypt20-1.11.1-1.1
+[    7s] [67/190] preinstalled libgdbm6-1.24-2.1
+[    7s] [68/190] preinstalled libgdbm_compat4-1.24-2.1
+[    7s] [69/190] preinstalled libgmp10-6.3.0-5.1
+[    7s] [70/190] preinstalled libgomp1-15.1.1+git9739-2.1
+[    7s] [71/190] preinstalled libgpg-error0-1.55-1.1
+[    7s] [72/190] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    7s] [73/190] preinstalled libisl23-0.27-1.2
+[    7s] [74/190] preinstalled libitm1-15.1.1+git9739-2.1
+[    7s] [75/190] preinstalled libjitterentropy3-3.6.3-1.1
+[    7s] [76/190] preinstalled liblsan0-15.1.1+git9739-2.1
+[    7s] [77/190] preinstalled liblua5_4-5-5.4.7-4.1
+[    7s] [78/190] preinstalled liblz1-1.15-1.2
+[    7s] [79/190] preinstalled liblz4-1-1.10.0-2.4
+[    7s] [80/190] preinstalled liblzma5-5.8.1-1.1
+[    7s] [81/190] preinstalled libmagic1-5.46-4.1
+[    7s] [82/190] preinstalled libmount1-2.41-1.1
+[    7s] [83/190] preinstalled libmpc3-1.3.1-1.10
+[    7s] [84/190] cumulate libmpdec4-4.0.1-2.1
+[    7s] [85/190] preinstalled libmpfr6-4.2.2-1.1
+[    7s] [86/190] preinstalled libncurses6-6.5.20250531-73.1
+[    7s] [87/190] preinstalled libopenssl3-3.5.0-3.1
+[    7s] [88/190] cumulate libpcre2-16-0-10.45-1.1
+[    7s] [89/190] cumulate libpcre2-32-0-10.45-1.1
+[    7s] [90/190] preinstalled libpcre2-8-0-10.45-1.1
+[    7s] [91/190] cumulate libpcre2-posix3-10.45-1.1
+[    7s] [92/190] preinstalled libpkgconf5-2.2.0-1.3
+[    7s] [93/190] preinstalled libpopt0-1.19-1.10
+[    7s] [94/190] preinstalled libreadline8-8.2.13-2.3
+[    7s] [95/190] preinstalled librpmbuild10-4.20.1-4.1
+[    7s] [96/190] preinstalled libseccomp2-2.6.0-2.2
+[    7s] [97/190] preinstalled libselinux1-3.8.1-1.1
+[    7s] [98/190] cumulate libsemanage-conf-3.8.1-1.1
+[    7s] [99/190] cumulate libsepol2-3.8.1-1.1
+[    7s] [100/190] preinstalled libsmartcols1-2.41-1.1
+[    7s] [101/190] cumulate libsqlite3-0-3.49.2-1.1
+[    7s] [102/190] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    7s] [103/190] cumulate libstdc++6-devel-gcc14-14.3.0+git11799-3.1
+[    7s] [104/190] cumulate libsubid5-4.17.4-2.1
+[    7s] [105/190] preinstalled libtsan2-15.1.1+git9739-2.1
+[    7s] [106/190] preinstalled libubsan1-15.1.1+git9739-2.1
+[    7s] [107/190] preinstalled libuuid1-2.41-1.1
+[    7s] [108/190] preinstalled libxcrypt-devel-4.4.38-1.2
+[    7s] [109/190] preinstalled libxml2-2-2.13.8-1.1
+[    7s] [110/190] preinstalled libz1-1.3.1-1.3
+[    7s] [111/190] cumulate libzstd-devel-1.5.7-3.1
+[    7s] [112/190] preinstalled libzstd1-1.5.7-3.1
+[    7s] [113/190] preinstalled linux-glibc-devel-6.15-1.1
+[    7s] [114/190] cumulate login_defs-4.17.4-2.1
+[    7s] [115/190] preinstalled lua54-5.4.7-4.1
+[    7s] [116/190] preinstalled make-4.4.1-3.3
+[    7s] [117/190] cumulate mozilla-nspr-4.36-1.3
+[    7s] [118/190] preinstalled ncurses-utils-6.5.20250531-73.1
+[    7s] [119/190] cumulate ocaml-parmap-1.2.5-2.5
+[    7s] [120/190] cumulate ocaml-pcre2-8.0.3-2.1
+[    7s] [121/190] cumulate ocaml-stdcompat-19-2.11
+[    7s] [122/190] preinstalled pam-1.7.0-3.1
+[    7s] [123/190] preinstalled patch-2.8-1.1
+[    7s] [124/190] preinstalled perl-5.40.2-2.1
+[    7s] [125/190] preinstalled perl-base-5.40.2-2.1
+[    7s] [126/190] preinstalled perl-rpm-packaging-1.2-1.1
+[    7s] [127/190] preinstalled permctl-1699_20250120-1.3
+[    7s] [128/190] preinstalled permissions-1699_20250120-1.3
+[    7s] [129/190] preinstalled permissions-config-1699_20250120-1.3
+[    7s] [130/190] preinstalled pkgconf-2.2.0-1.3
+[    7s] [131/190] preinstalled pkgconf-m4-2.2.0-1.3
+[    7s] [132/190] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    7s] [133/190] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    7s] [134/190] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    7s] [135/190] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    7s] [136/190] preinstalled rpm-4.20.1-4.1
+[    7s] [137/190] preinstalled rpm-build-4.20.1-4.1
+[    7s] [138/190] preinstalled rpm-config-SUSE-20250423-1.1
+[    7s] [139/190] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    7s] [140/190] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    7s] [141/190] preinstalled sed-4.9-2.8
+[    7s] [142/190] cumulate suse-module-tools-16.0.60-1.1
+[    7s] [143/190] preinstalled system-user-root-20190513-2.18
+[    7s] [144/190] preinstalled systemd-rpm-macros-24-1.8
+[    7s] [145/190] cumulate sysuser-shadow-3.3-8.2
+[    7s] [146/190] cumulate tack-1.11.20250503-73.1
+[    7s] [147/190] preinstalled tar-1.35-4.1
+[    7s] [148/190] preinstalled terminfo-base-6.5.20250531-73.1
+[    7s] [149/190] preinstalled update-alternatives-1.22.18-1.1
+[    7s] [150/190] preinstalled util-linux-2.41-1.1
+[    7s] [151/190] preinstalled which-2.23-1.2
+[    7s] [152/190] preinstalled xz-5.8.1-1.1
+[    7s] [153/190] cumulate zlib-devel-1.3.1-1.3
+[    7s] [154/190] cumulate zstd-1.5.7-3.1
+[    7s] [155/190] cumulate kernel-devel-6.15.1-1.1
+[    7s] [156/190] cumulate kmod-34.2-1.1
+[    7s] [157/190] cumulate libdwarves1-1.30-1.1
+[    7s] [158/190] cumulate libstdc++-devel-14-3.1
+[    7s] [159/190] cumulate mozilla-nss-certs-3.110-1.1
+[    7s] [160/190] cumulate ncurses-devel-6.5.20250531-73.1
+[    7s] [161/190] cumulate suse-module-tools-scriptlets-16.0.60-1.1
+[    7s] [162/190] cumulate libelf-devel-0.192-2.2
+[    7s] [163/190] cumulate libsemanage2-3.8.1-1.1
+[    7s] [164/190] cumulate kernel-source-6.15.1-1.1
+[    7s] [165/190] cumulate dwarves-1.30-1.1
+[    7s] [166/190] cumulate shadow-4.17.4-2.1
+[    7s] [167/190] cumulate pcre2-devel-10.45-1.1
+[    7s] [168/190] cumulate kernel-default-devel-6.15.1-1.1
+[    7s] [169/190] cumulate libfipscheck1-1.7.0-2.3
+[    7s] [170/190] cumulate ocaml-runtime-4.14.2-3.1
+[    7s] [171/190] cumulate openssl-3-3.5.0-3.1
+[    7s] [172/190] cumulate mozilla-nss-3.110-1.1
+[    7s] [173/190] cumulate python313-base-3.13.3-4.1
+[    7s] [174/190] cumulate fipscheck-1.7.0-2.3
+[    7s] [175/190] cumulate libpython3_13-1_0-3.13.3-4.1
+[    7s] [176/190] cumulate openssl-3.5.0-1.1
+[    7s] [177/190] cumulate python313-packaging-24.2-2.1
+[    7s] [178/190] cumulate mozilla-nss-tools-3.110-1.1
+[    7s] [179/190] cumulate ocaml-4.14.2-3.1
+[    7s] [180/190] cumulate libsoftokn3-3.110-1.1
+[    7s] [181/190] cumulate ocaml-compiler-libs-devel-4.14.2-3.1
+[    7s] [182/190] cumulate ocaml-parmap-devel-1.2.5-2.5
+[    7s] [183/190] cumulate ocaml-stdcompat-devel-19-2.11
+[    7s] [184/190] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    7s] [185/190] cumulate ocaml-pcre2-devel-8.0.3-2.1
+[    7s] [186/190] cumulate pesign-116-8.1
+[    7s] [187/190] cumulate ocaml-compiler-libs-4.14.2-3.1
+[    7s] [188/190] cumulate pesign-obs-integration-10.2+git20250219.c99462c-1.1
+[    7s] [189/190] cumulate kernel-syms-6.15.1-1.1
+[    7s] [190/190] cumulate coccinelle-1.3.0-1.1
+[    7s] now installing cumulated packages
+[    8s] Preparing...                          ########################################
+[    8s] Updating / installing...
+[    8s] ocaml-runtime-4.14.2-3.1              ########################################
+[    8s] mozilla-nspr-4.36-1.3                 ########################################
+[    8s] suse-module-tools-16.0.60-1.1         ########################################
+[    8s] libfreebl3-3.110-1.1                  ########################################
+[    8s] libbpf1-1.5.1-2.1                     ########################################
+[    8s] libdwarves1-1.30-1.1                  ########################################
+[    8s] dwarves-1.30-1.1                      ########################################
+[    8s] mozilla-nss-certs-3.110-1.1           ########################################
+[    8s] openssl-3.5.0-1.1                     ########################################
+[    8s] openssl-3-3.5.0-3.1                   ########################################
+[    8s] fipscheck-1.7.0-2.3                   ########################################
+[    8s] libfipscheck1-1.7.0-2.3               ########################################
+[    8s] zstd-1.5.7-3.1                        ########################################
+[    8s] zlib-devel-1.3.1-1.3                  ########################################
+[    8s] tack-1.11.20250503-73.1               ########################################
+[    8s] ncurses-devel-6.5.20250531-73.1       ########################################
+[    9s] ocaml-4.14.2-3.1                      ########################################
+[    9s] ocaml-compiler-libs-4.14.2-3.1        ########################################
+[    9s] ocaml-compiler-libs-devel-4.14.2-3.1  ########################################
+[    9s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    9s] ocaml-stdcompat-19-2.11               ########################################
+[    9s] ocaml-stdcompat-devel-19-2.11         ########################################
+[    9s] ocaml-pcre2-8.0.3-2.1                 ########################################
+[    9s] ocaml-parmap-1.2.5-2.5                ########################################
+[    9s] ocaml-parmap-devel-1.2.5-2.5          ########################################
+[    9s] login_defs-4.17.4-2.1                 ########################################
+[    9s] libzstd-devel-1.5.7-3.1               ########################################
+[    9s] libelf-devel-0.192-2.2                ########################################
+[    9s] libsubid5-4.17.4-2.1                  ########################################
+[    9s] libstdc++6-devel-gcc14-14.3.0+git11799########################################
+[    9s] libstdc++-devel-14-3.1                ########################################
+[    9s] libsqlite3-0-3.49.2-1.1               ########################################
+[    9s] mozilla-nss-3.110-1.1                 ########################################
+[    9s] libsoftokn3-3.110-1.1                 ########################################
+[    9s] mozilla-nss-tools-3.110-1.1           ########################################
+[    9s] libsepol2-3.8.1-1.1                   ########################################
+[    9s] libsemanage-conf-3.8.1-1.1            ########################################
+[    9s] libsemanage2-3.8.1-1.1                ########################################
+[    9s] shadow-4.17.4-2.1                     ########################################
+[    9s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    9s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    9s] sysuser-shadow-3.3-8.2                ########################################
+[    9s] libpcre2-posix3-10.45-1.1             ########################################
+[    9s] libpcre2-32-0-10.45-1.1               ########################################
+[    9s] libpcre2-16-0-10.45-1.1               ########################################
+[    9s] pcre2-devel-10.45-1.1                 ########################################
+[    9s] ocaml-pcre2-devel-8.0.3-2.1           ########################################
+[    9s] libmpdec4-4.0.1-2.1                   ########################################
+[    9s] libffi8-3.4.7-1.1                     ########################################
+[    9s] libexpat1-2.7.1-2.1                   ########################################
+[    9s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    9s] python313-base-3.13.3-4.1             ########################################
+[   10s] python313-packaging-24.2-2.1          ########################################
+[   10s] libefivar1-38-3.3                     ########################################
+[   10s] /usr/sbin/useradd -r -c PE-COFF signing daemon -d /var/lib/pesign -U pesign -s /usr/sbin/nologin
+[   10s] pesign-116-8.1                        ########################################
+[   10s] pesign-obs-integration-10.2+git2025021########################################
+[   10s] kernel-macros-6.15.1-1.1              ########################################
+[   12s] kernel-devel-6.15.1-1.1               ########################################
+[   13s] kernel-default-devel-6.15.1-1.1       ########################################
+[   14s] kernel-syms-6.15.1-1.1                ########################################
+[   44s] kernel-source-6.15.1-1.1              ########################################
+[   45s] python-rpm-packaging-20210526+a18ca48-########################################
+[   45s] coccinelle-1.3.0-1.1                  ########################################
+[   45s] kmod-34.2-1.1                         ########################################
+[   45s] suse-module-tools-scriptlets-16.0.60-1########################################
+[   45s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   45s] now finalizing build dir...
+[   45s] ... running 01-add_abuild_user_to_trusted_group
+[   45s] ... running 02-set_timezone_to_utc
+[   45s] ... running 03-set-permissions-secure
+[   45s] ... running 11-hack_uname_version_to_kernel_version
+[   45s] setting SOURCE_DATE_EPOCH_MTIME to 1744187944
+[   46s] Running build time source services...
+[   46s] -----------------------------------------------------------------
+[   46s] I have the following modifications for drbd.spec:
+[   46s] 28c28
+[   46s] < Release:        0
+[   46s] ---
+[   46s] > Release:        4.7
+[   46s] -----------------------------------------------------------------
+[   46s] ----- building drbd.spec (user abuild)
+[   46s] -----------------------------------------------------------------
+[   46s] -----------------------------------------------------------------
+[   47s] setting SOURCE_DATE_EPOCH_MTIME to 1744187944
+[   47s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/155510aa446c22261dcac0a12ce764e8-drbd' /home/abuild/rpmbuild/SOURCES/drbd.spec
+[   47s] using SOURCE_DATE_EPOCH with value 1744187937 as build time
+[   47s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.QpE0WI
+[   47s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.XPrafH
+[   47s] + umask 022
+[   47s] + cd /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build
+[   47s] + cd /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build
+[   47s] + rm -rf drbd-9.1.23
+[   47s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/drbd-9.1.23.tar.gz
+[   47s] + STATUS=0
+[   47s] + '[' 0 -ne 0 ']'
+[   47s] + cd drbd-9.1.23
+[   47s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   47s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/0001-drbd-Fix-memory-leak.patch
+[   47s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   47s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/0001-drbd-build-deal-with-potentially-relative-paths-in-p.patch
+[   47s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   47s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/bsc-1025089_fix-resync-finished-with-syncs-have-bits-set.patch
+[   47s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   47s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/suse-coccinelle.patch
+[   47s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   47s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/boo1240916-fix_build_error_against_kernel_v6.14.patch
+[   47s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   47s] + RPM_EC=0
+[   47s] ++ jobs -p
+[   47s] + exit 0
+[   47s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.vupIbE
+[   47s] + umask 022
+[   47s] + cd /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build
+[   47s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/BUILDROOT
+[   47s] ++ dirname /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/BUILDROOT
+[   47s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build
+[   47s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/BUILDROOT
+[   47s] + cd drbd-9.1.23
+[   47s] + rm -rf obj
+[   47s] + mkdir obj
+[   47s] + ln -s ../scripts obj/
+[   47s] + export WANT_DRBD_REPRODUCIBLE_BUILD=1
+[   47s] + WANT_DRBD_REPRODUCIBLE_BUILD=1
+[   47s] + export CONFIG_BLK_DEV_DRBD=m
+[   47s] + CONFIG_BLK_DEV_DRBD=m
+[   47s] + export 'EXTRA_CFLAGS=-DVERSION=\"9.1.23\"'
+[   47s] + EXTRA_CFLAGS='-DVERSION=\"9.1.23\"'
+[   47s] + export SPAAS=false
+[   47s] + SPAAS=false
+[   47s] + for flavor in default
+[   47s] + rm -rf default
+[   47s] + cp -a -r drbd default
+[   47s] + cp /home/abuild/rpmbuild/SOURCES/drbd_git_revision default/.drbd_git_revision
+[   47s] + export DRBDSRC=/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/obj/default
+[   47s] + DRBDSRC=/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/obj/default
+[   47s] + make -j4 -C default KDIR=/usr/src/linux-obj/x86_64/default prep SPAAS=false KBUILD_ABS_SRCTREE=1
+[   47s] make: Entering directory '/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default'
+[   47s] make -C /usr/src/linux-obj/x86_64/default    M=/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default obj-m=dummy-for-compat.o dummy-for-compat-h.o
+[   47s]   COMPAT  have_sane_test_environment
+[   47s]   COMPAT  have_sane_test_environment_always_fail
+[   47s]   LN      build-current -> build-6.15.1-1-default/
+[   47s]   UPD     build-6.15.1-1-default/.drbd_kernelrelease
+[   47s]   LN      compat.h -> build-6.15.1-1-default/compat.h
+[   47s]   LN      .compat_test -> build-6.15.1-1-default/.compat_test
+[   47s]   LN      compat.6.15.1-1-default.h -> build-6.15.1-1-default/compat.h
+[   47s]   LN      .compat_test.6.15.1-1-default -> build-6.15.1-1-default/.compat_test
+[   48s]   COMPAT  __vmalloc_has_2_params
+[   48s]   COMPAT  add_disk_returns_int
+[   48s]   COMPAT  before_4_13_kernel_read
+[   48s]   COMPAT  bio_alloc_has_4_params
+[   48s]   COMPAT  blk_alloc_disk_takes_queue_limits
+[   48s]   COMPAT  blkdev_get_by_path_has_holder_ops
+[   48s]   COMPAT  blkdev_issue_discard_takes_flags
+[   48s]   COMPAT  blkdev_issue_zeroout_discard
+[   48s]   COMPAT  blkdev_put_has_holder
+[   48s]   COMPAT  block_device_operations_open_takes_gendisk
+[   48s]   COMPAT  block_device_operations_release_takes_single_argument
+[   48s]   COMPAT  can_include_vermagic_h
+[   48s]   COMPAT  dax_direct_access_takes_mode
+[   49s]   COMPAT  fs_dax_get_by_bdev_takes_start_off
+[   49s]   COMPAT  fs_dax_get_by_bdev_takes_start_off_and_holder
+[   49s]   COMPAT  genl_policy_in_ops
+[   49s]   COMPAT  genlmsg_multicast_allns_has_4_params
+[   49s]   COMPAT  have_BIO_MAX_VECS
+[   49s]   COMPAT  have_CRYPTO_TFM_NEED_KEY
+[   49s]   COMPAT  have_GENHD_FL_NO_PART
+[   49s]   COMPAT  have_SHASH_DESC_ON_STACK
+[   49s]   COMPAT  have_WB_congested_enum
+[   49s]   COMPAT  have___bio_add_page
+[   49s]   COMPAT  have_allow_kernel_signal
+[   49s]   COMPAT  have_bdev_discard_granularity
+[   49s]   COMPAT  have_bdev_file_open_by_path
+[   50s]   COMPAT  have_bdev_max_discard_sectors
+[   50s]   COMPAT  have_bdev_nr_sectors
+[   50s]   COMPAT  have_bdev_open_by_path
+[   50s]   COMPAT  have_bdevname
+[   50s]   COMPAT  have_bdgrab
+[   50s]   COMPAT  have_bdi_congested
+[   50s]   COMPAT  have_bdi_congested_fn
+[   50s]   COMPAT  have_bio_alloc_clone
+[   50s]   COMPAT  have_bio_bi_bdev
+[   50s]   COMPAT  have_bio_bi_error
+[   50s]   COMPAT  have_bio_bi_opf
+[   50s]   COMPAT  have_bio_bi_status
+[   51s]   COMPAT  have_bio_clone_fast
+[   51s]   COMPAT  have_bio_max_segs
+[   51s]   COMPAT  have_bio_op_shift
+[   51s]   COMPAT  have_bio_set_dev
+[   51s]   COMPAT  have_bio_set_op_attrs
+[   51s]   COMPAT  have_bio_split_to_limits
+[   51s]   COMPAT  have_bio_start_io_acct
+[   51s]   COMPAT  have_bioset_init
+[   51s]   COMPAT  have_bioset_need_bvecs
+[   51s]   COMPAT  have_blk_alloc_disk
+[   52s]   COMPAT  have_blk_alloc_queue_rh
+[   52s]   COMPAT  have_blk_check_plugged
+[   52s]   COMPAT  have_blk_cleanup_disk
+[   52s]   COMPAT  have_blk_mode_t
+[   52s]   COMPAT  have_blk_opf_t
+[   52s]   COMPAT  have_blk_qc_t_make_request
+[   52s]   COMPAT  have_blk_qc_t_submit_bio
+[   52s]   COMPAT  have_blk_queue_flag_set
+[   52s]   COMPAT  have_blk_queue_make_request
+[   52s]   COMPAT  have_blk_queue_max_write_same_sectors
+[   52s]   COMPAT  have_blk_queue_merge_bvec
+[   52s]   COMPAT  have_blk_queue_split_bio
+[   53s]   COMPAT  have_blk_queue_split_q_bio
+[   53s]   COMPAT  have_blk_queue_split_q_bio_bioset
+[   53s]   COMPAT  have_blk_queue_update_readahead
+[   53s]   COMPAT  have_blk_queue_write_cache
+[   53s]   COMPAT  have_bvec_kmap_local
+[   53s]   COMPAT  have_counted_by
+[   53s]   COMPAT  have_d_inode
+[   53s]   COMPAT  have_disk_update_readahead
+[   53s]   COMPAT  have_enum_req_op
+[   53s]   COMPAT  have_fallthrough
+[   53s]   COMPAT  have_fs_dax_get_by_bdev
+[   53s]   COMPAT  have_generic_start_io_acct_q_rw_sect_part
+[   53s]   COMPAT  have_generic_start_io_acct_rw_sect_part
+[   53s]   COMPAT  have_genl_info_userhdr
+[   54s]   COMPAT  have_get_random_u32
+[   54s]   COMPAT  have_get_random_u32_below
+[   54s]   COMPAT  have_hd_struct
+[   54s]   COMPAT  have_ib_cq_init_attr
+[   54s]   COMPAT  have_ib_get_dma_mr
+[   54s]   COMPAT  have_idr_is_empty
+[   54s]   COMPAT  have_inode_lock
+[   54s]   COMPAT  have_ktime_to_timespec64
+[   54s]   COMPAT  have_kvfree
+[   54s]   COMPAT  have_kvfree_rcu
+[   54s]   COMPAT  have_kvfree_rcu_mightsleep
+[   54s]   COMPAT  have_linux_unaligned_h
+[   54s]   COMPAT  have_list_next_entry
+[   54s]   COMPAT  have_max_send_recv_sge
+[   54s]   COMPAT  have_nla_nest_start_noflag
+[   54s]   COMPAT  have_nla_parse_deprecated
+[   55s]   COMPAT  have_nla_put_64bit
+[   55s]   COMPAT  have_nla_strscpy
+[   55s]   COMPAT  have_part_stat_h
+[   55s]   COMPAT  have_part_stat_read_accum
+[   55s]   COMPAT  have_pointer_backing_dev_info
+[   55s]   COMPAT  have_proc_create_single
+[   55s]   COMPAT  have_queue_flag_discard
+[   55s]   COMPAT  have_queue_flag_stable_writes
+[   55s]   COMPAT  have_queue_limits_start_update
+[   55s]   COMPAT  have_rb_declare_callbacks_max
+[   56s]   COMPAT  have_refcount_inc
+[   56s]   COMPAT  have_req_hardbarrier
+[   56s]   COMPAT  have_req_noidle
+[   56s]   COMPAT  have_req_nounmap
+[   56s]   COMPAT  have_req_op_write
+[   56s]   COMPAT  have_req_op_write_zeroes
+[   56s]   COMPAT  have_req_write
+[   56s]   COMPAT  have_revalidate_disk_size
+[   56s]   COMPAT  have_sched_set_fifo
+[   56s]   COMPAT  have_sched_signal_h
+[   56s]   COMPAT  have_security_netlink_recv
+[   56s]   COMPAT  have_sendpage
+[   56s]   COMPAT  have_sendpage_ok
+[   56s]   COMPAT  have_set_capacity_and_notify
+[   57s]   COMPAT  have_shash_desc_zero
+[   57s]   COMPAT  have_simple_positive
+[   57s]   COMPAT  have_sk_use_task_frag
+[   57s]   COMPAT  have_sock_set_keepalive
+[   57s]   COMPAT  have_strscpy
+[   57s]   COMPAT  have_struct_bvec_iter
+[   57s]   COMPAT  have_struct_size
+[   57s]   COMPAT  have_submit_bio_noacct
+[   57s]   COMPAT  have_tcp_sock_set_cork
+[   57s]   COMPAT  have_tcp_sock_set_keepcnt
+[   57s]   COMPAT  have_tcp_sock_set_keepidle
+[   57s]   COMPAT  have_tcp_sock_set_nodelay
+[   58s]   COMPAT  have_tcp_sock_set_quickack
+[   58s]   COMPAT  have_time64_to_tm
+[   58s]   COMPAT  have_timer_setup
+[   58s]   COMPAT  have_timer_shutdown
+[   58s]   COMPAT  have_void_make_request
+[   58s]   COMPAT  have_void_submit_bio
+[   58s]   COMPAT  ib_alloc_pd_has_2_params
+[   58s]   COMPAT  ib_device_has_ops
+[   58s]   COMPAT  ib_post_send_const_params
+[   58s]   COMPAT  ib_query_device_has_3_params
+[   59s]   COMPAT  need_drbd_wrappers
+[   59s]   COMPAT  need_make_request_recursion
+[   59s]   COMPAT  need_recalc_sigpending
+[   59s]   COMPAT  part_stat_read_takes_block_device
+[   59s]   COMPAT  queue_limits_has_discard_zeroes_data
+[   59s]   COMPAT  queue_limits_has_features
+[   59s]   COMPAT  queue_limits_has_max_hw_discard_sectors
+[   59s]   COMPAT  rdma_create_id_has_net_ns
+[   59s]   COMPAT  sock_create_kern_has_five_parameters
+[   59s]   COMPAT  sock_ops_returns_addr_len
+[   59s]   COMPAT  struct_gendisk_has_backing_dev_info
+[   60s]   UPD     build-6.15.1-1-default/compat.h
+[   60s] make -C /usr/src/linux-obj/x86_64/default    M=/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default obj-m=dummy-for-prep.o dummy-for-patch.o
+[   60s]   GEN     build-6.15.1-1-default/.kernel.config.gz 
+[   60s]   GEN     build-6.15.1-1-default/drbd_buildtag.c 
+[   60s]   COPY    build-6.15.1-1-default/Kbuild
+[   60s] make -C /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/. -f Makefile.spatch build-6.15.1-1-default/compat.patch
+[   60s]   compat.h content 
+[   60s] #define COMPAT___VMALLOC_HAS_2_PARAMS
+[   60s] #define COMPAT_ADD_DISK_RETURNS_INT
+[   60s] /* #undef COMPAT_BEFORE_4_13_KERNEL_READ */
+[   60s] #define COMPAT_BIO_ALLOC_HAS_4_PARAMS
+[   60s] #define COMPAT_BLK_ALLOC_DISK_TAKES_QUEUE_LIMITS
+[   60s] /* #undef COMPAT_BLKDEV_GET_BY_PATH_HAS_HOLDER_OPS */
+[   60s] /* #undef COMPAT_BLKDEV_ISSUE_DISCARD_TAKES_FLAGS */
+[   60s] /* #undef COMPAT_BLKDEV_ISSUE_ZEROOUT_DISCARD */
+[   60s] /* #undef COMPAT_BLKDEV_PUT_HAS_HOLDER */
+[   60s] #define COMPAT_BLOCK_DEVICE_OPERATIONS_OPEN_TAKES_GENDISK
+[   60s] #define COMPAT_BLOCK_DEVICE_OPERATIONS_RELEASE_TAKES_SINGLE_ARGUMENT
+[   60s] /* #undef COMPAT_CAN_INCLUDE_VERMAGIC_H */
+[   60s] #define COMPAT_DAX_DIRECT_ACCESS_TAKES_MODE
+[   60s] /* #undef COMPAT_FS_DAX_GET_BY_BDEV_TAKES_START_OFF */
+[   60s] #define COMPAT_FS_DAX_GET_BY_BDEV_TAKES_START_OFF_AND_HOLDER
+[   60s] #define COMPAT_GENL_POLICY_IN_OPS
+[   60s] #define COMPAT_GENLMSG_MULTICAST_ALLNS_HAS_4_PARAMS
+[   60s] #define COMPAT_HAVE_BIO_MAX_VECS
+[   60s] #define COMPAT_HAVE_CRYPTO_TFM_NEED_KEY
+[   60s] #define COMPAT_HAVE_GENHD_FL_NO_PART
+[   60s] #define COMPAT_HAVE_SHASH_DESC_ON_STACK
+[   60s] /* #undef COMPAT_HAVE_WB_CONGESTED_ENUM */
+[   60s] #define COMPAT_HAVE___BIO_ADD_PAGE
+[   60s] #define COMPAT_HAVE_ALLOW_KERNEL_SIGNAL
+[   60s] #define COMPAT_HAVE_BDEV_DISCARD_GRANULARITY
+[   60s] #define COMPAT_HAVE_BDEV_FILE_OPEN_BY_PATH
+[   60s] #define COMPAT_HAVE_BDEV_MAX_DISCARD_SECTORS
+[   60s] #define COMPAT_HAVE_BDEV_NR_SECTORS
+[   60s] /* #undef COMPAT_HAVE_BDEV_OPEN_BY_PATH */
+[   60s] /* #undef COMPAT_HAVE_BDEVNAME */
+[   60s] /* #undef COMPAT_HAVE_BDGRAB */
+[   60s] /* #undef COMPAT_HAVE_BDI_CONGESTED */
+[   60s] /* #undef COMPAT_HAVE_BDI_CONGESTED_FN */
+[   60s] #define COMPAT_HAVE_BIO_ALLOC_CLONE
+[   60s] #define COMPAT_HAVE_BIO_BI_BDEV
+[   60s] /* #undef COMPAT_HAVE_BIO_BI_ERROR */
+[   60s] #define COMPAT_HAVE_BIO_BI_OPF
+[   60s] #define COMPAT_HAVE_BIO_BI_STATUS
+[   60s] /* #undef COMPAT_HAVE_BIO_CLONE_FAST */
+[   60s] #define COMPAT_HAVE_BIO_MAX_SEGS
+[   60s] /* #undef COMPAT_HAVE_BIO_OP_SHIFT */
+[   60s] #define COMPAT_HAVE_BIO_SET_DEV
+[   60s] /* #undef COMPAT_HAVE_BIO_SET_OP_ATTRS */
+[   60s] #define COMPAT_HAVE_BIO_SPLIT_TO_LIMITS
+[   60s] #define COMPAT_HAVE_BIO_START_IO_ACCT
+[   60s] #define COMPAT_HAVE_BIOSET_INIT
+[   60s] /* #undef COMPAT_HAVE_BIOSET_NEED_BVECS */
+[   60s] /* #undef COMPAT_HAVE_BLK_ALLOC_DISK */
+[   60s] /* #undef COMPAT_HAVE_BLK_ALLOC_QUEUE_RH */
+[   60s] #define COMPAT_HAVE_BLK_CHECK_PLUGGED
+[   60s] /* #undef COMPAT_HAVE_BLK_CLEANUP_DISK */
+[   60s] #define COMPAT_HAVE_BLK_MODE_T
+[   60s] #define COMPAT_HAVE_BLK_OPF_T
+[   60s] /* #undef COMPAT_HAVE_BLK_QC_T_MAKE_REQUEST */
+[   60s] /* #undef COMPAT_HAVE_BLK_QC_T_SUBMIT_BIO */
+[   60s] #define COMPAT_HAVE_BLK_QUEUE_FLAG_SET
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_MAKE_REQUEST */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_MAX_WRITE_SAME_SECTORS */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_MERGE_BVEC */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_SPLIT_BIO */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_SPLIT_Q_BIO */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_SPLIT_Q_BIO_BIOSET */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_UPDATE_READAHEAD */
+[   60s] /* #undef COMPAT_HAVE_BLK_QUEUE_WRITE_CACHE */
+[   60s] #define COMPAT_HAVE_BVEC_KMAP_LOCAL
+[   60s] #define COMPAT_HAVE_COUNTED_BY
+[   60s] #define COMPAT_HAVE_D_INODE
+[   60s] /* #undef COMPAT_HAVE_DISK_UPDATE_READAHEAD */
+[   60s] #define COMPAT_HAVE_ENUM_REQ_OP
+[   60s] #define COMPAT_HAVE_FALLTHROUGH
+[   60s] #define COMPAT_HAVE_FS_DAX_GET_BY_BDEV
+[   60s] /* #undef COMPAT_HAVE_GENERIC_START_IO_ACCT_Q_RW_SECT_PART */
+[   60s] /* #undef COMPAT_HAVE_GENERIC_START_IO_ACCT_RW_SECT_PART */
+[   60s] #define COMPAT_HAVE_GENL_INFO_USERHDR
+[   60s] #define COMPAT_HAVE_GET_RANDOM_U32
+[   60s] #define COMPAT_HAVE_GET_RANDOM_U32_BELOW
+[   60s] /* #undef COMPAT_HAVE_HD_STRUCT */
+[   60s] #define COMPAT_HAVE_IB_CQ_INIT_ATTR
+[   60s] /* #undef COMPAT_HAVE_IB_GET_DMA_MR */
+[   60s] #define COMPAT_HAVE_IDR_IS_EMPTY
+[   60s] #define COMPAT_HAVE_INODE_LOCK
+[   60s] #define COMPAT_HAVE_KTIME_TO_TIMESPEC64
+[   60s] #define COMPAT_HAVE_KVFREE
+[   60s] /* #undef COMPAT_HAVE_KVFREE_RCU */
+[   60s] #define COMPAT_HAVE_KVFREE_RCU_MIGHTSLEEP
+[   60s] #define COMPAT_HAVE_LINUX_UNALIGNED_H
+[   60s] #define COMPAT_HAVE_LIST_NEXT_ENTRY
+[   60s] #define COMPAT_HAVE_MAX_SEND_RECV_SGE
+[   60s] #define COMPAT_HAVE_NLA_NEST_START_NOFLAG
+[   60s] #define COMPAT_HAVE_NLA_PARSE_DEPRECATED
+[   60s] #define COMPAT_HAVE_NLA_PUT_64BIT
+[   60s] #define COMPAT_HAVE_NLA_STRSCPY
+[   60s] #define COMPAT_HAVE_PART_STAT_H
+[   60s] #define COMPAT_HAVE_PART_STAT_READ_ACCUM
+[   60s] /* #undef COMPAT_HAVE_POINTER_BACKING_DEV_INFO */
+[   60s] #define COMPAT_HAVE_PROC_CREATE_SINGLE
+[   60s] /* #undef COMPAT_HAVE_QUEUE_FLAG_DISCARD */
+[   60s] /* #undef COMPAT_HAVE_QUEUE_FLAG_STABLE_WRITES */
+[   60s] #define COMPAT_HAVE_QUEUE_LIMITS_START_UPDATE
+[   60s] #define COMPAT_HAVE_RB_DECLARE_CALLBACKS_MAX
+[   60s] #define COMPAT_HAVE_REFCOUNT_INC
+[   60s] /* #undef COMPAT_HAVE_REQ_HARDBARRIER */
+[   60s] /* #undef COMPAT_HAVE_REQ_NOIDLE */
+[   60s] #define COMPAT_HAVE_REQ_NOUNMAP
+[   60s] #define COMPAT_HAVE_REQ_OP_WRITE
+[   60s] #define COMPAT_HAVE_REQ_OP_WRITE_ZEROES
+[   60s] /* #undef COMPAT_HAVE_REQ_WRITE */
+[   60s] /* #undef COMPAT_HAVE_REVALIDATE_DISK_SIZE */
+[   60s] #define COMPAT_HAVE_SANE_TEST_ENVIRONMENT
+[   60s] /* #undef COMPAT_HAVE_SANE_TEST_ENVIRONMENT_ALWAYS_FAIL */
+[   60s] #define COMPAT_HAVE_SCHED_SET_FIFO
+[   60s] #define COMPAT_HAVE_SCHED_SIGNAL_H
+[   60s] /* #undef COMPAT_HAVE_SECURITY_NETLINK_RECV */
+[   60s] /* #undef COMPAT_HAVE_SENDPAGE */
+[   60s] #define COMPAT_HAVE_SENDPAGE_OK
+[   60s] #define COMPAT_HAVE_SET_CAPACITY_AND_NOTIFY
+[   60s] #define COMPAT_HAVE_SHASH_DESC_ZERO
+[   60s] #define COMPAT_HAVE_SIMPLE_POSITIVE
+[   60s] #define COMPAT_HAVE_SK_USE_TASK_FRAG
+[   60s] #define COMPAT_HAVE_SOCK_SET_KEEPALIVE
+[   60s] #define COMPAT_HAVE_STRSCPY
+[   60s] #define COMPAT_HAVE_STRUCT_BVEC_ITER
+[   60s] #define COMPAT_HAVE_STRUCT_SIZE
+[   60s] #define COMPAT_HAVE_SUBMIT_BIO_NOACCT
+[   60s] #define COMPAT_HAVE_TCP_SOCK_SET_CORK
+[   60s] #define COMPAT_HAVE_TCP_SOCK_SET_KEEPCNT
+[   60s] #define COMPAT_HAVE_TCP_SOCK_SET_KEEPIDLE
+[   60s] #define COMPAT_HAVE_TCP_SOCK_SET_NODELAY
+[   60s] #define COMPAT_HAVE_TCP_SOCK_SET_QUICKACK
+[   60s] #define COMPAT_HAVE_TIME64_TO_TM
+[   60s] #define COMPAT_HAVE_TIMER_SETUP
+[   60s] #define COMPAT_HAVE_TIMER_SHUTDOWN
+[   60s] /* #undef COMPAT_HAVE_VOID_MAKE_REQUEST */
+[   60s] #define COMPAT_HAVE_VOID_SUBMIT_BIO
+[   60s] #define COMPAT_IB_ALLOC_PD_HAS_2_PARAMS
+[   60s] #define COMPAT_IB_DEVICE_HAS_OPS
+[   60s] #define COMPAT_IB_POST_SEND_CONST_PARAMS
+[   60s] /* #undef COMPAT_IB_QUERY_DEVICE_HAS_3_PARAMS */
+[   60s] /* #undef COMPAT_NEED_DRBD_WRAPPERS */
+[   60s] /* #undef COMPAT_NEED_MAKE_REQUEST_RECURSION */
+[   60s] /* #undef COMPAT_NEED_RECALC_SIGPENDING */
+[   60s] #define COMPAT_PART_STAT_READ_TAKES_BLOCK_DEVICE
+[   60s] /* #undef COMPAT_QUEUE_LIMITS_HAS_DISCARD_ZEROES_DATA */
+[   60s] #define COMPAT_QUEUE_LIMITS_HAS_FEATURES
+[   60s] #define COMPAT_QUEUE_LIMITS_HAS_MAX_HW_DISCARD_SECTORS
+[   60s] #define COMPAT_RDMA_CREATE_ID_HAS_NET_NS
+[   60s] #define COMPAT_SOCK_CREATE_KERN_HAS_FIVE_PARAMETERS
+[   60s] #define COMPAT_SOCK_OPS_RETURNS_ADDR_LEN
+[   60s] #define COMPAT_STRUCT_GENDISK_HAS_BACKING_DEV_INFO
+[   60s]   -------------------   
+[   60s]   GENPATCHNAMES   6.15.1-1-default
+[   60s]   APPLIED_COCCI_FILES   
+[   60s] queue_flag_stable_writes__no_present
+[   60s] disk_update_readahead__no_present
+[   60s] blk_queue_update_readahead__no_present
+[   60s] blk_queue_write_cache__no_present__yes_flush
+[   60s]   -------------------   
+[   61s]   SPATCH_SOURCES: 
+[   61s]   COCCI_LIBPATH: /usr/lib64/coccinelle
+[   61s]   GENCOCCIRULES .compat.cocci
+[   61s] 
+[   61s] // ---------------------------------------------------------------------
+[   61s] //  drbd-kernel-compat/cocci/queue_flag_stable_writes__no_present.cocci
+[   61s] // ---------------------------------------------------------------------
+[   61s] @@
+[   61s] expression q;
+[   61s] @@
+[   61s] - blk_queue_flag_set(QUEUE_FLAG_STABLE_WRITES, q);
+[   61s] + q->backing_dev_info->capabilities |= BDI_CAP_STABLE_WRITES;
+[   61s] @@
+[   61s] identifier m, ignored;
+[   61s] @@
+[   61s] static int drbd_compat_show(struct seq_file *m, void *ignored)
+[   61s] {
+[   61s] 	...
+[   61s] +	seq_puts(m, "queue_flag_stable_writes__no_present\n");
+[   61s] 	return 0;
+[   61s] }
+[   61s] 
+[   61s] // ------------------------------------------------------------------
+[   61s] //  drbd-kernel-compat/cocci/disk_update_readahead__no_present.cocci
+[   61s] // ------------------------------------------------------------------
+[   61s] @@
+[   61s] identifier q;
+[   61s] identifier dev;
+[   61s] type T;
+[   61s] @@
+[   61s] T q = dev->rq_queue;
+[   61s] <...
+[   61s] - disk_update_readahead(dev->vdisk);
+[   61s] + blk_queue_update_readahead(q);
+[   61s] ...>
+[   61s] @@
+[   61s] identifier m, ignored;
+[   61s] @@
+[   61s] static int drbd_compat_show(struct seq_file *m, void *ignored)
+[   61s] {
+[   61s] 	...
+[   61s] +	seq_puts(m, "disk_update_readahead__no_present\n");
+[   61s] 	return 0;
+[   61s] }
+[   61s] 
+[   61s] // -----------------------------------------------------------------------
+[   61s] //  drbd-kernel-compat/cocci/blk_queue_update_readahead__no_present.cocci
+[   61s] // -----------------------------------------------------------------------
+[   61s] @@
+[   61s] identifier q, b;
+[   61s] @@
+[   61s] struct request_queue *q;
+[   61s] ...
+[   61s] struct request_queue *b;
+[   61s] <...
+[   61s] - blk_queue_update_readahead(q);
+[   61s] + if (q->backing_dev_info->ra_pages !=
+[   61s] +     b->backing_dev_info->ra_pages) {
+[   61s] +	drbd_info(device, "Adjusting my ra_pages to backing device's (%lu -> %lu)\n",
+[   61s] +		q->backing_dev_info->ra_pages,
+[   61s] +		b->backing_dev_info->ra_pages);
+[   61s] +	q->backing_dev_info->ra_pages =
+[   61s] +				b->backing_dev_info->ra_pages;
+[   61s] + }
+[   61s] ...>@@
+[   61s] identifier m, ignored;
+[   61s] @@
+[   61s] static int drbd_compat_show(struct seq_file *m, void *ignored)
+[   61s] {
+[   61s] 	...
+[   61s] +	seq_puts(m, "blk_queue_update_readahead__no_present\n");
+[   61s] 	return 0;
+[   61s] }
+[   61s] 
+[   61s] // -----------------------------------------------------------------------------
+[   61s] //  drbd-kernel-compat/cocci/blk_queue_write_cache__no_present__yes_flush.cocci
+[   61s] // -----------------------------------------------------------------------------
+[   61s] @@
+[   61s] expression q;
+[   61s] identifier enabled, fua;
+[   61s] symbol true, false;
+[   61s] @@
+[   61s] // enumerate all possible combinations of the "enabled" and "fua" parameters,
+[   61s] // so that the resulting code looks neater,
+[   61s] // but fall back to a generic version just in case.
+[   61s] (
+[   61s] - blk_queue_write_cache(q, false, false)
+[   61s] + blk_queue_flush(q, 0)
+[   61s] |
+[   61s] - blk_queue_write_cache(q, false, true)
+[   61s] + blk_queue_flush(q, REQ_FUA)
+[   61s] |
+[   61s] - blk_queue_write_cache(q, true, false)
+[   61s] + blk_queue_flush(q, REQ_FLUSH)
+[   61s] |
+[   61s] - blk_queue_write_cache(q, true, true)
+[   61s] + blk_queue_flush(q, REQ_FLUSH | REQ_FUA)
+[   61s] |
+[   61s] - blk_queue_write_cache(q, enabled, fua)
+[   61s] + blk_queue_flush(q, (enabled ? REQ_FLUSH : 0) | (fua ? REQ_FUA : 0))
+[   61s] );
+[   61s] @@
+[   61s] identifier m, ignored;
+[   61s] @@
+[   61s] static int drbd_compat_show(struct seq_file *m, void *ignored)
+[   61s] {
+[   61s] 	...
+[   61s] +	seq_puts(m, "blk_queue_write_cache__no_present__yes_flush\n");
+[   61s] 	return 0;
+[   61s] }
+[   61s] 	SPATCH	 47e34234767463327c545d4b02432945  6.15.1-1-default
+[   61s]   SPATCH COMMAND spatch --sp-file drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/.compat.cocci  --macro-file drbd-kernel-compat/cocci_macros.h --macro-file-builtins /usr/lib64/coccinelle/standard.h --iso-file /usr/lib64/coccinelle/standard.iso --very-quiet --all-includes > drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/compat.patch.tmp 2> drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/.spatch.stderr  
+[   67s] 	  drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/.compat.cocci
+[   67s] 	: egrep: warning: egrep is obsolescent; using grep -E
+[   67s]   GENSPATCHFILE drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/compat.patch.tmp  
+[   67s] --- drbd_debugfs.c
+[   67s] +++ /tmp/cocci-output-3461-43c802-drbd_debugfs.c
+[   67s] @@ -1852,6 +1852,10 @@ static const struct file_operations drbd
+[   67s]  
+[   67s]  static int drbd_compat_show(struct seq_file *m, void *ignored)
+[   67s]  {
+[   67s] +	seq_puts(m, "queue_flag_stable_writes__no_present\n");
+[   67s] +	seq_puts(m, "disk_update_readahead__no_present\n");
+[   67s] +	seq_puts(m, "blk_queue_update_readahead__no_present\n");
+[   67s] +	seq_puts(m, "blk_queue_write_cache__no_present__yes_flush\n");
+[   67s]  	return 0;
+[   67s]  }
+[   67s]  
+[   67s]   GENSPATCHERR .spatch.stderr
+[   67s] egrep: warning: egrep is obsolescent; using grep -E
+[   67s]   CHK     build-6.15.1-1-default/compat.patch
+[   67s]   LN      build-6.15.1-1-default/compat.patch -> ../drbd-kernel-compat/cocci_cache/47e34234767463327c545d4b02432945/compat.patch
+[   67s] set -- ./build-6.15.1-1-default/compat.patch ./build-6.15.1-1-default/compat.h;	\
+[   67s] test $1 -nt $2 || touch -r $1 $2
+[   67s]   SPLIT   build-6.15.1-1-default/compat.patch
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/compat.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/drbd_meta_data.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/drbd_protocol.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/drbd_strings.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/drbd_strings.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/drbd_transport.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/drbd.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/drbd_genl.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/drbd_genl_api.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/drbd_limits.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/genl_magic_func-genl_register_family_with_ops_groups.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/genl_magic_func-genl_register_mc_group.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/genl_magic_func.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/linux/genl_magic_struct.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-headers/windrbd/windrbd_ioctl.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/cocci_macros.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/drbd_wrappers.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/drbd_wrappers.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/linux/libnvdimm.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/linux/lru_cache.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/lru_cache.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/nsecs_to_jiffies.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd-kernel-compat/uapi/linux/sched/types.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_actlog.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_bitmap.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_dax_pmem.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_dax_pmem.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_debugfs.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_debugfs.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_int.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_interval.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_interval.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_kref_debug.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_kref_debug.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_main.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_nl.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_nla.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_nla.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_polymorph_printk.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_proc.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_receiver.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_req.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_req.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_sender.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_state.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_state.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_state_change.h
+[   67s]   PATCH   build-6.15.1-1-default/drbd_transport.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_transport_tcp.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_transport_template.c
+[   67s]   PATCH   build-6.15.1-1-default/drbd_vli.h
+[   67s]   PATCH   build-6.15.1-1-default/kref_debug.c
+[   67s]   PATCH   build-6.15.1-1-default/kref_debug.h
+[   67s]   PATCH   build-6.15.1-1-default/linux/drbd_config.h
+[   67s] make: Leaving directory '/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default'
+[   67s] + cp -a /home/abuild/rpmbuild/SOURCES/Module.supported default/build-current
+[   67s] + make -j4 -C /usr/src/linux-obj/x86_64/default modules M=/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/build-current SPAAS=false
+[   67s] make: Entering directory '/usr/src/linux-6.15.1-1-obj/x86_64/default'
+[   67s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/build-6.15.1-1-default'
+[   67s]   CC [M]  drbd_buildtag.o
+[   67s]   CC [M]  drbd_bitmap.o
+[   67s]   CC [M]  drbd_proc.o
+[   67s]   CC [M]  drbd_sender.o
+[   68s]   CC [M]  drbd_receiver.o
+[   68s]   CC [M]  drbd_req.o
+[   68s] /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/./drbd_receiver.c: In function âprocess_twopcâ:
+[   68s] /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/./drbd_receiver.c:7128:25: error: implicit declaration of function âdel_timerâ; did you mean âadd_timerâ? [-Wimplicit-function-declaration]
+[   68s]  7128 |                         del_timer(&resource->twopc_timer);
+[   68s]       |                         ^~~~~~~~~
+[   68s]       |                         add_timer
+[   69s] /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/./drbd_receiver.c: In function âcleanup_resync_leftoversâ:
+[   69s] /home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/./drbd_receiver.c:8551:9: error: implicit declaration of function âdel_timer_syncâ; did you mean âdev_mc_syncâ? [-Wimplicit-function-declaration]
+[   69s]  8551 |         del_timer_sync(&peer_device->resync_timer);
+[   69s]       |         ^~~~~~~~~~~~~~
+[   69s]       |         dev_mc_sync
+[   69s] make[3]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: drbd_receiver.o] Error 1
+[   69s] make[3]: *** Waiting for unfinished jobs....
+[   69s] make[2]: *** [/usr/src/linux-6.15.1-1/Makefile:2026: .] Error 2
+[   69s] make[1]: *** [/usr/src/linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   69s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/drbd-9.1.23-build/drbd-9.1.23/default/build-6.15.1-1-default'
+[   69s] make: *** [../../../linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   69s] make: Leaving directory '/usr/src/linux-6.15.1-1-obj/x86_64/default'
+[   69s] error: Bad exit status from /var/tmp/rpm-tmp.vupIbE (%build)
+[   69s] 
+[   69s] RPM build errors:
+[   69s]     Bad exit status from /var/tmp/rpm-tmp.vupIbE (%build)
+[   69s] ### VM INTERACTION START ###
+[   70s] [   64.821721][    T1] sysrq: Power Off
+[   70s] ### VM INTERACTION END ###
+[   70s] 
+[   70s] i02-ch1d failed "build drbd.spec" at Tue Jun 10 11:40:50 UTC 2025.
+[   70s] 
