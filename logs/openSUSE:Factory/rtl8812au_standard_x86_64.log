@@ -1,0 +1,393 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_10/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_10/root
+[    0s] 
+[    0s] 
+[    0s] i02-ch1a started "build rtl8812au.spec" at Tue Jun 10 11:39:33 UTC 2025.
+[    0s] 
+[    0s] Building rtl8812au for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '5874bd91db6c8881efe9d3ec94ec3c76'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_10/.build-srcdir/rtl8812au.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_10/.build-srcdir/rtl8812au.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/10/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_10/.build.rpmlist /var/cache/obs/worker/root_10/.build-srcdir/rtl8812au.spec build ...
+[    0s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [5c929891d5e6922a72a0f39a90c17426]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: fipscheck -> libfipscheck1
+[    2s]   breaking dependency libfipscheck1 -> fipscheck
+[    2s] cycle: libpython3_13-1_0 -> python313-base
+[    2s]   breaking dependency python313-base -> libpython3_13-1_0
+[    2s] cycle: openssl -> openssl-3
+[    2s]   breaking dependency openssl-3 -> openssl
+[    2s] cycle: mozilla-nss -> libsoftokn3
+[    2s]   breaking dependency mozilla-nss -> libsoftokn3
+[    2s] done
+[    2s] Detected virtio-serial support
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_10/.mount/boot/kernel -initrd /var/cache/obs/worker/root_10/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_10/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_10/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_10/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [!p]104[?7h[    0.399122][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    5s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    5s] 2nd stage started in virtual machine
+[    5s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    5s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    5s] Time: Tue Jun 10 11:39:38 UTC 2025
+[    5s] Increasing log level from now on...
+[    5s] [    1.935646][  T574] sysrq: Changing Loglevel
+[    5s] [    1.935715][  T574] sysrq: Loglevel set to 4
+[    5s] Enable sysrq operations
+[    5s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    5s] no label, UUID=0c74325f-fe27-4608-8428-41d171018a1b
+[    5s] WARNING: udev not running, creating extra device nodes
+[    6s] logging output to //.build.log...
+[    6s] processing recipe //.build-srcdir/rtl8812au.spec ...
+[    6s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/rtl8812au.spec build ...
+[    6s] initializing rpm db...
+[    6s] querying package ids...
+[    6s] [1/178] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    6s] [2/178] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    6s] [3/178] preinstalled bash-5.2.37-20.1
+[    6s] [4/178] preinstalled bash-sh-5.2.37-20.1
+[    6s] [5/178] cumulate bc-1.08.2-1.1
+[    6s] [6/178] preinstalled binutils-2.43-7.1
+[    6s] [7/178] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    6s] [8/178] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    6s] [9/178] preinstalled build-mkbaselibs-20250602-1.1
+[    6s] [10/178] preinstalled bzip2-1.0.8-5.12
+[    6s] [11/178] preinstalled compat-usrmerge-build-84.87-5.22
+[    6s] [12/178] preinstalled compat-usrmerge-tools-84.87-5.22
+[    6s] [13/178] preinstalled coreutils-9.7-2.1
+[    6s] [14/178] preinstalled cpio-2.15-5.1
+[    6s] [15/178] preinstalled cpp-14-3.1
+[    6s] [16/178] preinstalled cpp14-14.3.0+git11799-3.1
+[    6s] [17/178] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    6s] [18/178] preinstalled debugedit-5.1-1.3
+[    6s] [19/178] preinstalled diffutils-3.12-1.1
+[    6s] [20/178] preinstalled dwz-0.15-6.1
+[    6s] [21/178] preinstalled elfutils-0.192-2.2
+[    6s] [22/178] preinstalled envsubst-mini-0.22.5-8.1
+[    6s] [23/178] cumulate fdupes-2.4.0-1.1
+[    6s] [24/178] preinstalled file-5.46-4.1
+[    6s] [25/178] preinstalled file-magic-5.46-4.1
+[    6s] [26/178] preinstalled filesystem-84.87-18.2
+[    6s] [27/178] preinstalled fillup-1.42-281.3
+[    6s] [28/178] preinstalled findutils-4.10.0-2.2
+[    6s] [29/178] preinstalled gawk-5.3.2-1.1
+[    6s] [30/178] preinstalled gcc-14-3.1
+[    6s] [31/178] preinstalled gcc-PIE-14-3.1
+[    6s] [32/178] preinstalled gcc14-14.3.0+git11799-3.1
+[    6s] [33/178] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    6s] [34/178] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    6s] [35/178] preinstalled gettext-tools-mini-0.22.5-8.1
+[    6s] [36/178] preinstalled glibc-2.41-2.1
+[    6s] [37/178] preinstalled glibc-devel-2.41-2.1
+[    6s] [38/178] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    6s] [39/178] preinstalled glibc-locale-base-2.41-2.1
+[    6s] [40/178] preinstalled grep-3.12-1.1
+[    6s] [41/178] preinstalled gzip-1.14-1.1
+[    6s] [42/178] cumulate kernel-macros-6.15.1-1.1
+[    6s] [43/178] preinstalled kernel-obs-build-6.15.1-1.1
+[    6s] [44/178] preinstalled libacl1-2.3.2-2.3
+[    6s] [45/178] preinstalled libarchive13-3.7.9-1.1
+[    6s] [46/178] preinstalled libasan8-15.1.1+git9739-2.1
+[    6s] [47/178] preinstalled libasm1-0.192-2.2
+[    6s] [48/178] preinstalled libatomic1-15.1.1+git9739-2.1
+[    6s] [49/178] preinstalled libattr1-2.5.2-1.4
+[    6s] [50/178] preinstalled libaudit1-4.0-3.3
+[    6s] [51/178] preinstalled libblkid1-2.41-1.1
+[    6s] [52/178] cumulate libbpf1-1.5.1-2.1
+[    6s] [53/178] preinstalled libbz2-1-1.0.8-5.12
+[    6s] [54/178] preinstalled libcap-ng0-0.8.5-1.3
+[    6s] [55/178] preinstalled libcap2-2.75-1.1
+[    6s] [56/178] preinstalled libcrypt1-4.4.38-1.2
+[    6s] [57/178] preinstalled libctf-nobfd0-2.43-7.1
+[    6s] [58/178] preinstalled libctf0-2.43-7.1
+[    6s] [59/178] preinstalled libdw1-0.192-2.2
+[    6s] [60/178] preinstalled libeconf0-0.7.9-1.1
+[    6s] [61/178] cumulate libefivar1-38-3.3
+[    6s] [62/178] preinstalled libelf1-0.192-2.2
+[    6s] [63/178] cumulate libexpat1-2.7.1-2.1
+[    6s] [64/178] preinstalled libfdisk1-2.41-1.1
+[    6s] [65/178] cumulate libffi8-3.4.7-1.1
+[    6s] [66/178] cumulate libfreebl3-3.110-1.1
+[    6s] [67/178] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    6s] [68/178] preinstalled libgcrypt20-1.11.1-1.1
+[    6s] [69/178] preinstalled libgdbm6-1.24-2.1
+[    6s] [70/178] preinstalled libgdbm_compat4-1.24-2.1
+[    6s] [71/178] preinstalled libgmp10-6.3.0-5.1
+[    6s] [72/178] preinstalled libgomp1-15.1.1+git9739-2.1
+[    6s] [73/178] preinstalled libgpg-error0-1.55-1.1
+[    6s] [74/178] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    6s] [75/178] preinstalled libisl23-0.27-1.2
+[    6s] [76/178] preinstalled libitm1-15.1.1+git9739-2.1
+[    6s] [77/178] preinstalled libjitterentropy3-3.6.3-1.1
+[    6s] [78/178] preinstalled liblsan0-15.1.1+git9739-2.1
+[    6s] [79/178] preinstalled liblua5_4-5-5.4.7-4.1
+[    6s] [80/178] preinstalled liblz1-1.15-1.2
+[    6s] [81/178] preinstalled liblz4-1-1.10.0-2.4
+[    6s] [82/178] preinstalled liblzma5-5.8.1-1.1
+[    6s] [83/178] preinstalled libmagic1-5.46-4.1
+[    6s] [84/178] preinstalled libmount1-2.41-1.1
+[    6s] [85/178] preinstalled libmpc3-1.3.1-1.10
+[    6s] [86/178] cumulate libmpdec4-4.0.1-2.1
+[    6s] [87/178] preinstalled libmpfr6-4.2.2-1.1
+[    6s] [88/178] preinstalled libncurses6-6.5.20250531-73.1
+[    6s] [89/178] preinstalled libopenssl3-3.5.0-3.1
+[    6s] [90/178] preinstalled libpcre2-8-0-10.45-1.1
+[    6s] [91/178] preinstalled libpkgconf5-2.2.0-1.3
+[    6s] [92/178] preinstalled libpopt0-1.19-1.10
+[    6s] [93/178] preinstalled libreadline8-8.2.13-2.3
+[    6s] [94/178] preinstalled librpmbuild10-4.20.1-4.1
+[    6s] [95/178] preinstalled libseccomp2-2.6.0-2.2
+[    6s] [96/178] preinstalled libselinux1-3.8.1-1.1
+[    6s] [97/178] cumulate libsemanage-conf-3.8.1-1.1
+[    6s] [98/178] cumulate libsepol2-3.8.1-1.1
+[    6s] [99/178] preinstalled libsmartcols1-2.41-1.1
+[    6s] [100/178] cumulate libsqlite3-0-3.49.2-1.1
+[    6s] [101/178] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    6s] [102/178] cumulate libsubid5-4.17.4-2.1
+[    6s] [103/178] preinstalled libtsan2-15.1.1+git9739-2.1
+[    6s] [104/178] preinstalled libubsan1-15.1.1+git9739-2.1
+[    6s] [105/178] preinstalled libuuid1-2.41-1.1
+[    6s] [106/178] preinstalled libxcrypt-devel-4.4.38-1.2
+[    6s] [107/178] preinstalled libxml2-2-2.13.8-1.1
+[    6s] [108/178] cumulate libyaml-0-2-0.2.5-2.7
+[    6s] [109/178] preinstalled libz1-1.3.1-1.3
+[    6s] [110/178] cumulate libzstd-devel-1.5.7-3.1
+[    6s] [111/178] preinstalled libzstd1-1.5.7-3.1
+[    6s] [112/178] preinstalled linux-glibc-devel-6.15-1.1
+[    6s] [113/178] cumulate login_defs-4.17.4-2.1
+[    6s] [114/178] preinstalled lua54-5.4.7-4.1
+[    6s] [115/178] preinstalled make-4.4.1-3.3
+[    6s] [116/178] cumulate mozilla-nspr-4.36-1.3
+[    6s] [117/178] preinstalled ncurses-utils-6.5.20250531-73.1
+[    6s] [118/178] preinstalled pam-1.7.0-3.1
+[    6s] [119/178] preinstalled patch-2.8-1.1
+[    6s] [120/178] preinstalled perl-5.40.2-2.1
+[    6s] [121/178] preinstalled perl-base-5.40.2-2.1
+[    6s] [122/178] preinstalled perl-rpm-packaging-1.2-1.1
+[    6s] [123/178] preinstalled permctl-1699_20250120-1.3
+[    6s] [124/178] preinstalled permissions-1699_20250120-1.3
+[    6s] [125/178] preinstalled permissions-config-1699_20250120-1.3
+[    6s] [126/178] preinstalled pkgconf-2.2.0-1.3
+[    6s] [127/178] preinstalled pkgconf-m4-2.2.0-1.3
+[    6s] [128/178] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    6s] [129/178] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    6s] [130/178] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    6s] [131/178] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    6s] [132/178] preinstalled rpm-4.20.1-4.1
+[    6s] [133/178] preinstalled rpm-build-4.20.1-4.1
+[    6s] [134/178] preinstalled rpm-config-SUSE-20250423-1.1
+[    6s] [135/178] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[    6s] [136/178] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    6s] [137/178] preinstalled sed-4.9-2.8
+[    6s] [138/178] cumulate suse-module-tools-16.0.60-1.1
+[    6s] [139/178] preinstalled system-user-root-20190513-2.18
+[    6s] [140/178] preinstalled systemd-rpm-macros-24-1.8
+[    6s] [141/178] cumulate sysuser-shadow-3.3-8.2
+[    6s] [142/178] preinstalled tar-1.35-4.1
+[    6s] [143/178] preinstalled terminfo-base-6.5.20250531-73.1
+[    6s] [144/178] preinstalled update-alternatives-1.22.18-1.1
+[    6s] [145/178] preinstalled util-linux-2.41-1.1
+[    6s] [146/178] preinstalled which-2.23-1.2
+[    6s] [147/178] preinstalled xz-5.8.1-1.1
+[    6s] [148/178] cumulate zlib-devel-1.3.1-1.3
+[    6s] [149/178] cumulate zstd-1.5.7-3.1
+[    6s] [150/178] cumulate kernel-devel-6.15.1-1.1
+[    6s] [151/178] cumulate kmod-34.2-1.1
+[    6s] [152/178] cumulate libdwarves1-1.30-1.1
+[    6s] [153/178] cumulate mozilla-nss-certs-3.110-1.1
+[    6s] [154/178] cumulate obs-service-recompress-0.5.2-2.5
+[    6s] [155/178] cumulate suse-module-tools-scriptlets-16.0.60-1.1
+[    6s] [156/178] cumulate libelf-devel-0.192-2.2
+[    6s] [157/178] cumulate libsemanage2-3.8.1-1.1
+[    6s] [158/178] cumulate dwarves-1.30-1.1
+[    6s] [159/178] cumulate shadow-4.17.4-2.1
+[    6s] [160/178] cumulate kernel-default-devel-6.15.1-1.1
+[    6s] [161/178] cumulate libfipscheck1-1.7.0-2.3
+[    6s] [162/178] cumulate openssl-3-3.5.0-3.1
+[    6s] [163/178] cumulate mozilla-nss-3.110-1.1
+[    6s] [164/178] cumulate python313-base-3.13.3-4.1
+[    6s] [165/178] cumulate fipscheck-1.7.0-2.3
+[    6s] [166/178] cumulate libpython3_13-1_0-3.13.3-4.1
+[    6s] [167/178] cumulate openssl-3.5.0-1.1
+[    6s] [168/178] cumulate python313-packaging-24.2-2.1
+[    6s] [169/178] cumulate python313-python-dateutil-2.9.0.post0-2.4
+[    6s] [170/178] cumulate mozilla-nss-tools-3.110-1.1
+[    6s] [171/178] cumulate python313-PyYAML-6.0.2-3.1
+[    6s] [172/178] cumulate libsoftokn3-3.110-1.1
+[    6s] [173/178] cumulate obs-service-obs_scm-common-0.10.50-1.1
+[    6s] [174/178] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    6s] [175/178] cumulate pesign-116-8.1
+[    6s] [176/178] cumulate obs-service-tar-0.10.50-1.1
+[    6s] [177/178] cumulate pesign-obs-integration-10.2+git20250219.c99462c-1.1
+[    6s] [178/178] cumulate kernel-syms-6.15.1-1.1
+[    6s] now installing cumulated packages
+[    6s] Preparing...                          ########################################
+[    6s] Updating / installing...
+[    6s] mozilla-nspr-4.36-1.3                 ########################################
+[    6s] suse-module-tools-16.0.60-1.1         ########################################
+[    6s] zstd-1.5.7-3.1                        ########################################
+[    6s] libfreebl3-3.110-1.1                  ########################################
+[    6s] libbpf1-1.5.1-2.1                     ########################################
+[    6s] libdwarves1-1.30-1.1                  ########################################
+[    6s] dwarves-1.30-1.1                      ########################################
+[    6s] mozilla-nss-certs-3.110-1.1           ########################################
+[    6s] openssl-3.5.0-1.1                     ########################################
+[    6s] openssl-3-3.5.0-3.1                   ########################################
+[    6s] fipscheck-1.7.0-2.3                   ########################################
+[    6s] libfipscheck1-1.7.0-2.3               ########################################
+[    6s] zlib-devel-1.3.1-1.3                  ########################################
+[    6s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[    6s] login_defs-4.17.4-2.1                 ########################################
+[    6s] libzstd-devel-1.5.7-3.1               ########################################
+[    6s] libelf-devel-0.192-2.2                ########################################
+[    6s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    6s] libsubid5-4.17.4-2.1                  ########################################
+[    6s] libsqlite3-0-3.49.2-1.1               ########################################
+[    6s] mozilla-nss-3.110-1.1                 ########################################
+[    6s] libsoftokn3-3.110-1.1                 ########################################
+[    6s] mozilla-nss-tools-3.110-1.1           ########################################
+[    6s] libsepol2-3.8.1-1.1                   ########################################
+[    6s] libsemanage-conf-3.8.1-1.1            ########################################
+[    6s] libsemanage2-3.8.1-1.1                ########################################
+[    6s] shadow-4.17.4-2.1                     ########################################
+[    6s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    6s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[    6s] sysuser-shadow-3.3-8.2                ########################################
+[    6s] libmpdec4-4.0.1-2.1                   ########################################
+[    6s] libffi8-3.4.7-1.1                     ########################################
+[    6s] libexpat1-2.7.1-2.1                   ########################################
+[    6s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    7s] python313-base-3.13.3-4.1             ########################################
+[    7s] python313-packaging-24.2-2.1          ########################################
+[    7s] python313-python-dateutil-2.9.0.post0-########################################
+[    7s] python313-PyYAML-6.0.2-3.1            ########################################
+[    7s] obs-service-obs_scm-common-0.10.50-1.1########################################
+[    7s] libefivar1-38-3.3                     ########################################
+[    7s] /usr/sbin/useradd -r -c PE-COFF signing daemon -d /var/lib/pesign -U pesign -s /usr/sbin/nologin
+[    7s] pesign-116-8.1                        ########################################
+[    7s] pesign-obs-integration-10.2+git2025021########################################
+[    7s] kernel-macros-6.15.1-1.1              ########################################
+[    9s] kernel-devel-6.15.1-1.1               ########################################
+[   10s] kernel-default-devel-6.15.1-1.1       ########################################
+[   12s] kernel-syms-6.15.1-1.1                ########################################
+[   12s] obs-service-tar-0.10.50-1.1           ########################################
+[   12s] python-rpm-packaging-20210526+a18ca48-########################################
+[   12s] obs-service-recompress-0.5.2-2.5      ########################################
+[   12s] kmod-34.2-1.1                         ########################################
+[   12s] suse-module-tools-scriptlets-16.0.60-1########################################
+[   12s] fdupes-2.4.0-1.1                      ########################################
+[   12s] bc-1.08.2-1.1                         ########################################
+[   12s] regenerate-initrd-posttrans: dracut is not installed, not rebuilding the initrd.
+[   12s] now finalizing build dir...
+[   12s] ... running 01-add_abuild_user_to_trusted_group
+[   12s] ... running 02-set_timezone_to_utc
+[   12s] ... running 03-set-permissions-secure
+[   12s] ... running 11-hack_uname_version_to_kernel_version
+[   12s] setting SOURCE_DATE_EPOCH_MTIME to 1740724551
+[   12s] Unpacking rtl8812au-5.13.6+git20250220.dabcb74.obscpio ...
+[   12s] setting SOURCE_DATE_EPOCH_MTIME to 1740724551
+[   12s] 64696 blocks
+[   13s] Running build time source services...
+[   18s] Compressed rtl8812au-5.13.6+git20250220.dabcb74.tar to rtl8812au-5.13.6+git20250220.dabcb74.tar.xz
+[   18s] -----------------------------------------------------------------
+[   18s] I have the following modifications for rtl8812au.spec:
+[   18s] 23c23
+[   18s] < Release:        0
+[   18s] ---
+[   18s] > Release:        1.12
+[   18s] -----------------------------------------------------------------
+[   18s] ----- building rtl8812au.spec (user abuild)
+[   18s] -----------------------------------------------------------------
+[   18s] -----------------------------------------------------------------
+[   18s] setting SOURCE_DATE_EPOCH_MTIME to 1740724551
+[   18s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/5874bd91db6c8881efe9d3ec94ec3c76-rtl8812au' /home/abuild/rpmbuild/SOURCES/rtl8812au.spec
+[   19s] using SOURCE_DATE_EPOCH with value 1740724539 as build time
+[   19s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.IRa58G
+[   19s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.8skzNv
+[   19s] + umask 022
+[   19s] + cd /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build
+[   19s] + cd /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build
+[   19s] + rm -rf rtl8812au-5.13.6+git20250220.dabcb74
+[   19s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/rtl8812au-5.13.6+git20250220.dabcb74.tar.xz
+[   19s] + STATUS=0
+[   19s] + '[' 0 -ne 0 ']'
+[   19s] + cd rtl8812au-5.13.6+git20250220.dabcb74
+[   19s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   19s] + set -- 8812au.conf FAQ.md Kconfig LICENSE Makefile README.md core default-editor.txt dkms-make.sh dkms.conf docs edit-options.sh hal include install-driver.sh os_dep platform remove-driver.sh save-log.sh supported-device-IDs
+[   19s] + mkdir source
+[   19s] + mv 8812au.conf FAQ.md Kconfig LICENSE Makefile README.md core default-editor.txt dkms-make.sh dkms.conf docs edit-options.sh hal include install-driver.sh os_dep platform remove-driver.sh save-log.sh supported-device-IDs source/
+[   19s] + cp /home/abuild/rpmbuild/SOURCES/LICENSE source/
+[   19s] + mkdir obj
+[   19s] + RPM_EC=0
+[   19s] ++ jobs -p
+[   19s] + exit 0
+[   19s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.fmAtZF
+[   19s] + umask 022
+[   19s] + cd /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build
+[   19s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/BUILDROOT
+[   19s] ++ dirname /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/BUILDROOT
+[   19s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build
+[   19s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/BUILDROOT
+[   19s] + cd rtl8812au-5.13.6+git20250220.dabcb74
+[   19s] + for flavor in default
+[   19s] + cp -a source obj/default
+[   19s] + pushd obj/default
+[   19s] ~/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/rtl8812au-5.13.6+git20250220.dabcb74/obj/default ~/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/rtl8812au-5.13.6+git20250220.dabcb74
+[   19s] + sed -i -e 's,^KSRC := /lib/modules/$(KVER)/build$,KSRC := /usr/src/linux-obj/x86_64/default,' Makefile
+[   19s] + make -O V=1 -j4
+[   19s] make ARCH=x86_64 CROSS_COMPILE= -C /usr/src/linux-obj/x86_64/default M=/home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/rtl8812au-5.13.6+git20250220.dabcb74/obj/default  modules
+[   19s] make  -C /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/rtl8812au-5.13.6+git20250220.dabcb74/obj/default \
+[   19s] -f /usr/src/linux-6.15.1-1/Makefile modules
+[   19s] make --no-print-directory -C /home/abuild/rpmbuild/BUILD/rtl8812au-5.13.6+git20250220.dabcb74-build/rtl8812au-5.13.6+git20250220.dabcb74/obj/default \
+[   19s] -f /usr/src/linux-6.15.1-1/Makefile modules
+[   19s] make -f /usr/src/linux-6.15.1-1/scripts/Makefile.build obj=. need-builtin=1 need-modorder=1 
+[   19s] # cmd_mod 8812au.mod
+[   19s]   printf '%s\n'   core/rtw_cmd.o core/rtw_security.o core/rtw_debug.o core/rtw_io.o core/rtw_ioctl_query.o core/rtw_ioctl_set.o core/rtw_ieee80211.o core/rtw_mlme.o core/rtw_mlme_ext.o core/rtw_mi.o core/rtw_wlan_util.o core/rtw_vht.o core/rtw_pwrctrl.o core/rtw_rf.o core/rtw_chplan.o core/monitor/rtw_radiotap.o core/rtw_recv.o core/rtw_sta_mgt.o core/rtw_ap.o core/wds/rtw_wds.o core/mesh/rtw_mesh.o core/mesh/rtw_mesh_pathtbl.o core/mesh/rtw_mesh_hwmp.o core/rtw_xmit.o core/rtw_p2p.o core/rtw_rson.o core/rtw_tdls.o core/rtw_br_ext.o core/rtw_iol.o core/rtw_sreset.o core/rtw_btcoex_wifionly.o core/rtw_btcoex.o core/rtw_beamforming.o core/rtw_odm.o core/rtw_rm.o core/rtw_rm_fsm.o core/rtw_ft.o core/rtw_wnm.o core/rtw_mbo.o core/rtw_rm_util.o core/efuse/rtw_efuse.o core/rtw_roch.o core/crypto/aes-internal.o core/crypto/aes-internal-enc.o core/crypto/aes-gcm.o core/crypto/aes-ccm.o core/crypto/aes-omac1.o core/crypto/ccmp.o core/crypto/gcmp.o core/crypto/aes-siv.o core/crypto/aes-ctr.o core/crypto/sha256-internal.o core/crypto/sha256.o core/crypto/sha256-prf.o core/crypto/rtw_crypto_wrap.o core/rtw_swcrypto.o os_dep/osdep_service.o os_dep/linux/os_intfs.o os_dep/linux/usb_intf.o os_dep/linux/usb_ops_linux.o os_dep/linux/ioctl_linux.o os_dep/linux/xmit_linux.o os_dep/linux/mlme_linux.o os_dep/linux/recv_linux.o os_dep/linux/ioctl_cfg80211.o os_dep/linux/rtw_cfgvendor.o os_dep/linux/wifi_regd.o os_dep/linux/rtw_android.o os_dep/linux/rtw_proc.o os_dep/linux/nlrtw.o os_dep/linux/rtw_rhashtable.o hal/hal_intf.o hal/hal_com.o hal/hal_com_phycfg.o hal/hal_phy.o hal/hal_dm.o hal/hal_dm_acs.o hal/hal_btcoex_wifionly.o hal/hal_btcoex.o hal/hal_mp.o hal/hal_mcc.o hal/hal_hci/hal_usb.o hal/led/hal_led.o hal/led/hal_usb_led.o hal/HalPwrSeqCmd.o hal/rtl8812a/Hal8812PwrSeq.o hal/rtl8812a/Hal8821APwrSeq.o hal/rtl8812a/rtl8812a_xmit.o hal/rtl8812a/rtl8812a_sreset.o hal/rtl8812a/rtl8812a_hal_init.o hal/rtl8812a/rtl8812a_phycfg.o hal/rtl8812a/rtl8812a_rf6052.o hal/rtl8812a/rtl8812a_dm.o hal/rtl8812a/rtl8812a_rxdesc.o hal/rtl8812a/rtl8812a_cmd.o hal/rtl8812a/usb/usb_halinit.o hal/rtl8812a/usb/rtl8812au_led.o hal/rtl8812a/usb/rtl8812au_xmit.o hal/rtl8812a/usb/rtl8812au_recv.o hal/rtl8812a/usb/usb_ops_linux.o hal/efuse/rtl8812a/HalEfuseMask8812A_USB.o hal/rtl8812a/hal8812a_fw.o hal/phydm/phydm_debug.o hal/phydm/phydm_antdiv.o hal/phydm/phydm_soml.o hal/phydm/phydm_smt_ant.o hal/phydm/phydm_antdect.o hal/phydm/phydm_interface.o hal/phydm/phydm_phystatus.o hal/phydm/phydm_hwconfig.o hal/phydm/phydm.o hal/phydm/phydm_dig.o hal/phydm/phydm_pathdiv.o hal/phydm/phydm_rainfo.o hal/phydm/phydm_dynamictxpower.o hal/phydm/phydm_adaptivity.o hal/phydm/phydm_cfotracking.o hal/phydm/phydm_noisemonitor.o hal/phydm/phydm_beamforming.o hal/phydm/phydm_direct_bf.o hal/phydm/phydm_dfs.o hal/phydm/txbf/halcomtxbf.o hal/phydm/txbf/haltxbfinterface.o hal/phydm/txbf/phydm_hal_txbf_api.o hal/phydm/phydm_adc_sampling.o hal/phydm/phydm_ccx.o hal/phydm/phydm_psd.o hal/phydm/phydm_primary_cca.o hal/phydm/phydm_cck_pd.o hal/phydm/phydm_rssi_monitor.o hal/phydm/phydm_auto_dbg.o hal/phydm/phydm_math_lib.o hal/phydm/phydm_api.o hal/phydm/phydm_pow_train.o hal/phydm/phydm_lna_sat.o hal/phydm/phydm_pmac_tx_setting.o hal/phydm/phydm_mp.o hal/phydm/phydm_cck_rx_pathdiv.o hal/phydm/halrf/halrf.o hal/phydm/halrf/halrf_debug.o hal/phydm/halrf/halphyrf_ce.o hal/phydm/halrf/halrf_powertracking_ce.o hal/phydm/halrf/halrf_powertracking.o hal/phydm/halrf/halrf_kfree.o hal/phydm/halrf/halrf_psd.o hal/phydm/rtl8812a/halhwimg8812a_mac.o hal/phydm/rtl8812a/halhwimg8812a_bb.o hal/phydm/rtl8812a/halhwimg8812a_rf.o hal/phydm/halrf/rtl8812a/halrf_8812a_ce.o hal/phydm/rtl8812a/phydm_regconfig8812a.o hal/phydm/rtl8812a/phydm_rtl8812a.o hal/phydm/txbf/haltxbfjaguar.o platform/platform_ops.o | awk '!x[$0]++ { print("./"$0) }' > 8812au.mod
+[   19s] # CC [M]  core/rtw_cmd.o
+[   19s]   gcc -Wp,-MMD,core/.rtw_cmd.o.d -nostdinc -I/usr/src/linux-6.15.1-1/arch/x86/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated -I/usr/src/linux-6.15.1-1/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include -I/usr/src/linux-6.15.1-1/arch/x86/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated/uapi -I/usr/src/linux-6.15.1-1/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include/generated/uapi -include /usr/src/linux-6.15.1-1/include/linux/compiler-version.h -include /usr/src/linux-6.15.1-1/include/linux/kconfig.h -include /usr/src/linux-6.15.1-1/include/linux/compiler_types.h -D__KERNEL__ -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -mharden-sls=all -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-stack-clash-protection -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -g -gdwarf-5  -DMODULE  -DKBUILD_BASENAME='"rtw_cmd"' -DKBUILD_MODNAME='"8812au"' -D__KBUILD_MODNAME=kmod_8812au -c -o core/rtw_cmd.o core/rtw_cmd.c  
+[   19s] core/rtw_cmd.c:17:10: fatal error: drv_types.h: No such file or directory
+[   19s]    17 | #include <drv_types.h>
+[   19s]       |          ^~~~~~~~~~~~~
+[   19s] compilation terminated.
+[   19s] make[4]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: core/rtw_cmd.o] Error 1
+[   19s] make[4]: *** Waiting for unfinished jobs....
+[   19s] # CC [M]  core/rtw_security.o
+[   19s]   gcc -Wp,-MMD,core/.rtw_security.o.d -nostdinc -I/usr/src/linux-6.15.1-1/arch/x86/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated -I/usr/src/linux-6.15.1-1/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include -I/usr/src/linux-6.15.1-1/arch/x86/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated/uapi -I/usr/src/linux-6.15.1-1/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include/generated/uapi -include /usr/src/linux-6.15.1-1/include/linux/compiler-version.h -include /usr/src/linux-6.15.1-1/include/linux/kconfig.h -include /usr/src/linux-6.15.1-1/include/linux/compiler_types.h -D__KERNEL__ -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -mharden-sls=all -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-stack-clash-protection -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -g -gdwarf-5  -DMODULE  -DKBUILD_BASENAME='"rtw_security"' -DKBUILD_MODNAME='"8812au"' -D__KBUILD_MODNAME=kmod_8812au -c -o core/rtw_security.o core/rtw_security.c  
+[   19s] core/rtw_security.c:17:10: fatal error: drv_types.h: No such file or directory
+[   19s]    17 | #include <drv_types.h>
+[   19s]       |          ^~~~~~~~~~~~~
+[   19s] compilation terminated.
+[   19s] make[4]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: core/rtw_security.o] Error 1
+[   19s] # CC [M]  core/rtw_debug.o
+[   19s]   gcc -Wp,-MMD,core/.rtw_debug.o.d -nostdinc -I/usr/src/linux-6.15.1-1/arch/x86/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated -I/usr/src/linux-6.15.1-1/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include -I/usr/src/linux-6.15.1-1/arch/x86/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated/uapi -I/usr/src/linux-6.15.1-1/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include/generated/uapi -include /usr/src/linux-6.15.1-1/include/linux/compiler-version.h -include /usr/src/linux-6.15.1-1/include/linux/kconfig.h -include /usr/src/linux-6.15.1-1/include/linux/compiler_types.h -D__KERNEL__ -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -mharden-sls=all -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-stack-clash-protection -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -g -gdwarf-5  -DMODULE  -DKBUILD_BASENAME='"rtw_debug"' -DKBUILD_MODNAME='"8812au"' -D__KBUILD_MODNAME=kmod_8812au -c -o core/rtw_debug.o core/rtw_debug.c  
+[   19s] core/rtw_debug.c:17:10: fatal error: drv_types.h: No such file or directory
+[   19s]    17 | #include <drv_types.h>
+[   19s]       |          ^~~~~~~~~~~~~
+[   19s] compilation terminated.
+[   19s] make[4]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: core/rtw_debug.o] Error 1
+[   19s] # CC [M]  core/rtw_io.o
+[   19s]   gcc -Wp,-MMD,core/.rtw_io.o.d -nostdinc -I/usr/src/linux-6.15.1-1/arch/x86/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated -I/usr/src/linux-6.15.1-1/include -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include -I/usr/src/linux-6.15.1-1/arch/x86/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/arch/x86/include/generated/uapi -I/usr/src/linux-6.15.1-1/include/uapi -I/usr/src/linux-6.15.1-1-obj/x86_64/default/include/generated/uapi -include /usr/src/linux-6.15.1-1/include/linux/compiler-version.h -include /usr/src/linux-6.15.1-1/include/linux/kconfig.h -include /usr/src/linux-6.15.1-1/include/linux/compiler_types.h -D__KERNEL__ -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -mstack-protector-guard-reg=gs -mstack-protector-guard-symbol=__ref_stack_chk_guard -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -mindirect-branch-cs-prefix -mfunction-return=thunk-extern -fno-jump-tables -mharden-sls=all -fpatchable-function-entry=16,16 -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fno-stack-clash-protection -pg -mrecord-mcount -mfentry -DCC_USING_FENTRY -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter -g -gdwarf-5  -DMODULE  -DKBUILD_BASENAME='"rtw_io"' -DKBUILD_MODNAME='"8812au"' -D__KBUILD_MODNAME=kmod_8812au -c -o core/rtw_io.o core/rtw_io.c  
+[   19s] core/rtw_io.c:47:10: fatal error: drv_types.h: No such file or directory
+[   19s]    47 | #include <drv_types.h>
+[   19s]       |          ^~~~~~~~~~~~~
+[   19s] compilation terminated.
+[   19s] make[4]: *** [/usr/src/linux-6.15.1-1/scripts/Makefile.build:204: core/rtw_io.o] Error 1
+[   19s] make[3]: *** [/usr/src/linux-6.15.1-1/Makefile:2026: .] Error 2
+[   19s] make[2]: *** [/usr/src/linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   19s] make[1]: *** [../../../linux-6.15.1-1/Makefile:248: __sub-make] Error 2
+[   19s] make: *** [Makefile:2516: modules] Error 2
+[   19s] error: Bad exit status from /var/tmp/rpm-tmp.fmAtZF (%build)
+[   19s] 
+[   19s] RPM build errors:
+[   19s]     Bad exit status from /var/tmp/rpm-tmp.fmAtZF (%build)
+[   19s] ### VM INTERACTION START ###
+[   20s] [   15.991205][    T1] sysrq: Power Off
+[   20s] ### VM INTERACTION END ###
+[   20s] 
+[   20s] i02-ch1a failed "build rtl8812au.spec" at Tue Jun 10 11:39:53 UTC 2025.
+[   20s] 

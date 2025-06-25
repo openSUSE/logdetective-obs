@@ -1,0 +1,1293 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_12/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_12/root
+[    0s] 
+[    1s] 
+[    1s] i02-ch2c started "build pulseeffects.spec" at Tue Jun 10 11:39:46 UTC 2025.
+[    1s] 
+[    1s] Building pulseeffects for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 'd6f008a4c4557976a14ddcf89c5732f3'
+[    1s] 
+[    1s] processing recipe /var/cache/obs/worker/root_12/.build-srcdir/pulseeffects.spec ...
+[    1s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_12/.build-srcdir/pulseeffects.spec
+[    1s] init_buildsystem --configdir /var/run/obs/worker/12/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_12/.build.rpmlist /var/cache/obs/worker/root_12/.build-srcdir/pulseeffects.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-gtk3-devel [032743be0877e1ac7a204bbdaced4aa7]
+[    4s] 
+[    4s] copying packages...
+[    4s] reordering...cycle: gstreamer -> libgstreamer-1_0-0
+[    4s]   breaking dependency libgstreamer-1_0-0 -> gstreamer
+[    4s] cycle: gstreamer-plugins-base -> libgstallocators-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstallocators-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstapp-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstapp-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstaudio-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstaudio-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstgl-1_0-0 -> libgstallocators-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstgl-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstpbutils-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstpbutils-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstriff-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstriff-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgsttag-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgsttag-1_0-0
+[    4s] cycle: gstreamer-plugins-base -> libgstvideo-1_0-0
+[    4s]   breaking dependency gstreamer-plugins-base -> libgstvideo-1_0-0
+[    4s] cycle: libv4l -> libv4l1-0
+[    4s]   breaking dependency libv4l1-0 -> libv4l
+[    4s] cycle: libv4l -> libv4l1-0 -> libv4l2-0
+[    4s]   breaking dependency libv4l2-0 -> libv4l
+[    4s] cycle: libv4lconvert0 -> libv4l -> libv4l1-0 -> libv4l2-0
+[    4s]   breaking dependency libv4l -> libv4l1-0
+[    4s] cycle: libv4lconvert0 -> libv4l -> libv4l2-0
+[    4s]   breaking dependency libv4lconvert0 -> libv4l
+[    5s] done
+[    5s] Detected virtio-serial support
+[    6s] booting kvm...
+[    6s] ### VM INTERACTION START ###
+[    6s] Using virtio-serial support and enabling console input
+[    6s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_12/.mount/boot/kernel -initrd /var/cache/obs/worker/root_12/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_12/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_12/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_12/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    7s] [!p]104[?7h[    0.388238][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    7s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    8s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    9s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    9s] 2nd stage started in virtual machine
+[    9s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    9s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    9s] Time: Tue Jun 10 11:39:54 UTC 2025
+[    9s] Increasing log level from now on...
+[    9s] [    1.927785][  T576] sysrq: Changing Loglevel
+[    9s] [    1.927861][  T576] sysrq: Loglevel set to 4
+[    9s] Enable sysrq operations
+[    9s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    9s] no label, UUID=3d63516a-cdb1-4823-9ae7-b9facfed427a
+[    9s] WARNING: udev not running, creating extra device nodes
+[    9s] logging output to //.build.log...
+[    9s] processing recipe //.build-srcdir/pulseeffects.spec ...
+[    9s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/pulseeffects.spec build ...
+[    9s] initializing rpm db...
+[    9s] querying package ids...
+[   10s] [1/685] preinstalled Mesa-25.1.3-417.1
+[   10s] [2/685] preinstalled Mesa-KHR-devel-25.1.3-417.1
+[   10s] [3/685] preinstalled Mesa-dri-25.1.3-417.1
+[   10s] [4/685] preinstalled Mesa-libEGL-devel-25.1.3-417.1
+[   10s] [5/685] preinstalled Mesa-libEGL1-25.1.3-417.1
+[   10s] [6/685] preinstalled Mesa-libGL-devel-25.1.3-417.1
+[   10s] [7/685] preinstalled Mesa-libGL1-25.1.3-417.1
+[   10s] [8/685] cumulate Mesa-libGLESv2-devel-25.1.3-417.1
+[   10s] [9/685] preinstalled Mesa-vulkan-device-select-25.1.3-417.1
+[   10s] [10/685] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[   10s] [11/685] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[   10s] [12/685] preinstalled alts-1.2+31.da24cd4-1.1
+[   10s] [13/685] preinstalled at-spi2-core-2.56.2-1.1
+[   10s] [14/685] preinstalled at-spi2-core-devel-2.56.2-1.1
+[   10s] [15/685] preinstalled bash-5.2.37-20.1
+[   10s] [16/685] preinstalled bash-sh-5.2.37-20.1
+[   10s] [17/685] preinstalled binutils-2.43-7.1
+[   10s] [18/685] cumulate boost-license1_88_0-1.88.0-1.1
+[   10s] [19/685] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[   10s] [20/685] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[   10s] [21/685] preinstalled build-mkbaselibs-20250602-1.1
+[   10s] [22/685] preinstalled bzip2-1.0.8-5.12
+[   10s] [23/685] preinstalled cairo-devel-1.18.4-2.1
+[   10s] [24/685] preinstalled compat-usrmerge-build-84.87-5.22
+[   10s] [25/685] preinstalled compat-usrmerge-tools-84.87-5.22
+[   10s] [26/685] preinstalled coreutils-9.7-2.1
+[   10s] [27/685] preinstalled cpio-2.15-5.1
+[   10s] [28/685] preinstalled cpp-14-3.1
+[   10s] [29/685] preinstalled cpp14-14.3.0+git11799-3.1
+[   10s] [30/685] preinstalled crypto-policies-20250124.4d262e7-3.1
+[   10s] [31/685] preinstalled cups-config-2.4.12-1.1
+[   10s] [32/685] preinstalled dbus-1-1.14.10-4.4
+[   10s] [33/685] preinstalled dbus-1-common-1.14.10-4.4
+[   10s] [34/685] preinstalled dbus-1-daemon-1.14.10-4.4
+[   10s] [35/685] preinstalled dbus-1-devel-1.14.10-4.4
+[   10s] [36/685] preinstalled dbus-1-tools-1.14.10-4.4
+[   10s] [37/685] preinstalled dbus-broker-36-2.3
+[   10s] [38/685] preinstalled dbus-broker-block-restart-36-2.3
+[   10s] [39/685] preinstalled debugedit-5.1-1.3
+[   10s] [40/685] cumulate desktop-file-utils-0.28-2.3
+[   10s] [41/685] cumulate desktop-translations-devel-84.87.20241104.9505069-1.2
+[   10s] [42/685] preinstalled diffutils-3.12-1.1
+[   10s] [43/685] preinstalled dwz-0.15-6.1
+[   10s] [44/685] preinstalled elfutils-0.192-2.2
+[   10s] [45/685] preinstalled envsubst-mini-0.22.5-8.1
+[   10s] [46/685] preinstalled file-5.46-4.1
+[   10s] [47/685] preinstalled file-magic-5.46-4.1
+[   10s] [48/685] preinstalled filesystem-84.87-18.2
+[   10s] [49/685] preinstalled fillup-1.42-281.3
+[   10s] [50/685] preinstalled findutils-4.10.0-2.2
+[   10s] [51/685] preinstalled fontconfig-2.16.0-1.3
+[   10s] [52/685] preinstalled fontconfig-devel-2.16.0-1.3
+[   10s] [53/685] preinstalled freetype2-devel-2.13.3-2.1
+[   10s] [54/685] preinstalled fribidi-devel-1.0.15-1.3
+[   10s] [55/685] preinstalled gawk-5.3.2-1.1
+[   10s] [56/685] preinstalled gcc-14-3.1
+[   10s] [57/685] preinstalled gcc-PIE-14-3.1
+[   10s] [58/685] preinstalled gcc14-14.3.0+git11799-3.1
+[   10s] [59/685] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[   10s] [60/685] cumulate gcc14-c++-14.3.0+git11799-3.1
+[   10s] [61/685] preinstalled gdk-pixbuf-devel-2.42.12-2.3
+[   10s] [62/685] preinstalled gdk-pixbuf-query-loaders-2.42.12-2.3
+[   10s] [63/685] preinstalled gettext-its-gtk3-3.24.49+14-1.1
+[   10s] [64/685] preinstalled gettext-runtime-mini-0.22.5-8.1
+[   10s] [65/685] preinstalled gettext-tools-mini-0.22.5-8.1
+[   10s] [66/685] preinstalled gio-branding-upstream-2.84.2-1.1
+[   10s] [67/685] preinstalled girepository-1_0-1.84.0-2.1
+[   10s] [68/685] preinstalled glib2-devel-2.84.2-1.1
+[   10s] [69/685] preinstalled glib2-tools-2.84.2-1.1
+[   10s] [70/685] preinstalled glibc-2.41-2.1
+[   10s] [71/685] preinstalled glibc-devel-2.41-2.1
+[   10s] [72/685] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[   10s] [73/685] preinstalled glibc-locale-base-2.41-2.1
+[   10s] [74/685] preinstalled graphite2-devel-1.3.14-5.1
+[   10s] [75/685] preinstalled grep-3.12-1.1
+[   10s] [76/685] cumulate gsettings-desktop-schemas-48.0-1.1
+[   10s] [77/685] preinstalled gtk3-data-3.24.49+14-1.1
+[   10s] [78/685] preinstalled gtk3-devel-3.24.49+14-1.1
+[   10s] [79/685] preinstalled gtk3-schema-3.24.49+14-1.1
+[   10s] [80/685] preinstalled gtk3-tools-3.24.49+14-1.1
+[   10s] [81/685] preinstalled gzip-1.14-1.1
+[   10s] [82/685] preinstalled harfbuzz-devel-11.2.1-1.1
+[   10s] [83/685] preinstalled hicolor-icon-theme-0.18-1.3
+[   10s] [84/685] preinstalled kernel-obs-build-6.15.1-1.1
+[   10s] [85/685] preinstalled krb5-mini-1.21.3-3.1
+[   10s] [86/685] cumulate libIex-3_2-31-3.2.2-2.3
+[   10s] [87/685] cumulate libImath-3_1-29-3.1.12-1.3
+[   10s] [88/685] preinstalled libLLVM20-20.1.6-1.1
+[   10s] [89/685] preinstalled libSPIRV-Tools-2025_2_rc2-2025.2~rc2-1.1
+[   10s] [90/685] cumulate libSoundTouch1-2.3.3-1.3
+[   10s] [91/685] preinstalled libX11-6-1.8.12-1.1
+[   10s] [92/685] preinstalled libX11-data-1.8.12-1.1
+[   10s] [93/685] preinstalled libX11-devel-1.8.12-1.1
+[   10s] [94/685] preinstalled libX11-xcb1-1.8.12-1.1
+[   10s] [95/685] preinstalled libXau-devel-1.0.12-2.1
+[   10s] [96/685] preinstalled libXau6-1.0.12-2.1
+[   10s] [97/685] preinstalled libXcomposite-devel-0.4.6-1.6
+[   10s] [98/685] preinstalled libXcomposite1-0.4.6-1.6
+[   10s] [99/685] preinstalled libXcursor-devel-1.2.3-1.3
+[   10s] [100/685] preinstalled libXcursor1-1.2.3-1.3
+[   10s] [101/685] preinstalled libXdamage-devel-1.1.6-1.6
+[   10s] [102/685] preinstalled libXdamage1-1.1.6-1.6
+[   10s] [103/685] preinstalled libXext-devel-1.3.6-1.4
+[   10s] [104/685] preinstalled libXext6-1.3.6-1.4
+[   10s] [105/685] preinstalled libXfixes-devel-6.0.1-1.5
+[   10s] [106/685] preinstalled libXfixes3-6.0.1-1.5
+[   10s] [107/685] preinstalled libXft-devel-2.3.9-1.1
+[   10s] [108/685] preinstalled libXft2-2.3.9-1.1
+[   10s] [109/685] preinstalled libXi-devel-1.8.2-1.3
+[   10s] [110/685] preinstalled libXi6-1.8.2-1.3
+[   10s] [111/685] preinstalled libXinerama-devel-1.1.5-1.6
+[   10s] [112/685] preinstalled libXinerama1-1.1.5-1.6
+[   10s] [113/685] preinstalled libXrandr-devel-1.5.4-1.5
+[   10s] [114/685] preinstalled libXrandr2-1.5.4-1.5
+[   10s] [115/685] preinstalled libXrender-devel-0.9.12-1.2
+[   10s] [116/685] preinstalled libXrender1-0.9.12-1.2
+[   10s] [117/685] preinstalled libXtst-devel-1.2.5-1.3
+[   10s] [118/685] preinstalled libXtst6-1.2.5-1.3
+[   10s] [119/685] cumulate libXv1-1.0.13-1.2
+[   10s] [120/685] preinstalled libXxf86vm1-1.1.6-1.2
+[   10s] [121/685] cumulate libZXing3-2.3.0-1.1
+[   10s] [122/685] preinstalled libacl1-2.3.2-2.3
+[   10s] [123/685] preinstalled libalternatives1-1.2+31.da24cd4-1.1
+[   10s] [124/685] cumulate libaom3-3.11.0-1.3
+[   10s] [125/685] preinstalled libarchive13-3.7.9-1.1
+[   10s] [126/685] preinstalled libasan8-15.1.1+git9739-2.1
+[   10s] [127/685] preinstalled libasm1-0.192-2.2
+[   10s] [128/685] cumulate libasound2-1.2.14-1.1
+[   10s] [129/685] preinstalled libatk-1_0-0-2.56.2-1.1
+[   10s] [130/685] preinstalled libatk-bridge-2_0-0-2.56.2-1.1
+[   10s] [131/685] preinstalled libatomic1-15.1.1+git9739-2.1
+[   10s] [132/685] preinstalled libatspi0-2.56.2-1.1
+[   10s] [133/685] preinstalled libattr1-2.5.2-1.4
+[   10s] [134/685] preinstalled libaudit1-4.0-3.3
+[   10s] [135/685] preinstalled libavahi-client3-0.8-38.1
+[   10s] [136/685] preinstalled libavahi-common3-0.8-38.1
+[   10s] [137/685] cumulate libavtp0-0.2.0-2.6
+[   10s] [138/685] preinstalled libblkid-devel-2.41-1.1
+[   10s] [139/685] preinstalled libblkid1-2.41-1.1
+[   10s] [140/685] preinstalled libbrotli-devel-1.1.0-1.6
+[   10s] [141/685] preinstalled libbrotlicommon1-1.1.0-1.6
+[   10s] [142/685] preinstalled libbrotlidec1-1.1.0-1.6
+[   10s] [143/685] preinstalled libbrotlienc1-1.1.0-1.6
+[   10s] [144/685] cumulate libbs2b0-3.1.0-14.5
+[   10s] [145/685] preinstalled libbz2-1-1.0.8-5.12
+[   10s] [146/685] preinstalled libbz2-devel-1.0.8-5.12
+[   10s] [147/685] preinstalled libcairo-gobject2-1.18.4-2.1
+[   10s] [148/685] preinstalled libcairo-script-interpreter2-1.18.4-2.1
+[   10s] [149/685] preinstalled libcairo2-1.18.4-2.1
+[   10s] [150/685] preinstalled libcap-ng0-0.8.5-1.3
+[   10s] [151/685] preinstalled libcap2-2.75-1.1
+[   10s] [152/685] cumulate libcdda_interface0-3.10.2-30.3
+[   10s] [153/685] preinstalled libcolord2-1.4.6-8.3
+[   10s] [154/685] cumulate libcom_err-devel-1.47.2-1.1
+[   10s] [155/685] preinstalled libcom_err2-1.47.2-1.1
+[   10s] [156/685] cumulate libcpuinfo-suse0-0~git1739936485.b73ae6c-2.1
+[   10s] [157/685] preinstalled libcrypt1-4.4.38-1.2
+[   10s] [158/685] preinstalled libctf-nobfd0-2.43-7.1
+[   10s] [159/685] preinstalled libctf0-2.43-7.1
+[   10s] [160/685] preinstalled libcups2-2.4.12-1.1
+[   10s] [161/685] preinstalled libdatrie-devel-0.2.13-1.17
+[   10s] [162/685] preinstalled libdatrie1-0.2.13-1.17
+[   10s] [163/685] cumulate libdav1d7-1.5.1-1.3
+[   10s] [164/685] preinstalled libdbus-1-3-1.14.10-4.4
+[   10s] [165/685] cumulate libdca0-0.0.7+2-1.7
+[   10s] [166/685] cumulate libdeflate0-1.23-1.1
+[   10s] [167/685] preinstalled libdrm2-2.4.124-2.3
+[   10s] [168/685] preinstalled libdrm_amdgpu1-2.4.124-2.3
+[   10s] [169/685] preinstalled libdrm_intel1-2.4.124-2.3
+[   10s] [170/685] cumulate libdrm_nouveau2-2.4.124-2.3
+[   10s] [171/685] cumulate libdrm_radeon1-2.4.124-2.3
+[   10s] [172/685] cumulate libdvdread8-6.1.3-1.10
+[   10s] [173/685] preinstalled libdw1-0.192-2.2
+[   10s] [174/685] cumulate libebur128-1-1.2.6-2.3
+[   10s] [175/685] preinstalled libeconf-devel-0.7.9-1.1
+[   10s] [176/685] preinstalled libeconf0-0.7.9-1.1
+[   10s] [177/685] preinstalled libedit0-20250104.3.1-1.1
+[   10s] [178/685] cumulate libelf-devel-0.192-2.2
+[   10s] [179/685] preinstalled libelf1-0.192-2.2
+[   10s] [180/685] preinstalled libepoxy-devel-1.5.10-2.8
+[   10s] [181/685] preinstalled libepoxy0-1.5.10-2.8
+[   10s] [182/685] cumulate libevent-2_1-7-2.1.12-4.4
+[   10s] [183/685] preinstalled libexpat-devel-2.7.1-2.1
+[   10s] [184/685] preinstalled libexpat1-2.7.1-2.1
+[   10s] [185/685] preinstalled libfdisk1-2.41-1.1
+[   10s] [186/685] cumulate libfdk-aac2-2.0.0-2.13
+[   10s] [187/685] preinstalled libffi-devel-3.4.7-1.1
+[   10s] [188/685] preinstalled libffi8-3.4.7-1.1
+[   10s] [189/685] cumulate libfftw3-3-3.3.10-6.1
+[   10s] [190/685] preinstalled libfontconfig1-2.16.0-1.3
+[   10s] [191/685] preinstalled libfreetype6-2.13.3-2.1
+[   10s] [192/685] preinstalled libfribidi0-1.0.15-1.3
+[   10s] [193/685] cumulate libgbm-devel-25.1.3-417.1
+[   10s] [194/685] preinstalled libgbm1-25.1.3-417.1
+[   10s] [195/685] cumulate libgcab-1_0-0-1.6-1.6
+[   10s] [196/685] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[   10s] [197/685] preinstalled libgcrypt20-1.11.1-1.1
+[   10s] [198/685] preinstalled libgdbm6-1.24-2.1
+[   10s] [199/685] preinstalled libgdbm_compat4-1.24-2.1
+[   10s] [200/685] preinstalled libgdk_pixbuf-2_0-0-2.42.12-2.3
+[   10s] [201/685] preinstalled libgio-2_0-0-2.84.2-1.1
+[   10s] [202/685] preinstalled libgirepository-1_0-1-1.84.0-2.1
+[   10s] [203/685] preinstalled libgirepository-2_0-0-2.84.2-1.1
+[   10s] [204/685] preinstalled libglib-2_0-0-2.84.2-1.1
+[   10s] [205/685] preinstalled libglvnd-1.7.0-1.6
+[   10s] [206/685] preinstalled libglvnd-devel-1.7.0-1.6
+[   10s] [207/685] cumulate libgme0-0.6.4-1.1
+[   10s] [208/685] preinstalled libgmodule-2_0-0-2.84.2-1.1
+[   10s] [209/685] preinstalled libgmp10-6.3.0-5.1
+[   10s] [210/685] cumulate libgmpxx4-6.3.0-5.1
+[   10s] [211/685] preinstalled libgnutls30-3.8.9-4.2
+[   10s] [212/685] preinstalled libgobject-2_0-0-2.84.2-1.1
+[   10s] [213/685] preinstalled libgomp1-15.1.1+git9739-2.1
+[   10s] [214/685] preinstalled libgpg-error0-1.55-1.1
+[   10s] [215/685] cumulate libgraphene-1_0-0-1.10.8-1.12
+[   10s] [216/685] preinstalled libgraphite2-3-1.3.14-5.1
+[   10s] [217/685] cumulate libgsm1-1.0.22-2.4
+[   10s] [218/685] preinstalled libgthread-2_0-0-2.84.2-1.1
+[   10s] [219/685] preinstalled libgtk-3-0-3.24.49+14-1.1
+[   10s] [220/685] cumulate libgudev-1_0-0-238-1.6
+[   10s] [221/685] preinstalled libharfbuzz-cairo0-11.2.1-1.1
+[   10s] [222/685] preinstalled libharfbuzz-gobject0-11.2.1-1.1
+[   10s] [223/685] preinstalled libharfbuzz-icu0-11.2.1-1.1
+[   10s] [224/685] preinstalled libharfbuzz-subset0-11.2.1-1.1
+[   10s] [225/685] preinstalled libharfbuzz0-11.2.1-1.1
+[   10s] [226/685] preinstalled libhogweed6-3.10.1-2.2
+[   10s] [227/685] preinstalled libhwasan0-15.1.1+git9739-2.1
+[   10s] [228/685] preinstalled libicu-devel-77.1-1.1
+[   10s] [229/685] preinstalled libicu77-77.1-1.1
+[   10s] [230/685] preinstalled libicu77-ledata-77.1-1.1
+[   10s] [231/685] preinstalled libidn2-0-2.3.8-1.1
+[   10s] [232/685] cumulate libidn2-devel-2.3.8-1.1
+[   10s] [233/685] cumulate libimagequant0-2.18.0-1.7
+[   10s] [234/685] preinstalled libisl23-0.27-1.2
+[   10s] [235/685] preinstalled libitm1-15.1.1+git9739-2.1
+[   10s] [236/685] cumulate libjack0-1.9.22-4.3
+[   10s] [237/685] preinstalled libjbig2-2.1-5.5
+[   10s] [238/685] preinstalled libjitterentropy3-3.6.3-1.1
+[   10s] [239/685] preinstalled libjpeg8-8.3.2-81.4
+[   10s] [240/685] preinstalled libjpeg8-devel-8.3.2-81.4
+[   10s] [241/685] cumulate libjson-glib-1_0-0-1.10.6-1.3
+[   10s] [242/685] cumulate liblc3-1-1.1.3-1.3
+[   10s] [243/685] preinstalled liblcms2-2-2.16-1.5
+[   10s] [244/685] cumulate libldac2-2.0.2.3-4.16
+[   10s] [245/685] preinstalled liblsan0-15.1.1+git9739-2.1
+[   10s] [246/685] preinstalled liblua5_4-5-5.4.7-4.1
+[   10s] [247/685] preinstalled liblz1-1.15-1.2
+[   10s] [248/685] preinstalled liblz4-1-1.10.0-2.4
+[   10s] [249/685] preinstalled liblzma5-5.8.1-1.1
+[   10s] [250/685] preinstalled liblzo2-2-2.10-9.3
+[   10s] [251/685] preinstalled libmagic1-5.46-4.1
+[   10s] [252/685] cumulate libmicrodns1-0.2.0+6-2.7
+[   10s] [253/685] cumulate libmjpegutils-2_2-0-2.2.1-3.1
+[   10s] [254/685] preinstalled libmount-devel-2.41-1.1
+[   10s] [255/685] preinstalled libmount1-2.41-1.1
+[   10s] [256/685] preinstalled libmpc3-1.3.1-1.10
+[   10s] [257/685] cumulate libmpcdec6-r475-6.5
+[   10s] [258/685] preinstalled libmpdec4-4.0.1-2.1
+[   10s] [259/685] preinstalled libmpfr6-4.2.2-1.1
+[   10s] [260/685] cumulate libmpg123-0-1.33.0-1.1
+[   10s] [261/685] preinstalled libncurses6-6.5.20250531-73.1
+[   10s] [262/685] preinstalled libnettle8-3.10.1-2.2
+[   10s] [263/685] cumulate libnghttp2-14-1.65.0-1.1
+[   10s] [264/685] cumulate libogg0-1.3.5-2.3
+[   10s] [265/685] cumulate libopenjp2-7-2.5.3-2.3
+[   10s] [266/685] preinstalled libopenssl3-3.5.0-3.1
+[   10s] [267/685] cumulate libopus0-1.5.2-1.3
+[   10s] [268/685] cumulate liborc-0_4-0-0.4.41-1.3
+[   10s] [269/685] preinstalled libp11-kit0-0.25.5-1.4
+[   10s] [270/685] preinstalled libpango-1_0-0-1.56.3-1.1
+[   10s] [271/685] cumulate libpciaccess-devel-0.18.1-1.5
+[   10s] [272/685] preinstalled libpciaccess0-0.18.1-1.5
+[   10s] [273/685] preinstalled libpcre2-16-0-10.45-1.1
+[   10s] [274/685] preinstalled libpcre2-32-0-10.45-1.1
+[   10s] [275/685] preinstalled libpcre2-8-0-10.45-1.1
+[   10s] [276/685] preinstalled libpcre2-posix3-10.45-1.1
+[   10s] [277/685] preinstalled libpixman-1-0-0.44.2-1.1
+[   10s] [278/685] preinstalled libpixman-1-0-devel-0.44.2-1.1
+[   10s] [279/685] preinstalled libpkgconf5-2.2.0-1.3
+[   10s] [280/685] preinstalled libpng16-16-1.6.44-1.3
+[   10s] [281/685] preinstalled libpng16-compat-devel-1.6.44-1.3
+[   10s] [282/685] preinstalled libpng16-devel-1.6.44-1.3
+[   10s] [283/685] preinstalled libpopt0-1.19-1.10
+[   10s] [284/685] cumulate libpsl5-0.21.5-1.5
+[   10s] [285/685] cumulate libpxbackend-1_0-mini-0.5.9-1.3
+[   10s] [286/685] preinstalled libpython3_13-1_0-3.13.3-4.1
+[   10s] [287/685] cumulate libqrencode4-4.1.1-2.6
+[   10s] [288/685] cumulate libraw1394-11-2.1.2-2.4
+[   10s] [289/685] preinstalled libreadline8-8.2.13-2.3
+[   10s] [290/685] preinstalled librpmbuild10-4.20.1-4.1
+[   10s] [291/685] cumulate libsamplerate0-0.2.2-3.3
+[   10s] [292/685] cumulate libsasl2-3-2.1.28-10.1
+[   10s] [293/685] cumulate libsbc1-2.1-1.1
+[   10s] [294/685] preinstalled libseccomp2-2.6.0-2.2
+[   10s] [295/685] preinstalled libselinux-devel-3.8.1-1.1
+[   10s] [296/685] preinstalled libselinux1-3.8.1-1.1
+[   10s] [297/685] preinstalled libsemanage-conf-3.8.1-1.1
+[   10s] [298/685] preinstalled libsemanage2-3.8.1-1.1
+[   10s] [299/685] preinstalled libsepol-devel-3.8.1-1.1
+[   10s] [300/685] preinstalled libsepol2-3.8.1-1.1
+[   10s] [301/685] cumulate libserd-0-0-0.32.4-2.1
+[   10s] [302/685] cumulate libsharpyuv0-1.5.0-1.3
+[   10s] [303/685] cumulate libsigc-2_0-0-2.12.1-2.6
+[   10s] [304/685] preinstalled libsmartcols1-2.41-1.1
+[   10s] [305/685] cumulate libsodium26-1.0.20-1.3
+[   10s] [306/685] cumulate libspandsp3-3.0.0+g57-1.2
+[   10s] [307/685] cumulate libspeex1-1.2.1-2.4
+[   10s] [308/685] cumulate libspeexdsp1-1.2.1-2.5
+[   10s] [309/685] cumulate libsqlite3-0-3.49.2-1.1
+[   10s] [310/685] cumulate libsrt1_5-1.5.4-2.1
+[   10s] [311/685] cumulate libsrtp2-1-2.7.0-1.1
+[   10s] [312/685] cumulate libssh-config-0.11.1-5.1
+[   10s] [313/685] preinstalled libstdc++-devel-14-3.1
+[   10s] [314/685] preinstalled libstdc++6-15.1.1+git9739-2.1
+[   10s] [315/685] preinstalled libstdc++6-devel-gcc14-14.3.0+git11799-3.1
+[   10s] [316/685] preinstalled libsubid5-4.17.4-2.1
+[   10s] [317/685] preinstalled libsystemd0-mini-257.6-1.1
+[   10s] [318/685] preinstalled libtasn1-6-4.20.0-1.2
+[   10s] [319/685] cumulate libtasn1-devel-4.20.0-1.2
+[   10s] [320/685] preinstalled libthai-data-0.1.29-1.10
+[   10s] [321/685] preinstalled libthai-devel-0.1.29-1.10
+[   10s] [322/685] preinstalled libthai0-0.1.29-1.10
+[   10s] [323/685] cumulate libtheoradec2-1.2.0-2.1
+[   10s] [324/685] preinstalled libtiff-devel-4.7.0-6.1
+[   10s] [325/685] preinstalled libtiff6-4.7.0-6.1
+[   10s] [326/685] preinstalled libtsan2-15.1.1+git9739-2.1
+[   10s] [327/685] preinstalled libturbojpeg0-8.3.2-81.4
+[   10s] [328/685] preinstalled libubsan1-15.1.1+git9739-2.1
+[   10s] [329/685] preinstalled libudev-mini1-257.6-1.1
+[   10s] [330/685] cumulate libunibreak5-5.1-2.3
+[   10s] [331/685] preinstalled libunistring5-1.3-1.3
+[   10s] [332/685] cumulate libunwind8-1.8.2-2.1
+[   10s] [333/685] cumulate libusb-1_0-0-1.0.28-1.1
+[   10s] [334/685] preinstalled libuuid1-2.41-1.1
+[   10s] [335/685] cumulate libva2-2.22.0-1.4
+[   10s] [336/685] cumulate libverto-devel-0.3.2-3.5
+[   10s] [337/685] preinstalled libverto1-0.3.2-3.5
+[   10s] [338/685] cumulate libvisual-0_4-0-0.4.0-207.3
+[   10s] [339/685] cumulate libvo-amrwbenc0-0.1.3+5-1.6
+[   10s] [340/685] cumulate libvpl2-2.15.0-1.1
+[   10s] [341/685] preinstalled libvulkan1-1.4.313-1.1
+[   10s] [342/685] preinstalled libvulkan_lvp-25.1.3-417.1
+[   10s] [343/685] preinstalled libwayland-client0-1.23.1-3.1
+[   10s] [344/685] preinstalled libwayland-cursor0-1.23.1-3.1
+[   10s] [345/685] preinstalled libwayland-egl1-1.23.1-3.1
+[   10s] [346/685] preinstalled libwayland-server0-1.23.1-3.1
+[   10s] [347/685] cumulate libwebrtc-audio-processing-1-3-1.3-2.1
+[   10s] [348/685] preinstalled libxcb-composite0-1.17.0-2.3
+[   10s] [349/685] preinstalled libxcb-damage0-1.17.0-2.3
+[   10s] [350/685] preinstalled libxcb-dbe0-1.17.0-2.3
+[   10s] [351/685] preinstalled libxcb-devel-1.17.0-2.3
+[   10s] [352/685] preinstalled libxcb-dpms0-1.17.0-2.3
+[   10s] [353/685] preinstalled libxcb-dri2-0-1.17.0-2.3
+[   10s] [354/685] preinstalled libxcb-dri3-0-1.17.0-2.3
+[   10s] [355/685] preinstalled libxcb-glx0-1.17.0-2.3
+[   10s] [356/685] preinstalled libxcb-present0-1.17.0-2.3
+[   10s] [357/685] preinstalled libxcb-randr0-1.17.0-2.3
+[   10s] [358/685] preinstalled libxcb-record0-1.17.0-2.3
+[   10s] [359/685] preinstalled libxcb-render0-1.17.0-2.3
+[   10s] [360/685] preinstalled libxcb-res0-1.17.0-2.3
+[   10s] [361/685] preinstalled libxcb-screensaver0-1.17.0-2.3
+[   10s] [362/685] preinstalled libxcb-shape0-1.17.0-2.3
+[   10s] [363/685] preinstalled libxcb-shm0-1.17.0-2.3
+[   10s] [364/685] preinstalled libxcb-sync1-1.17.0-2.3
+[   10s] [365/685] preinstalled libxcb-xf86dri0-1.17.0-2.3
+[   10s] [366/685] preinstalled libxcb-xfixes0-1.17.0-2.3
+[   10s] [367/685] preinstalled libxcb-xinerama0-1.17.0-2.3
+[   10s] [368/685] preinstalled libxcb-xinput0-1.17.0-2.3
+[   10s] [369/685] preinstalled libxcb-xkb1-1.17.0-2.3
+[   10s] [370/685] preinstalled libxcb-xtest0-1.17.0-2.3
+[   10s] [371/685] preinstalled libxcb-xv0-1.17.0-2.3
+[   10s] [372/685] preinstalled libxcb-xvmc0-1.17.0-2.3
+[   10s] [373/685] preinstalled libxcb1-1.17.0-2.3
+[   10s] [374/685] preinstalled libxcrypt-devel-4.4.38-1.2
+[   10s] [375/685] preinstalled libxkbcommon-devel-1.10.0-1.1
+[   10s] [376/685] cumulate libxkbcommon-x11-0-1.10.0-1.1
+[   10s] [377/685] preinstalled libxkbcommon0-1.10.0-1.1
+[   10s] [378/685] preinstalled libxml2-2-2.13.8-1.1
+[   10s] [379/685] cumulate libxml2-tools-2.13.8-1.1
+[   10s] [380/685] preinstalled libxshmfence1-1.3.3-1.2
+[   10s] [381/685] cumulate libyaml-0-2-0.2.5-2.7
+[   10s] [382/685] preinstalled libz1-1.3.1-1.3
+[   10s] [383/685] cumulate libzix-0-0-0.6.2-2.3
+[   10s] [384/685] preinstalled libzstd-devel-1.5.7-3.1
+[   10s] [385/685] preinstalled libzstd1-1.5.7-3.1
+[   10s] [386/685] cumulate libzvbi0-0.2.44-1.1
+[   10s] [387/685] preinstalled linux-glibc-devel-6.15-1.1
+[   10s] [388/685] preinstalled login_defs-4.17.4-2.1
+[   10s] [389/685] preinstalled lua54-5.4.7-4.1
+[   10s] [390/685] cumulate lv2-1.18.10-3.4
+[   10s] [391/685] preinstalled lzo-devel-2.10-9.3
+[   10s] [392/685] preinstalled make-4.4.1-3.3
+[   10s] [393/685] preinstalled ncurses-utils-6.5.20250531-73.1
+[   10s] [394/685] cumulate ninja-1.12.1-1.4
+[   10s] [395/685] cumulate p11-kit-0.25.5-1.4
+[   10s] [396/685] cumulate p11-kit-devel-0.25.5-1.4
+[   10s] [397/685] cumulate p11-kit-tools-0.25.5-1.4
+[   10s] [398/685] preinstalled pam-1.7.0-3.1
+[   10s] [399/685] preinstalled pango-devel-1.56.3-1.1
+[   10s] [400/685] preinstalled patch-2.8-1.1
+[   10s] [401/685] preinstalled pcre2-devel-10.45-1.1
+[   10s] [402/685] preinstalled perl-5.40.2-2.1
+[   10s] [403/685] cumulate perl-Clone-0.470.0-1.3
+[   10s] [404/685] cumulate perl-Encode-Locale-1.05-1.32
+[   10s] [405/685] cumulate perl-HTML-Tagset-3.240.0-1.4
+[   10s] [406/685] cumulate perl-IO-HTML-1.4.0-1.1
+[   10s] [407/685] cumulate perl-LWP-MediaTypes-6.04-1.25
+[   10s] [408/685] cumulate perl-MIME-Base32-1.303.0-1.2
+[   10s] [409/685] cumulate perl-TimeDate-2.33-1.21
+[   10s] [410/685] cumulate perl-Try-Tiny-0.320.0-1.2
+[   10s] [411/685] preinstalled perl-base-5.40.2-2.1
+[   10s] [412/685] preinstalled perl-rpm-packaging-1.2-1.1
+[   10s] [413/685] preinstalled permctl-1699_20250120-1.3
+[   10s] [414/685] preinstalled permissions-1699_20250120-1.3
+[   10s] [415/685] preinstalled permissions-config-1699_20250120-1.3
+[   10s] [416/685] preinstalled pkgconf-2.2.0-1.3
+[   10s] [417/685] preinstalled pkgconf-m4-2.2.0-1.3
+[   10s] [418/685] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[   10s] [419/685] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[   10s] [420/685] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[   10s] [421/685] preinstalled python-rpm-macros-20241120.6ae645f-1.3
+[   10s] [422/685] preinstalled python-rpm-packaging-20210526+a18ca48-1.13
+[   10s] [423/685] preinstalled python313-base-3.13.3-4.1
+[   10s] [424/685] cumulate python313-extras-1.0.0-7.1
+[   10s] [425/685] preinstalled python313-packaging-24.2-2.1
+[   10s] [426/685] preinstalled rpm-4.20.1-4.1
+[   10s] [427/685] preinstalled rpm-build-4.20.1-4.1
+[   10s] [428/685] preinstalled rpm-config-SUSE-20250423-1.1
+[   10s] [429/685] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.29
+[   10s] [430/685] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[   10s] [431/685] preinstalled sed-4.9-2.8
+[   10s] [432/685] preinstalled shadow-4.17.4-2.1
+[   10s] [433/685] preinstalled shared-mime-info-2.4-3.4
+[   10s] [434/685] preinstalled system-user-lp-20170617-27.1
+[   10s] [435/685] preinstalled system-user-root-20190513-2.18
+[   10s] [436/685] preinstalled systemd-mini-257.6-1.1
+[   10s] [437/685] cumulate systemd-mini-devel-257.6-1.1
+[   10s] [438/685] preinstalled systemd-rpm-macros-24-1.8
+[   10s] [439/685] preinstalled sysuser-shadow-3.3-8.2
+[   10s] [440/685] preinstalled tar-1.35-4.1
+[   10s] [441/685] preinstalled terminfo-base-6.5.20250531-73.1
+[   10s] [442/685] preinstalled timezone-2025b-1.1
+[   10s] [443/685] preinstalled typelib-1_0-Atk-1_0-2.56.2-1.1
+[   10s] [444/685] preinstalled typelib-1_0-Atspi-2_0-2.56.2-1.1
+[   10s] [445/685] preinstalled typelib-1_0-GIRepository-3_0-2.84.2-1.1
+[   10s] [446/685] preinstalled typelib-1_0-GLib-2_0-2.84.2-1.1
+[   10s] [447/685] preinstalled typelib-1_0-GLibUnix-2_0-2.84.2-1.1
+[   10s] [448/685] preinstalled typelib-1_0-GModule-2_0-2.84.2-1.1
+[   10s] [449/685] preinstalled typelib-1_0-GObject-2_0-2.84.2-1.1
+[   10s] [450/685] preinstalled typelib-1_0-GdkPixbuf-2_0-2.42.12-2.3
+[   10s] [451/685] preinstalled typelib-1_0-GdkPixdata-2_0-2.42.12-2.3
+[   10s] [452/685] preinstalled typelib-1_0-Gio-2_0-2.84.2-1.1
+[   10s] [453/685] preinstalled typelib-1_0-Gtk-3_0-3.24.49+14-1.1
+[   10s] [454/685] preinstalled typelib-1_0-HarfBuzz-0_0-11.2.1-1.1
+[   10s] [455/685] preinstalled typelib-1_0-Pango-1_0-1.56.3-1.1
+[   10s] [456/685] preinstalled update-alternatives-1.22.18-1.1
+[   10s] [457/685] preinstalled util-linux-2.41-1.1
+[   10s] [458/685] cumulate vulkan-headers-1.4.313-1.1
+[   10s] [459/685] preinstalled wayland-devel-1.23.1-3.1
+[   10s] [460/685] preinstalled which-2.23-1.2
+[   10s] [461/685] preinstalled xkeyboard-config-2.44-1.2
+[   10s] [462/685] preinstalled xorgproto-devel-2024.1-1.4
+[   10s] [463/685] preinstalled xz-5.8.1-1.1
+[   10s] [464/685] preinstalled xz-devel-5.8.1-1.1
+[   10s] [465/685] preinstalled zlib-devel-1.3.1-1.3
+[   10s] [466/685] cumulate gcab-1.6-1.6
+[   10s] [467/685] cumulate gcc-c++-14-3.1
+[   10s] [468/685] cumulate gmp-devel-6.3.0-5.1
+[   10s] [469/685] cumulate libFLAC14-1.5.0-1.2
+[   10s] [470/685] cumulate libIlmThread-3_2-31-3.2.2-2.3
+[   10s] [471/685] cumulate libOpenEXRCore-3_2-31-3.2.2-2.3
+[   10s] [472/685] cumulate libSvtAv1Enc3-3.0.1-1.1
+[   10s] [473/685] cumulate libass9-0.17.3-1.4
+[   10s] [474/685] cumulate libboost_atomic1_88_0-1.88.0-1.1
+[   10s] [475/685] cumulate libboost_filesystem1_88_0-1.88.0-1.1
+[   10s] [476/685] cumulate libboost_headers1_88_0-devel-1.88.0-1.1
+[   10s] [477/685] cumulate libboost_system1_88_0-1.88.0-1.1
+[   10s] [478/685] cumulate libbs2b-devel-3.1.0-14.5
+[   10s] [479/685] cumulate libcairomm-1_0-1-1.12.2-5.1
+[   10s] [480/685] cumulate libcdda_paranoia0-3.10.2-30.3
+[   10s] [481/685] cumulate libdvdnav4-6.1.1-1.13
+[   10s] [482/685] cumulate libdw-devel-0.192-2.2
+[   10s] [483/685] cumulate libebur128-devel-1.2.6-2.3
+[   10s] [484/685] cumulate libevent-devel-2.1.12-4.4
+[   10s] [485/685] cumulate libfftw3_threads3-3.3.10-6.1
+[   10s] [486/685] cumulate libglibmm-2_4-1-2.66.8-1.1
+[   10s] [487/685] cumulate libldap2-2.6.8-2.5
+[   10s] [488/685] cumulate libmpeg2encpp-2_2-0-2.2.1-3.1
+[   10s] [489/685] cumulate libmplex2-2_2-0-2.2.1-3.1
+[   10s] [490/685] cumulate libnghttp2-devel-1.65.0-1.1
+[   10s] [491/685] cumulate libogg-devel-1.3.5-2.3
+[   10s] [492/685] cumulate libopus-devel-1.5.2-1.3
+[   10s] [493/685] cumulate libproxy1-0.5.9-1.3
+[   10s] [494/685] cumulate libpsl-devel-0.21.5-1.5
+[   10s] [495/685] cumulate librsvg-2-2-2.60.0-2.1
+[   10s] [496/685] cumulate libsamplerate-devel-0.2.2-3.3
+[   10s] [497/685] cumulate libsigc++2-devel-2.12.1-2.6
+[   10s] [498/685] cumulate libssh4-0.11.1-5.1
+[   10s] [499/685] cumulate libtheoraenc2-1.2.0-2.1
+[   10s] [500/685] cumulate libunwind-coredump0-1.8.2-2.1
+[   10s] [501/685] cumulate libunwind-ptrace0-1.8.2-2.1
+[   10s] [502/685] cumulate libunwind-setjmp0-1.8.2-2.1
+[   10s] [503/685] cumulate libva-drm2-2.22.0-1.4
+[   10s] [504/685] cumulate libva-wayland2-2.22.0-1.4
+[   10s] [505/685] cumulate libva-x11-2-2.22.0-1.4
+[   10s] [506/685] cumulate libvorbis0-1.3.7-5.3
+[   10s] [507/685] cumulate libwebp7-1.5.0-1.3
+[   10s] [508/685] cumulate libxkbcommon-x11-devel-1.10.0-1.1
+[   10s] [509/685] cumulate libxml2-devel-2.13.8-1.1
+[   10s] [510/685] cumulate libzita-convolver4-4.0.3-1.21
+[   10s] [511/685] cumulate lv2-devel-1.18.10-3.4
+[   10s] [512/685] cumulate meson-1.8.1-1.1
+[   10s] [513/685] cumulate orc-0.4.41-1.3
+[   10s] [514/685] cumulate perl-HTTP-Date-6.06-1.7
+[   10s] [515/685] cumulate perl-URI-5.320.0-1.1
+[   10s] [516/685] cumulate pngquant-2.18.0-1.8
+[   10s] [517/685] cumulate python313-libxml2-2.13.8-1.1
+[   10s] [518/685] cumulate serd-devel-0.32.4-2.1
+[   10s] [519/685] cumulate speexdsp-devel-1.2.1-2.5
+[   10s] [520/685] cumulate sqlite3-devel-3.49.2-1.1
+[   10s] [521/685] cumulate typelib-1_0-GUdev-1_0-238-1.6
+[   10s] [522/685] cumulate vulkan-devel-1.4.313-1.1
+[   10s] [523/685] cumulate zix-devel-0.6.2-2.3
+[   10s] [524/685] cumulate ca-certificates-2+git20240805.fd24d50-1.2
+[   10s] [525/685] cumulate krb5-mini-devel-1.21.3-3.1
+[   10s] [526/685] cumulate libdc1394-26-2.2.7-2.4
+[   10s] [527/685] cumulate libportaudio2-190700_20210406-1.13
+[   10s] [528/685] cumulate libsord-0-0-0.16.18-1.1
+[   10s] [529/685] cumulate libdrm-devel-2.4.124-2.3
+[   10s] [530/685] cumulate ca-certificates-mozilla-2.74-4.1
+[   10s] [531/685] cumulate gdk-pixbuf-loader-rsvg-2.60.0-2.1
+[   10s] [532/685] cumulate itstool-2.0.7-3.1
+[   10s] [533/685] cumulate libFLAC++11-1.5.0-1.2
+[   10s] [534/685] cumulate libneon27-0.34.0-1.3
+[   10s] [535/685] cumulate libnettle-devel-3.10.1-2.2
+[   10s] [536/685] cumulate libvorbisenc2-1.3.7-5.3
+[   10s] [537/685] cumulate libwebpmux3-1.5.0-1.3
+[   10s] [538/685] cumulate perl-File-Listing-6.160.0-2.4
+[   10s] [539/685] cumulate perl-Net-HTTP-6.23-1.7
+[   10s] [540/685] cumulate perl-WWW-RobotRules-6.02-9.33
+[   10s] [541/685] cumulate cairomm1_0-devel-1.12.2-5.1
+[   10s] [542/685] cumulate fftw3-devel-3.3.10-6.1
+[   10s] [543/685] cumulate libatkmm-1_6-1-2.28.3-3.4
+[   10s] [544/685] cumulate libboost_atomic1_88_0-devel-1.88.0-1.1
+[   10s] [545/685] cumulate libboost_system1_88_0-devel-1.88.0-1.1
+[   10s] [546/685] cumulate libgiomm-2_4-1-2.66.8-1.1
+[   10s] [547/685] cumulate libsratom-0-0-0.6.18-1.1
+[   10s] [548/685] cumulate libvorbisfile3-1.3.7-5.3
+[   10s] [549/685] cumulate speex-devel-1.2.1-2.4
+[   10s] [550/685] cumulate libgudev-1_0-devel-238-1.6
+[   10s] [551/685] cumulate libpangomm-1_4-1-2.46.4-2.1
+[   10s] [552/685] cumulate libunbound-devel-mini-1.23.0-1.1
+[   10s] [553/685] cumulate sord-devel-0.16.18-1.1
+[   10s] [554/685] cumulate libOpenEXR-3_2-31-3.2.2-2.3
+[   10s] [555/685] cumulate libcurl4-8.14.1-1.1
+[   10s] [556/685] cumulate libunwind-devel-1.8.2-2.1
+[   10s] [557/685] cumulate libva-devel-2.22.0-1.4
+[   10s] [558/685] cumulate perl-HTTP-Message-7.0.0-1.2
+[   10s] [559/685] cumulate libboost_system-devel-1.88.0-1.1
+[   10s] [560/685] cumulate libgnutls-dane0-3.8.9-4.2
+[   10s] [561/685] cumulate perl-HTTP-Negotiate-6.01-9.33
+[   10s] [562/685] cumulate libappstream-glib8-0.8.3-1.3
+[   10s] [563/685] cumulate perl-HTTP-Cookies-6.110.0-2.4
+[   10s] [564/685] cumulate zita-convolver-devel-4.0.3-1.21
+[   10s] [565/685] cumulate flac-devel-1.5.0-1.2
+[   10s] [566/685] cumulate glib-networking-2.80.1-1.3
+[   10s] [567/685] cumulate glibmm2_4-devel-2.66.8-1.1
+[   10s] [568/685] cumulate libopenmpt0-0.7.13-1.1
+[   10s] [569/685] cumulate perl-HTML-Parser-3.830.0-1.3
+[   10s] [570/685] cumulate libboost_filesystem1_88_0-devel-1.88.0-1.1
+[   10s] [571/685] cumulate liblilv-0-0-0.24.24-2.1
+[   10s] [572/685] cumulate libvorbis-devel-1.3.7-5.3
+[   10s] [573/685] cumulate sratom-devel-0.6.18-1.1
+[   10s] [574/685] cumulate libgtkmm-3_0-1-3.24.10-1.1
+[   10s] [575/685] cumulate libsndfile1-1.2.2-3.4
+[   10s] [576/685] cumulate gnutls-3.8.9-4.2
+[   10s] [577/685] cumulate libboost_filesystem-devel-1.88.0-1.1
+[   10s] [578/685] cumulate libinstpatch-1_0-2-1.1.6-3.1
+[   10s] [579/685] cumulate libpulse0-17.0-4.8
+[   10s] [580/685] cumulate atkmm1_6-devel-2.28.3-3.4
+[   10s] [581/685] cumulate pangomm1_4-devel-2.46.4-2.1
+[   10s] [582/685] cumulate libsoup-3_0-0-3.6.5-5.1
+[   10s] [583/685] cumulate appstream-glib-0.8.3-1.3
+[   10s] [584/685] cumulate liblilv-0-devel-0.24.24-2.1
+[   10s] [585/685] cumulate libsndfile-devel-1.2.2-3.4
+[   10s] [586/685] cumulate perl-libwww-perl-6.780.0-1.1
+[   10s] [587/685] cumulate libgssdp-1_6-0-1.6.3-1.6
+[   10s] [588/685] cumulate libpulse-mainloop-glib0-17.0-4.8
+[   10s] [589/685] cumulate perl-XML-Parser-2.470.0-4.1
+[   10s] [590/685] cumulate typelib-1_0-Soup-3_0-3.6.5-5.1
+[   10s] [591/685] cumulate libopenal1-1.24.2-1.2
+[   10s] [592/685] cumulate gtkmm3-devel-3.24.10-1.1
+[   10s] [593/685] cumulate libfluidsynth3-2.4.6-1.1
+[   10s] [594/685] cumulate libgnutls-devel-3.8.9-4.2
+[   10s] [595/685] cumulate intltool-0.51.0-8.5
+[   10s] [596/685] cumulate libgupnp-1_6-0-1.6.8-1.2
+[   10s] [597/685] cumulate libpulse-devel-17.0-4.8
+[   10s] [598/685] cumulate typelib-1_0-GSSDP-1_0-1.6.3-1.6
+[   10s] [599/685] cumulate libsoup-devel-3.6.5-5.1
+[   10s] [600/685] cumulate libgupnp-igd-1_6-0-1.6.0-2.7
+[   10s] [601/685] cumulate libgssdp-devel-1.6.3-1.6
+[   10s] [602/685] cumulate typelib-1_0-GUPnP-1_0-1.6.8-1.2
+[   10s] [603/685] cumulate update-desktop-files-84.87-7.2
+[   10s] [604/685] cumulate libnice10-0.1.22-2.3
+[   10s] [605/685] cumulate typelib-1_0-GUPnPIgd-1_6-1.6.0-2.7
+[   10s] [606/685] cumulate libgupnp-devel-1.6.8-1.2
+[   10s] [607/685] cumulate typelib-1_0-Nice-0_1-0.1.22-2.3
+[   10s] [608/685] cumulate libgupnp-igd-devel-1.6.0-2.7
+[   10s] [609/685] cumulate libnice-devel-0.1.22-2.3
+[   10s] [610/685] cumulate libv4lconvert0-1.28.1-1.1
+[   10s] [611/685] cumulate libgstreamer-1_0-0-1.26.2-1.1
+[   10s] [612/685] cumulate gstreamer-1.26.2-1.1
+[   10s] [613/685] cumulate gstreamer-utils-1.26.2-1.1
+[   10s] [614/685] cumulate libgstcodecparsers-1_0-0-1.26.2-1.1
+[   10s] [615/685] cumulate libgstinsertbin-1_0-0-1.26.2-1.1
+[   10s] [616/685] cumulate libgstisoff-1_0-0-1.26.2-1.1
+[   10s] [617/685] cumulate libgstmpegts-1_0-0-1.26.2-1.1
+[   10s] [618/685] cumulate libgstphotography-1_0-0-1.26.2-1.1
+[   10s] [619/685] cumulate libgstsctp-1_0-0-1.26.2-1.1
+[   10s] [620/685] cumulate libgsturidownloader-1_0-0-1.26.2-1.1
+[   10s] [621/685] cumulate typelib-1_0-Gst-1_0-1.26.2-1.1
+[   10s] [622/685] cumulate gstreamer-plugins-bad-fluidsynth-1.26.2-1.1
+[   10s] [623/685] cumulate libv4l2-0-1.28.1-1.1
+[   10s] [624/685] cumulate libgstadaptivedemux-1_0-0-1.26.2-1.1
+[   10s] [625/685] cumulate libv4l-1.28.1-1.1
+[   10s] [626/685] cumulate libv4l1-0-1.28.1-1.1
+[   10s] [627/685] cumulate libzbar0-0.23.93-2.7
+[   10s] [628/685] cumulate typelib-1_0-GstInsertBin-1_0-1.26.2-1.1
+[   10s] [629/685] cumulate typelib-1_0-GstMpegts-1_0-1.26.2-1.1
+[   10s] [630/685] cumulate gstreamer-devel-1.26.2-1.1
+[   10s] [631/685] cumulate gstreamer-plugins-base-1.26.2-1.1
+[   10s] [632/685] cumulate libgstfft-1_0-0-1.26.2-1.1
+[   10s] [633/685] cumulate libgstallocators-1_0-0-1.26.2-1.1
+[   10s] [634/685] cumulate libgstapp-1_0-0-1.26.2-1.1
+[   10s] [635/685] cumulate libgstrtp-1_0-0-1.26.2-1.1
+[   10s] [636/685] cumulate libgstrtsp-1_0-0-1.26.2-1.1
+[   10s] [637/685] cumulate libgsttag-1_0-0-1.26.2-1.1
+[   10s] [638/685] cumulate libgstvideo-1_0-0-1.26.2-1.1
+[   10s] [639/685] cumulate libgstanalytics-1_0-0-1.26.2-1.1
+[   10s] [640/685] cumulate libgstbasecamerabinsrc-1_0-0-1.26.2-1.1
+[   10s] [641/685] cumulate libgstmse-1_0-0-1.26.2-1.1
+[   10s] [642/685] cumulate typelib-1_0-GstAllocators-1_0-1.26.2-1.1
+[   10s] [643/685] cumulate typelib-1_0-GstApp-1_0-1.26.2-1.1
+[   10s] [644/685] cumulate typelib-1_0-GstRtp-1_0-1.26.2-1.1
+[   10s] [645/685] cumulate typelib-1_0-GstTag-1_0-1.26.2-1.1
+[   10s] [646/685] cumulate typelib-1_0-GstVideo-1_0-1.26.2-1.1
+[   10s] [647/685] cumulate libgstcodecs-1_0-0-1.26.2-1.1
+[   10s] [648/685] cumulate libgstvulkan-1_0-0-1.26.2-1.1
+[   10s] [649/685] cumulate libgstwayland-1_0-0-1.26.2-1.1
+[   10s] [650/685] cumulate libgstaudio-1_0-0-1.26.2-1.1
+[   10s] [651/685] cumulate libgstgl-1_0-0-1.26.2-1.1
+[   10s] [652/685] cumulate libgstva-1_0-0-1.26.2-1.1
+[   10s] [653/685] cumulate libgstbadaudio-1_0-0-1.26.2-1.1
+[   10s] [654/685] cumulate typelib-1_0-GstAudio-1_0-1.26.2-1.1
+[   10s] [655/685] cumulate typelib-1_0-GstMse-1_0-1.26.2-1.1
+[   10s] [656/685] cumulate libgstcuda-1_0-0-1.26.2-1.1
+[   10s] [657/685] cumulate libgstdxva-1_0-0-1.26.2-1.1
+[   10s] [658/685] cumulate typelib-1_0-GstAnalytics-1_0-1.26.2-1.1
+[   10s] [659/685] cumulate typelib-1_0-GstCodecs-1_0-1.26.2-1.1
+[   10s] [660/685] cumulate typelib-1_0-GstGL-1_0-1.26.2-1.1
+[   10s] [661/685] cumulate typelib-1_0-GstVa-1_0-1.26.2-1.1
+[   10s] [662/685] cumulate libgstriff-1_0-0-1.26.2-1.1
+[   10s] [663/685] cumulate libgstpbutils-1_0-0-1.26.2-1.1
+[   10s] [664/685] cumulate typelib-1_0-CudaGst-1_0-1.26.2-1.1
+[   10s] [665/685] cumulate libgsttranscoder-1_0-0-1.26.2-1.1
+[   10s] [666/685] cumulate typelib-1_0-GstBadAudio-1_0-1.26.2-1.1
+[   10s] [667/685] cumulate libgstplay-1_0-0-1.26.2-1.1
+[   10s] [668/685] cumulate libgstsdp-1_0-0-1.26.2-1.1
+[   10s] [669/685] cumulate typelib-1_0-GstDxva-1_0-1.26.2-1.1
+[   10s] [670/685] cumulate typelib-1_0-GstGLEGL-1_0-1.26.2-1.1
+[   10s] [671/685] cumulate typelib-1_0-GstGLWayland-1_0-1.26.2-1.1
+[   10s] [672/685] cumulate typelib-1_0-GstGLX11-1_0-1.26.2-1.1
+[   10s] [673/685] cumulate typelib-1_0-GstPbutils-1_0-1.26.2-1.1
+[   10s] [674/685] cumulate libgstwebrtc-1_0-0-1.26.2-1.1
+[   10s] [675/685] cumulate typelib-1_0-GstSdp-1_0-1.26.2-1.1
+[   10s] [676/685] cumulate libgstplayer-1_0-0-1.26.2-1.1
+[   10s] [677/685] cumulate typelib-1_0-GstCuda-1_0-1.26.2-1.1
+[   10s] [678/685] cumulate typelib-1_0-GstPlay-1_0-1.26.2-1.1
+[   10s] [679/685] cumulate libgstwebrtcnice-1_0-0-1.26.2-1.1
+[   10s] [680/685] cumulate typelib-1_0-GstRtsp-1_0-1.26.2-1.1
+[   10s] [681/685] cumulate typelib-1_0-GstWebRTC-1_0-1.26.2-1.1
+[   10s] [682/685] cumulate typelib-1_0-GstPlayer-1_0-1.26.2-1.1
+[   10s] [683/685] cumulate gstreamer-plugins-base-devel-1.26.2-1.1
+[   10s] [684/685] cumulate gstreamer-plugins-bad-1.26.2-1.1
+[   10s] [685/685] cumulate gstreamer-plugins-bad-devel-1.26.2-1.1
+[   10s] now installing cumulated packages
+[   10s] Preparing...                          ########################################
+[   10s] Updating / installing...
+[   10s] libsigc-2_0-0-2.12.1-2.6              ########################################
+[   10s] libogg0-1.3.5-2.3                     ########################################
+[   10s] libvorbis0-1.3.7-5.3                  ########################################
+[   10s] libva2-2.22.0-1.4                     ########################################
+[   10s] libglibmm-2_4-1-2.66.8-1.1            ########################################
+[   10s] libunwind8-1.8.2-2.1                  ########################################
+[   10s] gstreamer-1.26.2-1.1                  ########################################
+[   10s] /usr/libexec/gstreamer-1.0/gst-ptp-helper: setting to root:root 0755 "cap_net_bind_service=ep". (missing capabilities)
+[   10s] libgstreamer-1_0-0-1.26.2-1.1         ########################################
+[   10s] typelib-1_0-Gst-1_0-1.26.2-1.1        ########################################
+[   10s] liborc-0_4-0-0.4.41-1.3               ########################################
+[   10s] libserd-0-0-0.32.4-2.1                ########################################
+[   10s] libopus0-1.5.2-1.3                    ########################################
+[   10s] libgudev-1_0-0-238-1.6                ########################################
+[   10s] libasound2-1.2.14-1.1                 ########################################
+[   10s] boost-license1_88_0-1.88.0-1.1        ########################################
+[   11s] libboost_headers1_88_0-devel-1.88.0-1.########################################
+[   11s] serd-devel-0.32.4-2.1                 ########################################
+[   11s] libgstcodecparsers-1_0-0-1.26.2-1.1   ########################################
+[   11s] libgstinsertbin-1_0-0-1.26.2-1.1      ########################################
+[   11s] libgstmpegts-1_0-0-1.26.2-1.1         ########################################
+[   11s] libgsturidownloader-1_0-0-1.26.2-1.1  ########################################
+[   11s] libvorbisenc2-1.3.7-5.3               ########################################
+[   11s] libFLAC14-1.5.0-1.2                   ########################################
+[   11s] libogg-devel-1.3.5-2.3                ########################################
+[   11s] libcairomm-1_0-1-1.12.2-5.1           ########################################
+[   11s] libzix-0-0-0.6.2-2.3                  ########################################
+[   11s] libsord-0-0-0.16.18-1.1               ########################################
+[   11s] libpsl5-0.21.5-1.5                    ########################################
+[   11s] libnghttp2-14-1.65.0-1.1              ########################################
+[   11s] libmjpegutils-2_2-0-2.2.1-3.1         ########################################
+[   11s] libfftw3-3-3.3.10-6.1                 ########################################
+[   11s] libIex-3_2-31-3.2.2-2.3               ########################################
+[   11s] libsratom-0-0-0.6.18-1.1              ########################################
+[   11s] liblilv-0-0-0.24.24-2.1               ########################################
+[   11s] zix-devel-0.6.2-2.3                   ########################################
+[   11s] sord-devel-0.16.18-1.1                ########################################
+[   11s] libpangomm-1_4-1-2.46.4-2.1           ########################################
+[   11s] libgstadaptivedemux-1_0-0-1.26.2-1.1  ########################################
+[   11s] libgstisoff-1_0-0-1.26.2-1.1          ########################################
+[   11s] libgstphotography-1_0-0-1.26.2-1.1    ########################################
+[   11s] libgstsctp-1_0-0-1.26.2-1.1           ########################################
+[   11s] libatkmm-1_6-1-2.28.3-3.4             ########################################
+[   11s] libgiomm-2_4-1-2.66.8-1.1             ########################################
+[   11s] libva-drm2-2.22.0-1.4                 ########################################
+[   11s] libvorbisfile3-1.3.7-5.3              ########################################
+[   11s] libsigc++2-devel-2.12.1-2.6           ########################################
+[   11s] glibmm2_4-devel-2.66.8-1.1            ########################################
+[   11s] cairomm1_0-devel-1.12.2-5.1           ########################################
+[   11s] perl-LWP-MediaTypes-6.04-1.25         ########################################
+[   11s] perl-Encode-Locale-1.05-1.32          ########################################
+[   11s] libxkbcommon-x11-0-1.10.0-1.1         ########################################
+[   11s] libusb-1_0-0-1.0.28-1.1               ########################################
+[   11s] libsqlite3-0-3.49.2-1.1               ########################################
+[   11s] libspeex1-1.2.1-2.4                   ########################################
+[   11s] libsndfile1-1.2.2-3.4                 ########################################
+[   11s] libpulse0-17.0-4.8                    ########################################
+[   11s] libjson-glib-1_0-0-1.10.6-1.3         ########################################
+[   11s] libjack0-1.9.22-4.3                   ########################################
+[   11s] libevent-2_1-7-2.1.12-4.4             ########################################
+[   11s] libdvdread8-6.1.3-1.10                ########################################
+[   11s] libcdda_interface0-3.10.2-30.3        ########################################
+[   11s] libbs2b0-3.1.0-14.5                   ########################################
+[   11s] libXv1-1.0.13-1.2                     ########################################
+[   11s] libImath-3_1-29-3.1.12-1.3            ########################################
+[   11s] libcdda_paranoia0-3.10.2-30.3         ########################################
+[   11s] libdvdnav4-6.1.1-1.13                 ########################################
+[   11s] libevent-devel-2.1.12-4.4             ########################################
+[   11s] libportaudio2-190700_20210406-1.13    ########################################
+[   11s] libopenal1-1.24.2-1.2                 ########################################
+[   11s] libpulse-mainloop-glib0-17.0-4.8      ########################################
+[   11s] libinstpatch-1_0-2-1.1.6-3.1          ########################################
+[   11s] libfluidsynth3-2.4.6-1.1              ########################################
+[   11s] gstreamer-plugins-bad-fluidsynth-1.26.########################################
+[   11s] sqlite3-devel-3.49.2-1.1              ########################################
+[   11s] libxkbcommon-x11-devel-1.10.0-1.1     ########################################
+[   11s] pangomm1_4-devel-2.46.4-2.1           ########################################
+[   11s] atkmm1_6-devel-2.28.3-3.4             ########################################
+[   11s] libvorbis-devel-1.3.7-5.3             ########################################
+[   12s] libgtkmm-3_0-1-3.24.10-1.1            ########################################
+[   12s] libIlmThread-3_2-31-3.2.2-2.3         ########################################
+[   12s] libfftw3_threads3-3.3.10-6.1          ########################################
+[   12s] fftw3-devel-3.3.10-6.1                ########################################
+[   12s] libzita-convolver4-4.0.3-1.21         ########################################
+[   12s] libmpeg2encpp-2_2-0-2.2.1-3.1         ########################################
+[   12s] libmplex2-2_2-0-2.2.1-3.1             ########################################
+[   12s] libnghttp2-devel-1.65.0-1.1           ########################################
+[   12s] libpsl-devel-0.21.5-1.5               ########################################
+[   12s] libFLAC++11-1.5.0-1.2                 ########################################
+[   12s] flac-devel-1.5.0-1.2                  ########################################
+[   12s] typelib-1_0-GstMpegts-1_0-1.26.2-1.1  ########################################
+[   12s] typelib-1_0-GstInsertBin-1_0-1.26.2-1.########################################
+[   12s] libboost_atomic1_88_0-1.88.0-1.1      ########################################
+[   12s] libboost_atomic1_88_0-devel-1.88.0-1.1########################################
+[   12s] libboost_filesystem1_88_0-1.88.0-1.1  ########################################
+[   12s] libboost_system1_88_0-1.88.0-1.1      ########################################
+[   12s] libboost_system1_88_0-devel-1.88.0-1.1########################################
+[   12s] libboost_filesystem1_88_0-devel-1.88.0########################################
+[   12s] typelib-1_0-GUdev-1_0-238-1.6         ########################################
+[   12s] libopus-devel-1.5.2-1.3               ########################################
+[   12s] orc-0.4.41-1.3                        ########################################
+[   12s] gstreamer-utils-1.26.2-1.1            ########################################
+[   12s] libunwind-coredump0-1.8.2-2.1         ########################################
+[   12s] libunwind-ptrace0-1.8.2-2.1           ########################################
+[   12s] libunwind-setjmp0-1.8.2-2.1           ########################################
+[   12s] libunwind-devel-1.8.2-2.1             ########################################
+[   12s] libva-wayland2-2.22.0-1.4             ########################################
+[   12s] libva-x11-2-2.22.0-1.4                ########################################
+[   12s] libtheoraenc2-1.2.0-2.1               ########################################
+[   12s] libv4l-1.28.1-1.1                     ########################################
+[   12s] libv4lconvert0-1.28.1-1.1             ########################################
+[   12s] libv4l2-0-1.28.1-1.1                  ########################################
+[   12s] libv4l1-0-1.28.1-1.1                  ########################################
+[   12s] libzbar0-0.23.93-2.7                  ########################################
+[   12s] vulkan-headers-1.4.313-1.1            ########################################
+[   12s] vulkan-devel-1.4.313-1.1              ########################################
+[   12s] systemd-mini-devel-257.6-1.1          ########################################
+[   12s] libgudev-1_0-devel-238-1.6            ########################################
+[   12s] python313-extras-1.0.0-7.1            ########################################
+[   12s] python313-libxml2-2.13.8-1.1          ########################################
+[   12s] perl-Try-Tiny-0.320.0-1.2             ########################################
+[   12s] perl-TimeDate-2.33-1.21               ########################################
+[   12s] perl-HTTP-Date-6.06-1.7               ########################################
+[   12s] perl-File-Listing-6.160.0-2.4         ########################################
+[   12s] perl-MIME-Base32-1.303.0-1.2          ########################################
+[   12s] perl-URI-5.320.0-1.1                  ########################################
+[   12s] perl-Net-HTTP-6.23-1.7                ########################################
+[   12s] perl-WWW-RobotRules-6.02-9.33         ########################################
+[   12s] perl-IO-HTML-1.4.0-1.1                ########################################
+[   12s] perl-HTML-Tagset-3.240.0-1.4          ########################################
+[   12s] perl-Clone-0.470.0-1.3                ########################################
+[   12s] perl-HTTP-Message-7.0.0-1.2           ########################################
+[   12s] perl-HTTP-Negotiate-6.01-9.33         ########################################
+[   12s] perl-HTTP-Cookies-6.110.0-2.4         ########################################
+[   12s] perl-HTML-Parser-3.830.0-1.3          ########################################
+[   12s] perl-libwww-perl-6.780.0-1.1          ########################################
+[   12s] perl-XML-Parser-2.470.0-4.1           ########################################
+[   12s] intltool-0.51.0-8.5                   ########################################
+[   12s] p11-kit-tools-0.25.5-1.4              ########################################
+[   12s] p11-kit-devel-0.25.5-1.4              ########################################
+[   12s] p11-kit-0.25.5-1.4                    ########################################
+[   12s] ca-certificates-2+git20240805.fd24d50-########################################
+[   12s] ca-certificates-mozilla-2.74-4.1      ########################################
+[   12s] ninja-1.12.1-1.4                      ########################################
+[   12s] lv2-1.18.10-3.4                       ########################################
+[   12s] lv2-devel-1.18.10-3.4                 ########################################
+[   12s] sratom-devel-0.6.18-1.1               ########################################
+[   12s] libzvbi0-0.2.44-1.1                   ########################################
+[   12s] libyaml-0-2-0.2.5-2.7                 ########################################
+[   12s] libxml2-tools-2.13.8-1.1              ########################################
+[   12s] libxml2-devel-2.13.8-1.1              ########################################
+[   12s] libwebrtc-audio-processing-1-3-1.3-2.1########################################
+[   12s] libvpl2-2.15.0-1.1                    ########################################
+[   12s] libvo-amrwbenc0-0.1.3+5-1.6           ########################################
+[   12s] libvisual-0_4-0-0.4.0-207.3           ########################################
+[   12s] libverto-devel-0.3.2-3.5              ########################################
+[   12s] libunibreak5-5.1-2.3                  ########################################
+[   12s] libass9-0.17.3-1.4                    ########################################
+[   12s] libtheoradec2-1.2.0-2.1               ########################################
+[   12s] libtasn1-devel-4.20.0-1.2             ########################################
+[   12s] libssh-config-0.11.1-5.1              ########################################
+[   12s] libssh4-0.11.1-5.1                    ########################################
+[   12s] libsrtp2-1-2.7.0-1.1                  ########################################
+[   12s] libsrt1_5-1.5.4-2.1                   ########################################
+[   12s] libspeexdsp1-1.2.1-2.5                ########################################
+[   12s] speexdsp-devel-1.2.1-2.5              ########################################
+[   12s] speex-devel-1.2.1-2.4                 ########################################
+[   12s] libspandsp3-3.0.0+g57-1.2             ########################################
+[   12s] libsodium26-1.0.20-1.3                ########################################
+[   12s] libunbound-devel-mini-1.23.0-1.1      ########################################
+[   12s] libgnutls-dane0-3.8.9-4.2             ########################################
+[   12s] gnutls-3.8.9-4.2                      ########################################
+[   12s] libsharpyuv0-1.5.0-1.3                ########################################
+[   12s] libwebp7-1.5.0-1.3                    ########################################
+[   12s] libwebpmux3-1.5.0-1.3                 ########################################
+[   12s] libsbc1-2.1-1.1                       ########################################
+[   12s] libsasl2-3-2.1.28-10.1                ########################################
+[   12s] libldap2-2.6.8-2.5                    ########################################
+[   12s] libcurl4-8.14.1-1.1                   ########################################
+[   12s] libappstream-glib8-0.8.3-1.3          ########################################
+[   12s] libsamplerate0-0.2.2-3.3              ########################################
+[   12s] libraw1394-11-2.1.2-2.4               ########################################
+[   12s] libdc1394-26-2.2.7-2.4                ########################################
+[   12s] libqrencode4-4.1.1-2.6                ########################################
+[   12s] libpxbackend-1_0-mini-0.5.9-1.3       ########################################
+[   12s] libproxy1-0.5.9-1.3                   ########################################
+[   12s] libneon27-0.34.0-1.3                  ########################################
+[   12s] libpciaccess-devel-0.18.1-1.5         ########################################
+[   12s] libopenjp2-7-2.5.3-2.3                ########################################
+[   12s] libmpg123-0-1.33.0-1.1                ########################################
+[   12s] libopenmpt0-0.7.13-1.1                ########################################
+[   12s] libmpcdec6-r475-6.5                   ########################################
+[   12s] libmicrodns1-0.2.0+6-2.7              ########################################
+[   12s] libldac2-2.0.2.3-4.16                 ########################################
+[   12s] liblc3-1-1.1.3-1.3                    ########################################
+[   12s] libimagequant0-2.18.0-1.7             ########################################
+[   12s] pngquant-2.18.0-1.8                   ########################################
+[   12s] libidn2-devel-2.3.8-1.1               ########################################
+[   12s] libgsm1-1.0.22-2.4                    ########################################
+[   12s] libgraphene-1_0-0-1.10.8-1.12         ########################################
+[   12s] libgstallocators-1_0-0-1.26.2-1.1     ########################################
+[   12s] libgstapp-1_0-0-1.26.2-1.1            ########################################
+[   12s] libgsttag-1_0-0-1.26.2-1.1            ########################################
+[   12s] libgstgl-1_0-0-1.26.2-1.1             ########################################
+[   12s] libgstvideo-1_0-0-1.26.2-1.1          ########################################
+[   12s] libgstaudio-1_0-0-1.26.2-1.1          ########################################
+[   12s] libgstriff-1_0-0-1.26.2-1.1           ########################################
+[   13s] libgstpbutils-1_0-0-1.26.2-1.1        ########################################
+[   13s] gstreamer-plugins-base-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstVideo-1_0-1.26.2-1.1   ########################################
+[   13s] typelib-1_0-GstGL-1_0-1.26.2-1.1      ########################################
+[   13s] typelib-1_0-GstAudio-1_0-1.26.2-1.1   ########################################
+[   13s] libgstrtp-1_0-0-1.26.2-1.1            ########################################
+[   13s] libgstsdp-1_0-0-1.26.2-1.1            ########################################
+[   13s] libgstwebrtc-1_0-0-1.26.2-1.1         ########################################
+[   13s] libgstcodecs-1_0-0-1.26.2-1.1         ########################################
+[   13s] libgstcuda-1_0-0-1.26.2-1.1           ########################################
+[   13s] typelib-1_0-GstSdp-1_0-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstPbutils-1_0-1.26.2-1.1 ########################################
+[   13s] libgstplay-1_0-0-1.26.2-1.1           ########################################
+[   13s] libgstbadaudio-1_0-0-1.26.2-1.1       ########################################
+[   13s] libgstanalytics-1_0-0-1.26.2-1.1      ########################################
+[   13s] libgstva-1_0-0-1.26.2-1.1             ########################################
+[   13s] typelib-1_0-GstTag-1_0-1.26.2-1.1     ########################################
+[   13s] libgstmse-1_0-0-1.26.2-1.1            ########################################
+[   13s] libgstplayer-1_0-0-1.26.2-1.1         ########################################
+[   13s] typelib-1_0-CudaGst-1_0-1.26.2-1.1    ########################################
+[   13s] libgstdxva-1_0-0-1.26.2-1.1           ########################################
+[   13s] typelib-1_0-GstCodecs-1_0-1.26.2-1.1  ########################################
+[   13s] libgstfft-1_0-0-1.26.2-1.1            ########################################
+[   13s] libgstrtsp-1_0-0-1.26.2-1.1           ########################################
+[   13s] libgstvulkan-1_0-0-1.26.2-1.1         ########################################
+[   13s] libgstwayland-1_0-0-1.26.2-1.1        ########################################
+[   13s] libgstbasecamerabinsrc-1_0-0-1.26.2-1.########################################
+[   13s] typelib-1_0-GstRtsp-1_0-1.26.2-1.1    ########################################
+[   13s] typelib-1_0-GstDxva-1_0-1.26.2-1.1    ########################################
+[   13s] typelib-1_0-GstCuda-1_0-1.26.2-1.1    ########################################
+[   13s] typelib-1_0-GstPlayer-1_0-1.26.2-1.1  ########################################
+[   13s] typelib-1_0-GstMse-1_0-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstPlay-1_0-1.26.2-1.1    ########################################
+[   13s] typelib-1_0-GstVa-1_0-1.26.2-1.1      ########################################
+[   13s] typelib-1_0-GstAnalytics-1_0-1.26.2-1.########################################
+[   13s] typelib-1_0-GstBadAudio-1_0-1.26.2-1.1########################################
+[   13s] typelib-1_0-GstWebRTC-1_0-1.26.2-1.1  ########################################
+[   13s] typelib-1_0-GstRtp-1_0-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstGLEGL-1_0-1.26.2-1.1   ########################################
+[   13s] typelib-1_0-GstGLWayland-1_0-1.26.2-1.########################################
+[   13s] typelib-1_0-GstGLX11-1_0-1.26.2-1.1   ########################################
+[   13s] libgsttranscoder-1_0-0-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstApp-1_0-1.26.2-1.1     ########################################
+[   13s] typelib-1_0-GstAllocators-1_0-1.26.2-1########################################
+[   13s] libgmpxx4-6.3.0-5.1                   ########################################
+[   13s] gmp-devel-6.3.0-5.1                   ########################################
+[   13s] libnettle-devel-3.10.1-2.2            ########################################
+[   13s] libgnutls-devel-3.8.9-4.2             ########################################
+[   13s] libgme0-0.6.4-1.1                     ########################################
+[   13s] libgcab-1_0-0-1.6-1.6                 ########################################
+[   13s] gcab-1.6-1.6                          ########################################
+[   13s] libgbm-devel-25.1.3-417.1             ########################################
+[   13s] libfdk-aac2-2.0.0-2.13                ########################################
+[   13s] libelf-devel-0.192-2.2                ########################################
+[   13s] libdw-devel-0.192-2.2                 ########################################
+[   13s] gstreamer-devel-1.26.2-1.1            ########################################
+[   13s] libebur128-1-1.2.6-2.3                ########################################
+[   13s] libdrm_radeon1-2.4.124-2.3            ########################################
+[   13s] libdrm_nouveau2-2.4.124-2.3           ########################################
+[   13s] libdrm-devel-2.4.124-2.3              ########################################
+[   13s] libva-devel-2.22.0-1.4                ########################################
+[   13s] libdeflate0-1.23-1.1                  ########################################
+[   13s] libOpenEXRCore-3_2-31-3.2.2-2.3       ########################################
+[   13s] libOpenEXR-3_2-31-3.2.2-2.3           ########################################
+[   13s] libdca0-0.0.7+2-1.7                   ########################################
+[   13s] libdav1d7-1.5.1-1.3                   ########################################
+[   13s] librsvg-2-2-2.60.0-2.1                ########################################
+[   13s] gdk-pixbuf-loader-rsvg-2.60.0-2.1     ########################################
+[   13s] libcpuinfo-suse0-0~git1739936485.b73ae########################################
+[   13s] libSvtAv1Enc3-3.0.1-1.1               ########################################
+[   13s] libcom_err-devel-1.47.2-1.1           ########################################
+[   13s] krb5-mini-devel-1.21.3-3.1            ########################################
+[   13s] libavtp0-0.2.0-2.6                    ########################################
+[   13s] libaom3-3.11.0-1.3                    ########################################
+[   13s] libZXing3-2.3.0-1.1                   ########################################
+[   13s] libSoundTouch1-2.3.3-1.3              ########################################
+[   13s] gsettings-desktop-schemas-48.0-1.1    ########################################
+[   13s] glib-networking-2.80.1-1.3            ########################################
+[   13s] libsoup-3_0-0-3.6.5-5.1               ########################################
+[   13s] libgssdp-1_6-0-1.6.3-1.6              ########################################
+[   13s] libgupnp-1_6-0-1.6.8-1.2              ########################################
+[   13s] libgupnp-igd-1_6-0-1.6.0-2.7          ########################################
+[   13s] libnice10-0.1.22-2.3                  ########################################
+[   13s] typelib-1_0-Soup-3_0-3.6.5-5.1        ########################################
+[   13s] typelib-1_0-GSSDP-1_0-1.6.3-1.6       ########################################
+[   13s] libsoup-devel-3.6.5-5.1               ########################################
+[   13s] libgssdp-devel-1.6.3-1.6              ########################################
+[   13s] libgstwebrtcnice-1_0-0-1.26.2-1.1     ########################################
+[   13s] gstreamer-plugins-bad-1.26.2-1.1      ########################################
+[   13s] typelib-1_0-GUPnP-1_0-1.6.8-1.2       ########################################
+[   13s] libgupnp-devel-1.6.8-1.2              ########################################
+[   13s] typelib-1_0-Nice-0_1-0.1.22-2.3       ########################################
+[   13s] typelib-1_0-GUPnPIgd-1_6-1.6.0-2.7    ########################################
+[   13s] libgupnp-igd-devel-1.6.0-2.7          ########################################
+[   13s] libnice-devel-0.1.22-2.3              ########################################
+[   13s] gcc14-c++-14.3.0+git11799-3.1         ########################################
+[   14s] desktop-translations-devel-84.87.20241########################################
+[   14s] desktop-file-utils-0.28-2.3           ########################################
+[   14s] setting SOURCE_DATE_EPOCH_MTIME to 1716505503
+[   14s] setting SOURCE_DATE_EPOCH_MTIME to 1716505503
+[   14s] Mesa-libGLESv2-devel-25.1.3-417.1     ########################################
+[   14s] gstreamer-plugins-base-devel-1.26.2-1.########################################
+[   14s] gstreamer-plugins-bad-devel-1.26.2-1.1########################################
+[   14s] update-desktop-files-84.87-7.2        ########################################
+[   14s] gcc-c++-14-3.1                        ########################################
+[   14s] appstream-glib-0.8.3-1.3              ########################################
+[   14s] libebur128-devel-1.2.6-2.3            ########################################
+[   14s] libsamplerate-devel-0.2.2-3.3         ########################################
+[   14s] libsndfile-devel-1.2.2-3.4            ########################################
+[   14s] liblilv-0-devel-0.24.24-2.1           ########################################
+[   14s] meson-1.8.1-1.1                       ########################################
+[   14s] itstool-2.0.7-3.1                     ########################################
+[   14s] libboost_filesystem-devel-1.88.0-1.1  ########################################
+[   14s] libboost_system-devel-1.88.0-1.1      ########################################
+[   14s] zita-convolver-devel-4.0.3-1.21       ########################################
+[   14s] gtkmm3-devel-3.24.10-1.1              ########################################
+[   14s] libpulse-devel-17.0-4.8               ########################################
+[   14s] libbs2b-devel-3.1.0-14.5              ########################################
+[   15s] now finalizing build dir...
+[   15s] ... running 01-add_abuild_user_to_trusted_group
+[   15s] ... running 02-set_timezone_to_utc
+[   15s] ... running 03-set-permissions-secure
+[   15s] ... running 11-hack_uname_version_to_kernel_version
+[   15s] setting SOURCE_DATE_EPOCH_MTIME to 1716505503
+[   15s] Running build time source services...
+[   15s] -----------------------------------------------------------------
+[   15s] I have the following modifications for pulseeffects.spec:
+[   15s] 21c21
+[   15s] < Release:        0
+[   15s] ---
+[   15s] > Release:        2.7
+[   16s] -----------------------------------------------------------------
+[   16s] ----- building pulseeffects.spec (user abuild)
+[   16s] -----------------------------------------------------------------
+[   16s] -----------------------------------------------------------------
+[   16s] setting SOURCE_DATE_EPOCH_MTIME to 1716505503
+[   16s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/d6f008a4c4557976a14ddcf89c5732f3-pulseeffects' /home/abuild/rpmbuild/SOURCES/pulseeffects.spec
+[   16s] using SOURCE_DATE_EPOCH with value 1716505496 as build time
+[   16s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.QbnCRx
+[   16s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.MoFttk
+[   16s] + umask 022
+[   16s] + cd /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build
+[   16s] + cd /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build
+[   16s] + rm -rf pulseeffects-4.8.7
+[   16s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/pulseeffects-4.8.7.tar.gz
+[   16s] + STATUS=0
+[   16s] + '[' 0 -ne 0 ']'
+[   16s] + cd pulseeffects-4.8.7
+[   16s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   16s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/01-fix-depricated-boost-filesystem-copy_option.patch
+[   16s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   16s] + sed -i '/^meson.add_install_script/d' meson.build
+[   16s] + RPM_EC=0
+[   16s] ++ jobs -p
+[   16s] + exit 0
+[   16s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.VnHFta
+[   16s] + umask 022
+[   16s] + cd /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build
+[   16s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/BUILDROOT
+[   16s] ++ dirname /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/BUILDROOT
+[   16s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build
+[   16s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/BUILDROOT
+[   16s] + cd pulseeffects-4.8.7
+[   16s] + CONFIG_SHELL=/usr/bin/bash
+[   16s] + export CONFIG_SHELL
+[   16s] + CFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   16s] + export CFLAGS
+[   16s] + CXXFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   16s] + export CXXFLAGS
+[   16s] + FFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   16s] + export FFLAGS
+[   16s] + FCFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   16s] + export FCFLAGS
+[   16s] + LDFLAGS=-flto=auto
+[   16s] + export LDFLAGS
+[   16s] + /usr/bin/meson setup --buildtype=plain --prefix=/usr --libdir=/usr/lib64 --libexecdir=/usr/libexec --bindir=/usr/bin --sbindir=/usr/sbin --includedir=/usr/include --datadir=/usr/share --mandir=/usr/share/man --infodir=/usr/share/info --localedir=/usr/share/locale --sysconfdir=/etc --localstatedir=/var --sharedstatedir=/var/lib --wrap-mode=nodownload --auto-features=enabled . x86_64-suse-linux
+[   17s] The Meson build system
+[   17s] Version: 1.8.1
+[   17s] Source dir: /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/pulseeffects-4.8.7
+[   17s] Build dir: /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/pulseeffects-4.8.7/x86_64-suse-linux
+[   17s] Build type: native build
+[   17s] Project name: pulseeffects
+[   17s] Project version: 4.8.7
+[   17s] C compiler for the host machine: cc (gcc 14.3.0 "cc (SUSE Linux) 14.3.0")
+[   17s] C linker for the host machine: cc ld.bfd 2.43.1.20241209-7
+[   17s] C++ compiler for the host machine: c++ (gcc 14.3.0 "c++ (SUSE Linux) 14.3.0")
+[   17s] C++ linker for the host machine: c++ ld.bfd 2.43.1.20241209-7
+[   17s] Host machine cpu family: x86_64
+[   17s] Host machine cpu: x86_64
+[   17s] Configuring config.h using configuration
+[   17s] Program msgfmt found: YES (/usr/bin/msgfmt)
+[   17s] Program appstream-util found: YES (/usr/bin/appstream-util)
+[   17s] Program desktop-file-validate found: YES (/usr/bin/desktop-file-validate)
+[   17s] Configuring about.glade using configuration
+[   17s] Found pkg-config: YES (/usr/bin/pkg-config) 2.2.0
+[   17s] Build-time dependency gio-2.0 found: YES 2.84.2
+[   17s] Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+[   17s] Configuring com.github.wwmm.pulseeffects.service using configuration
+[   17s] Program msginit found: YES (/usr/bin/msginit)
+[   17s] Program msgmerge found: YES (/usr/bin/msgmerge)
+[   17s] Program xgettext found: YES (/usr/bin/xgettext)
+[   17s] Program itstool found: YES (/usr/bin/itstool)
+[   17s] Program itstool found: YES (/usr/bin/itstool)
+[   17s] Program msgmerge found: YES (/usr/bin/msgmerge)
+[   17s] Program msgfmt found: YES (/usr/bin/msgfmt)
+[   17s] Run-time dependency libpulse found: YES 17.0
+[   17s] Run-time dependency glib-2.0 found: YES 2.84.2
+[   17s] Run-time dependency glibmm-2.4 found: YES 2.66.8
+[   17s] Run-time dependency gtk+-3.0 found: YES 3.24.50
+[   17s] Run-time dependency gtkmm-3.0 found: YES 3.24.10
+[   17s] Run-time dependency sigc++-2.0 found: YES 2.12.1
+[   17s] Run-time dependency gstreamer-1.0 found: YES 1.26.2
+[   17s] Run-time dependency gstreamer-plugins-bad-1.0 found: YES 1.26.2
+[   17s] Run-time dependency gstreamer-fft-1.0 found: YES 1.26.2
+[   17s] Run-time dependency lilv-0 found: YES 0.24.24
+[   17s] Run-time dependency libbs2b found: YES 3.1.0
+[   17s] Run-time dependency Boost (found: filesystem, system) found: YES 1.88.0 (/usr)
+[   17s] Run-time dependency sndfile found: YES 1.2.2
+[   17s] Run-time dependency threads found: YES
+[   17s] Library zita-convolver found: YES
+[   17s] Dependency gstreamer-1.0 found: YES 1.26.2 (cached)
+[   17s] Run-time dependency gstreamer-base-1.0 found: YES 1.26.2
+[   17s] Run-time dependency gstreamer-controller-1.0 found: YES 1.26.2
+[   17s] Run-time dependency gstreamer-audio-1.0 found: YES 1.26.2
+[   17s] Dependency sndfile found: YES 1.2.2 (cached)
+[   17s] Run-time dependency samplerate found: YES 0.2.2
+[   17s] Dependency threads found: YES unknown (cached)
+[   17s] Library zita-convolver found: YES
+[   17s] Dependency gstreamer-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-base-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-controller-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-audio-1.0 found: YES 1.26.2 (cached)
+[   17s] Run-time dependency libebur128 found: YES 1.2.6
+[   17s] Dependency gstreamer-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-base-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-controller-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-audio-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency libebur128 found: YES 1.2.6 (cached)
+[   17s] Dependency gstreamer-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-base-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-controller-1.0 found: YES 1.26.2 (cached)
+[   17s] Dependency gstreamer-audio-1.0 found: YES 1.26.2 (cached)
+[   17s] Did not find CMake 'cmake'
+[   17s] Found CMake: NO
+[   17s] Run-time dependency rnnoise found: NO (tried pkgconfig and cmake)
+[   17s] Message: could not find the RNNoise library
+[   17s] Build targets in project: 37
+[   17s] 
+[   17s] pulseeffects 4.8.7
+[   17s] 
+[   17s]   User defined options
+[   17s]     auto_features : enabled
+[   17s]     bindir        : /usr/bin
+[   17s]     buildtype     : plain
+[   17s]     datadir       : /usr/share
+[   17s]     includedir    : /usr/include
+[   17s]     infodir       : /usr/share/info
+[   17s]     libdir        : /usr/lib64
+[   17s]     libexecdir    : /usr/libexec
+[   17s]     localedir     : /usr/share/locale
+[   17s]     localstatedir : /var
+[   17s]     mandir        : /usr/share/man
+[   17s]     prefix        : /usr
+[   17s]     sbindir       : /usr/sbin
+[   17s]     sharedstatedir: /var/lib
+[   17s]     sysconfdir    : /etc
+[   17s]     wrap_mode     : nodownload
+[   17s] 
+[   17s] Found ninja-1.12.1 at /usr/bin/ninja
+[   17s] + /usr/bin/meson compile -C x86_64-suse-linux -j4 --verbose
+[   17s] ninja: Entering directory `/home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/pulseeffects-4.8.7/x86_64-suse-linux'
+[   17s] [1/133] /usr/bin/glib-compile-resources ../data/pulseeffects.gresource.xml --sourcedir data --sourcedir ../data --c-name pulseeffects --internal --generate --target data/pulseeffects-resources.h
+[   17s] [2/133] /usr/bin/msgfmt ../help/it_IT/it_IT.po -o help/it_IT/pulseeffects-it_IT.gmo
+[   17s] [3/133] /usr/bin/msgfmt ../help/pt_BR/pt_BR.po -o help/pt_BR/pulseeffects-pt_BR.gmo
+[   17s] [4/133] /usr/bin/msgfmt ../help/ru/ru.po -o help/ru/pulseeffects-ru.gmo
+[   17s] [5/133] /usr/bin/msgfmt ../help/de/de.po -o help/de/pulseeffects-de.gmo
+[   18s] [6/133] /usr/bin/glib-compile-resources ../data/pulseeffects.gresource.xml --sourcedir data --sourcedir ../data --c-name pulseeffects --internal --generate --target data/pulseeffects-resources.c --dependency-file data/pulseeffects-resources.c.d
+[   18s] [7/133] cc -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch '-DG_LOG_DOMAIN="pulseeffects"' '-DGETTEXT_PACKAGE="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/meson-generated_.._.._data_pulseeffects-resources.c.o -MF src/pulseeffects.p/meson-generated_.._.._data_pulseeffects-resources.c.o.d -o src/pulseeffects.p/meson-generated_.._.._data_pulseeffects-resources.c.o -c data/pulseeffects-resources.c
+[   19s] [8/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/spectrum_ui.cpp.o -MF src/pulseeffects.p/spectrum_ui.cpp.o.d -o src/pulseeffects.p/spectrum_ui.cpp.o -c ../src/spectrum_ui.cpp
+[   21s] [9/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/spectrum_preset.cpp.o -MF src/pulseeffects.p/spectrum_preset.cpp.o.d -o src/pulseeffects.p/spectrum_preset.cpp.o -c ../src/spectrum_preset.cpp
+[   21s] [10/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/pulseeffects.cpp.o -MF src/pulseeffects.p/pulseeffects.cpp.o.d -o src/pulseeffects.p/pulseeffects.cpp.o -c ../src/pulseeffects.cpp
+[   21s] [11/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/application_ui.cpp.o -MF src/pulseeffects.p/application_ui.cpp.o.d -o src/pulseeffects.p/application_ui.cpp.o -c ../src/application_ui.cpp
+[   22s] [12/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/application.cpp.o -MF src/pulseeffects.p/application.cpp.o.d -o src/pulseeffects.p/application.cpp.o -c ../src/application.cpp
+[   23s] [13/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/blocklist_settings_ui.cpp.o -MF src/pulseeffects.p/blocklist_settings_ui.cpp.o.d -o src/pulseeffects.p/blocklist_settings_ui.cpp.o -c ../src/blocklist_settings_ui.cpp
+[   24s] [14/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/spectrum_settings_ui.cpp.o -MF src/pulseeffects.p/spectrum_settings_ui.cpp.o.d -o src/pulseeffects.p/spectrum_settings_ui.cpp.o -c ../src/spectrum_settings_ui.cpp
+[   24s] [15/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/pulse_settings_ui.cpp.o -MF src/pulseeffects.p/pulse_settings_ui.cpp.o.d -o src/pulseeffects.p/pulse_settings_ui.cpp.o -c ../src/pulse_settings_ui.cpp
+[   24s] [16/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/general_settings_ui.cpp.o -MF src/pulseeffects.p/general_settings_ui.cpp.o.d -o src/pulseeffects.p/general_settings_ui.cpp.o -c ../src/general_settings_ui.cpp
+[   24s] [17/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/pulse_manager.cpp.o -MF src/pulseeffects.p/pulse_manager.cpp.o.d -o src/pulseeffects.p/pulse_manager.cpp.o -c ../src/pulse_manager.cpp
+[   26s] [18/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/effects_base_ui.cpp.o -MF src/pulseeffects.p/effects_base_ui.cpp.o.d -o src/pulseeffects.p/effects_base_ui.cpp.o -c ../src/effects_base_ui.cpp
+[   27s] [19/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/app_info_ui.cpp.o -MF src/pulseeffects.p/app_info_ui.cpp.o.d -o src/pulseeffects.p/app_info_ui.cpp.o -c ../src/app_info_ui.cpp
+[   27s] [20/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/pulse_info_ui.cpp.o -MF src/pulseeffects.p/pulse_info_ui.cpp.o.d -o src/pulseeffects.p/pulse_info_ui.cpp.o -c ../src/pulse_info_ui.cpp
+[   27s] FAILED: src/pulseeffects.p/pulse_info_ui.cpp.o 
+[   27s] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/pulse_info_ui.cpp.o -MF src/pulseeffects.p/pulse_info_ui.cpp.o.d -o src/pulseeffects.p/pulse_info_ui.cpp.o -c ../src/pulse_info_ui.cpp
+[   27s] ../src/pulse_info_ui.cpp: In member function âvoid PulseInfoUi::get_pulse_conf()â:
+[   27s] ../src/pulse_info_ui.cpp:182:21: error: âipstreamâ is not a member of âboost::processâ
+[   27s]   182 |     boost::process::ipstream pipe_stream;
+[   27s]       |                     ^~~~~~~~
+[   27s] ../src/pulse_info_ui.cpp:183:21: error: âchildâ is not a member of âboost::processâ
+[   27s]   183 |     boost::process::child c(command, boost::process::std_out > pipe_stream);
+[   27s]       |                     ^~~~~
+[   27s] ../src/pulse_info_ui.cpp:187:12: error: âpipe_streamâ was not declared in this scope; did you mean âpa_streamâ?
+[   27s]   187 |     while (pipe_stream && std::getline(pipe_stream, line) && !line.empty()) {
+[   27s]       |            ^~~~~~~~~~~
+[   27s]       |            pa_stream
+[   27s] ../src/pulse_info_ui.cpp: In member function âvoid PulseInfoUi::get_resamplers()â:
+[   27s] ../src/pulse_info_ui.cpp:234:21: error: âipstreamâ is not a member of âboost::processâ
+[   27s]   234 |     boost::process::ipstream pipe_stream;
+[   27s]       |                     ^~~~~~~~
+[   27s] ../src/pulse_info_ui.cpp:235:21: error: âchildâ is not a member of âboost::processâ
+[   27s]   235 |     boost::process::child c(command, boost::process::std_out > pipe_stream);
+[   27s]       |                     ^~~~~
+[   27s] ../src/pulse_info_ui.cpp:239:12: error: âpipe_streamâ was not declared in this scope; did you mean âpa_streamâ?
+[   27s]   239 |     while (pipe_stream && std::getline(pipe_stream, line) && !line.empty()) {
+[   27s]       |            ^~~~~~~~~~~
+[   27s]       |            pa_stream
+[   28s] [21/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/sink_input_effects.cpp.o -MF src/pulseeffects.p/sink_input_effects.cpp.o.d -o src/pulseeffects.p/sink_input_effects.cpp.o -c ../src/sink_input_effects.cpp
+[   30s] [22/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/sink_input_effects_ui.cpp.o -MF src/pulseeffects.p/sink_input_effects_ui.cpp.o.d -o src/pulseeffects.p/sink_input_effects_ui.cpp.o -c ../src/sink_input_effects_ui.cpp
+[   31s] [23/133] c++ -Isrc/pulseeffects.p -Isrc -I../src -I../include -I. -I.. -Idata -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/glibmm-2.4 -I/usr/lib64/glibmm-2.4/include -I/usr/include/sigc++-2.0 -I/usr/lib64/sigc++-2.0/include -I/usr/include/gtk-3.0 -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/atk-1.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libxkbcommon -I/usr/include/wayland -I/usr/include/fribidi -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/gtkmm-3.0 -I/usr/lib64/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/lib64/atkmm-1.6/include -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib64/gdkmm-3.0/include -I/usr/include/giomm-2.4 -I/usr/lib64/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib64/pangomm-1.4/include -I/usr/include/cairomm-1.0 -I/usr/lib64/cairomm-1.0/include -I/usr/include/gstreamer-1.0 -I/usr/include/lilv-0 -I/usr/include/sratom-0 -I/usr/include/sord-0 -I/usr/include/serd-0 -I/usr/include/zix-0 -I/usr/include/bs2b -I/usr/include -I/usr/include/opus -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 '-DG_LOG_DOMAIN="pulseeffects"' -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -pthread -DBOOST_SYSTEM_DYN_LINK=1 -DBOOST_FILESYSTEM_DYN_LINK=1 -DBOOST_ALL_NO_LIB -D_REENTRANT -MD -MQ src/pulseeffects.p/source_output_effects_ui.cpp.o -MF src/pulseeffects.p/source_output_effects_ui.cpp.o.d -o src/pulseeffects.p/source_output_effects_ui.cpp.o -c ../src/source_output_effects_ui.cpp
+[   31s] ninja: build stopped: subcommand failed.
+[   31s] INFO: autodetecting backend as ninja
+[   31s] INFO: calculating backend command to run: /usr/bin/ninja -C /home/abuild/rpmbuild/BUILD/pulseeffects-4.8.7-build/pulseeffects-4.8.7/x86_64-suse-linux -j 4 -v
+[   31s] error: Bad exit status from /var/tmp/rpm-tmp.VnHFta (%build)
+[   31s] 
+[   31s] RPM build errors:
+[   31s]     Bad exit status from /var/tmp/rpm-tmp.VnHFta (%build)
+[   31s] ### VM INTERACTION START ###
+[   31s] Powering off.
+[   31s] ### VM INTERACTION END ###
+[   31s] 
+[   31s] i02-ch2c failed "build pulseeffects.spec" at Tue Jun 10 11:40:16 UTC 2025.
+[   31s] 

@@ -1,0 +1,1044 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_17/.mount
+[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386
+[    0s] Doing kvm build in /var/cache/obs/worker/root_17/root
+[    0s] 
+[    0s] 
+[    0s] h02-ch2c started "build python-celery.spec" at Wed Jun 11 15:34:12 UTC 2025.
+[    0s] 
+[    0s] Building python-celery:test for project 'openSUSE:Factory' repository 'standard' arch 'x86_64' srcmd5 '39ae8351b9c9db29fe351da5cf6c9876'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_17/.build-srcdir/python-celery.spec ...
+[    1s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_17/.build-srcdir/python-celery.spec
+[    1s] init_buildsystem --configdir /var/run/obs/worker/17/build/configs --cachedir /var/cache/build --prepare --buildflavor test --clean --rpmlist /var/cache/obs/worker/root_17/.build.rpmlist /var/cache/obs/worker/root_17/.build-srcdir/python-celery.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory/standard/preinstallimage-base [413cbbe9e50c80fa555c96694a3d5068]
+[    3s] 
+[    3s] copying packages...
+[    3s] reordering...cycle: libabsl_2501_0_0 -> libabsl_lite_2501_0_0
+[    3s]   breaking dependency libabsl_lite_2501_0_0 -> libabsl_2501_0_0
+[    3s] cycle: libpython3_11-1_0 -> python311-base
+[    3s]   breaking dependency python311-base -> libpython3_11-1_0
+[    3s] cycle: libpython3_12-1_0 -> python312-base
+[    3s]   breaking dependency python312-base -> libpython3_12-1_0
+[    3s] cycle: libpython3_13-1_0 -> python313-base
+[    3s]   breaking dependency python313-base -> libpython3_13-1_0
+[    3s] done
+[    4s] Detected virtio-serial support
+[    5s] booting kvm...
+[    5s] ### VM INTERACTION START ###
+[    5s] Using virtio-serial support and enabling console input
+[    5s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu -net none -kernel /var/cache/obs/worker/root_17/.mount/boot/kernel -initrd /var/cache/obs/worker/root_17/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build -m 16384 -drive file=/var/cache/obs/worker/root_17/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_17/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_17/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    6s] [!p]104[?7h[    0.468097][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    6s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    7s] [6n[32766;32766H[6n[!p]104[?7h### VM INTERACTION END ###
+[    7s] 2nd stage started in virtual machine
+[    7s] ^[[24;10R^[[24;80Rmachine type: x86_64
+[    7s] Linux version: 6.15.1-1-default #1 SMP PREEMPT_DYNAMIC Thu Jun  5 14:29:05 UTC 2025 (75961ad)
+[    7s] Time: Wed Jun 11 15:34:19 UTC 2025
+[    7s] Increasing log level from now on...
+[    7s] [    1.984047][  T572] sysrq: Changing Loglevel
+[    7s] [    1.984115][  T572] sysrq: Loglevel set to 4
+[    7s] Enable sysrq operations
+[    7s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    7s] no label, UUID=859b9c0a-2fce-4611-8f92-2ff132400b48
+[    7s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe //.build-srcdir/python-celery.spec ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build --buildflavor test //.build-srcdir/python-celery.spec build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[    8s] [1/469] preinstalled aaa_base-84.87+git20250429.1cad3bc-1.1
+[    8s] [2/469] preinstalled aaa_base-malloccheck-84.87+git20250429.1cad3bc-1.1
+[    8s] [3/469] preinstalled bash-5.2.37-20.1
+[    8s] [4/469] preinstalled bash-sh-5.2.37-20.1
+[    8s] [5/469] preinstalled binutils-2.43-7.1
+[    8s] [6/469] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7
+[    8s] [7/469] preinstalled build-compare-20240801T083050.024a3a7-1.4
+[    8s] [8/469] preinstalled build-mkbaselibs-20250602-1.1
+[    8s] [9/469] preinstalled bzip2-1.0.8-5.12
+[    8s] [10/469] preinstalled compat-usrmerge-build-84.87-5.22
+[    8s] [11/469] preinstalled compat-usrmerge-tools-84.87-5.22
+[    8s] [12/469] preinstalled coreutils-9.7-2.1
+[    8s] [13/469] preinstalled cpio-2.15-5.1
+[    8s] [14/469] preinstalled cpp-14-3.1
+[    8s] [15/469] preinstalled cpp14-14.3.0+git11799-3.1
+[    8s] [16/469] preinstalled crypto-policies-20250124.4d262e7-3.1
+[    8s] [17/469] preinstalled debugedit-5.1-1.3
+[    8s] [18/469] preinstalled diffutils-3.12-1.1
+[    8s] [19/469] preinstalled dwz-0.15-6.1
+[    8s] [20/469] preinstalled elfutils-0.192-2.2
+[    8s] [21/469] preinstalled envsubst-mini-0.22.5-8.1
+[    8s] [22/469] cumulate fdupes-2.4.0-1.1
+[    8s] [23/469] preinstalled file-5.46-4.1
+[    8s] [24/469] preinstalled file-magic-5.46-4.1
+[    8s] [25/469] preinstalled filesystem-84.87-18.2
+[    8s] [26/469] preinstalled fillup-1.42-281.3
+[    8s] [27/469] preinstalled findutils-4.10.0-2.2
+[    8s] [28/469] preinstalled gawk-5.3.2-1.1
+[    8s] [29/469] preinstalled gcc-14-3.1
+[    8s] [30/469] preinstalled gcc-PIE-14-3.1
+[    8s] [31/469] preinstalled gcc14-14.3.0+git11799-3.1
+[    8s] [32/469] preinstalled gcc14-PIE-14.3.0+git11799-3.1
+[    8s] [33/469] preinstalled gettext-runtime-mini-0.22.5-8.1
+[    8s] [34/469] preinstalled gettext-tools-mini-0.22.5-8.1
+[    8s] [35/469] preinstalled glibc-2.41-2.1
+[    8s] [36/469] preinstalled glibc-devel-2.41-2.1
+[    8s] [37/469] preinstalled glibc-gconv-modules-extra-2.41-2.1
+[    8s] [38/469] preinstalled glibc-locale-base-2.41-2.1
+[    8s] [39/469] preinstalled grep-3.12-1.1
+[    8s] [40/469] preinstalled gzip-1.14-1.1
+[    8s] [41/469] preinstalled kernel-obs-build-6.15.1-1.1
+[    8s] [42/469] preinstalled libacl1-2.3.2-2.3
+[    8s] [43/469] cumulate libalternatives1-1.2+31.da24cd4-1.1
+[    8s] [44/469] preinstalled libarchive13-3.7.9-1.1
+[    8s] [45/469] preinstalled libasan8-15.1.1+git9739-2.1
+[    8s] [46/469] preinstalled libasm1-0.192-2.2
+[    8s] [47/469] preinstalled libatomic1-15.1.1+git9739-2.1
+[    8s] [48/469] preinstalled libattr1-2.5.2-1.4
+[    8s] [49/469] preinstalled libaudit1-4.0-3.3
+[    8s] [50/469] preinstalled libblkid1-2.41-1.1
+[    8s] [51/469] preinstalled libbz2-1-1.0.8-5.12
+[    8s] [52/469] preinstalled libcap-ng0-0.8.5-1.3
+[    8s] [53/469] preinstalled libcap2-2.75-1.1
+[    8s] [54/469] cumulate libcrc32c1-1.1.2-2.4
+[    8s] [55/469] preinstalled libcrypt1-4.4.38-1.2
+[    8s] [56/469] preinstalled libctf-nobfd0-2.43-7.1
+[    8s] [57/469] preinstalled libctf0-2.43-7.1
+[    8s] [58/469] preinstalled libdw1-0.192-2.2
+[    8s] [59/469] preinstalled libeconf0-0.7.9-1.1
+[    8s] [60/469] preinstalled libelf1-0.192-2.2
+[    8s] [61/469] cumulate libev4-4.33-5.4
+[    8s] [62/469] cumulate libexpat1-2.7.1-2.1
+[    8s] [63/469] preinstalled libfdisk1-2.41-1.1
+[    8s] [64/469] cumulate libffi8-3.4.7-1.1
+[    8s] [65/469] preinstalled libgcc_s1-15.1.1+git9739-2.1
+[    8s] [66/469] preinstalled libgcrypt20-1.11.1-1.1
+[    8s] [67/469] preinstalled libgdbm6-1.24-2.1
+[    8s] [68/469] preinstalled libgdbm_compat4-1.24-2.1
+[    8s] [69/469] preinstalled libgmp10-6.3.0-5.1
+[    8s] [70/469] preinstalled libgomp1-15.1.1+git9739-2.1
+[    8s] [71/469] preinstalled libgpg-error0-1.55-1.1
+[    8s] [72/469] preinstalled libhwasan0-15.1.1+git9739-2.1
+[    8s] [73/469] cumulate libicu77-ledata-77.1-1.1
+[    8s] [74/469] preinstalled libisl23-0.27-1.2
+[    8s] [75/469] preinstalled libitm1-15.1.1+git9739-2.1
+[    8s] [76/469] preinstalled libjitterentropy3-3.6.3-1.1
+[    8s] [77/469] preinstalled liblsan0-15.1.1+git9739-2.1
+[    8s] [78/469] preinstalled liblua5_4-5-5.4.7-4.1
+[    8s] [79/469] preinstalled liblz1-1.15-1.2
+[    8s] [80/469] preinstalled liblz4-1-1.10.0-2.4
+[    8s] [81/469] preinstalled liblzma5-5.8.1-1.1
+[    8s] [82/469] preinstalled libmagic1-5.46-4.1
+[    8s] [83/469] preinstalled libmount1-2.41-1.1
+[    8s] [84/469] preinstalled libmpc3-1.3.1-1.10
+[    8s] [85/469] cumulate libmpdec4-4.0.1-2.1
+[    8s] [86/469] preinstalled libmpfr6-4.2.2-1.1
+[    8s] [87/469] preinstalled libncurses6-6.5.20250531-73.1
+[    8s] [88/469] cumulate libnss_usrfiles2-2.27.1-1.4
+[    8s] [89/469] preinstalled libopenssl3-3.5.0-3.1
+[    8s] [90/469] preinstalled libpcre2-8-0-10.45-1.1
+[    8s] [91/469] preinstalled libpkgconf5-2.2.0-1.3
+[    8s] [92/469] preinstalled libpopt0-1.19-1.10
+[    8s] [93/469] preinstalled libreadline8-8.2.13-2.3
+[    8s] [94/469] preinstalled librpmbuild10-4.20.1-5.1
+[    8s] [95/469] preinstalled libseccomp2-2.6.0-2.2
+[    8s] [96/469] preinstalled libselinux1-3.8.1-1.1
+[    8s] [97/469] preinstalled libsmartcols1-2.41-1.1
+[    8s] [98/469] cumulate libsqlite3-0-3.50.1-1.1
+[    8s] [99/469] preinstalled libstdc++6-15.1.1+git9739-2.1
+[    8s] [100/469] cumulate libtasn1-6-4.20.0-1.2
+[    8s] [101/469] preinstalled libtsan2-15.1.1+git9739-2.1
+[    8s] [102/469] preinstalled libubsan1-15.1.1+git9739-2.1
+[    8s] [103/469] preinstalled libuuid1-2.41-1.1
+[    8s] [104/469] preinstalled libxcrypt-devel-4.4.38-1.2
+[    8s] [105/469] preinstalled libxml2-2-2.13.8-1.1
+[    8s] [106/469] cumulate libyaml-0-2-0.2.5-2.7
+[    8s] [107/469] preinstalled libz1-1.3.1-1.3
+[    8s] [108/469] preinstalled libzstd1-1.5.7-3.1
+[    8s] [109/469] preinstalled linux-glibc-devel-6.15-1.1
+[    8s] [110/469] preinstalled lua54-5.4.7-4.1
+[    8s] [111/469] preinstalled make-4.4.1-3.3
+[    8s] [112/469] preinstalled ncurses-utils-6.5.20250531-73.1
+[    8s] [113/469] preinstalled pam-1.7.0-3.1
+[    8s] [114/469] preinstalled patch-2.8-1.1
+[    8s] [115/469] preinstalled perl-5.40.2-2.1
+[    8s] [116/469] preinstalled perl-base-5.40.2-2.1
+[    8s] [117/469] preinstalled perl-rpm-packaging-1.2-1.1
+[    8s] [118/469] preinstalled permctl-1699_20250120-1.3
+[    8s] [119/469] preinstalled permissions-1699_20250120-1.3
+[    8s] [120/469] preinstalled permissions-config-1699_20250120-1.3
+[    8s] [121/469] preinstalled pkgconf-2.2.0-1.3
+[    8s] [122/469] preinstalled pkgconf-m4-2.2.0-1.3
+[    8s] [123/469] preinstalled pkgconf-pkg-config-2.2.0-1.3
+[    8s] [124/469] preinstalled polkit-default-privs-1550+20250603.5d84a17-1.1
+[    8s] [125/469] preinstalled post-build-checks-84.87+git20240327.7996a0f-1.3
+[    8s] [126/469] cumulate python-rpm-macros-20241120.6ae645f-1.3
+[    8s] [127/469] cumulate python311-azure-nspkg-3.0.2-5.5
+[    8s] [128/469] cumulate python312-azure-nspkg-3.0.2-5.5
+[    8s] [129/469] cumulate python313-azure-nspkg-3.0.2-5.5
+[    8s] [130/469] preinstalled rpm-4.20.1-5.1
+[    8s] [131/469] preinstalled rpm-build-4.20.1-5.1
+[    8s] [132/469] preinstalled rpm-config-SUSE-20250423-1.1
+[    8s] [133/469] preinstalled rpmlint-mini-2.7.0+git20250603.a9db0eb9-18.30
+[    8s] [134/469] preinstalled rpmlint-strict-2.7.0+git20250603.a9db0eb9-1.1
+[    8s] [135/469] preinstalled sed-4.9-2.8
+[    8s] [136/469] preinstalled system-user-root-20190513-2.18
+[    8s] [137/469] preinstalled systemd-rpm-macros-24-1.8
+[    8s] [138/469] preinstalled tar-1.35-4.1
+[    8s] [139/469] preinstalled terminfo-base-6.5.20250531-73.1
+[    8s] [140/469] cumulate timezone-2025b-1.1
+[    8s] [141/469] preinstalled update-alternatives-1.22.18-1.1
+[    8s] [142/469] preinstalled util-linux-2.41-1.1
+[    8s] [143/469] preinstalled which-2.23-1.2
+[    8s] [144/469] preinstalled xz-5.8.1-1.1
+[    8s] [145/469] cumulate alts-1.2+31.da24cd4-1.1
+[    8s] [146/469] cumulate libp11-kit0-0.25.5-1.4
+[    8s] [147/469] cumulate netcfg-11.6-13.5
+[    8s] [148/469] cumulate libicu77-77.1-1.1
+[    8s] [149/469] cumulate libcares2-1.34.5-1.1
+[    8s] [150/469] cumulate p11-kit-0.25.5-1.4
+[    8s] [151/469] cumulate p11-kit-tools-0.25.5-1.4
+[    8s] [152/469] cumulate ca-certificates-2+git20240805.fd24d50-1.2
+[    8s] [153/469] cumulate ca-certificates-mozilla-2.74-4.1
+[    8s] [154/469] cumulate libabsl_lite_2501_0_0-20250127.1-2.1
+[    8s] [155/469] cumulate python311-base-3.11.13-1.2
+[    8s] [156/469] cumulate python312-base-3.12.11-1.2
+[    8s] [157/469] cumulate python313-base-3.13.3-4.1
+[    8s] [158/469] cumulate libabsl_2501_0_0-20250127.1-2.1
+[    8s] [159/469] cumulate libpython3_11-1_0-3.11.13-1.2
+[    8s] [160/469] cumulate libpython3_12-1_0-3.12.11-1.2
+[    8s] [161/469] cumulate libpython3_13-1_0-3.13.3-4.1
+[    8s] [162/469] cumulate python311-MarkupSafe-3.0.2-1.1
+[    8s] [163/469] cumulate python311-aiohappyeyeballs-2.6.1-1.1
+[    8s] [164/469] cumulate python311-annotated-types-0.7.0-1.5
+[    8s] [165/469] cumulate python311-attrs-24.3.0-1.4
+[    8s] [166/469] cumulate python311-backports.entry_points_selectable-1.3.0-2.1
+[    8s] [167/469] cumulate python311-bcrypt-4.3.0-1.1
+[    8s] [168/469] cumulate python311-billiard-4.2.1-2.1
+[    8s] [169/469] cumulate python311-boto3-1.38.23-2.1
+[    8s] [170/469] cumulate python311-cachetools-5.5.2-1.3
+[    8s] [171/469] cumulate python311-click-8.2.1-1.1
+[    8s] [172/469] cumulate python311-frozenlist-1.6.2-1.1
+[    8s] [173/469] cumulate python311-greenlet-3.2.2-1.1
+[    8s] [174/469] cumulate python311-h11-0.16.0-1.1
+[    8s] [175/469] cumulate python311-idna-3.10-1.5
+[    8s] [176/469] cumulate python311-iniconfig-2.1.0-1.1
+[    8s] [177/469] cumulate python311-isodate-0.7.2-1.5
+[    8s] [178/469] cumulate python311-msgpack-1.1.0-2.1
+[    8s] [179/469] cumulate python311-packaging-24.2-2.1
+[    8s] [180/469] cumulate python311-pluggy-1.5.0-1.5
+[    8s] [181/469] cumulate python311-ply-3.11-6.9
+[    8s] [182/469] cumulate python311-propcache-0.3.1-1.1
+[    8s] [183/469] cumulate python311-protobuf-6.30.2-1.1
+[    8s] [184/469] cumulate python311-pyasn1-0.6.1-1.5
+[    8s] [185/469] cumulate python311-pycparser-2.22-2.1
+[    8s] [186/469] cumulate python311-pymongo-4.6.3-1.5
+[    8s] [187/469] cumulate python311-python-dateutil-2.9.0.post0-2.4
+[    8s] [188/469] cumulate python311-redis-5.2.1-1.3
+[    8s] [189/469] cumulate python311-setuptools-78.1.1-1.1
+[    8s] [190/469] cumulate python311-six-1.17.0-1.4
+[    8s] [191/469] cumulate python311-sniffio-1.3.1-1.6
+[    8s] [192/469] cumulate python311-typing_extensions-4.13.2-1.1
+[    8s] [193/469] cumulate python311-tzdata-2025.2-1.1
+[    8s] [194/469] cumulate python311-vine-5.1.0-2.5
+[    8s] [195/469] cumulate python311-wcwidth-0.2.13-1.9
+[    8s] [196/469] cumulate python311-wrapt-1.17.2-1.3
+[    8s] [197/469] cumulate python311-xmltodict-0.14.2-1.5
+[    8s] [198/469] cumulate python311-zipp-3.21.0-1.4
+[    8s] [199/469] cumulate python311-zope.event-5.0-3.1
+[    8s] [200/469] cumulate python312-MarkupSafe-3.0.2-1.1
+[    8s] [201/469] cumulate python312-aiohappyeyeballs-2.6.1-1.1
+[    8s] [202/469] cumulate python312-annotated-types-0.7.0-1.5
+[    8s] [203/469] cumulate python312-attrs-24.3.0-1.4
+[    8s] [204/469] cumulate python312-backports.entry_points_selectable-1.3.0-2.1
+[    8s] [205/469] cumulate python312-bcrypt-4.3.0-1.1
+[    8s] [206/469] cumulate python312-billiard-4.2.1-2.1
+[    8s] [207/469] cumulate python312-boto3-1.38.23-2.1
+[    8s] [208/469] cumulate python312-cachetools-5.5.2-1.3
+[    8s] [209/469] cumulate python312-click-8.2.1-1.1
+[    8s] [210/469] cumulate python312-frozenlist-1.6.2-1.1
+[    8s] [211/469] cumulate python312-greenlet-3.2.2-1.1
+[    8s] [212/469] cumulate python312-h11-0.16.0-1.1
+[    8s] [213/469] cumulate python312-idna-3.10-1.5
+[    8s] [214/469] cumulate python312-iniconfig-2.1.0-1.1
+[    8s] [215/469] cumulate python312-isodate-0.7.2-1.5
+[    8s] [216/469] cumulate python312-msgpack-1.1.0-2.1
+[    8s] [217/469] cumulate python312-packaging-24.2-2.1
+[    8s] [218/469] cumulate python312-pluggy-1.5.0-1.5
+[    8s] [219/469] cumulate python312-ply-3.11-6.9
+[    8s] [220/469] cumulate python312-propcache-0.3.1-1.1
+[    8s] [221/469] cumulate python312-protobuf-6.30.2-1.1
+[    8s] [222/469] cumulate python312-pyasn1-0.6.1-1.5
+[    8s] [223/469] cumulate python312-pycparser-2.22-2.1
+[    8s] [224/469] cumulate python312-pymongo-4.6.3-1.5
+[    8s] [225/469] cumulate python312-python-dateutil-2.9.0.post0-2.4
+[    8s] [226/469] cumulate python312-redis-5.2.1-1.3
+[    8s] [227/469] cumulate python312-setuptools-78.1.1-1.1
+[    8s] [228/469] cumulate python312-six-1.17.0-1.4
+[    8s] [229/469] cumulate python312-sniffio-1.3.1-1.6
+[    8s] [230/469] cumulate python312-typing_extensions-4.13.2-1.1
+[    8s] [231/469] cumulate python312-tzdata-2025.2-1.1
+[    8s] [232/469] cumulate python312-vine-5.1.0-2.5
+[    8s] [233/469] cumulate python312-wcwidth-0.2.13-1.9
+[    8s] [234/469] cumulate python312-wrapt-1.17.2-1.3
+[    8s] [235/469] cumulate python312-xmltodict-0.14.2-1.5
+[    8s] [236/469] cumulate python312-zipp-3.21.0-1.4
+[    8s] [237/469] cumulate python312-zope.event-5.0-3.1
+[    8s] [238/469] cumulate python313-MarkupSafe-3.0.2-1.1
+[    8s] [239/469] cumulate python313-aiohappyeyeballs-2.6.1-1.1
+[    8s] [240/469] cumulate python313-annotated-types-0.7.0-1.5
+[    8s] [241/469] cumulate python313-attrs-24.3.0-1.4
+[    8s] [242/469] cumulate python313-backports.entry_points_selectable-1.3.0-2.1
+[    8s] [243/469] cumulate python313-bcrypt-4.3.0-1.1
+[    8s] [244/469] cumulate python313-billiard-4.2.1-2.1
+[    8s] [245/469] cumulate python313-boto3-1.38.23-2.1
+[    8s] [246/469] cumulate python313-cachetools-5.5.2-1.3
+[    8s] [247/469] cumulate python313-click-8.2.1-1.1
+[    8s] [248/469] cumulate python313-frozenlist-1.6.2-1.1
+[    8s] [249/469] cumulate python313-greenlet-3.2.2-1.1
+[    8s] [250/469] cumulate python313-h11-0.16.0-1.1
+[    8s] [251/469] cumulate python313-idna-3.10-1.5
+[    8s] [252/469] cumulate python313-iniconfig-2.1.0-1.1
+[    8s] [253/469] cumulate python313-isodate-0.7.2-1.5
+[    8s] [254/469] cumulate python313-msgpack-1.1.0-2.1
+[    8s] [255/469] cumulate python313-packaging-24.2-2.1
+[    8s] [256/469] cumulate python313-pluggy-1.5.0-1.5
+[    8s] [257/469] cumulate python313-ply-3.11-6.9
+[    8s] [258/469] cumulate python313-propcache-0.3.1-1.1
+[    8s] [259/469] cumulate python313-protobuf-6.30.2-1.1
+[    8s] [260/469] cumulate python313-pyasn1-0.6.1-1.5
+[    8s] [261/469] cumulate python313-pycparser-2.22-2.1
+[    8s] [262/469] cumulate python313-pymongo-4.6.3-1.5
+[    8s] [263/469] cumulate python313-python-dateutil-2.9.0.post0-2.4
+[    8s] [264/469] cumulate python313-redis-5.2.1-1.3
+[    8s] [265/469] cumulate python313-setuptools-78.1.1-1.1
+[    8s] [266/469] cumulate python313-six-1.17.0-1.4
+[    8s] [267/469] cumulate python313-sniffio-1.3.1-1.6
+[    8s] [268/469] cumulate python313-typing_extensions-4.13.2-1.1
+[    8s] [269/469] cumulate python313-tzdata-2025.2-1.1
+[    8s] [270/469] cumulate python313-vine-5.1.0-2.5
+[    8s] [271/469] cumulate python313-wcwidth-0.2.13-1.9
+[    8s] [272/469] cumulate python313-wrapt-1.17.2-1.3
+[    8s] [273/469] cumulate python313-xmltodict-0.14.2-1.5
+[    8s] [274/469] cumulate python313-zipp-3.21.0-1.4
+[    8s] [275/469] cumulate python313-zope.event-5.0-3.1
+[    8s] [276/469] cumulate libre2-11-20240702-63.7
+[    8s] [277/469] cumulate python311-3.11.13-1.1
+[    8s] [278/469] cumulate python311-PyYAML-6.0.2-3.1
+[    8s] [279/469] cumulate python311-azure-common-1.1.28-3.5
+[    8s] [280/469] cumulate python311-azure-storage-nspkg-3.1.0-4.5
+[    8s] [281/469] cumulate python311-charset-normalizer-3.4.2-1.1
+[    8s] [282/469] cumulate python311-google-crc32c-1.7.1-1.1
+[    8s] [283/469] cumulate python311-urllib3-2.4.0-1.1
+[    8s] [284/469] cumulate python312-3.12.11-1.1
+[    8s] [285/469] cumulate python312-PyYAML-6.0.2-3.1
+[    8s] [286/469] cumulate python312-azure-common-1.1.28-3.5
+[    8s] [287/469] cumulate python312-azure-storage-nspkg-3.1.0-4.5
+[    8s] [288/469] cumulate python312-charset-normalizer-3.4.2-1.1
+[    8s] [289/469] cumulate python312-google-crc32c-1.7.1-1.1
+[    8s] [290/469] cumulate python312-urllib3-2.4.0-1.1
+[    8s] [291/469] cumulate python313-3.13.3-4.1
+[    8s] [292/469] cumulate python313-PyYAML-6.0.2-3.1
+[    8s] [293/469] cumulate python313-azure-common-1.1.28-3.5
+[    8s] [294/469] cumulate python313-azure-storage-nspkg-3.1.0-4.5
+[    8s] [295/469] cumulate python313-charset-normalizer-3.4.2-1.1
+[    8s] [296/469] cumulate python313-google-crc32c-1.7.1-1.1
+[    8s] [297/469] cumulate python313-urllib3-2.4.0-1.1
+[    8s] [298/469] cumulate python311-certifi-2025.1.31-1.1
+[    8s] [299/469] cumulate python312-certifi-2025.1.31-1.1
+[    8s] [300/469] cumulate python313-certifi-2025.1.31-1.1
+[    8s] [301/469] cumulate python311-Deprecated-1.2.18-2.1
+[    8s] [302/469] cumulate python311-Jinja2-3.1.6-2.1
+[    8s] [303/469] cumulate python311-Werkzeug-3.1.3-1.5
+[    8s] [304/469] cumulate python311-aiosignal-1.3.2-1.3
+[    8s] [305/469] cumulate python311-amqp-5.3.1-1.4
+[    8s] [306/469] cumulate python311-click-didyoumean-0.3.1-1.5
+[    8s] [307/469] cumulate python311-click-plugins-1.1.1-6.1
+[    8s] [308/469] cumulate python311-curses-3.11.13-1.1
+[    8s] [309/469] cumulate python311-dbm-3.11.13-1.1
+[    8s] [310/469] cumulate python311-google-resumable-media-2.7.2-1.4
+[    8s] [311/469] cumulate python311-googleapis-common-protos-1.70.0-1.1
+[    8s] [312/469] cumulate python311-importlib-metadata-8.6.1-2.3
+[    8s] [313/469] cumulate python311-multidict-6.1.0-1.5
+[    8s] [314/469] cumulate python311-prompt_toolkit-3.0.51-1.1
+[    8s] [315/469] cumulate python311-proto-plus-1.26.1-1.1
+[    8s] [316/469] cumulate python311-pyasn1-modules-0.4.1-1.5
+[    8s] [317/469] cumulate python311-pydantic-core-2.34.1-1.1
+[    8s] [318/469] cumulate python311-responses-0.25.7-1.1
+[    8s] [319/469] cumulate python311-typing-inspection-0.4.0-1.1
+[    8s] [320/469] cumulate python311-zope.interface-7.2-2.1
+[    8s] [321/469] cumulate python312-Deprecated-1.2.18-2.1
+[    8s] [322/469] cumulate python312-Jinja2-3.1.6-2.1
+[    8s] [323/469] cumulate python312-Werkzeug-3.1.3-1.5
+[    8s] [324/469] cumulate python312-aiosignal-1.3.2-1.3
+[    8s] [325/469] cumulate python312-amqp-5.3.1-1.4
+[    8s] [326/469] cumulate python312-click-didyoumean-0.3.1-1.5
+[    8s] [327/469] cumulate python312-click-plugins-1.1.1-6.1
+[    8s] [328/469] cumulate python312-curses-3.12.11-1.1
+[    8s] [329/469] cumulate python312-dbm-3.12.11-1.1
+[    8s] [330/469] cumulate python312-google-resumable-media-2.7.2-1.4
+[    8s] [331/469] cumulate python312-googleapis-common-protos-1.70.0-1.1
+[    8s] [332/469] cumulate python312-importlib-metadata-8.6.1-2.3
+[    8s] [333/469] cumulate python312-multidict-6.1.0-1.5
+[    8s] [334/469] cumulate python312-prompt_toolkit-3.0.51-1.1
+[    8s] [335/469] cumulate python312-proto-plus-1.26.1-1.1
+[    8s] [336/469] cumulate python312-pyasn1-modules-0.4.1-1.5
+[    8s] [337/469] cumulate python312-pydantic-core-2.34.1-1.1
+[    8s] [338/469] cumulate python312-responses-0.25.7-1.1
+[    8s] [339/469] cumulate python312-typing-inspection-0.4.0-1.1
+[    8s] [340/469] cumulate python312-zope.interface-7.2-2.1
+[    8s] [341/469] cumulate python313-Deprecated-1.2.18-2.1
+[    8s] [342/469] cumulate python313-Jinja2-3.1.6-2.1
+[    8s] [343/469] cumulate python313-Werkzeug-3.1.3-1.5
+[    8s] [344/469] cumulate python313-aiosignal-1.3.2-1.3
+[    8s] [345/469] cumulate python313-amqp-5.3.1-1.4
+[    8s] [346/469] cumulate python313-click-didyoumean-0.3.1-1.5
+[    8s] [347/469] cumulate python313-click-plugins-1.1.1-6.1
+[    8s] [348/469] cumulate python313-curses-3.13.3-4.1
+[    8s] [349/469] cumulate python313-dbm-3.13.3-4.1
+[    8s] [350/469] cumulate python313-google-resumable-media-2.7.2-1.4
+[    9s] [351/469] cumulate python313-googleapis-common-protos-1.70.0-1.1
+[    9s] [352/469] cumulate python313-importlib-metadata-8.6.1-2.3
+[    9s] [353/469] cumulate python313-multidict-6.1.0-1.5
+[    9s] [354/469] cumulate python313-prompt_toolkit-3.0.51-1.1
+[    9s] [355/469] cumulate python313-proto-plus-1.26.1-1.1
+[    9s] [356/469] cumulate python313-pyasn1-modules-0.4.1-1.5
+[    9s] [357/469] cumulate python313-pydantic-core-2.34.1-1.1
+[    9s] [358/469] cumulate python313-responses-0.25.7-1.1
+[    9s] [359/469] cumulate python313-typing-inspection-0.4.0-1.1
+[    9s] [360/469] cumulate python313-zope.interface-7.2-2.1
+[    9s] [361/469] cumulate python-rpm-packaging-20210526+a18ca48-1.13
+[    9s] [362/469] cumulate python311-cffi-1.17.1-1.6
+[    9s] [363/469] cumulate python311-httpcore-1.0.9-1.1
+[    9s] [364/469] cumulate python311-jmespath-1.0.1-6.3
+[    9s] [365/469] cumulate python311-rsa-4.9.1-1.1
+[    9s] [366/469] cumulate python312-cffi-1.17.1-1.6
+[    9s] [367/469] cumulate python312-httpcore-1.0.9-1.1
+[    9s] [368/469] cumulate python312-jmespath-1.0.1-6.3
+[    9s] [369/469] cumulate python312-rsa-4.9.1-1.1
+[    9s] [370/469] cumulate python313-cffi-1.17.1-1.6
+[    9s] [371/469] cumulate python313-httpcore-1.0.9-1.1
+[    9s] [372/469] cumulate python313-jmespath-1.0.1-6.3
+[    9s] [373/469] cumulate python313-rsa-4.9.1-1.1
+[    9s] [374/469] cumulate python311-SQLAlchemy-2.0.40-2.1
+[    9s] [375/469] cumulate python311-anyio-4.8.0-1.3
+[    9s] [376/469] cumulate python312-SQLAlchemy-2.0.40-2.1
+[    9s] [377/469] cumulate python312-anyio-4.8.0-1.3
+[    9s] [378/469] cumulate python313-SQLAlchemy-2.0.40-2.1
+[    9s] [379/469] cumulate python313-anyio-4.8.0-1.3
+[    9s] [380/469] cumulate python311-grpcio-1.72.0-1.1
+[    9s] [381/469] cumulate python311-pytest-8.3.5-1.1
+[    9s] [382/469] cumulate python312-grpcio-1.72.0-1.1
+[    9s] [383/469] cumulate python312-pytest-8.3.5-1.1
+[    9s] [384/469] cumulate python313-grpcio-1.72.0-1.1
+[    9s] [385/469] cumulate python313-pytest-8.3.5-1.1
+[    9s] [386/469] cumulate python311-requests-2.32.4-1.1
+[    9s] [387/469] cumulate python312-requests-2.32.4-1.1
+[    9s] [388/469] cumulate python313-requests-2.32.4-1.1
+[    9s] [389/469] cumulate python311-botocore-1.38.23-1.1
+[    9s] [390/469] cumulate python311-s3transfer-0.13.0-1.1
+[    9s] [391/469] cumulate python312-botocore-1.38.23-1.1
+[    9s] [392/469] cumulate python312-s3transfer-0.13.0-1.1
+[    9s] [393/469] cumulate python313-botocore-1.38.23-1.1
+[    9s] [394/469] cumulate python313-s3transfer-0.13.0-1.1
+[    9s] [395/469] cumulate python311-click-repl-0.3.0-1.7
+[    9s] [396/469] cumulate python311-opentelemetry-api-1.33.1-1.1
+[    9s] [397/469] cumulate python311-pytest-click-1.1.0-3.1
+[    9s] [398/469] cumulate python311-pytest-subtests-0.14.1-2.1
+[    9s] [399/469] cumulate python312-click-repl-0.3.0-1.7
+[    9s] [400/469] cumulate python312-opentelemetry-api-1.33.1-1.1
+[    9s] [401/469] cumulate python312-pytest-click-1.1.0-3.1
+[    9s] [402/469] cumulate python312-pytest-subtests-0.14.1-2.1
+[    9s] [403/469] cumulate python313-click-repl-0.3.0-1.7
+[    9s] [404/469] cumulate python313-opentelemetry-api-1.33.1-1.1
+[    9s] [405/469] cumulate python313-pytest-click-1.1.0-3.1
+[    9s] [406/469] cumulate python313-pytest-subtests-0.14.1-2.1
+[    9s] [407/469] cumulate python311-case-1.5.3-9.1
+[    9s] [408/469] cumulate python311-cryptography-44.0.3-1.1
+[    9s] [409/469] cumulate python311-grpcio-status-1.62.2-1.5
+[    9s] [410/469] cumulate python311-kombu-5.5.3-1.1
+[    9s] [411/469] cumulate python311-yarl-1.20.0-1.1
+[    9s] [412/469] cumulate python312-case-1.5.3-9.1
+[    9s] [413/469] cumulate python312-cryptography-44.0.3-1.1
+[    9s] [414/469] cumulate python312-grpcio-status-1.62.2-1.5
+[    9s] [415/469] cumulate python312-kombu-5.5.3-1.1
+[    9s] [416/469] cumulate python312-yarl-1.20.0-1.1
+[    9s] [417/469] cumulate python313-case-1.5.3-9.1
+[    9s] [418/469] cumulate python313-cryptography-44.0.3-1.1
+[    9s] [419/469] cumulate python313-grpcio-status-1.62.2-1.5
+[    9s] [420/469] cumulate python313-kombu-5.5.3-1.1
+[    9s] [421/469] cumulate python313-yarl-1.20.0-1.1
+[    9s] [422/469] cumulate python311-aiohttp-3.11.16-1.1
+[    9s] [423/469] cumulate python311-google-auth-2.40.2-1.1
+[    9s] [424/469] cumulate python311-pydantic-2.11.3-1.1
+[    9s] [425/469] cumulate python312-aiohttp-3.11.16-1.1
+[    9s] [426/469] cumulate python312-google-auth-2.40.2-1.1
+[    9s] [427/469] cumulate python312-pydantic-2.11.3-1.1
+[    9s] [428/469] cumulate python313-aiohttp-3.11.16-1.1
+[    9s] [429/469] cumulate python313-google-auth-2.40.2-1.1
+[    9s] [430/469] cumulate python313-pydantic-2.11.3-1.1
+[    9s] [431/469] cumulate python311-httpx-0.28.1-2.3
+[    9s] [432/469] cumulate python312-httpx-0.28.1-2.3
+[    9s] [433/469] cumulate python313-httpx-0.28.1-2.3
+[    9s] [434/469] cumulate python311-dnspython-2.7.0-1.5
+[    9s] [435/469] cumulate python312-dnspython-2.7.0-1.5
+[    9s] [436/469] cumulate python313-dnspython-2.7.0-1.5
+[    9s] [437/469] cumulate python311-azure-core-1.34.0-1.1
+[    9s] [438/469] cumulate python311-azure-storage-blob-12.25.1-1.1
+[    9s] [439/469] cumulate python311-google-api-core-2.24.2-1.1
+[    9s] [440/469] cumulate python312-azure-core-1.34.0-1.1
+[    9s] [441/469] cumulate python312-azure-storage-blob-12.25.1-1.1
+[    9s] [442/469] cumulate python312-google-api-core-2.24.2-1.1
+[    9s] [443/469] cumulate python313-azure-core-1.34.0-1.1
+[    9s] [444/469] cumulate python313-azure-storage-blob-12.25.1-1.1
+[    9s] [445/469] cumulate python313-google-api-core-2.24.2-1.1
+[    9s] [446/469] cumulate python311-azure-storage-common-2.1.0-4.5
+[    9s] [447/469] cumulate python312-azure-storage-common-2.1.0-4.5
+[    9s] [448/469] cumulate python313-azure-storage-common-2.1.0-4.5
+[    9s] [449/469] cumulate python311-moto-5.1.0-1.2
+[    9s] [450/469] cumulate python312-moto-5.1.0-1.2
+[    9s] [451/469] cumulate python313-moto-5.1.0-1.2
+[    9s] [452/469] cumulate python311-celery-5.5.3-1.1
+[    9s] [453/469] cumulate python312-celery-5.5.3-1.1
+[    9s] [454/469] cumulate python313-celery-5.5.3-1.1
+[    9s] [455/469] cumulate python311-google-cloud-core-2.4.3-1.1
+[    9s] [456/469] cumulate python312-google-cloud-core-2.4.3-1.1
+[    9s] [457/469] cumulate python313-google-cloud-core-2.4.3-1.1
+[    9s] [458/469] cumulate python311-eventlet-0.40.0-1.1
+[    9s] [459/469] cumulate python312-eventlet-0.40.0-1.1
+[    9s] [460/469] cumulate python313-eventlet-0.40.0-1.1
+[    9s] [461/469] cumulate python311-gevent-25.4.2-2.1
+[    9s] [462/469] cumulate python312-gevent-25.4.2-2.1
+[    9s] [463/469] cumulate python313-gevent-25.4.2-2.1
+[    9s] [464/469] cumulate python311-google-cloud-firestore-2.20.2-1.1
+[    9s] [465/469] cumulate python312-google-cloud-firestore-2.20.2-1.1
+[    9s] [466/469] cumulate python313-google-cloud-firestore-2.20.2-1.1
+[    9s] [467/469] cumulate python311-google-cloud-storage-3.1.0-1.1
+[    9s] [468/469] cumulate python312-google-cloud-storage-3.1.0-1.1
+[    9s] [469/469] cumulate python313-google-cloud-storage-3.1.0-1.1
+[    9s] now installing cumulated packages
+[    9s] Preparing...                          ########################################
+[    9s] Updating / installing...
+[    9s] libffi8-3.4.7-1.1                     ########################################
+[    9s] libabsl_2501_0_0-20250127.1-2.1       ########################################
+[    9s] libabsl_lite_2501_0_0-20250127.1-2.1  ########################################
+[    9s] python313-azure-nspkg-3.0.2-5.5       ########################################
+[    9s] python312-azure-nspkg-3.0.2-5.5       ########################################
+[    9s] python311-azure-nspkg-3.0.2-5.5       ########################################
+[    9s] libnss_usrfiles2-2.27.1-1.4           ########################################
+[    9s] netcfg-11.6-13.5                      ########################################
+[    9s] libcares2-1.34.5-1.1                  ########################################
+[    9s] libyaml-0-2-0.2.5-2.7                 ########################################
+[    9s] libsqlite3-0-3.50.1-1.1               ########################################
+[    9s] libmpdec4-4.0.1-2.1                   ########################################
+[    9s] libexpat1-2.7.1-2.1                   ########################################
+[    9s] libpython3_13-1_0-3.13.3-4.1          ########################################
+[    9s] python313-base-3.13.3-4.1             ########################################
+[    9s] libpython3_11-1_0-3.11.13-1.2         ########################################
+[    9s] python311-base-3.11.13-1.2            ########################################
+[    9s] libpython3_12-1_0-3.12.11-1.2         ########################################
+[    9s] python312-base-3.12.11-1.2            ########################################
+[    9s] python312-typing_extensions-4.13.2-1.1########################################
+[    9s] python311-typing_extensions-4.13.2-1.1########################################
+[    9s] python313-typing_extensions-4.13.2-1.1########################################
+[    9s] python312-click-8.2.1-1.1             ########################################
+[    9s] python312-idna-3.10-1.5               ########################################
+[    9s] python312-protobuf-6.30.2-1.1         ########################################
+[    9s] python312-3.12.11-1.1                 ########################################
+[    9s] python311-click-8.2.1-1.1             ########################################
+[    9s] python311-idna-3.10-1.5               ########################################
+[    9s] python311-protobuf-6.30.2-1.1         ########################################
+[   10s] python311-3.11.13-1.1                 ########################################
+[   10s] python313-click-8.2.1-1.1             ########################################
+[   10s] python313-idna-3.10-1.5               ########################################
+[   10s] python313-protobuf-6.30.2-1.1         ########################################
+[   10s] python313-3.13.3-4.1                  ########################################
+[   10s] python312-python-dateutil-2.9.0.post0-########################################
+[   10s] python311-python-dateutil-2.9.0.post0-########################################
+[   10s] python313-python-dateutil-2.9.0.post0-########################################
+[   10s] python313-googleapis-common-protos-1.7########################################
+[   10s] python311-googleapis-common-protos-1.7########################################
+[   10s] python312-googleapis-common-protos-1.7########################################
+[   10s] python312-greenlet-3.2.2-1.1          ########################################
+[   10s] python312-setuptools-78.1.1-1.1       ########################################
+[   10s] python312-vine-5.1.0-2.5              ########################################
+[   10s] python311-greenlet-3.2.2-1.1          ########################################
+[   10s] python311-setuptools-78.1.1-1.1       ########################################
+[   10s] python311-vine-5.1.0-2.5              ########################################
+[   10s] python313-greenlet-3.2.2-1.1          ########################################
+[   10s] python313-setuptools-78.1.1-1.1       ########################################
+[   10s] python313-vine-5.1.0-2.5              ########################################
+[   10s] libev4-4.33-5.4                       ########################################
+[   10s] libcrc32c1-1.1.2-2.4                  ########################################
+[   10s] python311-google-crc32c-1.7.1-1.1     ########################################
+[   10s] python312-google-crc32c-1.7.1-1.1     ########################################
+[   10s] python313-google-crc32c-1.7.1-1.1     ########################################
+[   10s] python313-proto-plus-1.26.1-1.1       ########################################
+[   10s] python311-proto-plus-1.26.1-1.1       ########################################
+[   10s] python312-proto-plus-1.26.1-1.1       ########################################
+[   10s] python313-multidict-6.1.0-1.5         ########################################
+[   10s] python311-multidict-6.1.0-1.5         ########################################
+[   10s] python312-multidict-6.1.0-1.5         ########################################
+[   10s] python312-MarkupSafe-3.0.2-1.1        ########################################
+[   10s] python312-attrs-24.3.0-1.4            ########################################
+[   10s] python312-frozenlist-1.6.2-1.1        ########################################
+[   10s] python312-pyasn1-0.6.1-1.5            ########################################
+[   10s] python312-six-1.17.0-1.4              ########################################
+[   10s] python312-sniffio-1.3.1-1.6           ########################################
+[   10s] python312-anyio-4.8.0-1.3             ########################################
+[   10s] python312-tzdata-2025.2-1.1           ########################################
+[   10s] python312-azure-common-1.1.28-3.5     ########################################
+[   10s] python312-azure-storage-nspkg-3.1.0-4.########################################
+[   10s] python311-MarkupSafe-3.0.2-1.1        ########################################
+[   10s] python311-attrs-24.3.0-1.4            ########################################
+[   10s] python311-frozenlist-1.6.2-1.1        ########################################
+[   10s] python311-pyasn1-0.6.1-1.5            ########################################
+[   10s] python311-six-1.17.0-1.4              ########################################
+[   10s] python311-sniffio-1.3.1-1.6           ########################################
+[   10s] python311-anyio-4.8.0-1.3             ########################################
+[   10s] python311-tzdata-2025.2-1.1           ########################################
+[   10s] python311-azure-common-1.1.28-3.5     ########################################
+[   10s] python311-azure-storage-nspkg-3.1.0-4.########################################
+[   10s] python313-MarkupSafe-3.0.2-1.1        ########################################
+[   10s] python313-attrs-24.3.0-1.4            ########################################
+[   10s] python313-frozenlist-1.6.2-1.1        ########################################
+[   10s] python313-packaging-24.2-2.1          ########################################
+[   10s] python313-pyasn1-0.6.1-1.5            ########################################
+[   10s] python313-six-1.17.0-1.4              ########################################
+[   10s] python313-sniffio-1.3.1-1.6           ########################################
+[   10s] python313-anyio-4.8.0-1.3             ########################################
+[   10s] python313-tzdata-2025.2-1.1           ########################################
+[   10s] python313-azure-common-1.1.28-3.5     ########################################
+[   10s] python313-azure-storage-nspkg-3.1.0-4.########################################
+[   10s] libp11-kit0-0.25.5-1.4                ########################################
+[   10s] libtasn1-6-4.20.0-1.2                 ########################################
+[   10s] p11-kit-0.25.5-1.4                    ########################################
+[   10s] p11-kit-tools-0.25.5-1.4              ########################################
+[   10s] ca-certificates-2+git20240805.fd24d50-########################################
+[   10s] ca-certificates-mozilla-2.74-4.1      ########################################
+[   10s] python311-urllib3-2.4.0-1.1           ########################################
+[   10s] python312-urllib3-2.4.0-1.1           ########################################
+[   10s] python313-urllib3-2.4.0-1.1           ########################################
+[   10s] python311-certifi-2025.1.31-1.1       ########################################
+[   10s] python312-certifi-2025.1.31-1.1       ########################################
+[   10s] python313-certifi-2025.1.31-1.1       ########################################
+[   10s] python313-pyasn1-modules-0.4.1-1.5    ########################################
+[   11s] python313-aiosignal-1.3.2-1.3         ########################################
+[   11s] python313-Jinja2-3.1.6-2.1            ########################################
+[   11s] python313-Werkzeug-3.1.3-1.5          ########################################
+[   11s] python311-pyasn1-modules-0.4.1-1.5    ########################################
+[   11s] python311-aiosignal-1.3.2-1.3         ########################################
+[   11s] python311-Jinja2-3.1.6-2.1            ########################################
+[   11s] python311-Werkzeug-3.1.3-1.5          ########################################
+[   11s] python312-pyasn1-modules-0.4.1-1.5    ########################################
+[   11s] python312-aiosignal-1.3.2-1.3         ########################################
+[   11s] python312-Jinja2-3.1.6-2.1            ########################################
+[   11s] python312-Werkzeug-3.1.3-1.5          ########################################
+[   11s] python313-google-resumable-media-2.7.2########################################
+[   11s] python312-google-resumable-media-2.7.2########################################
+[   11s] python311-google-resumable-media-2.7.2########################################
+[   11s] python313-amqp-5.3.1-1.4              ########################################
+[   11s] python313-kombu-5.5.3-1.1             ########################################
+[   11s] python313-zope.interface-7.2-2.1      ########################################
+[   11s] python311-amqp-5.3.1-1.4              ########################################
+[   11s] python311-kombu-5.5.3-1.1             ########################################
+[   11s] python311-zope.interface-7.2-2.1      ########################################
+[   11s] python312-amqp-5.3.1-1.4              ########################################
+[   11s] python312-kombu-5.5.3-1.1             ########################################
+[   11s] python312-zope.interface-7.2-2.1      ########################################
+[   11s] python313-dbm-3.13.3-4.1              ########################################
+[   11s] python313-click-didyoumean-0.3.1-1.5  ########################################
+[   11s] python313-click-plugins-1.1.1-6.1     ########################################
+[   11s] python311-dbm-3.11.13-1.1             ########################################
+[   11s] python311-click-didyoumean-0.3.1-1.5  ########################################
+[   11s] python311-click-plugins-1.1.1-6.1     ########################################
+[   11s] python312-dbm-3.12.11-1.1             ########################################
+[   11s] python312-click-didyoumean-0.3.1-1.5  ########################################
+[   11s] python312-click-plugins-1.1.1-6.1     ########################################
+[   11s] python313-pydantic-core-2.34.1-1.1    ########################################
+[   11s] python313-typing-inspection-0.4.0-1.1 ########################################
+[   11s] python311-pydantic-core-2.34.1-1.1    ########################################
+[   11s] python311-typing-inspection-0.4.0-1.1 ########################################
+[   11s] python312-pydantic-core-2.34.1-1.1    ########################################
+[   11s] python312-typing-inspection-0.4.0-1.1 ########################################
+[   11s] python312-aiohappyeyeballs-2.6.1-1.1  ########################################
+[   11s] python312-annotated-types-0.7.0-1.5   ########################################
+[   11s] python312-backports.entry_points_selec########################################
+[   11s] python312-bcrypt-4.3.0-1.1            ########################################
+[   11s] python312-billiard-4.2.1-2.1          ########################################
+[   11s] python312-cachetools-5.5.2-1.3        ########################################
+[   11s] python312-h11-0.16.0-1.1              ########################################
+[   11s] python312-httpcore-1.0.9-1.1          ########################################
+[   11s] python312-iniconfig-2.1.0-1.1         ########################################
+[   11s] python312-isodate-0.7.2-1.5           ########################################
+[   11s] python312-packaging-24.2-2.1          ########################################
+[   11s] python312-pluggy-1.5.0-1.5            ########################################
+[   11s] python312-ply-3.11-6.9                ########################################
+[   11s] python312-propcache-0.3.1-1.1         ########################################
+[   11s] python312-yarl-1.20.0-1.1             ########################################
+[   11s] python312-pycparser-2.22-2.1          ########################################
+[   11s] python312-cffi-1.17.1-1.6             ########################################
+[   11s] python312-cryptography-44.0.3-1.1     ########################################
+[   11s] python312-wcwidth-0.2.13-1.9          ########################################
+[   11s] python312-prompt_toolkit-3.0.51-1.1   ########################################
+[   11s] python312-click-repl-0.3.0-1.7        ########################################
+[   11s] python312-wrapt-1.17.2-1.3            ########################################
+[   11s] python312-Deprecated-1.2.18-2.1       ########################################
+[   11s] python312-xmltodict-0.14.2-1.5        ########################################
+[   11s] python312-zipp-3.21.0-1.4             ########################################
+[   11s] python312-importlib-metadata-8.6.1-2.3########################################
+[   11s] python312-opentelemetry-api-1.33.1-1.1########################################
+[   11s] python312-zope.event-5.0-3.1          ########################################
+[   11s] python312-PyYAML-6.0.2-3.1            ########################################
+[   11s] python311-aiohappyeyeballs-2.6.1-1.1  ########################################
+[   11s] python311-annotated-types-0.7.0-1.5   ########################################
+[   11s] python311-backports.entry_points_selec########################################
+[   11s] python311-bcrypt-4.3.0-1.1            ########################################
+[   11s] python311-billiard-4.2.1-2.1          ########################################
+[   11s] python311-cachetools-5.5.2-1.3        ########################################
+[   11s] python311-h11-0.16.0-1.1              ########################################
+[   11s] python311-httpcore-1.0.9-1.1          ########################################
+[   11s] python311-iniconfig-2.1.0-1.1         ########################################
+[   11s] python311-isodate-0.7.2-1.5           ########################################
+[   11s] python311-packaging-24.2-2.1          ########################################
+[   11s] python311-pluggy-1.5.0-1.5            ########################################
+[   11s] python311-ply-3.11-6.9                ########################################
+[   11s] python311-propcache-0.3.1-1.1         ########################################
+[   11s] python311-yarl-1.20.0-1.1             ########################################
+[   11s] python311-pycparser-2.22-2.1          ########################################
+[   11s] python311-cffi-1.17.1-1.6             ########################################
+[   11s] python311-cryptography-44.0.3-1.1     ########################################
+[   11s] python311-wcwidth-0.2.13-1.9          ########################################
+[   11s] python311-prompt_toolkit-3.0.51-1.1   ########################################
+[   11s] python311-click-repl-0.3.0-1.7        ########################################
+[   11s] python311-wrapt-1.17.2-1.3            ########################################
+[   11s] python311-Deprecated-1.2.18-2.1       ########################################
+[   11s] python311-xmltodict-0.14.2-1.5        ########################################
+[   11s] python311-zipp-3.21.0-1.4             ########################################
+[   11s] python311-importlib-metadata-8.6.1-2.3########################################
+[   11s] python311-opentelemetry-api-1.33.1-1.1########################################
+[   11s] python311-zope.event-5.0-3.1          ########################################
+[   11s] python311-PyYAML-6.0.2-3.1            ########################################
+[   11s] python313-aiohappyeyeballs-2.6.1-1.1  ########################################
+[   11s] python313-annotated-types-0.7.0-1.5   ########################################
+[   11s] python313-backports.entry_points_selec########################################
+[   11s] python313-bcrypt-4.3.0-1.1            ########################################
+[   11s] python313-billiard-4.2.1-2.1          ########################################
+[   11s] python313-cachetools-5.5.2-1.3        ########################################
+[   11s] python313-h11-0.16.0-1.1              ########################################
+[   11s] python313-httpcore-1.0.9-1.1          ########################################
+[   11s] python313-iniconfig-2.1.0-1.1         ########################################
+[   11s] python313-isodate-0.7.2-1.5           ########################################
+[   11s] python313-pluggy-1.5.0-1.5            ########################################
+[   11s] python313-ply-3.11-6.9                ########################################
+[   11s] python313-propcache-0.3.1-1.1         ########################################
+[   11s] python313-yarl-1.20.0-1.1             ########################################
+[   11s] python313-pycparser-2.22-2.1          ########################################
+[   11s] python313-cffi-1.17.1-1.6             ########################################
+[   11s] python313-cryptography-44.0.3-1.1     ########################################
+[   11s] python313-wcwidth-0.2.13-1.9          ########################################
+[   11s] python313-prompt_toolkit-3.0.51-1.1   ########################################
+[   11s] python313-click-repl-0.3.0-1.7        ########################################
+[   11s] python313-wrapt-1.17.2-1.3            ########################################
+[   11s] python313-Deprecated-1.2.18-2.1       ########################################
+[   11s] python313-xmltodict-0.14.2-1.5        ########################################
+[   11s] python313-zipp-3.21.0-1.4             ########################################
+[   11s] python313-importlib-metadata-8.6.1-2.3########################################
+[   11s] python313-opentelemetry-api-1.33.1-1.1########################################
+[   11s] python313-zope.event-5.0-3.1          ########################################
+[   11s] python313-PyYAML-6.0.2-3.1            ########################################
+[   11s] timezone-2025b-1.1                    ########################################
+[   11s] python-rpm-macros-20241120.6ae645f-1.3########################################
+[   11s] libicu77-ledata-77.1-1.1              ########################################
+[   11s] libicu77-77.1-1.1                     ########################################
+[   11s] libre2-11-20240702-63.7               ########################################
+[   11s] python311-grpcio-1.72.0-1.1           ########################################
+[   11s] python312-grpcio-1.72.0-1.1           ########################################
+[   12s] python313-grpcio-1.72.0-1.1           ########################################
+[   12s] python313-grpcio-status-1.62.2-1.5    ########################################
+[   12s] python312-grpcio-status-1.62.2-1.5    ########################################
+[   12s] python311-grpcio-status-1.62.2-1.5    ########################################
+[   12s] libalternatives1-1.2+31.da24cd4-1.1   ########################################
+[   12s] alts-1.2+31.da24cd4-1.1               ########################################
+[   12s] python311-pytest-8.3.5-1.1            ########################################
+[   12s] python312-pytest-8.3.5-1.1            ########################################
+[   12s] python313-pytest-8.3.5-1.1            ########################################
+[   12s] python311-charset-normalizer-3.4.2-1.1########################################
+[   12s] python311-requests-2.32.4-1.1         ########################################
+[   12s] python312-charset-normalizer-3.4.2-1.1########################################
+[   12s] python312-requests-2.32.4-1.1         ########################################
+[   12s] python313-charset-normalizer-3.4.2-1.1########################################
+[   12s] python313-requests-2.32.4-1.1         ########################################
+[   12s] python311-jmespath-1.0.1-6.3          ########################################
+[   12s] python311-botocore-1.38.23-1.1        ########################################
+[   12s] python312-jmespath-1.0.1-6.3          ########################################
+[   12s] python312-botocore-1.38.23-1.1        ########################################
+[   12s] python313-jmespath-1.0.1-6.3          ########################################
+[   12s] python313-botocore-1.38.23-1.1        ########################################
+[   13s] python313-s3transfer-0.13.0-1.1       ########################################
+[   13s] python313-boto3-1.38.23-2.1           ########################################
+[   13s] python312-s3transfer-0.13.0-1.1       ########################################
+[   13s] python312-boto3-1.38.23-2.1           ########################################
+[   13s] python311-s3transfer-0.13.0-1.1       ########################################
+[   13s] python311-boto3-1.38.23-2.1           ########################################
+[   13s] python313-responses-0.25.7-1.1        ########################################
+[   13s] python313-azure-storage-common-2.1.0-4########################################
+[   13s] python313-aiohttp-3.11.16-1.1         ########################################
+[   13s] python313-azure-core-1.34.0-1.1       ########################################
+[   13s] python312-responses-0.25.7-1.1        ########################################
+[   13s] python312-azure-storage-common-2.1.0-4########################################
+[   13s] python312-aiohttp-3.11.16-1.1         ########################################
+[   13s] python312-azure-core-1.34.0-1.1       ########################################
+[   13s] python311-responses-0.25.7-1.1        ########################################
+[   13s] python311-azure-storage-common-2.1.0-4########################################
+[   13s] python311-aiohttp-3.11.16-1.1         ########################################
+[   13s] python311-azure-core-1.34.0-1.1       ########################################
+[   13s] python311-rsa-4.9.1-1.1               ########################################
+[   13s] python311-google-auth-2.40.2-1.1      ########################################
+[   13s] python311-google-api-core-2.24.2-1.1  ########################################
+[   13s] python311-google-cloud-core-2.4.3-1.1 ########################################
+[   13s] python312-rsa-4.9.1-1.1               ########################################
+[   13s] python312-google-auth-2.40.2-1.1      ########################################
+[   13s] python312-google-api-core-2.24.2-1.1  ########################################
+[   13s] python312-google-cloud-core-2.4.3-1.1 ########################################
+[   13s] python313-rsa-4.9.1-1.1               ########################################
+[   13s] python313-google-auth-2.40.2-1.1      ########################################
+[   13s] python313-google-api-core-2.24.2-1.1  ########################################
+[   13s] python313-google-cloud-core-2.4.3-1.1 ########################################
+[   13s] python311-httpx-0.28.1-2.3            ########################################
+[   13s] python311-dnspython-2.7.0-1.5         ########################################
+[   13s] python312-httpx-0.28.1-2.3            ########################################
+[   13s] python312-dnspython-2.7.0-1.5         ########################################
+[   13s] python313-httpx-0.28.1-2.3            ########################################
+[   13s] python313-dnspython-2.7.0-1.5         ########################################
+[   13s] python313-eventlet-0.40.0-1.1         ########################################
+[   13s] python313-gevent-25.4.2-2.1           ########################################
+[   13s] python312-eventlet-0.40.0-1.1         ########################################
+[   13s] python312-gevent-25.4.2-2.1           ########################################
+[   13s] python311-eventlet-0.40.0-1.1         ########################################
+[   13s] python311-gevent-25.4.2-2.1           ########################################
+[   13s] python313-google-cloud-firestore-2.20.########################################
+[   13s] python313-google-cloud-storage-3.1.0-1########################################
+[   13s] python312-google-cloud-firestore-2.20.########################################
+[   13s] python312-google-cloud-storage-3.1.0-1########################################
+[   13s] python311-google-cloud-firestore-2.20.########################################
+[   13s] python311-google-cloud-storage-3.1.0-1########################################
+[   13s] python311-azure-storage-blob-12.25.1-1########################################
+[   13s] python311-moto-5.1.0-1.2              ########################################
+[   13s] python312-azure-storage-blob-12.25.1-1########################################
+[   14s] python312-moto-5.1.0-1.2              ########################################
+[   14s] python313-azure-storage-blob-12.25.1-1########################################
+[   14s] python313-moto-5.1.0-1.2              ########################################
+[   14s] python313-pytest-click-1.1.0-3.1      ########################################
+[   14s] python313-pytest-subtests-0.14.1-2.1  ########################################
+[   14s] python313-case-1.5.3-9.1              ########################################
+[   14s] python312-pytest-click-1.1.0-3.1      ########################################
+[   14s] python312-pytest-subtests-0.14.1-2.1  ########################################
+[   14s] python312-case-1.5.3-9.1              ########################################
+[   14s] python311-pytest-click-1.1.0-3.1      ########################################
+[   14s] python311-pytest-subtests-0.14.1-2.1  ########################################
+[   14s] python311-case-1.5.3-9.1              ########################################
+[   14s] python-rpm-packaging-20210526+a18ca48-########################################
+[   14s] python313-celery-5.5.3-1.1            ########################################
+[   14s] python313-pydantic-2.11.3-1.1         ########################################
+[   14s] python311-celery-5.5.3-1.1            ########################################
+[   14s] python311-pydantic-2.11.3-1.1         ########################################
+[   14s] python312-celery-5.5.3-1.1            ########################################
+[   14s] python312-pydantic-2.11.3-1.1         ########################################
+[   14s] python313-SQLAlchemy-2.0.40-2.1       ########################################
+[   14s] python311-SQLAlchemy-2.0.40-2.1       ########################################
+[   14s] python312-SQLAlchemy-2.0.40-2.1       ########################################
+[   14s] python313-curses-3.13.3-4.1           ########################################
+[   14s] python311-curses-3.11.13-1.1          ########################################
+[   14s] python312-curses-3.12.11-1.1          ########################################
+[   14s] python312-msgpack-1.1.0-2.1           ########################################
+[   14s] python312-pymongo-4.6.3-1.5           ########################################
+[   14s] python312-redis-5.2.1-1.3             ########################################
+[   14s] python311-msgpack-1.1.0-2.1           ########################################
+[   14s] python311-pymongo-4.6.3-1.5           ########################################
+[   14s] python311-redis-5.2.1-1.3             ########################################
+[   14s] python313-msgpack-1.1.0-2.1           ########################################
+[   14s] python313-pymongo-4.6.3-1.5           ########################################
+[   14s] python313-redis-5.2.1-1.3             ########################################
+[   14s] fdupes-2.4.0-1.1                      ########################################
+[   16s] now finalizing build dir...
+[   16s] ... running 01-add_abuild_user_to_trusted_group
+[   16s] ... running 02-set_timezone_to_utc
+[   16s] ... running 03-set-permissions-secure
+[   16s] ... running 11-hack_uname_version_to_kernel_version
+[   16s] setting SOURCE_DATE_EPOCH_MTIME to 1749560816
+[   17s] -----------------------------------------------------------------
+[   17s] I have the following modifications for python-celery.spec:
+[   17s] 20c20
+[   17s] < %global flavor @BUILD_FLAVOR@%{nil}
+[   17s] ---
+[   17s] > %global flavor test%{nil}
+[   17s] 32c32
+[   17s] < Release:        0
+[   17s] ---
+[   17s] > Release:        1.1
+[   17s] 40c40
+[   17s] < BuildRequires:  netcfg
+[   17s] ---
+[   17s] > BuildRequires:  netcfg libnss_usrfiles2
+[   17s] -----------------------------------------------------------------
+[   17s] ----- building python-celery.spec (user abuild)
+[   17s] -----------------------------------------------------------------
+[   17s] -----------------------------------------------------------------
+[   18s] setting SOURCE_DATE_EPOCH_MTIME to 1749560816
+[   18s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory/standard/39ae8351b9c9db29fe351da5cf6c9876-python-celery:test' /home/abuild/rpmbuild/SOURCES/python-celery.spec
+[   19s] Building target platforms: noarch
+[   19s] Building for target noarch
+[   20s] using SOURCE_DATE_EPOCH with value 1749560815 as build time
+[   20s] Executing(%mkbuilddir): /usr/bin/bash -e /var/tmp/rpm-tmp.0PKhdG
+[   20s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.9dzeVS
+[   20s] + umask 022
+[   20s] + cd /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + cd /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + rm -rf celery-5.5.3
+[   20s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/celery-5.5.3.tar.gz
+[   20s] + STATUS=0
+[   20s] + '[' 0 -ne 0 ']'
+[   20s] + cd celery-5.5.3
+[   20s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   20s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/move-pytest-configuration-to-conftest.patch
+[   20s] + /usr/bin/patch -p1 -s --fuzz=0 --no-backup-if-mismatch -f
+[   20s] + RPM_EC=0
+[   20s] ++ jobs -p
+[   20s] + exit 0
+[   20s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.qKKX8y
+[   20s] + umask 022
+[   20s] + cd /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT
+[   20s] ++ dirname /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT
+[   20s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT
+[   20s] + cd celery-5.5.3
+[   20s] + RPM_EC=0
+[   20s] ++ jobs -p
+[   20s] + exit 0
+[   20s] Executing(%install): /usr/bin/bash -e /var/tmp/rpm-tmp.QAARMc
+[   20s] + umask 022
+[   20s] + cd /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT
+[   20s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT
+[   20s] + cd celery-5.5.3
+[   20s] + /usr/lib/rpm/find-debuginfo -j4 -n --run-dwz --dwz-low-mem-die-limit 10000000 --dwz-max-die-limit 50000000 -S debugsourcefiles.list /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/celery-5.5.3
+[   20s] find-debuginfo: starting
+[   20s] Extracting debug info from 0 files
+[   20s] find-debuginfo: done
+[   20s] + /usr/lib/rpm/brp-compress
+[   20s] + /usr/lib/rpm/brp-suse
+[   20s] calling /usr/lib/rpm/brp-suse.d/brp-05-permissions
+[   20s] calling /usr/lib/rpm/brp-suse.d/brp-15-strip-debug
+[   20s] calling /usr/lib/rpm/brp-suse.d/brp-25-symlink
+[   20s] calling /usr/lib/rpm/brp-suse.d/brp-50-generate-fips-hmac
+[   20s] calling /usr/lib/rpm/brp-suse.d/brp-75-ar
+[   20s] Executing(%check): /usr/bin/bash -e /var/tmp/rpm-tmp.NrwUnP
+[   20s] + umask 022
+[   20s] + cd /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build
+[   20s] + cd celery-5.5.3
+[   20s] + set +x
+[   20s] Using libalternatives variant 311 for httpx in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for jp in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for normalizer in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for py.test in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-decrypt in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-encrypt in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-keygen in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-priv2pub in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-sign in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pyrsa-verify in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using libalternatives variant 311 for pytest in XDG_CONFIG_HOME during Python 3.11 expansions.
+[   20s] Using alternative celery-3.11 for celery in ./build/flavorbin during Python 3.11 expansions.
+[   20s] Using alternative fixup_firestore_admin_v1_keywords.py-3.11 for fixup_firestore_admin_v1_keywords.py in ./build/flavorbin during Python 3.11 expansions.
+[   20s] Using alternative fixup_firestore_v1_keywords.py-3.11 for fixup_firestore_v1_keywords.py in ./build/flavorbin during Python 3.11 expansions.
+[   20s] Using alternative moto_proxy-3.11 for moto_proxy in ./build/flavorbin during Python 3.11 expansions.
+[   20s] Using alternative moto_server-3.11 for moto_server in ./build/flavorbin during Python 3.11 expansions.
+[   20s] Using libalternatives variant 312 for httpx in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for jp in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for normalizer in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for py.test in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-decrypt in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-encrypt in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-keygen in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-priv2pub in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-sign in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pyrsa-verify in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using libalternatives variant 312 for pytest in XDG_CONFIG_HOME during Python 3.12 expansions.
+[   20s] Using alternative celery-3.12 for celery in ./build/flavorbin during Python 3.12 expansions.
+[   20s] Using alternative fixup_firestore_admin_v1_keywords.py-3.12 for fixup_firestore_admin_v1_keywords.py in ./build/flavorbin during Python 3.12 expansions.
+[   20s] Using alternative fixup_firestore_v1_keywords.py-3.12 for fixup_firestore_v1_keywords.py in ./build/flavorbin during Python 3.12 expansions.
+[   20s] Using alternative moto_proxy-3.12 for moto_proxy in ./build/flavorbin during Python 3.12 expansions.
+[   20s] Using alternative moto_server-3.12 for moto_server in ./build/flavorbin during Python 3.12 expansions.
+[   20s] Using alternative celery-3.13 for celery in ./build/flavorbin during Python 3.13 expansions.
+[   20s] Using alternative fixup_firestore_admin_v1_keywords.py-3.13 for fixup_firestore_admin_v1_keywords.py in ./build/flavorbin during Python 3.13 expansions.
+[   20s] Using alternative fixup_firestore_v1_keywords.py-3.13 for fixup_firestore_v1_keywords.py in ./build/flavorbin during Python 3.13 expansions.
+[   20s] Using alternative moto_proxy-3.13 for moto_proxy in ./build/flavorbin during Python 3.13 expansions.
+[   20s] Using alternative moto_server-3.13 for moto_server in ./build/flavorbin during Python 3.13 expansions.
+[   20s] + export PATH=/home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/celery-5.5.3/build/flavorbin:/usr/local/bin:/usr/bin:/bin
+[   20s] + PATH=/home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/celery-5.5.3/build/flavorbin:/usr/local/bin:/usr/bin:/bin
+[   20s] ++ '[' -f _current_flavor ']'
+[   20s] ++ cat _current_flavor
+[   20s] + last_flavor=python313
+[   20s] + '[' -z python313 ']'
+[   20s] + '[' python313 '!=' python311 ']'
+[   20s] + '[' -d build ']'
+[   20s] + mv build _build.python313
+[   20s] + '[' -d _build.python311 ']'
+[   20s] + mv _build.python311 build
+[   20s] + echo python311
+[   20s] + python_flavor=python311
+[   20s] + PYTHONPATH=/home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/BUILDROOT/usr/lib/python3.11/site-packages
+[   20s] + PYTHONDONTWRITEBYTECODE=1
+[   20s] + pytest-3.11 --ignore=_build.python311 --ignore=_build.python312 --ignore=_build.python313 -v -k 'not test_check_privileges_no_fchown and not test_aaa_blockdetecet and not test_gen_not_started and not test_init_mongodb_dnspython2_pymongo4_seedlist'
+[   21s] ============================= test session starts ==============================
+[   21s] platform linux -- Python 3.11.13, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3.11
+[   21s] cachedir: .pytest_cache
+[   21s] rootdir: /home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/celery-5.5.3
+[   21s] configfile: pyproject.toml
+[   21s] testpaths: t/unit/
+[   21s] plugins: anyio-4.8.0, pytest_click-1.1.0, subtests-0.14.1, case-1.5.3
+[   26s] collecting ... collected 3361 items / 1 error / 6 deselected / 6 skipped / 3355 selected
+[   26s] 
+[   26s] ==================================== ERRORS ====================================
+[   26s] _________________ ERROR collecting t/unit/backends/test_gcs.py _________________
+[   26s] ImportError while importing test module '/home/abuild/rpmbuild/BUILD/python-celery-test-5.5.3-build/celery-5.5.3/t/unit/backends/test_gcs.py'.
+[   26s] Hint: make sure your test modules/packages have valid Python names.
+[   26s] Traceback:
+[   26s] /usr/lib64/python3.11/importlib/__init__.py:126: in import_module
+[   26s]     return _bootstrap._gcd_import(name[level:], package, level)
+[   26s] t/unit/backends/test_gcs.py:5: in <module>
+[   26s]     from google.cloud.exceptions import NotFound
+[   26s] E   ModuleNotFoundError: No module named 'google.cloud'
+[   26s] =============================== warnings summary ===============================
+[   26s] ../../../../../../usr/lib64/python3.11/site-packages/google/__init__.py:2
+[   26s]   /usr/lib64/python3.11/site-packages/google/__init__.py:2: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+[   26s]     __import__('pkg_resources').declare_namespace(__name__)
+[   26s] 
+[   26s] ../../../../../../usr/lib/python3.11/site-packages/pkg_resources/__init__.py:3147
+[   26s] ../../../../../../usr/lib/python3.11/site-packages/pkg_resources/__init__.py:3147
+[   26s]   /usr/lib/python3.11/site-packages/pkg_resources/__init__.py:3147: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('zope')`.
+[   26s]   Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+[   26s]     declare_namespace(pkg)
+[   26s] 
+[   26s] ../../../../../../usr/lib64/python3.11/site-packages/google/__init__.py:2
+[   26s]   /usr/lib64/python3.11/site-packages/google/__init__.py:2: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+[   26s]   Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+[   26s]     __import__('pkg_resources').declare_namespace(__name__)
+[   26s] 
+[   26s] -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[   26s] =========================== short test summary info ============================
+[   26s] ERROR t/unit/backends/test_gcs.py
+[   26s] !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+[   26s] ============ 6 skipped, 6 deselected, 4 warnings, 1 error in 5.23s =============
+[   26s] error: Bad exit status from /var/tmp/rpm-tmp.NrwUnP (%check)
+[   26s] 
+[   26s] RPM build errors:
+[   26s]     Bad exit status from /var/tmp/rpm-tmp.NrwUnP (%check)
+[   26s] ### VM INTERACTION START ###
+[   26s] [   21.187366][    T1] sysrq: Power Off
+[   27s] ### VM INTERACTION END ###
+[   27s] 
+[   27s] h02-ch2c failed "build python-celery.spec" at Wed Jun 11 15:34:39 UTC 2025.
+[   27s] 
