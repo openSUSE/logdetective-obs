@@ -1,21 +1,16 @@
 #!/usr/bin/python
 
 import argparse
-from osc.core import get_prj_results
+import subprocess
+from osc.core import get_prj_results, makeurl
 import osc.conf
 
 def main():
     osc.conf.get_config()
     apiurl = osc.conf.config['apiurl']
 
-    parser = argparse.ArgumentParser(description='Fetch OBS project build results.')
+    parser = argparse.ArgumentParser(description='Run logdetective on all failed OBS builds.')
     parser.add_argument('--project', required=True, help='Project name (e.g. openSUSE:Factory)')
-    parser.add_argument('--name_filter', help='Regex to filter package names')
-    parser.add_argument('--arch', nargs='*', help='List of architectures (e.g. x86_64)')
-    parser.add_argument('--csv', action='store_true', help='Output in CSV format')
-    parser.add_argument('--vertical', action='store_true', help='Vertical layout')
-    parser.add_argument('--hide_legend', action='store_true', help='Hide legend')
-    parser.add_argument('--show_excluded', action='store_true', help='Include excluded packages')
 
     args = parser.parse_args()
 
@@ -23,45 +18,82 @@ def main():
         apiurl=apiurl,
         prj=args.project,
         status_filter='failed',
-        name_filter=args.name_filter,
-        arch=args.arch,
-        repo='standard',
-        csv=args.csv,
+        repo=['standard'],
+        csv=False,
         brief=True,
-        vertical=args.vertical,
-        hide_legend=args.hide_legend,
-        show_excluded=args.show_excluded
     )
 
     for line in results:
-        print(line)
+        parts = line.strip().split()
+        if len(parts) != 4:
+            continue  # skip malformed lines
+        package, repo, arch, status = parts
+        if status != 'failed':
+            continue
+
+        log_url = makeurl(apiurl, ['public','build', args.project, repo, arch, package, '_log'])
+        print(f"\n🔍 Running logdetective for {package} ({repo}/{arch})...")
+        try:
+            subprocess.run(['logdetective', log_url], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"❌ logdetective failed for {package}: {e}")
 
 if __name__ == '__main__':
     main()
 
 
 
+'''
+import subprocess
+from osc.core import get_prj_results, makeurl
+from osc import conf
+from osc.cmdln import option
 
-""" 
-def do_failed_builds(self, subcmd, opts, project):
-    """${cmd_name}: Show failed builds in 'standard' repo of a project
+@option('--arch', metavar='ARCH', default='x86_64',
+        help='Architecture to filter on (default: x86_64)')
+@option('--repo', metavar='REPO', default='standard',
+        help='Repository to filter on (default: standard)')
+@option('--name-filter', metavar='REGEX',
+        help='Regex to filter package names')
+def do_logs(self, subcmd, opts, project):
+    """${cmd_name}: Run logdetective on all failed builds in a project
 
-    This command lists all packages in a given project that failed to build
-    in the 'standard' repository. It is filtered to only show failed results.
+    This command finds all failed builds for the given PROJECT
+    (in the given repository and architecture), and runs logdetective
+    on each one by fetching the build log URL.
 
     ${cmd_usage}
     ${cmd_option_list}
     """
 
+    conf.get_config()
+    apiurl = conf.config['apiurl']
+
     results = get_prj_results(
-        apiurl=conf.config['apiurl'],
+        apiurl=apiurl,
         prj=project,
         status_filter='failed',
-        repo=['standard'],
-        arch=['x86_64'],       # Optional: remove this line if you want all arches
-        brief=True,            # Clean one-line output per failure
+        repo=[opts.repo],
+        arch=[opts.arch],
+        name_filter=opts.name_filter,
+        csv=False,
+        brief=True,
     )
 
     for line in results:
-        print(line)
- """
+        parts = line.strip().split()
+        if len(parts) != 4:
+            continue
+        package, repo, arch, status = parts
+        if status != 'failed':
+            continue
+
+        log_url = makeurl(apiurl, ['public','build', project, repo, arch, package, '_log'])
+
+        print(f"\n🔍 Running logdetective for {package} ({repo}/{arch})...")
+        try:
+            subprocess.run(['logdetective', log_url], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"❌ logdetective failed for {package}: {e}")
+
+'''
