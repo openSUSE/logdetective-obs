@@ -4,6 +4,7 @@ import argparse
 import subprocess
 from osc.core import get_prj_results, makeurl
 import osc.conf
+from osc.cmdln import option
 
 def main():
     osc.conf.get_config()
@@ -11,6 +12,9 @@ def main():
 
     parser = argparse.ArgumentParser(description='Run logdetective on all failed OBS builds.')
     parser.add_argument('--project', required=True, help='Project name (e.g. openSUSE:Factory)')
+    parser.add_argument('--name_filter', help='Regex to filter package names')
+    parser.add_argument('--arch', nargs='*', help='List of architectures (e.g. x86_64)')
+    parser.add_argument('--show_excluded', action='store_true', help='Include excluded packages')
 
     args = parser.parse_args()
 
@@ -18,9 +22,12 @@ def main():
         apiurl=apiurl,
         prj=args.project,
         status_filter='failed',
+        name_filter=args.name_filter,
+        arch=args.arch,
         repo=['standard'],
         csv=False,
         brief=True,
+        show_excluded=args.show_excluded
     )
 
     for line in results:
@@ -42,7 +49,6 @@ if __name__ == '__main__':
     main()
 
 
-
 '''
 import subprocess
 from osc.core import get_prj_results, makeurl
@@ -55,6 +61,8 @@ from osc.cmdln import option
         help='Repository to filter on (default: standard)')
 @option('--name-filter', metavar='REGEX',
         help='Regex to filter package names')
+@option('--show_excluded', action='store_true',
+        help='Include excluded packages')
 def do_logs(self, subcmd, opts, project):
     """${cmd_name}: Run logdetective on all failed builds in a project
 
