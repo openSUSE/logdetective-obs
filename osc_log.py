@@ -12,7 +12,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Run logdetective on all failed OBS builds.')
     parser.add_argument('--project', required=True, help='Project name (e.g. openSUSE:Factory)')
-    parser.add_argument('--name_filter', help='Regex to filter package names')
+    parser.add_argument('--package', help='Regex to filter package names')
     parser.add_argument('--arch', nargs='*', help='List of architectures (e.g. x86_64)')
     parser.add_argument('--show_excluded', action='store_true', help='Include excluded packages')
 
@@ -22,7 +22,7 @@ def main():
         apiurl=apiurl,
         prj=args.project,
         status_filter='failed',
-        name_filter=args.name_filter,
+        name_filter=args.package,
         arch=args.arch,
         repo=['standard'],
         csv=False,
@@ -59,7 +59,7 @@ from osc.cmdln import option
         help='Architecture to filter on (default: x86_64)')
 @option('--repo', metavar='REPO', default='standard',
         help='Repository to filter on (default: standard)')
-@option('--name-filter', metavar='REGEX',
+@option('--package', metavar='REGEX',
         help='Regex to filter package names')
 @option('--show_excluded', action='store_true',
         help='Include excluded packages')
@@ -83,7 +83,7 @@ def do_logs(self, subcmd, opts, project):
         status_filter='failed',
         repo=[opts.repo],
         arch=[opts.arch],
-        name_filter=opts.name_filter,
+        name_filter=opts.package,
         csv=False,
         brief=True,
     )
