@@ -1,0 +1,17 @@
+log:
+  level_stream: "DEBUG"
+  level_file: "DEBUG"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+inference:
+  max_tokens: -1
+  log_probs: 1
+  url: http://localhost:8080
+  # llama-server doesn't scale well with too many requests
+  # don't even bother running it with --parallel :)
+  # not sure if this is just a shortcoming of mistral 0.2
+  max_queue_size: 2
+  requests_per_minute: 8
+extractor:
+  context: true
+  max_clusters: 25
+  verbose: false
