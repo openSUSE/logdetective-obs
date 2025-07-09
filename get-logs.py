@@ -29,10 +29,10 @@ def parse_args():
         help="Try to explain the log using log-detective.com",
     )
     parser.add_argument(
-    "-l",
-    "--local",
-    action="store_true",
-    help="Try to explain the log using a local log-detective model"
+        "-l",
+        "--local",
+        action="store_true",
+        help="Try to explain the log using a local log-detective model"
     )
     return parser.parse_args()
 
@@ -81,7 +81,7 @@ def parse_build_failure(line: str, project: str, is_package_specific_query: bool
         ValueError: If the input line does not match the expected format.
     """
     parts = line.strip().split()
-    
+
     if len(parts) < 4:
         raise ValueError("Expected format: '<package> <repository> <arch> failed' or '<repository> <arch> <package> failed'")
 
@@ -187,10 +187,10 @@ def run_log_detective_remote(url, log_path, project):
 # === Main Script ===
 if __name__ == "__main__":
     args = parse_args()
-    
+
     # The base project name for directory creation and URL construction
-    base_project = args.project_name 
-    
+    base_project = args.project_name
+
     # The path used for 'osc results' command
     osc_project_path = args.project_name
     is_package_specific_query = bool(args.package) # Flag to indicate if a specific package was queried
@@ -214,7 +214,7 @@ if __name__ == "__main__":
                 continue
             try:
                 # Pass the is_package_specific_query flag to parse_build_failure
-                url, filename = parse_build_failure(line, base_project, is_package_specific_query) 
+                url, filename = parse_build_failure(line, base_project, is_package_specific_query)
                 log_path = download_log(url, filename, base_project)
                 if log_path:
                     downloaded_files.append(log_path)
