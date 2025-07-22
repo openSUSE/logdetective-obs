@@ -4,6 +4,16 @@ This is an osc plugin that uses logdetective to analyze failed Open Build Servic
 
 ## Usage
 
+To install the package run
+```
+pip install osc_ld_plugin
+```
+After installing this package, users must run
+```
+osc-ld-install
+```
+this is to install the osc plugin script in the ~/.osc-plugins directory
+
 ### For analyzing local failed build
 ```bash
 osc ld --local-log
