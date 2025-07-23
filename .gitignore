@@ -1,1 +1,7 @@
 .DS_Store
+
+osc_plugin/.pycache
+osc_plugin/dist
+osc_plugin/.pytest_cache
+osc_plugin/osc_ld_plugin/__pycache__
+osc_plugin/tests/__pycache__
