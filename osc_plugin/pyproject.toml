@@ -1,0 +1,40 @@
+[project]
+name = "osc_ld_plugin"
+version = "0.1.0"
+description = "An osc plugin to analyze failed build logs using logdetective"
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+license = {text = "MIT"}
+authors = [
+    {name = "Aazam Thakur", email = "aazamthakur@gmail.com"}
+]
+keywords = ["osc", "build", "logdetective", "obs", "plugin"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "osc>=1.17.0,<2.0.0",
+    "logdetective>=1.7.0,<2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/openSUSE/logdetective-obs"
+Repository = "https://github.com/openSUSE/logdetective-obs"
+
+[project.scripts]
+osc-ld-install = "osc_ld_plugin.install_plugin:main"
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+build = "^1.2.2.post1"
+twine = "^6.1.0"
+pytest = "^8.4.1"
+ruff = "^0.12.3"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
