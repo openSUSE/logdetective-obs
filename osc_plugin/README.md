@@ -4,17 +4,17 @@ This is an osc plugin that uses logdetective to analyze failed Open Build Servic
 
 ## Usage instructions
 
-To install the package run
+### To install the package run
 ```
 pip install osc_ld_plugin
 ```
 
-To install the package with logdetective run
+### To install the package with logdetective run
 ```
 pip install osc_ld_plugin[logdetective]
 ```
 
-After installing this package, users must run
+### After installing this package, users must run
 ```
 osc-ld-install
 ```
@@ -32,7 +32,7 @@ osc ld --project openSUSE:Factory --package blender
 
 ### For analyzing using the logdetective api instead
 ```bash
-osc ld --project openSUSE:Factory --package blender -
+osc ld --project openSUSE:Factory --package blender --r
 ```
 
 
@@ -43,3 +43,6 @@ Initial version
 
 ### version 0.2.0
 Added remote logdetective api functionality and optional dependency
+
+### version 0.2.2
+Fixed typos in README.MD
