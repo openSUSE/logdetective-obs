@@ -2,6 +2,7 @@ import os
 import sys
 import re
 import subprocess
+import requests
 from urllib.parse import urlsplit
 from osc.core import get_prj_results, makeurl, BUFSIZE, buildlog_strip_time
 from osc import conf
@@ -9,6 +10,31 @@ from osc.cmdln import option
 from osc.core import store_read_project, store_read_package
 from osc.oscerr import OscIOError
 import osc.build
+
+
+
+def run_log_detective_remote(log_content, filename_hint):
+    import requests
+    import json
+
+    EXPLAIN_DIR = ".explanations"
+    os.makedirs(EXPLAIN_DIR, exist_ok=True)
+
+    output_filename = os.path.basename(filename_hint).replace('.log', '.json')
+    output_path = os.path.join(EXPLAIN_DIR, output_filename)
+
+    print(f"🌐 Sending log to LogDetective API...")
+    try:
+        response = requests.post(
+            "https://log-detective.com/frontend/explain/",
+            json={"prompt": log_content}
+        )
+        response.raise_for_status()
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(response.json(), f, ensure_ascii=False, indent=4)
+        print(f"✅ Remote analysis saved to {output_path}")
+    except Exception as e:
+        print(f"❌ Remote analysis failed: {e}", file=sys.stderr)
 
 @option('--arch', metavar='ARCH', default='x86_64',
         help='Architecture to filter on (default: x86_64)')
@@ -24,6 +50,8 @@ import osc.build
         help='(For --local-log) Start reading the local build log from a specific byte offset when displaying.')
 @option('--no-display', action='store_true',
         help='(For --local-log) Do not display the local log content to stdout; just feed it to logdetective.')
+@option('-r', '--remote', action='store_true',
+        help='Use LogDetective remote API instead of requiring the CLI tool')
 def do_ld(self, subcmd, opts, *args):
     """${cmd_name}: Run logdetective on failed OBS builds or local build log
 
@@ -74,13 +102,21 @@ def do_ld(self, subcmd, opts, *args):
                 print(f"Error reading local build log: {e}", file=sys.stderr)
                 sys.exit(1)
 
-        print(f"\n🚀 Feeding local build log to logdetective: {logfile}")
+        print(f"\n🚀 Analyzing local build log: {logfile}")
         try:
-            subprocess.run(['logdetective', logfile], check=True)
+            with open(logfile, "r", encoding="utf-8", errors="ignore") as f:
+                log_content = f.read()
+            if opts.remote:
+                run_log_detective_remote(log_content, logfile)
+            else:
+                subprocess.run(['logdetective', logfile], check=True)
         except subprocess.CalledProcessError as e:
             print(f"❌ logdetective failed for local log: {e}", file=sys.stderr)
         except FileNotFoundError:
-            print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
+            if opts.remote:
+                pass  # Already handled
+            else:
+                print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
         return
 
     if not args:
@@ -123,7 +159,17 @@ def do_ld(self, subcmd, opts, *args):
         log_url = makeurl(apiurl, ['public', 'build', project, repo, arch, package, '_log'])
         print(f"\n🔍 Running logdetective for {package} ({repo}/{arch})...")
         try:
-            subprocess.run(['logdetective', log_url], check=True)
+            if opts.remote:
+                print(f"📥 Downloading log from: {log_url}")
+                import requests
+                try:
+                    response = requests.get(log_url)
+                    response.raise_for_status()
+                    run_log_detective_remote(response.text, f"{package}.log")
+                except Exception as e:
+                    print(f"❌ Failed to fetch or analyze log for {package}: {e}", file=sys.stderr)
+            else:
+                subprocess.run(['logdetective', log_url], check=True)
         except subprocess.CalledProcessError as e:
             print(f"❌ logdetective failed for {package}: {e}")
         except FileNotFoundError:

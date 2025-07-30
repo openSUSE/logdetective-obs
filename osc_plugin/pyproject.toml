@@ -1,6 +1,6 @@
 [project]
 name = "osc_ld_plugin"
-version = "0.1.0"
+version = "0.2.0"
 description = "An osc plugin to analyze failed build logs using logdetective"
 readme = "README.md"
 requires-python = ">=3.13,<4.0"
@@ -17,8 +17,11 @@ classifiers = [
 
 dependencies = [
     "osc>=1.17.0,<2.0.0",
-    "logdetective>=1.7.0,<2.0.0"
+    "requests"
 ]
+
+[project.optional-dependencies]
+logdetective = ["logdetective>=1.7.0,<2.0.0"]
 
 [project.urls]
 Homepage = "https://github.com/openSUSE/logdetective-obs"
