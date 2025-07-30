@@ -9,7 +9,7 @@ To install the package run
 pip install osc_ld_plugin
 ```
 
-To install the package without logdetective run
+To install the package with logdetective run
 ```
 pip install osc_ld_plugin[logdetective]
 ```
