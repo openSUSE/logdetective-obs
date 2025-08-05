@@ -12,3 +12,10 @@ The models can be used by passing the --model flag and then the -F flag to selec
 ```
 logdetective apache-arrow_standard_x86_64.log  --model unsloth/Qwen2.5-Coder-7B-Instruct-128K-GGUF -F Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf --prompt ~/prompt.yml
 ```
+
+### Steps to replicate
+
+- Run the `get-logs.py` file to obtain a list of failed build logs.
+- Navigate to the log directory and select a log file
+- Run the above logdetective command replacing the log with the selected log file
+- If using the prompt flag, make sure the file is placed in the correct path
