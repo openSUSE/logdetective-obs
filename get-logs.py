@@ -38,6 +38,7 @@ def parse_args():
     parser.add_argument("--contribute-log", action="store_true",
                         help="Enable contributing logs to LogDetective")
     parser.add_argument("--log-url", type=str, help="URL to the build log")
+    parser.add_argument("--log-path", type=str, help="Path to the local log file")
     parser.add_argument("--fail-reason", type=str, help="Reason for build failure")
     parser.add_argument("--how-to-fix", type=str, help="How to fix the build issue")
     return parser.parse_args()
@@ -190,6 +191,22 @@ def run_log_detective_remote(url, log_path, project):
         print(f"❌ Error during remote log-detective analysis for {url}: {e}")
         return None
 
+def build_payload(log_content, fail_reason, how_to_fix):
+    return {
+        "username": "testuser",  # Replace with actual username handling if needed
+        "fail_reason": fail_reason,
+        "how_to_fix": how_to_fix,
+        "spec_file": {"name": "", "content": ""},
+        "container_file": {"name": "", "content": ""},
+        "logs": [
+            {
+                "name": "build.log",
+                "content": log_content,
+                "snippets": []
+            }
+        ]
+    }
+
 def submit_log_to_log_detective(url, fail_reason, how_to_fix):
     """
     Submits a log URL to the remote log-detective.com service for contribution
@@ -206,27 +223,28 @@ def submit_log_to_log_detective(url, fail_reason, how_to_fix):
         return None
 
         log_content = log_response.text
-    payload = {
-        "username": "testuser",
-        "fail_reason": fail_reason,
-        "how_to_fix": how_to_fix,
-        "spec_file": None,
-        "container_file": None,
-        "logs": [
-            {
-                "name": os.path.basename(url),
-                "content": log_content,
-                "snippets": [
-                    {
-                        "start_index": 0,
-                        "end_index": 10,
-                        "user_comment": "Dependency missing here",
-                        "text": "error: package not found"
-                    }
-                ]
-            }
-        ]
-    }
+    payload = build_payload(log_content, fail_reason, how_to_fix)
+    response = requests.post(url, json=payload)
+    return response.json()
+
+def submit_local_log_to_log_detective(log_path, fail_reason, how_to_fix):
+    """
+    Submits a local log file to the remote log-detective.com service for contribution
+    Args:
+        log_path (str): The path to the local log file to submit.
+        fail_reason (str): The reason for the build failure.
+        how_to_fix (str): The suggested fix for the build failure.
+    """
+    if not os.path.exists(log_path):
+        print(f"Error: Log file not found: {log_path}")
+        return None
+    
+    with open(log_path, "r", encoding="utf-8") as f:
+        log_content = f.read()
+    payload = build_payload(log_content, fail_reason, how_to_fix)
+    response = requests.post(url, json=payload)
+    return response.json()
+
 
 # === Main Script ===
 if __name__ == "__main__":
@@ -239,14 +257,16 @@ if __name__ == "__main__":
     osc_project_path = args.project_name
     is_package_specific_query = bool(args.package) # Flag to indicate if a specific package was queried
 
-
     if args.contribute_log:
-        if not args.log_url or not args.fail_reason or not args.how_to_fix:
-            parser.error("--log-url, --fail-reason, and --how-to-fix are required with --contribute-log")
+        if args.log_url and args.log_path:
+            parser.error("Please use only one of --log-url or --log-path, not both.")
+        if args.log_url:
+            result = submit_log_to_log_detective(args.log_url, args.fail_reason, args.how_to_fix)
+        elif args.log_path:
+            result = submit_local_log_to_log_detective(args.log_path, args.fail_reason, args.how_to_fix)
+        else:
+            parser.error("Please provide either --log-url or --log-path with --contribute-log")
 
-        result = contribute_log(args.log_url, args.fail_reason, args.how_to_fix)
-        print("Log contribution response:", result)
-        
     if args.package:
         osc_project_path = f"{args.project_name}/{args.package}"
         print(f"🔍 Checking failed builds for package '{args.package}' in project '{args.project_name}' ({osc_project_path})...\n")
