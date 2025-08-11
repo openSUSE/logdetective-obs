@@ -5,6 +5,7 @@ import subprocess
 import requests
 import argparse
 import json
+import urllib.parse
 
 LOGS_DIR = "logs"
 EXPLAIN_DIR = "explain"
@@ -34,6 +35,11 @@ def parse_args():
         action="store_true",
         help="Try to explain the log using a local log-detective model"
     )
+    parser.add_argument("--contribute-log", action="store_true",
+                        help="Enable contributing logs to LogDetective")
+    parser.add_argument("--log-url", type=str, help="URL to the build log")
+    parser.add_argument("--fail-reason", type=str, help="Reason for build failure")
+    parser.add_argument("--how-to-fix", type=str, help="How to fix the build issue")
     return parser.parse_args()
 
 def get_failed_builds(project_or_package_path):
@@ -184,6 +190,44 @@ def run_log_detective_remote(url, log_path, project):
         print(f"❌ Error during remote log-detective analysis for {url}: {e}")
         return None
 
+def submit_log_to_log_detective(url, fail_reason, how_to_fix):
+    """
+    Submits a log URL to the remote log-detective.com service for contribution
+    Args:
+        url (str): The URL of the build log to explain.
+        fail_reason (str): The reason for the build failure.
+        how_to_fix (str): The suggested fix for the build failure.
+    """
+    encoded_url = urllib.parse.quote(urllib.parse.quote(url, safe=''), safe='')
+    # Fetch log content
+    log_response = requests.get(url)
+    if log_response.status_code != 200:
+        print(f"Error fetching log file: {log_response.status_code}")
+        return None
+
+        log_content = log_response.text
+    payload = {
+        "username": "testuser",
+        "fail_reason": fail_reason,
+        "how_to_fix": how_to_fix,
+        "spec_file": None,
+        "container_file": None,
+        "logs": [
+            {
+                "name": os.path.basename(url),
+                "content": log_content,
+                "snippets": [
+                    {
+                        "start_index": 0,
+                        "end_index": 10,
+                        "user_comment": "Dependency missing here",
+                        "text": "error: package not found"
+                    }
+                ]
+            }
+        ]
+    }
+
 # === Main Script ===
 if __name__ == "__main__":
     args = parse_args()
@@ -195,6 +239,14 @@ if __name__ == "__main__":
     osc_project_path = args.project_name
     is_package_specific_query = bool(args.package) # Flag to indicate if a specific package was queried
 
+
+    if args.contribute_log:
+        if not args.log_url or not args.fail_reason or not args.how_to_fix:
+            parser.error("--log-url, --fail-reason, and --how-to-fix are required with --contribute-log")
+
+        result = contribute_log(args.log_url, args.fail_reason, args.how_to_fix)
+        print("Log contribution response:", result)
+        
     if args.package:
         osc_project_path = f"{args.project_name}/{args.package}"
         print(f"🔍 Checking failed builds for package '{args.package}' in project '{args.project_name}' ({osc_project_path})...\n")
