@@ -231,7 +231,7 @@ def submit_log_to_log_detective(url, fail_reason, how_to_fix):
 
     log_content = log_response.text
     payload = build_payload(log_content, fail_reason, how_to_fix)
-    response = requests.post("https://log-detective.com/frontend/contribute/url/{encoded_url}", json=payload)
+    response = requests.post(f"https://log-detective.com/frontend/contribute/url/{encoded_url}", json=payload)
     return response.json()
 
 def submit_local_log_to_log_detective(log_path, fail_reason, how_to_fix):
@@ -274,7 +274,7 @@ if __name__ == "__main__":
         else:
             parser.error("Please provide either --log-url or --log-path with --contribute-log")
         print(result)
-        sys.exit()
+        sys.exit(0)
 
     if args.package:
         osc_project_path = f"{args.project_name}/{args.package}"
