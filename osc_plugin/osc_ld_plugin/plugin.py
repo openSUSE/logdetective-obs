@@ -11,7 +11,65 @@ from osc.core import store_read_project, store_read_package
 from osc.oscerr import OscIOError
 import osc.build
 
+def build_payload(log_content, fail_reason, how_to_fix):
+    return {
+        "username": "testuser",
+        "fail_reason": fail_reason,
+        "how_to_fix": how_to_fix,
+        "container_file": {"name": "", "content": ""},
+        "logs": [
+            {
+                "name": "build.log",
+                "content": log_content,
+                "snippets": [
+                            {
+          "start_index": 0,
+          "end_index": 0,
+          "user_comment": "string to test the snippet",
+          "text": "this is a sample test string"
+        }
+                ]
+            }
+        ]
+    }
 
+def submit_log_to_log_detective(url, fail_reason, how_to_fix):
+    """
+    Submits a log URL to the remote log-detective.com service for contribution
+    Args:
+        url (str): The URL of the build log to explain.
+        fail_reason (str): The reason for the build failure.
+        how_to_fix (str): The suggested fix for the build failure.
+    """
+    encoded_url = urllib.parse.quote(urllib.parse.quote(url, safe=''), safe='')
+    # Fetch log content
+    log_response = requests.get(url)
+    if log_response.status_code != 200:
+        print(f"Error fetching log file: {log_response.status_code}")
+        return None
+
+    log_content = log_response.text
+    payload = build_payload(log_content, fail_reason, how_to_fix)
+    response = requests.post("https://log-detective.com/frontend/contribute/url/{encoded_url}", json=payload)
+    return response.json()
+
+def submit_local_log_to_log_detective(log_path, fail_reason, how_to_fix):
+    """
+    Submits a local log file to the remote log-detective.com service for contribution
+    Args:
+        log_path (str): The path to the local log file to submit.
+        fail_reason (str): The reason for the build failure.
+        how_to_fix (str): The suggested fix for the build failure.
+    """
+    if not os.path.exists(log_path):
+        print(f"Error: Log file not found: {log_path}")
+        return None
+    
+    with open(log_path, "r", encoding="utf-8") as f:
+        log_content = f.read()
+    payload = build_payload(log_content, fail_reason, how_to_fix)
+    response = requests.post("https://log-detective.com/frontend/contribute/upload", json=payload)
+    return response.json()
 
 def run_log_detective_remote(log_content, filename_hint):
     import requests
@@ -52,6 +110,12 @@ def run_log_detective_remote(log_content, filename_hint):
         help='(For --local-log) Do not display the local log content to stdout; just feed it to logdetective.')
 @option('-r', '--remote', action='store_true',
         help='Use LogDetective remote API instead of requiring the CLI tool')
+@option('--submit-log' action-'store_true',
+        help='Submit the log to logdetective')
+@option('--how-to-fix' action-'store_true',
+        help='(For --submit-log) information to fix the log error')
+@option('--fail-reason' action-'store_true',
+        help='(For --submit-log) information for the log error')
 def do_ld(self, subcmd, opts, *args):
     """${cmd_name}: Run logdetective on failed OBS builds or local build log
 
@@ -106,6 +170,8 @@ def do_ld(self, subcmd, opts, *args):
         try:
             with open(logfile, "r", encoding="utf-8", errors="ignore") as f:
                 log_content = f.read()
+            if opts.submit_log:
+                data_payload = build_payload(log_content, )
             if opts.remote:
                 run_log_detective_remote(log_content, logfile)
             else:
@@ -117,6 +183,8 @@ def do_ld(self, subcmd, opts, *args):
                 pass  # Already handled
             else:
                 print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
+        
+
         return
 
     if not args:
