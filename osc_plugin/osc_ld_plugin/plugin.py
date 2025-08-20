@@ -34,10 +34,11 @@ class LogDetective(OscCommand):
         self.add_argument("--repo", default="standard", help="OBS build repository")
         self.add_argument("--show_excluded", action="store_true", help="Include excluded packages")
         self.add_argument("-l", "--local-log", action="store_true", help="Process the log of the newest last local build")
-        self.add_argument("--strip-time", action="store_true", help="(For --local-log) Remove timestamps from the local build log output when displaying")
-        self.add_argument("--offset", type=int, default=0, help="(For --local-log) Start reading the local build log from a specific byte offset when displaying")
         self.add_argument("-r", "--remote", action="store_true", help="Use LogDetective remote API instead of requiring the CLI tool")
         self.add_argument("-a", "--all", action="store_true", help="Look for all packages failing in a project")
+        self.add_argument("--strip-time", action="store_true", help="(For --local-log) Remove timestamps from the local build log output when displaying")
+        self.add_argument("--offset", type=int, default=0, help="(For --local-log) Start reading the local build log from a specific byte offset when displaying")
+        self.add_argument("-m", "--model", help="Select the model to use in Log Detective")
 
     def run(self, args):
         """
@@ -65,8 +66,11 @@ class LogDetective(OscCommand):
 
 
     def run_log_detective(self, logfile):
+        args = []
+        if self.args.model:
+            args = [self.args.model]
         try:
-            subprocess.run(["logdetective", logfile], check=True)
+            subprocess.run(["logdetective", *args, logfile], check=True)
         except subprocess.CalledProcessError as e:
             print(f"❌ logdetective failed for local log: {e}", file=sys.stderr)
         except FileNotFoundError:
@@ -116,6 +120,7 @@ class LogDetective(OscCommand):
                         data = buildlog_strip_time(data)
                     fp.write(data)
                     data = f.read(BUFSIZE)
+                fp.close()
         except Exception as e:
             print(f"Error reading local build log: {e}", file=sys.stderr)
             sys.exit(1)
@@ -126,7 +131,7 @@ class LogDetective(OscCommand):
         project = args.project or store_read_project(".")
         package = args.package or store_read_package(".")
 
-        logfile, data = self.get_local_log(project, package, args.repo, args.arch, args.offset, args.strip_time)
+        logfile = self.get_local_log(project, package, args.repo, args.arch, args.offset, args.strip_time)
         print(f"🚀 Analyzing local build log: {logfile}")
         if args.remote:
             # TODO: upload the log somewhwere to use log detective
