@@ -4,6 +4,7 @@ import re
 import subprocess
 import requests
 import json
+import textwrap
 
 from urllib.parse import urlsplit
 from osc.core import get_results, get_prj_results, makeurl, BUFSIZE, buildlog_strip_time
@@ -48,7 +49,7 @@ class LogDetective(OscCommand):
         """
 
         conf.get_config()
-        self.apiurl = conf.config['apiurl']
+        self.apiurl = conf.config["apiurl"]
         self.apihost = urlsplit(self.apiurl)[1]
         self.args = args
 
@@ -71,14 +72,19 @@ class LogDetective(OscCommand):
         except FileNotFoundError:
             print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
 
-    def run_log_detective_remote(self, log_url, filename_hint):
+    def run_log_detective_remote(self, log_url):
         print(f"🌐 Sending log to LogDetective API...")
         response = requests.post(
             "https://log-detective.com/frontend/explain/",
             json={"prompt": log_url}
         )
         response.raise_for_status()
-        print(response.json()["explanation"])
+        explain = response.json()["explanation"]
+        for line in explain.split("\n"):
+            if not line:
+                print("\n\n")
+                continue
+            print(textwrap.fill(line, width=80, drop_whitespace=True))
 
     def get_local_log(self, project, package, repo, arch, offset=0, strip_time=False):
         """
@@ -94,14 +100,14 @@ class LogDetective(OscCommand):
             print(f"Error: Failed to determine local build root: {e}", file=sys.stderr)
             sys.exit(1)
 
-        logfile = os.path.join(buildroot, '.build.log')
+        logfile = os.path.join(buildroot, ".build.log")
         if not os.path.isfile(logfile):
             print(f"Error: Local build log not found: {logfile}", file=sys.stderr)
             sys.exit(1)
 
         print(f"Found local build log: {logfile}")
         try:
-            with open(logfile, 'rb') as f, tempfile.NamedTemporaryFile(delete=False) as fp:
+            with open(logfile, "rb") as f, tempfile.NamedTemporaryFile(delete=False) as fp:
                 logfile = fp.name
                 f.seek(offset)
                 data = f.read(BUFSIZE)
@@ -159,7 +165,7 @@ class LogDetective(OscCommand):
             package, repo, arch, status = parts
             if name_pattern and not name_pattern.fullmatch(package):
                 continue
-            if status != 'failed':
+            if status != "failed":
                 continue
 
             found = True
@@ -167,7 +173,7 @@ class LogDetective(OscCommand):
             print(f"🔍 Running logdetective for {package} ({repo}/{arch})...")
 
             if args.remote:
-                self.run_log_detective_remote(log_url, f"{package}.log")
+                self.run_log_detective_remote(log_url)
             else:
                 self.run_log_detective(log_url)
 
@@ -196,9 +202,9 @@ class LogDetective(OscCommand):
         print(f"Log url: {log_url}")
 
         if args.remote:
-            self.run_log_detective_remote(log_url, f"{package}.log")
+            self.run_log_detective_remote(log_url)
         else:
             self.run_log_detective(log_url)
 
     def get_log_url(self, project, package, repo, arch):
-        return makeurl(self.apiurl, ['public', 'build', project, repo, arch, package, '_log'])
+        return makeurl(self.apiurl, ["public", "build", project, repo, arch, package, "_log"])
