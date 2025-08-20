@@ -1,0 +1,1115 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/xml
+      user-agent:
+      - osc/1.17.0
+    method: GET
+    uri: https://api.opensuse.org/build/devel:languages:python/_result?package=python-actdiag&repository=openSUSE_Tumbleweed&arch=x86_64
+  response:
+    body:
+      string: "<resultlist state=\"2fd1fe3238c7991d6f508c8794c7107f\">\n  <result
+        project=\"devel:languages:python\" repository=\"openSUSE_Tumbleweed\" arch=\"x86_64\"
+        code=\"building\" state=\"building\">\n    <status package=\"python-actdiag\"
+        code=\"failed\"/>\n  </result>\n</resultlist>\n"
+    headers:
+      cache-control:
+      - private, no-transform
+      - no-cache
+      content-length:
+      - '257'
+      content-type:
+      - text/xml
+      date:
+      - Wed, 20 Aug 2025 07:25:34 GMT
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - Apache/2.4.58 (Linux/SUSE)
+      strict-transport-security:
+      - max-age=31536000
+      x-content-type-options:
+      - nosniff
+      x-download-options:
+      - noopen
+      x-frame-options:
+      - SAMEORIGIN
+      x-opensuse-apiversion:
+      - 2.11~alpha.20250819T105919.32fb202bd
+      x-opensuse-runtimes:
+      - '{"view":null,"db":3.811290953308344,"backend":0}'
+      x-permitted-cross-domain-policies:
+      - none
+      x-powered-by:
+      - Phusion Passenger(R)
+      x-request-id:
+      - acc4d80a-bc52-4f99-b5a1-aa9f6f5c13d8
+      x-runtime:
+      - '0.010692'
+      x-xss-protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"prompt": "https://api.opensuse.org/public/build/devel:languages:python/openSUSE_Tumbleweed/x86_64/python-actdiag/_log"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '121'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.4
+    method: POST
+    uri: https://log-detective.com/frontend/explain/
+  response:
+    body:
+      string: '{"explanation":" The RPM build for python-actdiag-3.0.0 has failed
+        during the %check phase. The error occurred at `src/actdiag/tests/test_generate_diagram.py`,
+        due to the use of the ''yield'' keyword, which is not supported in Python
+        versions prior to 3.0. To resolve this issue, you should ensure that the Python
+        version being used for the build is 3.0 or later. Alternatively, you can modify
+        the code at `src/actdiag/tests/test_generate_diagram.py` to remove or handle
+        the use of the ''yield'' keyword.","reasoning":[{"snippet":"[   14s] + ''[''
+        -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.13/site-packages
+        '']''\n","comment":" This log snippet shows a check for the existence of a
+        directory. The directory is `/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.13/site-packages`.
+        The check returns true because the directory exists."},{"snippet":"[   14s]
+        + myargs=''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/*
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''\n","comment":"
+        The RPM build log snippet shows the creation of `myargs` variable containing
+        a list of directories (`/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/*`
+        and `/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*`)
+        where the built binaries and sbins for the python-actdiag-3.0.0 package will
+        reside in the RPM package root filesystem."},{"snippet":"[   14s] ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin
+        ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n","comment":" This
+        log snippet shows a successful execution of the ''actdiag-3.0.0'' binary file
+        in the buildroot directory for the python-actdiag package, version 3.0.0.
+        The binary file is located at ''/usr/bin'' within the buildroot directory."},{"snippet":"[   14s]
+        + cp /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.11\n","comment":"
+        The log snippet shows that the RPM build process is copying a file `actdiag`
+        from `/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/`
+        to `/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.11`.
+        It does not indicate any errors or issues with the build process."},{"snippet":"[   14s]
+        + ''['' 1 -eq 1 '']''\n","comment":" The log snippet contains a conditional
+        statement in Bash scripting format, checking if 1 is equal to 1. The result
+        of this comparison is not shown in the provided snippet."},{"snippet":"[   14s]
+        ++ cat _current_flavor\n","comment":" The log snippet shows that the RPM build
+        process executed a `cat` (concatenate) command on a file named `_current_flavor`.
+        The file contents were not included in the snippet. The `cat` command is typically
+        used to display the contents of a file. This action is likely part of a script
+        within the RPM spec file that defines the software package."},{"snippet":"[   14s]
+        Using libalternatives variant 311 for blockdiag in XDG_CONFIG_HOME during
+        Python 3.11 expansions.\n","comment":" The log snippet indicates that during
+        the RPM build for package ''blockdiag'' using Python 3.11, the variant ''311''
+        from libalternatives is being used in XDG_CONFIG_HOME directory during the
+        expansions. This means the variant ''311'' is being applied to the configuration
+        files of the ''blockdiag'' package, specifically during the Python 3.11 phase
+        of the build process."},{"snippet":"[   14s] + pytest-3.11 --ignore=_build.python311
+        --ignore=_build.python312 --ignore=_build.python313 -v src/actdiag/tests\n","comment":"
+        This log snippet indicates that the RPM build process is currently building
+        the pytest-3.11 package, ignoring certain directories (_build.python311, _build.python312,
+        _build.python313) and running tests from the src/actdiag/tests directory.
+        There is no failure or error mentioned in this specific log snippet."},{"snippet":"[   14s]
+        ============================= test session starts ==============================\n","comment":"
+        The provided RPM build log snippet indicates the start of the test session."},{"snippet":"[   14s]
+        platform linux -- Python 3.11.13, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3.11\n","comment":"
+        The log snippet indicates the platform as \"linux\", the Python version being
+        used is \"3.11.13\", and the versions of pytest and pluggy are \"8.4.1\" and
+        \"1.6.0\" respectively. The Python interpreter being used is located at \"/usr/bin/python3.11\"."},{"snippet":"[   14s]
+        collecting ... collected 42 items / 1 error\n","comment":" The log snippet
+        indicates that the RPM build process collected 42 items for the build. However,
+        there was 1 error during this process. No further details about the error
+        are provided in this snippet."},{"snippet":"[   14s] \n","comment":" This
+        log snippet shows a newline character (''\\n'') being output after 14 seconds
+        (indicated by the (1110, ''[   14s]''). The absence of other context or error
+        messages suggests that this is a normal event during the RPM build process,
+        not indicative of a build failure."},{"snippet":"[   14s] _________ ERROR
+        collecting src/actdiag/tests/test_generate_diagram.py __________\n","comment":"
+        Error occurred during collection of `src/actdiag/tests/test_generate_diagram.py`
+        Python test file."},{"snippet":"[   14s] ''yield'' keyword is allowed in fixtures,
+        but not in tests (test_generate)\n","comment":" The log snippet indicates
+        that the RPM build process encountered an error during the test phase (test_generate)
+        of the package build. The specific issue is the use of ''yield'' keyword,
+        which is allowed in fixtures but not in tests. This means the code containing
+        the ''yield'' keyword is not compatible with the test phase of the RPM build."},{"snippet":"[   14s]
+        =============================== warnings summary ===============================\n","comment":"
+        The RPM build log contains a warning summary, indicating that during the build
+        process, there were one or more warnings generated. This does not necessarily
+        mean that the build failed; it only means that potential issues were detected.
+        The specific nature and impact of these warnings need to be examined in the
+        rest of the build log for a complete understanding."},{"snippet":"[   14s]   /usr/lib/python3.11/site-packages/blockdiag/noderenderer/__init__.py:18:
+        DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html\n","comment":"
+        DeprecationWarning for ''pkg_resources'' in blockdiag/noderenderer/__init__.py
+        at line 18 during RPM build of Python3.11 package."},{"snippet":"[   14s]
+        =========================== short test summary info ============================\n","comment":"
+        This snippet indicates a summary of the test results in a short format, as
+        part of an RPM build process. No specific errors or failures are mentioned
+        in this log excerpt."},{"snippet":"[   14s] ERROR src/actdiag/tests/test_generate_diagram.py
+        - Failed: ''yield'' keyword is...\n","comment":" The given RPM build log snippet
+        indicates that the build process for the python script located at `src/actdiag/tests/test_generate_diagram.py`
+        has failed. The failure is due to an error related to the usage of the ''yield''
+        keyword, which is not supported in Python versions prior to 3.0."},{"snippet":"[   14s]
+        !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n","comment":"
+        The RPM build process was interrupted due to an error during the collection
+        phase."},{"snippet":"[   14s] ========================= 1 warning, 1 error
+        in 0.19s ==========================\n","comment":" There is 1 warning and
+        1 error during the RPM build, taking approximately 0.19 seconds."},{"snippet":"[   14s]
+        error: Bad exit status from /var/tmp/rpm-tmp.22EFcy (%check)\n","comment":"
+        RPM build failed during the %check phase with a bad exit status. The error
+        occurred in the temporary build directory /var/tmp/rpm-tmp.22EFcy."},{"snippet":"[   14s]
+        RPM build errors:\n[   14s]     Bad exit status from /var/tmp/rpm-tmp.22EFcy
+        (%check)\n","comment":" RPM build encountered an error during the %check section
+        of the specified build (%check phase failed with a bad exit status). The error
+        occurred in the temporary directory ''/var/tmp/rpm-tmp.22EFcy''."},{"snippet":"[   14s]
+        ### VM INTERACTION START ###\n","comment":" This log snippet indicates the
+        start of virtual machine interaction during the RPM build process. The \"[   14s]\"
+        part shows the elapsed time (14 seconds) since the last log message. No additional
+        build-related information is provided in this snippet."},{"snippet":"[   14s]
+        [    9.747634][    T1] sysrq: Power Off\n","comment":" The log snippet indicates
+        a system message with a sysrq command to power off the system after 14 seconds."},{"snippet":"[   14s]
+        i04-ch4d failed \"build python-actdiag.spec\" at Tue Aug 19 17:55:58 UTC 2025.\n","comment":"
+        The snippet indicates that a build failure occurred on August 19, 2025 at
+        17:55:58 UTC for the package ''i04-ch4d'' while trying to build ''python-actdiag''.
+        The build process was terminated (failed) with the specified specfile."}],"certainty":99,"log":{"name":"https://api.opensuse.org/public/build/devel:languages:python/openSUSE_Tumbleweed/x86_64/python-actdiag/_log","content":"[    0s]
+        Using BUILD_ROOT=/var/cache/obs/worker/root_13/.mount\n[    0s] Using BUILD_ARCH=x86_64:i686:i586:i486:i386\n[    0s]
+        Doing kvm build in /var/cache/obs/worker/root_13/root\n[    0s] \n[    0s]
+        \n[    0s] i04-ch4d started \"build python-actdiag.spec\" at Tue Aug 19 17:55:44
+        UTC 2025.\n[    0s] \n[    0s] Building python-actdiag for project ''devel:languages:python''
+        repository ''openSUSE_Tumbleweed'' arch ''x86_64'' srcmd5 ''eb0746677a5e6941914f0ebe33dd8098''\n[    0s]
+        \n[    0s] processing recipe /var/cache/obs/worker/root_13/.build-srcdir/python-actdiag.spec
+        ...\n[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_13/.build-srcdir/python-actdiag.spec\n[    0s]
+        init_buildsystem --configdir /var/run/obs/worker/13/build/configs --cachedir
+        /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_13/.build.rpmlist
+        /var/cache/obs/worker/root_13/.build-srcdir/python-actdiag.spec build ...\n[    0s]
+        unpacking preinstall image devel:languages:python/openSUSE_Tumbleweed/preinstallimage-python
+        [7a9511a21a3ed845130fb881c1d629d7]\n[    2s] \n[    2s] copying packages...\n[    3s]
+        reordering...done\n[    3s] Detected virtio-serial support\n[    4s] booting
+        kvm...\n[    4s] ### VM INTERACTION START ###\n[    4s] Using virtio-serial
+        support and enabling console input\n[    4s] /usr/bin/qemu-kvm -nodefaults
+        -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off
+        -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0
+        -device virtio-rng-pci,rng=rng0 -object iothread,id=io0 -run-with user=qemu
+        -net none -kernel /var/cache/obs/worker/root_13/.mount/boot/kernel -initrd
+        /var/cache/obs/worker/root_13/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0
+        rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0
+        rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/build
+        -m 16384 -drive file=/var/cache/obs/worker/root_13/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring
+        -device virtio-blk-pci,iothread=io0,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_13/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring
+        -device virtio-blk-pci,iothread=io0,drive=swap,serial=1 -device virtio-serial,max_ports=2
+        -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0
+        -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_13/root.qemu/monitor
+        -mon chardev=monitor,mode=readline -smp 4\n[    5s] \u001b[!p\u001b]104\u0007\u001b[?7h[    0.367981][    T1]
+        systemd[1]: Failed to start Virtual Console Setup.\n[    5s] [\u001b[0;1;31mFAILED\u001b[0m]
+        Failed to start \u001b[0;1;39mVirtual Console Setup\u001b[0m.\r\n[    6s]
+        [\u001b[0;1;31mFAILED\u001b[0m] Failed to start \u001b[0;1;39mVirtual Console
+        Setup\u001b[0m.\r\n[    6s] \u001b[6n\u001b[32766;32766H\u001b[6n\u001b[!p\u001b]104\u0007\u001b[?7h###
+        VM INTERACTION END ###\n[    6s] 2nd stage started in virtual machine\n[    6s]
+        ^[[24;10R^[[24;80Rmachine type: x86_64\n[    6s] Linux version: 6.16.1-1-default
+        #1 SMP PREEMPT_DYNAMIC Fri Aug 15 16:49:58 UTC 2025 (2e1765c)\n[    6s] Time:
+        Tue Aug 19 17:55:50 UTC 2025\n[    6s] Increasing log level from now on...\n[    6s]
+        [    1.844660][  T578] sysrq: Changing Loglevel\n[    6s] [    1.844708][  T578]
+        sysrq: Loglevel set to 4\n[    6s] Enable sysrq operations\n[    6s] Setting
+        up swapspace version 1, size = 4 GiB (4294963200 bytes)\n[    6s] no label,
+        UUID=061435fd-a0ef-4397-bd2e-f006e73bd327\n[    6s] WARNING: udev not running,
+        creating extra device nodes\n[    6s] logging output to //.build.log...\n[    6s]
+        processing recipe //.build-srcdir/python-actdiag.spec ...\n[    6s] init_buildsystem
+        --configdir /.build/configs --cachedir /var/cache/build //.build-srcdir/python-actdiag.spec
+        build ...\n[    6s] initializing rpm db...\n[    6s] querying package ids...\n[    7s]
+        [1/199] preinstalled aaa_base-84.87+git20250805.3069494-1.1\n[    7s] [2/199]
+        preinstalled aaa_base-malloccheck-84.87+git20250805.3069494-1.1\n[    7s]
+        [3/199] preinstalled alts-1.2+31.da24cd4-1.1\n[    7s] [4/199] preinstalled
+        bash-5.3.3-1.1\n[    7s] [5/199] preinstalled bash-sh-5.3.3-1.1\n[    7s]
+        [6/199] preinstalled binutils-2.43-10.1\n[    7s] [7/199] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.7\n[    7s]
+        [8/199] preinstalled build-compare-20240801T083050.024a3a7-1.4\n[    7s] [9/199]
+        preinstalled build-mkbaselibs-20250708-1.1\n[    7s] [10/199] preinstalled
+        bzip2-1.0.8-5.12\n[    7s] [11/199] preinstalled compat-usrmerge-build-84.87-5.22\n[    7s]
+        [12/199] preinstalled compat-usrmerge-tools-84.87-5.22\n[    7s] [13/199]
+        preinstalled coreutils-9.7-3.1\n[    7s] [14/199] preinstalled cpio-2.15-6.1\n[    7s]
+        [15/199] preinstalled cpp-15-1.1\n[    7s] [16/199] preinstalled cpp15-15.1.1+git10189-1.1\n[    7s]
+        [17/199] preinstalled crypto-policies-20250124.4d262e7-4.1\n[    7s] [18/199]
+        preinstalled debugedit-5.1-1.3\n[    7s] [19/199] preinstalled diffutils-3.12-1.1\n[    7s]
+        [20/199] preinstalled dwz-0.15-6.1\n[    7s] [21/199] preinstalled elfutils-0.192-2.2\n[    7s]
+        [22/199] preinstalled envsubst-mini-0.25.1-1.1\n[    7s] [23/199] cumulate
+        fdupes-2.4.0-1.1\n[    7s] [24/199] preinstalled file-5.46-4.1\n[    7s] [25/199]
+        preinstalled file-magic-5.46-4.1\n[    7s] [26/199] preinstalled filesystem-84.87-18.2\n[    7s]
+        [27/199] preinstalled fillup-1.42-281.3\n[    7s] [28/199] preinstalled findutils-4.10.0-2.2\n[    7s]
+        [29/199] preinstalled gawk-5.3.2-1.1\n[    7s] [30/199] preinstalled gcc-15-1.1\n[    7s]
+        [31/199] preinstalled gcc-PIE-15-1.1\n[    7s] [32/199] preinstalled gcc15-15.1.1+git10189-1.1\n[    7s]
+        [33/199] preinstalled gcc15-PIE-15.1.1+git10189-1.1\n[    7s] [34/199] preinstalled
+        gettext-runtime-mini-0.25.1-1.1\n[    7s] [35/199] preinstalled gettext-tools-mini-0.25.1-1.1\n[    7s]
+        [36/199] preinstalled glibc-2.42-1.1\n[    7s] [37/199] preinstalled glibc-devel-2.42-1.1\n[    7s]
+        [38/199] preinstalled glibc-gconv-modules-extra-2.42-1.1\n[    7s] [39/199]
+        preinstalled glibc-locale-base-2.42-1.1\n[    7s] [40/199] preinstalled grep-3.12-1.1\n[    7s]
+        [41/199] preinstalled gzip-1.14-1.1\n[    7s] [42/199] preinstalled kernel-obs-build-6.16.1-1.1\n[    7s]
+        [43/199] cumulate libXau6-1.0.12-2.1\n[    7s] [44/199] preinstalled libacl1-2.3.2-2.3\n[    7s]
+        [45/199] preinstalled libalternatives1-1.2+31.da24cd4-1.1\n[    7s] [46/199]
+        preinstalled libarchive13-3.8.1-1.1\n[    7s] [47/199] preinstalled libasan8-15.1.1+git10189-1.1\n[    7s]
+        [48/199] preinstalled libasm1-0.192-2.2\n[    7s] [49/199] preinstalled libatomic1-15.1.1+git10189-1.1\n[    7s]
+        [50/199] preinstalled libattr1-2.5.2-1.4\n[    7s] [51/199] preinstalled libaudit1-4.0.2-1.1\n[    7s]
+        [52/199] preinstalled libblkid1-2.41.1-3.1\n[    7s] [53/199] cumulate libbrotlicommon1-1.1.0-1.6\n[    7s]
+        [54/199] preinstalled libbz2-1-1.0.8-5.12\n[    7s] [55/199] preinstalled
+        libcap-ng0-0.8.5-1.3\n[    7s] [56/199] preinstalled libcap2-2.75-1.1\n[    7s]
+        [57/199] preinstalled libcrypt1-4.4.38-1.2\n[    7s] [58/199] preinstalled
+        libctf-nobfd0-2.43-10.1\n[    7s] [59/199] preinstalled libctf0-2.43-10.1\n[    7s]
+        [60/199] preinstalled libdw1-0.192-2.2\n[    7s] [61/199] preinstalled libeconf0-0.7.10-1.1\n[    7s]
+        [62/199] preinstalled libelf1-0.192-2.2\n[    7s] [63/199] preinstalled libexpat1-2.7.1-2.1\n[    7s]
+        [64/199] preinstalled libfdisk1-2.41.1-3.1\n[    7s] [65/199] preinstalled
+        libffi8-3.4.7-1.1\n[    7s] [66/199] preinstalled libgcc_s1-15.1.1+git10189-1.1\n[    7s]
+        [67/199] preinstalled libgcrypt20-1.11.2-1.1\n[    7s] [68/199] preinstalled
+        libgdbm6-1.24-2.1\n[    7s] [69/199] preinstalled libgdbm_compat4-1.24-2.1\n[    7s]
+        [70/199] preinstalled libgmp10-6.3.0-5.1\n[    7s] [71/199] preinstalled libgomp1-15.1.1+git10189-1.1\n[    7s]
+        [72/199] preinstalled libgpg-error0-1.55-1.1\n[    7s] [73/199] preinstalled
+        libhwasan0-15.1.1+git10189-1.1\n[    7s] [74/199] cumulate libimagequant0-2.18.0-1.7\n[    7s]
+        [75/199] preinstalled libisl23-0.27-1.2\n[    7s] [76/199] preinstalled libitm1-15.1.1+git10189-1.1\n[    7s]
+        [77/199] cumulate libjbig2-2.1-5.5\n[    7s] [78/199] preinstalled libjitterentropy3-3.6.3-1.1\n[    7s]
+        [79/199] cumulate libjpeg8-8.3.2-81.4\n[    7s] [80/199] cumulate liblcms2-2-2.16-1.5\n[    7s]
+        [81/199] preinstalled liblsan0-15.1.1+git10189-1.1\n[    7s] [82/199] preinstalled
+        liblua5_4-5-5.4.8-3.1\n[    7s] [83/199] preinstalled liblz1-1.15-1.2\n[    7s]
+        [84/199] preinstalled liblz4-1-1.10.0-2.4\n[    7s] [85/199] preinstalled
+        liblzma5-5.8.1-1.1\n[    7s] [86/199] preinstalled libmagic1-5.46-4.1\n[    7s]
+        [87/199] preinstalled libmount1-2.41.1-3.1\n[    7s] [88/199] preinstalled
+        libmpc3-1.3.1-1.10\n[    7s] [89/199] preinstalled libmpdec4-4.0.1-2.1\n[    7s]
+        [90/199] preinstalled libmpfr6-4.2.2-1.1\n[    7s] [91/199] preinstalled libncurses6-6.5.20250809-80.1\n[    7s]
+        [92/199] cumulate libopenjp2-7-2.5.3-2.3\n[    7s] [93/199] preinstalled libopenssl3-3.5.2-1.1\n[    7s]
+        [94/199] preinstalled libpcre2-8-0-10.45-2.1\n[    7s] [95/199] preinstalled
+        libpkgconf5-2.2.0-1.3\n[    7s] [96/199] cumulate libpng16-16-1.6.50-1.1\n[    7s]
+        [97/199] preinstalled libpopt0-1.19-1.10\n[    7s] [98/199] preinstalled libpython3_11-1_0-3.11.13-4.1\n[    7s]
+        [99/199] preinstalled libpython3_12-1_0-3.12.11-4.1\n[    7s] [100/199] preinstalled
+        libpython3_13-1_0-3.13.5-4.1\n[    7s] [101/199] preinstalled libreadline8-8.3.1-1.1\n[    7s]
+        [102/199] preinstalled librpmbuild10-4.20.1-6.1\n[    7s] [103/199] preinstalled
+        libseccomp2-2.6.0-2.2\n[    7s] [104/199] preinstalled libselinux1-3.9-2.1\n[    7s]
+        [105/199] cumulate libsharpyuv0-1.6.0-1.1\n[    7s] [106/199] preinstalled
+        libsmartcols1-2.41.1-3.1\n[    7s] [107/199] preinstalled libstdc++6-15.1.1+git10189-1.1\n[    7s]
+        [108/199] preinstalled libtsan2-15.1.1+git10189-1.1\n[    7s] [109/199] preinstalled
+        libubsan1-15.1.1+git10189-1.1\n[    7s] [110/199] preinstalled libuuid1-2.41.1-3.1\n[    7s]
+        [111/199] preinstalled libxcrypt-devel-4.4.38-1.2\n[    7s] [112/199] preinstalled
+        libxml2-2-2.13.8-3.1\n[    7s] [113/199] preinstalled libz1-1.3.1-1.3\n[    7s]
+        [114/199] preinstalled libzstd1-1.5.7-3.1\n[    7s] [115/199] preinstalled
+        linux-glibc-devel-6.16-1.1\n[    7s] [116/199] preinstalled lua-interpreter-5-3.1\n[    7s]
+        [117/199] preinstalled lua54-5.4.8-3.1\n[    7s] [118/199] preinstalled make-4.4.1-3.3\n[    7s]
+        [119/199] preinstalled ncurses-utils-6.5.20250809-80.1\n[    7s] [120/199]
+        preinstalled pam-1.7.1-1.1\n[    7s] [121/199] preinstalled patch-2.8-1.1\n[    7s]
+        [122/199] preinstalled perl-5.42.0-1.1\n[    7s] [123/199] preinstalled perl-base-5.42.0-1.1\n[    7s]
+        [124/199] preinstalled perl-rpm-packaging-1.2-1.2\n[    7s] [125/199] preinstalled
+        permctl-1699_20250120-1.3\n[    7s] [126/199] preinstalled permissions-1699_20250120-1.3\n[    7s]
+        [127/199] preinstalled permissions-config-1699_20250120-1.3\n[    7s] [128/199]
+        preinstalled pkgconf-2.2.0-1.3\n[    7s] [129/199] preinstalled pkgconf-m4-2.2.0-1.3\n[    7s]
+        [130/199] preinstalled pkgconf-pkg-config-2.2.0-1.3\n[    7s] [131/199] preinstalled
+        polkit-default-privs-1550+20250721.f1b71a3-1.1\n[    7s] [132/199] preinstalled
+        post-build-checks-84.87+git20250725.0c3a172-1.1\n[    7s] [133/199] preinstalled
+        python-rpm-macros-20241120.6ae645f-1.4\n[    7s] [134/199] preinstalled python-rpm-packaging-20210526+a18ca48-1.13\n[    7s]
+        [135/199] cumulate python311-Pygments-2.19.2-145.2\n[    7s] [136/199] preinstalled
+        python311-base-3.11.13-4.1\n[    7s] [137/199] cumulate python311-docutils-0.21.2-120.20\n[    7s]
+        [138/199] cumulate python311-funcparserlib-1.0.1-31.191\n[    7s] [139/199]
+        cumulate python311-iniconfig-2.1.0-25.2\n[    7s] [140/199] cumulate python311-olefile-0.47-24.31\n[    7s]
+        [141/199] cumulate python311-packaging-25.0-91.2\n[    7s] [142/199] cumulate
+        python311-pip-25.2-74.1\n[    7s] [143/199] cumulate python311-pluggy-1.6.0-1.1\n[    7s]
+        [144/199] preinstalled python311-setuptools-78.1.1-277.1\n[    7s] [145/199]
+        cumulate python311-webcolors-24.8.0-26.32\n[    7s] [146/199] cumulate python311-wheel-0.45.1-94.2\n[    7s]
+        [147/199] cumulate python312-Pygments-2.19.2-145.2\n[    7s] [148/199] preinstalled
+        python312-base-3.12.11-4.1\n[    7s] [149/199] cumulate python312-docutils-0.21.2-120.20\n[    7s]
+        [150/199] cumulate python312-funcparserlib-1.0.1-31.191\n[    7s] [151/199]
+        cumulate python312-iniconfig-2.1.0-25.2\n[    7s] [152/199] cumulate python312-olefile-0.47-24.31\n[    7s]
+        [153/199] cumulate python312-packaging-25.0-91.2\n[    7s] [154/199] cumulate
+        python312-pip-25.2-74.1\n[    7s] [155/199] cumulate python312-pluggy-1.6.0-1.1\n[    7s]
+        [156/199] preinstalled python312-setuptools-78.1.1-277.1\n[    7s] [157/199]
+        cumulate python312-webcolors-24.8.0-26.32\n[    7s] [158/199] cumulate python312-wheel-0.45.1-94.2\n[    7s]
+        [159/199] cumulate python313-Pygments-2.19.2-145.2\n[    7s] [160/199] preinstalled
+        python313-base-3.13.5-4.1\n[    7s] [161/199] cumulate python313-docutils-0.21.2-120.20\n[    7s]
+        [162/199] cumulate python313-funcparserlib-1.0.1-31.191\n[    7s] [163/199]
+        cumulate python313-iniconfig-2.1.0-25.2\n[    7s] [164/199] cumulate python313-olefile-0.47-24.31\n[    7s]
+        [165/199] preinstalled python313-packaging-25.0-91.2\n[    7s] [166/199] cumulate
+        python313-pip-25.2-74.1\n[    7s] [167/199] cumulate python313-pluggy-1.6.0-1.1\n[    7s]
+        [168/199] preinstalled python313-setuptools-78.1.1-277.1\n[    7s] [169/199]
+        cumulate python313-webcolors-24.8.0-26.32\n[    7s] [170/199] cumulate python313-wheel-0.45.1-94.2\n[    7s]
+        [171/199] preinstalled rpm-4.20.1-6.1\n[    7s] [172/199] preinstalled rpm-build-4.20.1-6.1\n[    7s]
+        [173/199] preinstalled rpm-config-SUSE-20250423-1.1\n[    7s] [174/199] preinstalled
+        rpmlint-mini-2.7.0+git20250710.a7f0a67c-18.48\n[    7s] [175/199] preinstalled
+        sed-4.9-2.8\n[    7s] [176/199] preinstalled system-user-root-20190513-2.18\n[    7s]
+        [177/199] preinstalled systemd-rpm-macros-26-1.1\n[    7s] [178/199] preinstalled
+        tar-1.35-4.1\n[    7s] [179/199] preinstalled terminfo-base-6.5.20250809-80.1\n[    7s]
+        [180/199] preinstalled update-alternatives-1.22.21-1.1\n[    7s] [181/199]
+        preinstalled util-linux-2.41.1-3.1\n[    7s] [182/199] preinstalled which-2.23-1.2\n[    7s]
+        [183/199] preinstalled xz-5.8.1-1.1\n[    7s] [184/199] cumulate libbrotlidec1-1.1.0-1.6\n[    7s]
+        [185/199] cumulate libwebp7-1.6.0-1.1\n[    7s] [186/199] cumulate libxcb1-1.17.0-2.3\n[    7s]
+        [187/199] cumulate libtiff6-4.7.0-7.1\n[    7s] [188/199] cumulate python313-pytest-8.4.1-1.1\n[    7s]
+        [189/199] cumulate python311-pytest-8.4.1-1.1\n[    7s] [190/199] cumulate
+        python312-pytest-8.4.1-1.1\n[    7s] [191/199] cumulate libwebpdemux2-1.6.0-1.1\n[    7s]
+        [192/199] cumulate libwebpmux3-1.6.0-1.1\n[    7s] [193/199] cumulate libfreetype6-2.13.3-2.1\n[    7s]
+        [194/199] cumulate python311-Pillow-11.3.0-176.9\n[    7s] [195/199] cumulate
+        python312-Pillow-11.3.0-176.9\n[    7s] [196/199] cumulate python313-Pillow-11.3.0-176.9\n[    7s]
+        [197/199] cumulate python311-blockdiag-3.0.0-36.1\n[    7s] [198/199] cumulate
+        python312-blockdiag-3.0.0-36.1\n[    7s] [199/199] cumulate python313-blockdiag-3.0.0-36.1\n[    7s]
+        now installing cumulated packages\n[    7s] Preparing...                          ########################################\n[    7s]
+        Updating / installing...\n[    7s] libjpeg8-8.3.2-81.4                   ########################################\n[    7s]
+        libopenjp2-7-2.5.3-2.3                ########################################\n[    7s]
+        liblcms2-2-2.16-1.5                   ########################################\n[    7s]
+        libimagequant0-2.18.0-1.7             ########################################\n[    7s]
+        python313-webcolors-24.8.0-26.32      ########################################\n[    7s]
+        python313-pluggy-1.6.0-1.1            ########################################\n[    7s]
+        python313-olefile-0.47-24.31          ########################################\n[    7s]
+        python313-iniconfig-2.1.0-25.2        ########################################\n[    7s]
+        python313-funcparserlib-1.0.1-31.191  ########################################\n[    7s]
+        python313-Pygments-2.19.2-145.2       ########################################\n[    7s]
+        python312-webcolors-24.8.0-26.32      ########################################\n[    7s]
+        python312-pluggy-1.6.0-1.1            ########################################\n[    7s]
+        python312-packaging-25.0-91.2         ########################################\n[    7s]
+        python312-olefile-0.47-24.31          ########################################\n[    7s]
+        python312-iniconfig-2.1.0-25.2        ########################################\n[    7s]
+        python312-funcparserlib-1.0.1-31.191  ########################################\n[    7s]
+        python312-Pygments-2.19.2-145.2       ########################################\n[    7s]
+        python311-webcolors-24.8.0-26.32      ########################################\n[    7s]
+        python311-pluggy-1.6.0-1.1            ########################################\n[    7s]
+        python311-packaging-25.0-91.2         ########################################\n[    7s]
+        python311-olefile-0.47-24.31          ########################################\n[    7s]
+        python311-iniconfig-2.1.0-25.2        ########################################\n[    7s]
+        python311-funcparserlib-1.0.1-31.191  ########################################\n[    7s]
+        python311-Pygments-2.19.2-145.2       ########################################\n[    7s]
+        libsharpyuv0-1.6.0-1.1                ########################################\n[    7s]
+        libwebp7-1.6.0-1.1                    ########################################\n[    7s]
+        libwebpdemux2-1.6.0-1.1               ########################################\n[    7s]
+        libwebpmux3-1.6.0-1.1                 ########################################\n[    7s]
+        libpng16-16-1.6.50-1.1                ########################################\n[    7s]
+        libjbig2-2.1-5.5                      ########################################\n[    7s]
+        libtiff6-4.7.0-7.1                    ########################################\n[    7s]
+        libbrotlicommon1-1.1.0-1.6            ########################################\n[    7s]
+        libbrotlidec1-1.1.0-1.6               ########################################\n[    7s]
+        libfreetype6-2.13.3-2.1               ########################################\n[    7s]
+        libXau6-1.0.12-2.1                    ########################################\n[    7s]
+        libxcb1-1.17.0-2.3                    ########################################\n[    7s]
+        python311-Pillow-11.3.0-176.9         ########################################\n[    7s]
+        python312-Pillow-11.3.0-176.9         ########################################\n[    7s]
+        python313-Pillow-11.3.0-176.9         ########################################\n[    7s]
+        python313-blockdiag-3.0.0-36.1        ########################################\n[    8s]
+        python312-blockdiag-3.0.0-36.1        ########################################\n[    8s]
+        python311-blockdiag-3.0.0-36.1        ########################################\n[    8s]
+        python311-pytest-8.4.1-1.1            ########################################\n[    8s]
+        python312-pytest-8.4.1-1.1            ########################################\n[    8s]
+        python313-pytest-8.4.1-1.1            ########################################\n[    8s]
+        python313-wheel-0.45.1-94.2           ########################################\n[    8s]
+        python313-pip-25.2-74.1               ########################################\n[    8s]
+        python313-docutils-0.21.2-120.20      ########################################\n[    8s]
+        python312-wheel-0.45.1-94.2           ########################################\n[    8s]
+        python312-pip-25.2-74.1               ########################################\n[    8s]
+        python312-docutils-0.21.2-120.20      ########################################\n[    8s]
+        python311-wheel-0.45.1-94.2           ########################################\n[    8s]
+        python311-pip-25.2-74.1               ########################################\n[    8s]
+        python311-docutils-0.21.2-120.20      ########################################\n[    8s]
+        fdupes-2.4.0-1.1                      ########################################\n[    8s]
+        now finalizing build dir...\n[    8s] ... running 01-add_abuild_user_to_trusted_group\n[    8s]
+        ... running 02-set_timezone_to_utc\n[    8s] ... running 03-set-permissions-secure\n[    8s]
+        ... running 11-hack_uname_version_to_kernel_version\n[    8s] setting SOURCE_DATE_EPOCH_MTIME
+        to 1750075850\n[    9s] -----------------------------------------------------------------\n[    9s]
+        I have the following modifications for python-actdiag.spec:\n[    9s] 23c23\n[    9s]
+        < Release:        0\n[    9s] ---\n[    9s] > Release:        30.2\n[    9s]
+        -----------------------------------------------------------------\n[    9s]
+        ----- building python-actdiag.spec (user abuild)\n[    9s] -----------------------------------------------------------------\n[    9s]
+        -----------------------------------------------------------------\n[    9s]
+        setting SOURCE_DATE_EPOCH_MTIME to 1750075850\n[    9s] + exec rpmbuild -ba
+        --define ''_srcdefattr (-,root,root)'' --nosignature --define ''_build_create_debug
+        1'' --define ''disturl obs://build.opensuse.org/devel:languages:python/openSUSE_Tumbleweed/eb0746677a5e6941914f0ebe33dd8098-python-actdiag''
+        /home/abuild/rpmbuild/SOURCES/python-actdiag.spec\n[   10s] Building target
+        platforms: noarch\n[   10s] Building for target noarch\n[   11s] using SOURCE_DATE_EPOCH
+        with value 1750075848 as build time\n[   11s] Executing(%mkbuilddir): /usr/bin/bash
+        -e /var/tmp/rpm-tmp.6S7Aqp\n[   11s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.cf01hU\n[   11s]
+        + umask 022\n[   11s] + cd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   11s]
+        + cd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   11s] + rm
+        -rf actdiag-3.0.0\n[   11s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/actdiag-3.0.0.tar.gz\n[   11s]
+        + STATUS=0\n[   11s] + ''['' 0 -ne 0 '']''\n[   11s] + cd actdiag-3.0.0\n[   11s]
+        + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .\n[   11s] + /usr/lib/rpm/rpmuncompress
+        /home/abuild/rpmbuild/SOURCES/clean-up-assertions.patch\n[   11s] + /usr/bin/patch
+        -p1 -s --fuzz=0 --no-backup-if-mismatch -f\n[   11s] + sed -i s/testcase_generator/_testcase_generator/
+        src/actdiag/tests/test_generate_diagram.py\n[   11s] + RPM_EC=0\n[   11s]
+        ++ jobs -p\n[   11s] + exit 0\n[   11s] Executing(%build): /usr/bin/bash -e
+        /var/tmp/rpm-tmp.Rhv62d\n[   11s] + umask 022\n[   11s] + cd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   11s]
+        + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\n[   11s]
+        ++ dirname /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\n[   11s]
+        + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   11s]
+        + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\n[   11s]
+        + cd actdiag-3.0.0\n[   11s] ++ ''['' -f _current_flavor '']''\n[   11s] ++
+        true\n[   11s] + last_flavor=\n[   11s] + ''['' -z '''' '']''\n[   11s] +
+        last_flavor=tmp\n[   11s] + ''['' tmp ''!='' python311 '']''\n[   11s] + ''[''
+        -d build '']''\n[   11s] + ''['' -d _build.python311 '']''\n[   11s] + echo
+        python311\n[   11s] + python_flavor=python311\n[   11s] + myargs=\n[   11s]
+        + ''['' -f ''./dist/*-none-any.whl'' '']''\n[   11s] + /usr/bin/python3.11
+        -mpip wheel --verbose --progress-bar off --disable-pip-version-check --use-pep517
+        --no-build-isolation --no-deps --wheel-dir ./build .\n[   12s] WARNING: Disabling
+        truststore because of missing certificates\n[   12s] Processing /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   12s]   Preparing
+        metadata (pyproject.toml): started\n[   12s]   Running command Preparing metadata
+        (pyproject.toml)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/_distutils/dist.py:289:
+        UserWarning: Unknown distribution option: ''test_suite''\n[   12s]     warnings.warn(msg)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/dist.py:599:
+        SetuptoolsDeprecationWarning: Invalid dash-separated key ''build-base'' in
+        ''build'' (setup.cfg), please use the underscore name ''build_base'' instead.\n[   12s]   !!\n[   12s]
+        \n[   12s]           ********************************************************************************\n[   12s]           Usage
+        of dash-separated ''build-base'' will not be supported in future\n[   12s]           versions.
+        Please use the underscore name ''build_base'' instead.\n[   12s]           (Affected:
+        actdiag).\n[   12s] \n[   12s]           By 2026-Mar-03, you need to update
+        your project and remove deprecated calls\n[   12s]           or your builds
+        will no longer be supported.\n[   12s] \n[   12s]           See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+        for details.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     opt = self._enforce_underscore(opt, section)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/dist.py:759:
+        SetuptoolsDeprecationWarning: License classifiers are deprecated.\n[   12s]   !!\n[   12s]
+        \n[   12s]           ********************************************************************************\n[   12s]           Please
+        consider removing the following classifiers in favor of a SPDX license expression:\n[   12s]
+        \n[   12s]           License :: OSI Approved :: Apache Software License\n[   12s]
+        \n[   12s]           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+        for details.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     self._finalize_license_expression()\n[   12s]   running
+        dist_info\n[   12s]   creating /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info\n[   12s]   writing
+        /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/PKG-INFO\n[   12s]   writing
+        dependency_links to /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/dependency_links.txt\n[   12s]   writing
+        entry points to /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/entry_points.txt\n[   12s]   writing
+        requirements to /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/requires.txt\n[   12s]   writing
+        top-level names to /tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/top_level.txt\n[   12s]   writing
+        manifest file ''/tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/SOURCES.txt''\n[   12s]   reading
+        manifest file ''/tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/SOURCES.txt''\n[   12s]   reading
+        manifest template ''MANIFEST.in''\n[   12s]   warning: no files found matching
+        ''*.gif'' under directory ''src''\n[   12s]   warning: no previously-included
+        files found matching ''.drone.io.sh''\n[   12s]   warning: no previously-included
+        files found matching ''examples/update.sh''\n[   12s]   adding license file
+        ''LICENSE''\n[   12s]   writing manifest file ''/tmp/pip-modern-metadata-uws9g0rh/actdiag.egg-info/SOURCES.txt''\n[   12s]   creating
+        ''/tmp/pip-modern-metadata-uws9g0rh/actdiag-3.0.0.dist-info''\n[   12s]   Preparing
+        metadata (pyproject.toml): finished with status ''done''\n[   12s] Building
+        wheels for collected packages: actdiag\n[   12s]   Building wheel for actdiag
+        (pyproject.toml): started\n[   12s]   Running command Building wheel for actdiag
+        (pyproject.toml)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/_distutils/dist.py:289:
+        UserWarning: Unknown distribution option: ''test_suite''\n[   12s]     warnings.warn(msg)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/dist.py:599:
+        SetuptoolsDeprecationWarning: Invalid dash-separated key ''build-base'' in
+        ''build'' (setup.cfg), please use the underscore name ''build_base'' instead.\n[   12s]   !!\n[   12s]
+        \n[   12s]           ********************************************************************************\n[   12s]           Usage
+        of dash-separated ''build-base'' will not be supported in future\n[   12s]           versions.
+        Please use the underscore name ''build_base'' instead.\n[   12s]           (Affected:
+        actdiag).\n[   12s] \n[   12s]           By 2026-Mar-03, you need to update
+        your project and remove deprecated calls\n[   12s]           or your builds
+        will no longer be supported.\n[   12s] \n[   12s]           See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+        for details.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     opt = self._enforce_underscore(opt, section)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/dist.py:759:
+        SetuptoolsDeprecationWarning: License classifiers are deprecated.\n[   12s]   !!\n[   12s]
+        \n[   12s]           ********************************************************************************\n[   12s]           Please
+        consider removing the following classifiers in favor of a SPDX license expression:\n[   12s]
+        \n[   12s]           License :: OSI Approved :: Apache Software License\n[   12s]
+        \n[   12s]           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+        for details.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     self._finalize_license_expression()\n[   12s]   running
+        bdist_wheel\n[   12s]   running build\n[   12s]   running build_py\n[   12s]   creating
+        _build/lib/actdiag\n[   12s]   copying src/actdiag/__init__.py -> _build/lib/actdiag\n[   12s]   copying
+        src/actdiag/builder.py -> _build/lib/actdiag\n[   12s]   copying src/actdiag/command.py
+        -> _build/lib/actdiag\n[   12s]   copying src/actdiag/drawer.py -> _build/lib/actdiag\n[   12s]   copying
+        src/actdiag/elements.py -> _build/lib/actdiag\n[   12s]   copying src/actdiag/metrics.py
+        -> _build/lib/actdiag\n[   12s]   copying src/actdiag/parser.py -> _build/lib/actdiag\n[   12s]   creating
+        _build/lib/actdiag/plugins\n[   12s]   copying src/actdiag/plugins/__init__.py
+        -> _build/lib/actdiag/plugins\n[   12s]   copying src/actdiag/plugins/autolane.py
+        -> _build/lib/actdiag/plugins\n[   12s]   creating _build/lib/actdiag/utils\n[   12s]   copying
+        src/actdiag/utils/__init__.py -> _build/lib/actdiag/utils\n[   12s]   creating
+        _build/lib/actdiag/utils/rst\n[   12s]   copying src/actdiag/utils/rst/__init__.py
+        -> _build/lib/actdiag/utils/rst\n[   12s]   copying src/actdiag/utils/rst/directives.py
+        -> _build/lib/actdiag/utils/rst\n[   12s]   copying src/actdiag/utils/rst/nodes.py
+        -> _build/lib/actdiag/utils/rst\n[   12s]   running egg_info\n[   12s]   writing
+        src/actdiag.egg-info/PKG-INFO\n[   12s]   writing dependency_links to src/actdiag.egg-info/dependency_links.txt\n[   12s]   writing
+        entry points to src/actdiag.egg-info/entry_points.txt\n[   12s]   writing
+        requirements to src/actdiag.egg-info/requires.txt\n[   12s]   writing top-level
+        names to src/actdiag.egg-info/top_level.txt\n[   12s]   reading manifest file
+        ''src/actdiag.egg-info/SOURCES.txt''\n[   12s]   reading manifest template
+        ''MANIFEST.in''\n[   12s]   warning: no files found matching ''*.gif'' under
+        directory ''src''\n[   12s]   warning: no previously-included files found
+        matching ''.drone.io.sh''\n[   12s]   warning: no previously-included files
+        found matching ''examples/update.sh''\n[   12s]   adding license file ''LICENSE''\n[   12s]   writing
+        manifest file ''src/actdiag.egg-info/SOURCES.txt''\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/command/build_py.py:212:
+        _Warning: Package ''actdiag.tests'' is absent from the `packages` configuration.\n[   12s]   !!\n[   12s]
+        \n[   12s]           ********************************************************************************\n[   12s]           ############################\n[   12s]           #
+        Package would be ignored #\n[   12s]           ############################\n[   12s]           Python
+        recognizes ''actdiag.tests'' as an importable package[^1],\n[   12s]           but
+        it is absent from setuptools'' `packages` configuration.\n[   12s] \n[   12s]           This
+        leads to an ambiguous overall configuration. If you want to distribute this\n[   12s]           package,
+        please make sure that ''actdiag.tests'' is explicitly added\n[   12s]           to
+        the `packages` configuration field.\n[   12s] \n[   12s]           Alternatively,
+        you can also rely on setuptools'' discovery methods\n[   12s]           (for
+        example by using `find_namespace_packages(...)`/`find_namespace:`\n[   12s]           instead
+        of `find_packages(...)`/`find:`).\n[   12s] \n[   12s]           You can read
+        more about \"package discovery\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html\n[   12s]
+        \n[   12s]           If you don''t want ''actdiag.tests'' to be distributed
+        and are\n[   12s]           already explicitly excluding ''actdiag.tests''
+        via\n[   12s]           `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,\n[   12s]           you
+        can try to use `exclude_package_data`, or `include-package-data=False` in\n[   12s]           combination
+        with a more fine grained `package-data` configuration.\n[   12s] \n[   12s]           You
+        can read more about \"package data files\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/datafiles.html\n[   12s]
+        \n[   12s] \n[   12s]           [^1]: For Python, any directory (with suitable
+        naming) can be imported,\n[   12s]                 even if it does not contain
+        any `.py` files.\n[   12s]                 On the other hand, currently there
+        is no concept of package data\n[   12s]                 directory, all directories
+        are treated like packages.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     check.warn(importable)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/command/build_py.py:212:
+        _Warning: Package ''actdiag.tests.VLGothic'' is absent from the `packages`
+        configuration.\n[   12s]   !!\n[   12s] \n[   12s]           ********************************************************************************\n[   12s]           ############################\n[   12s]           #
+        Package would be ignored #\n[   12s]           ############################\n[   12s]           Python
+        recognizes ''actdiag.tests.VLGothic'' as an importable package[^1],\n[   12s]           but
+        it is absent from setuptools'' `packages` configuration.\n[   12s] \n[   12s]           This
+        leads to an ambiguous overall configuration. If you want to distribute this\n[   12s]           package,
+        please make sure that ''actdiag.tests.VLGothic'' is explicitly added\n[   12s]           to
+        the `packages` configuration field.\n[   12s] \n[   12s]           Alternatively,
+        you can also rely on setuptools'' discovery methods\n[   12s]           (for
+        example by using `find_namespace_packages(...)`/`find_namespace:`\n[   12s]           instead
+        of `find_packages(...)`/`find:`).\n[   12s] \n[   12s]           You can read
+        more about \"package discovery\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html\n[   12s]
+        \n[   12s]           If you don''t want ''actdiag.tests.VLGothic'' to be distributed
+        and are\n[   12s]           already explicitly excluding ''actdiag.tests.VLGothic''
+        via\n[   12s]           `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,\n[   12s]           you
+        can try to use `exclude_package_data`, or `include-package-data=False` in\n[   12s]           combination
+        with a more fine grained `package-data` configuration.\n[   12s] \n[   12s]           You
+        can read more about \"package data files\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/datafiles.html\n[   12s]
+        \n[   12s] \n[   12s]           [^1]: For Python, any directory (with suitable
+        naming) can be imported,\n[   12s]                 even if it does not contain
+        any `.py` files.\n[   12s]                 On the other hand, currently there
+        is no concept of package data\n[   12s]                 directory, all directories
+        are treated like packages.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     check.warn(importable)\n[   12s]   /usr/lib/python3.11/site-packages/setuptools/command/build_py.py:212:
+        _Warning: Package ''actdiag.tests.diagrams'' is absent from the `packages`
+        configuration.\n[   12s]   !!\n[   12s] \n[   12s]           ********************************************************************************\n[   12s]           ############################\n[   12s]           #
+        Package would be ignored #\n[   12s]           ############################\n[   12s]           Python
+        recognizes ''actdiag.tests.diagrams'' as an importable package[^1],\n[   12s]           but
+        it is absent from setuptools'' `packages` configuration.\n[   12s] \n[   12s]           This
+        leads to an ambiguous overall configuration. If you want to distribute this\n[   12s]           package,
+        please make sure that ''actdiag.tests.diagrams'' is explicitly added\n[   12s]           to
+        the `packages` configuration field.\n[   12s] \n[   12s]           Alternatively,
+        you can also rely on setuptools'' discovery methods\n[   12s]           (for
+        example by using `find_namespace_packages(...)`/`find_namespace:`\n[   12s]           instead
+        of `find_packages(...)`/`find:`).\n[   12s] \n[   12s]           You can read
+        more about \"package discovery\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html\n[   12s]
+        \n[   12s]           If you don''t want ''actdiag.tests.diagrams'' to be distributed
+        and are\n[   12s]           already explicitly excluding ''actdiag.tests.diagrams''
+        via\n[   12s]           `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,\n[   12s]           you
+        can try to use `exclude_package_data`, or `include-package-data=False` in\n[   12s]           combination
+        with a more fine grained `package-data` configuration.\n[   12s] \n[   12s]           You
+        can read more about \"package data files\" on setuptools documentation page:\n[   12s]
+        \n[   12s]           - https://setuptools.pypa.io/en/latest/userguide/datafiles.html\n[   12s]
+        \n[   12s] \n[   12s]           [^1]: For Python, any directory (with suitable
+        naming) can be imported,\n[   12s]                 even if it does not contain
+        any `.py` files.\n[   12s]                 On the other hand, currently there
+        is no concept of package data\n[   12s]                 directory, all directories
+        are treated like packages.\n[   12s]           ********************************************************************************\n[   12s]
+        \n[   12s]   !!\n[   12s]     check.warn(importable)\n[   12s]   creating
+        _build/lib/actdiag/tests\n[   12s]   copying src/actdiag/tests/test_generate_diagram.py
+        -> _build/lib/actdiag/tests\n[   12s]   copying src/actdiag/tests/test_rst_directives.py
+        -> _build/lib/actdiag/tests\n[   12s]   creating _build/lib/actdiag/tests/VLGothic\n[   12s]   copying
+        src/actdiag/tests/VLGothic/LICENSE -> _build/lib/actdiag/tests/VLGothic\n[   12s]   copying
+        src/actdiag/tests/VLGothic/LICENSE.en -> _build/lib/actdiag/tests/VLGothic\n[   12s]   copying
+        src/actdiag/tests/VLGothic/LICENSE_E.mplus -> _build/lib/actdiag/tests/VLGothic\n[   12s]   copying
+        src/actdiag/tests/VLGothic/LICENSE_J.mplus -> _build/lib/actdiag/tests/VLGothic\n[   12s]   copying
+        src/actdiag/tests/VLGothic/VL-Gothic-Regular.ttf -> _build/lib/actdiag/tests/VLGothic\n[   12s]   creating
+        _build/lib/actdiag/tests/diagrams\n[   12s]   copying src/actdiag/tests/diagrams/simple.diag
+        -> _build/lib/actdiag/tests/diagrams\n[   12s]   installing to _build/bdist.linux-x86_64/wheel\n[   12s]   running
+        install\n[   12s]   running install_lib\n[   12s]   creating _build/bdist.linux-x86_64/wheel\n[   12s]   creating
+        _build/bdist.linux-x86_64/wheel/actdiag\n[   12s]   copying _build/lib/actdiag/__init__.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/builder.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/command.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/drawer.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/elements.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/metrics.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   copying _build/lib/actdiag/parser.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag\n[   12s]   creating _build/bdist.linux-x86_64/wheel/actdiag/plugins\n[   12s]   copying
+        _build/lib/actdiag/plugins/__init__.py -> _build/bdist.linux-x86_64/wheel/./actdiag/plugins\n[   12s]   copying
+        _build/lib/actdiag/plugins/autolane.py -> _build/bdist.linux-x86_64/wheel/./actdiag/plugins\n[   12s]   creating
+        _build/bdist.linux-x86_64/wheel/actdiag/utils\n[   12s]   copying _build/lib/actdiag/utils/__init__.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag/utils\n[   12s]   creating _build/bdist.linux-x86_64/wheel/actdiag/utils/rst\n[   12s]   copying
+        _build/lib/actdiag/utils/rst/__init__.py -> _build/bdist.linux-x86_64/wheel/./actdiag/utils/rst\n[   12s]   copying
+        _build/lib/actdiag/utils/rst/directives.py -> _build/bdist.linux-x86_64/wheel/./actdiag/utils/rst\n[   12s]   copying
+        _build/lib/actdiag/utils/rst/nodes.py -> _build/bdist.linux-x86_64/wheel/./actdiag/utils/rst\n[   12s]   creating
+        _build/bdist.linux-x86_64/wheel/actdiag/tests\n[   12s]   copying _build/lib/actdiag/tests/test_generate_diagram.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag/tests\n[   12s]   copying _build/lib/actdiag/tests/test_rst_directives.py
+        -> _build/bdist.linux-x86_64/wheel/./actdiag/tests\n[   12s]   creating _build/bdist.linux-x86_64/wheel/actdiag/tests/VLGothic\n[   12s]   copying
+        _build/lib/actdiag/tests/VLGothic/LICENSE -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/VLGothic\n[   12s]   copying
+        _build/lib/actdiag/tests/VLGothic/LICENSE.en -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/VLGothic\n[   12s]   copying
+        _build/lib/actdiag/tests/VLGothic/LICENSE_E.mplus -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/VLGothic\n[   12s]   copying
+        _build/lib/actdiag/tests/VLGothic/LICENSE_J.mplus -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/VLGothic\n[   12s]   copying
+        _build/lib/actdiag/tests/VLGothic/VL-Gothic-Regular.ttf -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/VLGothic\n[   12s]   creating
+        _build/bdist.linux-x86_64/wheel/actdiag/tests/diagrams\n[   12s]   copying
+        _build/lib/actdiag/tests/diagrams/simple.diag -> _build/bdist.linux-x86_64/wheel/./actdiag/tests/diagrams\n[   12s]   running
+        install_egg_info\n[   12s]   Copying src/actdiag.egg-info to _build/bdist.linux-x86_64/wheel/./actdiag-3.0.0-py3.11.egg-info\n[   12s]   running
+        install_scripts\n[   12s]   creating _build/bdist.linux-x86_64/wheel/actdiag-3.0.0.dist-info/WHEEL\n[   12s]   creating
+        ''/tmp/pip-wheel-p1hjarfm/.tmp-av_rp_6t/actdiag-3.0.0-py3-none-any.whl'' and
+        adding ''_build/bdist.linux-x86_64/wheel'' to it\n[   12s]   adding ''actdiag/__init__.py''\n[   12s]   adding
+        ''actdiag/builder.py''\n[   12s]   adding ''actdiag/command.py''\n[   12s]   adding
+        ''actdiag/drawer.py''\n[   12s]   adding ''actdiag/elements.py''\n[   12s]   adding
+        ''actdiag/metrics.py''\n[   12s]   adding ''actdiag/parser.py''\n[   12s]   adding
+        ''actdiag/plugins/__init__.py''\n[   12s]   adding ''actdiag/plugins/autolane.py''\n[   12s]   adding
+        ''actdiag/tests/test_generate_diagram.py''\n[   12s]   adding ''actdiag/tests/test_rst_directives.py''\n[   12s]   adding
+        ''actdiag/tests/VLGothic/LICENSE''\n[   12s]   adding ''actdiag/tests/VLGothic/LICENSE.en''\n[   12s]   adding
+        ''actdiag/tests/VLGothic/LICENSE_E.mplus''\n[   12s]   adding ''actdiag/tests/VLGothic/LICENSE_J.mplus''\n[   12s]   adding
+        ''actdiag/tests/VLGothic/VL-Gothic-Regular.ttf''\n[   12s]   adding ''actdiag/tests/diagrams/simple.diag''\n[   12s]   adding
+        ''actdiag/utils/__init__.py''\n[   12s]   adding ''actdiag/utils/rst/__init__.py''\n[   12s]   adding
+        ''actdiag/utils/rst/directives.py''\n[   12s]   adding ''actdiag/utils/rst/nodes.py''\n[   12s]   adding
+        ''actdiag-3.0.0.dist-info/licenses/LICENSE''\n[   12s]   adding ''actdiag-3.0.0.dist-info/METADATA''\n[   12s]   adding
+        ''actdiag-3.0.0.dist-info/WHEEL''\n[   12s]   adding ''actdiag-3.0.0.dist-info/entry_points.txt''\n[   12s]   adding
+        ''actdiag-3.0.0.dist-info/top_level.txt''\n[   12s]   adding ''actdiag-3.0.0.dist-info/RECORD''\n[   12s]   removing
+        _build/bdist.linux-x86_64/wheel\n[   12s]   Building wheel for actdiag (pyproject.toml):
+        finished with status ''done''\n[   12s]   Created wheel for actdiag: filename=actdiag-3.0.0-py3-none-any.whl
+        size=2581823 sha256=8339849cb36da7785d9d3e734e807b341f916fac3eaf075e74b8b24185d66cf8\n[   12s]   Stored
+        in directory: /home/abuild/.cache/pip/wheels/48/c2/e1/9b65447414409d3b853d33e7d480fa823d3e4cbdee9fcc7c93\n[   12s]
+        Successfully built actdiag\n[   12s] + ''['' -f ./build/actdiag-3.0.0-py3-none-any.whl
+        '']''\n[   12s] + mkdir -p ./dist\n[   12s] + cp ./build/actdiag-3.0.0-py3-none-any.whl
+        ./dist/\n[   12s] ++ ''['' -f _current_flavor '']''\n[   12s] ++ cat _current_flavor\n[   12s]
+        + last_flavor=python311\n[   12s] + ''['' -z python311 '']''\n[   12s] + ''[''
+        python311 ''!='' python312 '']''\n[   12s] + ''['' -d build '']''\n[   12s]
+        + mv build _build.python311\n[   12s] + ''['' -d _build.python312 '']''\n[   12s]
+        + echo python312\n[   12s] + python_flavor=python312\n[   12s] + myargs=\n[   12s]
+        + ''['' -f ./dist/actdiag-3.0.0-py3-none-any.whl '']''\n[   12s] + echo ''Already
+        found a compatible wheel in ./dist''\n[   12s] Already found a compatible
+        wheel in ./dist\n[   12s] + mkdir -p ./build\n[   12s] + cp ./dist/actdiag-3.0.0-py3-none-any.whl
+        ./build/\n[   12s] ++ ''['' -f _current_flavor '']''\n[   12s] ++ cat _current_flavor\n[   12s]
+        + last_flavor=python312\n[   12s] + ''['' -z python312 '']''\n[   12s] + ''[''
+        python312 ''!='' python313 '']''\n[   12s] + ''['' -d build '']''\n[   12s]
+        + mv build _build.python312\n[   12s] + ''['' -d _build.python313 '']''\n[   12s]
+        + echo python313\n[   12s] + python_flavor=python313\n[   12s] + myargs=\n[   12s]
+        + ''['' -f ./dist/actdiag-3.0.0-py3-none-any.whl '']''\n[   12s] + echo ''Already
+        found a compatible wheel in ./dist''\n[   12s] Already found a compatible
+        wheel in ./dist\n[   12s] + mkdir -p ./build\n[   12s] + cp ./dist/actdiag-3.0.0-py3-none-any.whl
+        ./build/\n[   12s] + RPM_EC=0\n[   12s] ++ jobs -p\n[   12s] + exit 0\n[   12s]
+        Executing(%install): /usr/bin/bash -e /var/tmp/rpm-tmp.oi0VMr\n[   12s] +
+        umask 022\n[   12s] + cd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   12s]
+        + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\n[   12s]
+        + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   12s]
+        + /usr/bin/mkdir /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\n[   12s]
+        + cd actdiag-3.0.0\n[   12s] ++ ''['' -f _current_flavor '']''\n[   12s] ++
+        cat _current_flavor\n[   12s] + last_flavor=python313\n[   12s] + ''['' -z
+        python313 '']''\n[   12s] + ''['' python313 ''!='' python311 '']''\n[   12s]
+        + ''['' -d build '']''\n[   12s] + mv build _build.python313\n[   12s] + ''[''
+        -d _build.python311 '']''\n[   12s] + mv _build.python311 build\n[   12s]
+        + echo python311\n[   12s] + python_flavor=python311\n[   12s] + myargs=\n[   12s]
+        + havereq=0\n[   12s] + ''['' -n '''' '']''\n[   12s] + ''['' 0 -eq 0 '']''\n[   12s]
+        + ls ./build/actdiag-3.0.0-py3-none-any.whl\n[   12s] ./build/actdiag-3.0.0-py3-none-any.whl\n[   12s]
+        + for w in ./build/*.whl\n[   12s] ++ sed -E ''s/([^-]+)-([^-]+)-.+\\.whl/\\1==\\2/''\n[   12s]
+        +++ basename ./build/actdiag-3.0.0-py3-none-any.whl\n[   12s] ++ echo actdiag-3.0.0-py3-none-any.whl\n[   12s]
+        + myargs='' actdiag==3.0.0''\n[   12s] + /usr/bin/python3.11 -mpip install
+        --verbose --progress-bar off --disable-pip-version-check --root /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT
+        --no-compile --ignore-installed --no-deps --no-index --find-links ./build
+        actdiag==3.0.0\n[   12s] Using pip 25.2 from /usr/lib/python3.11/site-packages/pip
+        (python 3.11)\n[   12s] WARNING: Disabling truststore because of missing certificates\n[   13s]
+        Looking in links: ./build\n[   13s] Processing ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        Installing collected packages: actdiag\n[   13s]   Creating /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin\n[   13s]   changing
+        mode of /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        to 755\n[   13s]   WARNING: The script actdiag is installed in ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin''
+        which is not on PATH.\n[   13s]   Consider adding this directory to PATH or,
+        if you prefer to suppress this warning, use --no-warn-script-location.\n[   13s]
+        Successfully installed actdiag-3.0.0\n[   13s] + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.11/site-packages\n[   13s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages
+        '']''\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages
+        -iname ''*.pyc'' -delete\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages
+        -iname ''*.py'' -print0\n[   13s] + xargs -0 /usr/bin/python3.11 -c $'' \\nimport
+        sys, py_compile \\nfor f in sys.argv[1:]: \\n  fp=f[len(\"/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\"):]
+        \\n  print(\"Generating cached byte-code for \" + str(fp)) \\n  if sys.version[0]
+        == \"2\": \\n    py_compile.compile(f, dfile=fp) \\n  else: \\n    for o in
+        [0, 1]: \\n      py_compile.compile(f, dfile=fp, optimize=o) \\n''\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/builder.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/command.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/drawer.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/elements.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/metrics.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/parser.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/plugins/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/plugins/autolane.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/tests/test_generate_diagram.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/tests/test_rst_directives.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/utils/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/utils/rst/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/utils/rst/directives.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.11/site-packages/actdiag/utils/rst/nodes.py\n[   13s]
+        + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.11/site-packages\n[   13s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.11/site-packages
+        '']''\n[   13s] + myargs=''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/*
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''\n[   13s]
+        + for f in ${myargs}\n[   13s] + ''['' -f /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -x /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -w /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        '']''\n[   13s] ++ dirname /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   13s]
+        + pushd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin\n[   13s]
+        ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   13s]
+        ++ realpath /usr/bin/python3.11\n[   13s] ++ basename /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   13s]
+        + sed -i --follow-symlinks ''1s@#\\!.*python\\S*@#\\!/usr/bin/python3.11@''
+        actdiag\n[   13s] + popd\n[   13s] ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   13s]
+        + for f in ${myargs}\n[   13s] + ''['' -f ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -x ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -w ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        '']''\n[   13s] ++ ''['' -f _current_flavor '']''\n[   13s] ++ cat _current_flavor\n[   13s]
+        + last_flavor=python311\n[   13s] + ''['' -z python311 '']''\n[   13s] + ''[''
+        python311 ''!='' python312 '']''\n[   13s] + ''['' -d build '']''\n[   13s]
+        + mv build _build.python311\n[   13s] + ''['' -d _build.python312 '']''\n[   13s]
+        + mv _build.python312 build\n[   13s] + echo python312\n[   13s] + python_flavor=python312\n[   13s]
+        + myargs=\n[   13s] + havereq=0\n[   13s] + ''['' -n '''' '']''\n[   13s]
+        + ''['' 0 -eq 0 '']''\n[   13s] + ls ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s] + for w in ./build/*.whl\n[   13s]
+        ++ sed -E ''s/([^-]+)-([^-]+)-.+\\.whl/\\1==\\2/''\n[   13s] +++ basename
+        ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s] ++ echo actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        + myargs='' actdiag==3.0.0''\n[   13s] + /usr/bin/python3.12 -mpip install
+        --verbose --progress-bar off --disable-pip-version-check --root /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT
+        --no-compile --ignore-installed --no-deps --no-index --find-links ./build
+        actdiag==3.0.0\n[   13s] Using pip 25.2 from /usr/lib/python3.12/site-packages/pip
+        (python 3.12)\n[   13s] WARNING: Disabling truststore because of missing certificates\n[   13s]
+        Looking in links: ./build\n[   13s] Processing ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        Installing collected packages: actdiag\n[   13s]   changing mode of /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        to 755\n[   13s]   WARNING: The script actdiag is installed in ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin''
+        which is not on PATH.\n[   13s]   Consider adding this directory to PATH or,
+        if you prefer to suppress this warning, use --no-warn-script-location.\n[   13s]
+        Successfully installed actdiag-3.0.0\n[   13s] + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.12/site-packages\n[   13s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages
+        '']''\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages
+        -iname ''*.pyc'' -delete\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages
+        -iname ''*.py'' -print0\n[   13s] + xargs -0 /usr/bin/python3.12 -c $'' \\nimport
+        sys, py_compile \\nfor f in sys.argv[1:]: \\n  fp=f[len(\"/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\"):]
+        \\n  print(\"Generating cached byte-code for \" + str(fp)) \\n  if sys.version[0]
+        == \"2\": \\n    py_compile.compile(f, dfile=fp) \\n  else: \\n    for o in
+        [0, 1]: \\n      py_compile.compile(f, dfile=fp, optimize=o) \\n''\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/builder.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/command.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/drawer.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/elements.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/metrics.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/parser.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/plugins/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/plugins/autolane.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/tests/test_generate_diagram.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/tests/test_rst_directives.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/utils/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/utils/rst/__init__.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/utils/rst/directives.py\n[   13s]
+        Generating cached byte-code for /usr/lib/python3.12/site-packages/actdiag/utils/rst/nodes.py\n[   13s]
+        + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.12/site-packages\n[   13s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.12/site-packages
+        '']''\n[   13s] + myargs=''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/*
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''\n[   13s]
+        + for f in ${myargs}\n[   13s] + ''['' -f /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -x /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -w /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        '']''\n[   13s] ++ dirname /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   13s]
+        + pushd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin\n[   13s]
+        ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   13s]
+        ++ realpath /usr/bin/python3.12\n[   13s] ++ basename /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   13s]
+        + sed -i --follow-symlinks ''1s@#\\!.*python\\S*@#\\!/usr/bin/python3.12@''
+        actdiag\n[   13s] + popd\n[   13s] ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   13s]
+        + for f in ${myargs}\n[   13s] + ''['' -f ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -x ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -w ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        '']''\n[   13s] ++ ''['' -f _current_flavor '']''\n[   13s] ++ cat _current_flavor\n[   13s]
+        + last_flavor=python312\n[   13s] + ''['' -z python312 '']''\n[   13s] + ''[''
+        python312 ''!='' python313 '']''\n[   13s] + ''['' -d build '']''\n[   13s]
+        + mv build _build.python312\n[   13s] + ''['' -d _build.python313 '']''\n[   13s]
+        + mv _build.python313 build\n[   13s] + echo python313\n[   13s] + python_flavor=python313\n[   13s]
+        + myargs=\n[   13s] + havereq=0\n[   13s] + ''['' -n '''' '']''\n[   13s]
+        + ''['' 0 -eq 0 '']''\n[   13s] + ls ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s] + for w in ./build/*.whl\n[   13s]
+        ++ sed -E ''s/([^-]+)-([^-]+)-.+\\.whl/\\1==\\2/''\n[   13s] +++ basename
+        ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s] ++ echo actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        + myargs='' actdiag==3.0.0''\n[   13s] + /usr/bin/python3.13 -mpip install
+        --verbose --progress-bar off --disable-pip-version-check --root /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT
+        --no-compile --ignore-installed --no-deps --no-index --find-links ./build
+        actdiag==3.0.0\n[   13s] Using pip 25.2 from /usr/lib/python3.13/site-packages/pip
+        (python 3.13)\n[   13s] WARNING: Disabling truststore because of missing certificates\n[   13s]
+        Looking in links: ./build\n[   13s] Processing ./build/actdiag-3.0.0-py3-none-any.whl\n[   13s]
+        Installing collected packages: actdiag\n[   13s]   changing mode of /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        to 755\n[   13s]   WARNING: The script actdiag is installed in ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin''
+        which is not on PATH.\n[   13s]   Consider adding this directory to PATH or,
+        if you prefer to suppress this warning, use --no-warn-script-location.\n[   13s]
+        Successfully installed actdiag-3.0.0\n[   13s] + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.13/site-packages\n[   13s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages
+        '']''\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages
+        -iname ''*.pyc'' -delete\n[   13s] + find /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages
+        -iname ''*.py'' -print0\n[   13s] + xargs -0 /usr/bin/python3.13 -c $'' \\nimport
+        sys, py_compile \\nfor f in sys.argv[1:]: \\n  fp=f[len(\"/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT\"):]
+        \\n  print(\"Generating cached byte-code for \" + str(fp)) \\n  if sys.version[0]
+        == \"2\": \\n    py_compile.compile(f, dfile=fp) \\n  else: \\n    for o in
+        [0, 1]: \\n      py_compile.compile(f, dfile=fp, optimize=o) \\n''\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/__init__.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/builder.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/command.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/drawer.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/elements.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/metrics.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/parser.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/plugins/__init__.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/plugins/autolane.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/tests/test_generate_diagram.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/tests/test_rst_directives.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/utils/__init__.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/utils/rst/directives.py\n[   14s]
+        Generating cached byte-code for /usr/lib/python3.13/site-packages/actdiag/utils/rst/nodes.py\n[   14s]
+        + for d in /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.13/site-packages\n[   14s]
+        + ''['' -d /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib64/python3.13/site-packages
+        '']''\n[   14s] + myargs=''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/*
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''\n[   14s]
+        + for f in ${myargs}\n[   14s] + ''['' -f /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -x /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        -a -w /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        '']''\n[   14s] ++ dirname /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   14s]
+        + pushd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin\n[   14s]
+        ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   14s]
+        ++ realpath /usr/bin/python3.13\n[   14s] ++ basename /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   14s]
+        + sed -i --follow-symlinks ''1s@#\\!.*python\\S*@#\\!/usr/bin/python3.13@''
+        actdiag\n[   14s] + popd\n[   14s] ~/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   14s]
+        + for f in ${myargs}\n[   14s] + ''['' -f ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -x ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        -a -w ''/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/sbin/*''
+        '']''\n[   14s] + cp /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.11\n[   14s]
+        ++ realpath /usr/bin/python3.11\n[   14s] + sed -ri ''1s@#!.*python\\S*@#!/usr/bin/python3.11@''
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.11\n[   14s]
+        + cp /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.12\n[   14s]
+        ++ realpath /usr/bin/python3.12\n[   14s] + sed -ri ''1s@#!.*python\\S*@#!/usr/bin/python3.12@''
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.12\n[   14s]
+        + cp /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.13\n[   14s]
+        ++ realpath /usr/bin/python3.13\n[   14s] + sed -ri ''1s@#!.*python\\S*@#!/usr/bin/python3.13@''
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag-3.13\n[   14s]
+        + rm -f /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   14s]
+        + alternative_target=/usr/bin/actdiag\n[   14s] + [[ /usr/bin/actdiag == /usr/share/man*
+        ]]\n[   14s] + ''['' 1 -eq 1 '']''\n[   14s] + mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/share/libalternatives\n[   14s]
+        + [[ /usr/bin/actdiag != /usr/share/man* ]]\n[   14s] + ln -sf /usr/bin/alts
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/bin/actdiag\n[   14s]
+        + mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/share/libalternatives/actdiag\n[   14s]
+        + echo binary=/usr/bin/actdiag-3.11\n[   14s] + mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/share/libalternatives/actdiag\n[   14s]
+        + echo binary=/usr/bin/actdiag-3.12\n[   14s] + mkdir -p /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/share/libalternatives/actdiag\n[   14s]
+        + echo binary=/usr/bin/actdiag-3.13\n[   14s] ++ ''['' -f _current_flavor
+        '']''\n[   14s] ++ cat _current_flavor\n[   14s] + last_flavor=python313\n[   14s]
+        + ''['' -z python313 '']''\n[   14s] + ''['' python313 ''!='' python311 '']''\n[   14s]
+        + ''['' -d build '']''\n[   14s] + mv build _build.python313\n[   14s] + ''[''
+        -d _build.python311 '']''\n[   14s] + mv _build.python311 build\n[   14s]
+        + echo python311\n[   14s] + python_flavor=python311\n[   14s] + /usr/lib/rpm/fdupes_wrapper
+        /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/parser.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/parser.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/metrics.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/metrics.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/elements.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/elements.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/drawer.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/drawer.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/command.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/command.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/builder.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/builder.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/__init__.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/__pycache__/__init__.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/__pycache__/__init__.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/__pycache__/__init__.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/plugins/__pycache__/autolane.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/plugins/__pycache__/autolane.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/plugins/__pycache__/__init__.cpython-311.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/plugins/__pycache__/__init__.cpython-311.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/plugins/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        ++ ''['' -f _current_flavor '']''\n[   14s] ++ cat _current_flavor\n[   14s]
+        + last_flavor=python311\n[   14s] + ''['' -z python311 '']''\n[   14s] + ''[''
+        python311 ''!='' python312 '']''\n[   14s] + ''['' -d build '']''\n[   14s]
+        + mv build _build.python311\n[   14s] + ''['' -d _build.python312 '']''\n[   14s]
+        + mv _build.python312 build\n[   14s] + echo python312\n[   14s] + python_flavor=python312\n[   14s]
+        + /usr/lib/rpm/fdupes_wrapper /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/parser.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/parser.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/metrics.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/metrics.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/elements.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/elements.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/drawer.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/drawer.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/command.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/command.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/builder.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/builder.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/__init__.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/__pycache__/__init__.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/__pycache__/__init__.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/__pycache__/__init__.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/plugins/__pycache__/autolane.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/plugins/__pycache__/autolane.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/plugins/__pycache__/__init__.cpython-312.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/plugins/__pycache__/__init__.cpython-312.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/plugins/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.12/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        ++ ''['' -f _current_flavor '']''\n[   14s] ++ cat _current_flavor\n[   14s]
+        + last_flavor=python312\n[   14s] + ''['' -z python312 '']''\n[   14s] + ''[''
+        python312 ''!='' python313 '']''\n[   14s] + ''['' -d build '']''\n[   14s]
+        + mv build _build.python312\n[   14s] + ''['' -d _build.python313 '']''\n[   14s]
+        + mv _build.python313 build\n[   14s] + echo python313\n[   14s] + python_flavor=python313\n[   14s]
+        + /usr/lib/rpm/fdupes_wrapper /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/parser.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/parser.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/metrics.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/metrics.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/elements.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/elements.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/drawer.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/drawer.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/command.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/command.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/builder.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/builder.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/__init__.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/__pycache__/__init__.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/__pycache__/__init__.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/__pycache__/__init__.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/nodes.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/directives.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__pycache__/__init__.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/tests/__pycache__/test_rst_directives.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/tests/__pycache__/test_generate_diagram.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/plugins/__pycache__/autolane.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/plugins/__pycache__/autolane.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/plugins/__pycache__/__init__.cpython-313.opt-1.pyc
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/plugins/__pycache__/__init__.cpython-313.pyc\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        Linking /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/plugins/__init__.py
+        -> /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.13/site-packages/actdiag/utils/rst/__init__.py\n[   14s]
+        + /usr/lib/rpm/find-debuginfo -j4 -n --run-dwz --dwz-low-mem-die-limit 10000000
+        --dwz-max-die-limit 50000000 -S debugsourcefiles.list /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   14s]
+        find-debuginfo: starting\n[   14s] Extracting debug info from 0 files\n[   14s]
+        find-debuginfo: done\n[   14s] + /usr/lib/rpm/brp-compress\n[   14s] + /usr/lib/rpm/brp-suse\n[   14s]
+        calling /usr/lib/rpm/brp-suse.d/brp-05-permissions\n[   14s] calling /usr/lib/rpm/brp-suse.d/brp-15-strip-debug\n[   14s]
+        calling /usr/lib/rpm/brp-suse.d/brp-25-symlink\n[   14s] INFO: relinking /usr/bin/actdiag
+        -> alts (was /usr/bin/alts)\n[   14s] calling /usr/lib/rpm/brp-suse.d/brp-50-generate-fips-hmac\n[   14s]
+        calling /usr/lib/rpm/brp-suse.d/brp-75-ar\n[   14s] Executing(%check): /usr/bin/bash
+        -e /var/tmp/rpm-tmp.22EFcy\n[   14s] + umask 022\n[   14s] + cd /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build\n[   14s]
+        + cd actdiag-3.0.0\n[   14s] + set +x\n[   14s] Using libalternatives variant
+        311 for blockdiag in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s]
+        Using libalternatives variant 311 for docutils in XDG_CONFIG_HOME during Python
+        3.11 expansions.\n[   14s] Using libalternatives variant 311 for pip in XDG_CONFIG_HOME
+        during Python 3.11 expansions.\n[   14s] Using libalternatives variant 311
+        for pip3 in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using
+        libalternatives variant 311 for py.test in XDG_CONFIG_HOME during Python 3.11
+        expansions.\n[   14s] Using libalternatives variant 311 for pygmentize in
+        XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using libalternatives
+        variant 311 for pytest in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s]
+        Using libalternatives variant 311 for rst2html in XDG_CONFIG_HOME during Python
+        3.11 expansions.\n[   14s] Using libalternatives variant 311 for rst2html4
+        in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using libalternatives
+        variant 311 for rst2html5 in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s]
+        Using libalternatives variant 311 for rst2latex in XDG_CONFIG_HOME during
+        Python 3.11 expansions.\n[   14s] Using libalternatives variant 311 for rst2man
+        in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using libalternatives
+        variant 311 for rst2odt in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s]
+        Using libalternatives variant 311 for rst2pseudoxml in XDG_CONFIG_HOME during
+        Python 3.11 expansions.\n[   14s] Using libalternatives variant 311 for rst2s5
+        in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using libalternatives
+        variant 311 for rst2xetex in XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s]
+        Using libalternatives variant 311 for rst2xml in XDG_CONFIG_HOME during Python
+        3.11 expansions.\n[   14s] Using libalternatives variant 311 for wheel in
+        XDG_CONFIG_HOME during Python 3.11 expansions.\n[   14s] Using libalternatives
+        variant 312 for blockdiag in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s]
+        Using libalternatives variant 312 for docutils in XDG_CONFIG_HOME during Python
+        3.12 expansions.\n[   14s] Using libalternatives variant 312 for pip in XDG_CONFIG_HOME
+        during Python 3.12 expansions.\n[   14s] Using libalternatives variant 312
+        for pip3 in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] Using
+        libalternatives variant 312 for py.test in XDG_CONFIG_HOME during Python 3.12
+        expansions.\n[   14s] Using libalternatives variant 312 for pygmentize in
+        XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] Using libalternatives
+        variant 312 for pytest in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s]
+        Using libalternatives variant 312 for rst2html in XDG_CONFIG_HOME during Python
+        3.12 expansions.\n[   14s] Using libalternatives variant 312 for rst2html4
+        in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] Using libalternatives
+        variant 312 for rst2html5 in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s]
+        Using libalternatives variant 312 for rst2latex in XDG_CONFIG_HOME during
+        Python 3.12 expansions.\n[   14s] Using libalternatives variant 312 for rst2man
+        in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] Using libalternatives
+        variant 312 for rst2odt in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s]
+        Using libalternatives variant 312 for rst2pseudoxml in XDG_CONFIG_HOME during
+        Python 3.12 expansions.\n[   14s] Using libalternatives variant 312 for rst2s5
+        in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] Using libalternatives
+        variant 312 for rst2xetex in XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s]
+        Using libalternatives variant 312 for rst2xml in XDG_CONFIG_HOME during Python
+        3.12 expansions.\n[   14s] Using libalternatives variant 312 for wheel in
+        XDG_CONFIG_HOME during Python 3.12 expansions.\n[   14s] + export PATH=/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0/build/flavorbin:/usr/local/bin:/usr/bin:/bin\n[   14s]
+        + PATH=/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0/build/flavorbin:/usr/local/bin:/usr/bin:/bin\n[   14s]
+        ++ ''['' -f _current_flavor '']''\n[   14s] ++ cat _current_flavor\n[   14s]
+        + last_flavor=python313\n[   14s] + ''['' -z python313 '']''\n[   14s] + ''[''
+        python313 ''!='' python311 '']''\n[   14s] + ''['' -d build '']''\n[   14s]
+        + mv build _build.python313\n[   14s] + ''['' -d _build.python311 '']''\n[   14s]
+        + mv _build.python311 build\n[   14s] + echo python311\n[   14s] + python_flavor=python311\n[   14s]
+        + PYTHONPATH=/home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/BUILDROOT/usr/lib/python3.11/site-packages\n[   14s]
+        + PYTHONDONTWRITEBYTECODE=1\n[   14s] + pytest-3.11 --ignore=_build.python311
+        --ignore=_build.python312 --ignore=_build.python313 -v src/actdiag/tests\n[   14s]
+        ============================= test session starts ==============================\n[   14s]
+        platform linux -- Python 3.11.13, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3.11\n[   14s]
+        cachedir: .pytest_cache\n[   14s] rootdir: /home/abuild/rpmbuild/BUILD/python-actdiag-3.0.0-build/actdiag-3.0.0\n[   14s]
+        collecting ... collected 42 items / 1 error\n[   14s] \n[   14s] ====================================
+        ERRORS ====================================\n[   14s] _________ ERROR collecting
+        src/actdiag/tests/test_generate_diagram.py __________\n[   14s] ''yield''
+        keyword is allowed in fixtures, but not in tests (test_generate)\n[   14s]
+        =============================== warnings summary ===============================\n[   14s]
+        ../../../../../../usr/lib/python3.11/site-packages/blockdiag/noderenderer/__init__.py:18\n[   14s]   /usr/lib/python3.11/site-packages/blockdiag/noderenderer/__init__.py:18:
+        DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html\n[   14s]     import
+        pkg_resources\n[   14s] \n[   14s] -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n[   14s]
+        =========================== short test summary info ============================\n[   14s]
+        ERROR src/actdiag/tests/test_generate_diagram.py - Failed: ''yield'' keyword
+        is...\n[   14s] !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection
+        !!!!!!!!!!!!!!!!!!!!\n[   14s] ========================= 1 warning, 1 error
+        in 0.19s ==========================\n[   14s] error: Bad exit status from
+        /var/tmp/rpm-tmp.22EFcy (%check)\n[   14s] \n[   14s] RPM build errors:\n[   14s]     Bad
+        exit status from /var/tmp/rpm-tmp.22EFcy (%check)\n[   14s] ### VM INTERACTION
+        START ###\n[   14s] [    9.747634][    T1] sysrq: Power Off\n[   14s] ###
+        VM INTERACTION END ###\n[   14s] \n[   14s] i04-ch4d failed \"build python-actdiag.spec\"
+        at Tue Aug 19 17:55:58 UTC 2025.\n[   14s] \n"}}'
+    headers:
+      content-length:
+      - '102625'
+      content-type:
+      - application/json
+      date:
+      - Wed, 20 Aug 2025 07:25:34 GMT
+      server:
+      - uvicorn
+    status:
+      code: 200
+      message: OK
+version: 1

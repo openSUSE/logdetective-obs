@@ -3,10 +3,11 @@ name = "osc_ld_plugin"
 version = "0.2.2"
 description = "An osc plugin to analyze failed build logs using logdetective"
 readme = "README.md"
-requires-python = ">=3.13,<4.0"
+requires-python = ">=3.11,<4.0"
 license = {text = "MIT"}
 authors = [
-    {name = "Aazam Thakur", email = "aazamthakur@gmail.com"}
+    {name = "Aazam Thakur", email = "aazamthakur@gmail.com"},
+    {name = "Daniel Garcia Moreno", email = "daniel.garcia@suse.com"}
 ]
 keywords = ["osc", "build", "logdetective", "obs", "plugin"]
 classifiers = [
@@ -37,7 +38,8 @@ build = "^1.2.2.post1"
 twine = "^6.1.0"
 pytest = "^8.4.1"
 ruff = "^0.12.3"
+pytest-recording = "^0.13.4"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"

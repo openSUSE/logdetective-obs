@@ -3,178 +3,213 @@ import sys
 import re
 import subprocess
 import requests
+import json
+import textwrap
+
 from urllib.parse import urlsplit
-from osc.core import get_prj_results, makeurl, BUFSIZE, buildlog_strip_time
+from osc.core import get_results, get_prj_results, makeurl, BUFSIZE, buildlog_strip_time
 from osc import conf
 from osc.cmdln import option
 from osc.core import store_read_project, store_read_package
 from osc.oscerr import OscIOError
 import osc.build
 
+import tempfile
 
 
-def run_log_detective_remote(log_content, filename_hint):
-    import requests
-    import json
+from osc.commandline import OscCommand
 
-    EXPLAIN_DIR = ".explanations"
-    os.makedirs(EXPLAIN_DIR, exist_ok=True)
 
-    output_filename = os.path.basename(filename_hint).replace('.log', '.json')
-    output_path = os.path.join(EXPLAIN_DIR, output_filename)
+class LogDetective(OscCommand):
+    """
+    LogDetective integration plugin: https://log-detective.com/
+    """
 
-    print(f"🌐 Sending log to LogDetective API...")
-    try:
+    name = "ld"
+
+    def init_arguments(self):
+        self.add_argument("-p", "--project", help="The OBS project")
+        self.add_argument("--package", help="Regex to filter package names")
+        self.add_argument("--arch", default="x86_64", help="OBS build architecture")
+        self.add_argument("--repo", default="standard", help="OBS build repository")
+        self.add_argument("--show_excluded", action="store_true", help="Include excluded packages")
+        self.add_argument("-l", "--local-log", action="store_true", help="Process the log of the newest last local build")
+        self.add_argument("-r", "--remote", action="store_true", help="Use LogDetective remote API instead of requiring the CLI tool")
+        self.add_argument("-a", "--all", action="store_true", help="Look for all packages failing in a project")
+        self.add_argument("--strip-time", action="store_true", help="(For --local-log) Remove timestamps from the local build log output when displaying")
+        self.add_argument("--offset", type=int, default=0, help="(For --local-log) Start reading the local build log from a specific byte offset when displaying")
+        self.add_argument("-m", "--model", help="Select the model to use in Log Detective")
+
+    def run(self, args):
+        """
+        ld: Run logdetective on failed OBS builds or local build log
+
+        This command finds all failed builds for the given PROJECT
+        (or processes the last local build), and runs logdetective
+        on each one by fetching the build log or using the local log.
+        """
+
+        conf.get_config()
+        self.apiurl = conf.config["apiurl"]
+        self.apihost = urlsplit(self.apiurl)[1]
+        self.args = args
+
+        if args.local_log:
+            self.do_local_log(args)
+            return
+
+        if args.all:
+            self.do_remote_log_all(args)
+            return
+
+        self.do_remote_log(args)
+
+
+    def run_log_detective(self, logfile):
+        args = []
+        if self.args.model:
+            args = [self.args.model]
+        try:
+            subprocess.run(["logdetective", *args, logfile], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"❌ logdetective failed for local log: {e}", file=sys.stderr)
+        except FileNotFoundError:
+            print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
+
+    def run_log_detective_remote(self, log_url):
+        print(f"🌐 Sending log to LogDetective API...")
         response = requests.post(
             "https://log-detective.com/frontend/explain/",
-            json={"prompt": log_content}
+            json={"prompt": log_url}
         )
         response.raise_for_status()
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(response.json(), f, ensure_ascii=False, indent=4)
-        print(f"✅ Remote analysis saved to {output_path}")
-    except Exception as e:
-        print(f"❌ Remote analysis failed: {e}", file=sys.stderr)
+        explain = response.json()["explanation"]
+        for line in explain.split("\n"):
+            if not line:
+                print("\n\n")
+                continue
+            print(textwrap.fill(line, width=80, drop_whitespace=True))
 
-@option('--arch', metavar='ARCH', default='x86_64',
-        help='Architecture to filter on (default: x86_64)')
-@option('--package', metavar='REGEX',
-        help='Regex to filter package names')
-@option('--show_excluded', action='store_true',
-        help='Include excluded packages')
-@option('--local-log', action='store_true',
-        help='Process the log of the newest last local build.')
-@option('--strip-time', action='store_true',
-        help='(For --local-log) Remove timestamps from the local build log output when displaying.')
-@option('--offset', type=int, default=0,
-        help='(For --local-log) Start reading the local build log from a specific byte offset when displaying.')
-@option('--no-display', action='store_true',
-        help='(For --local-log) Do not display the local log content to stdout; just feed it to logdetective.')
-@option('-r', '--remote', action='store_true',
-        help='Use LogDetective remote API instead of requiring the CLI tool')
-def do_ld(self, subcmd, opts, *args):
-    """${cmd_name}: Run logdetective on failed OBS builds or local build log
+    def get_local_log(self, project, package, repo, arch, offset=0, strip_time=False):
+        """
+        Look for local build log and parses the whole text applying
+        the offset and strip_time filters
 
-    This command finds all failed builds for the given PROJECT
-    (or processes the last local build), and runs logdetective
-    on each one by fetching the build log or using the local log.
-
-    ${cmd_usage}
-    ${cmd_option_list}
-    """
-    conf.get_config()
-    apiurl = conf.config['apiurl']
-
-    if opts.local_log:
-        try:
-            project = store_read_project('.')
-            package = store_read_package('.')
-        except Exception as e:
-            print(f"Error: Not in a project/package directory: {e}", file=sys.stderr)
-            sys.exit(1)
-
-        apihost = urlsplit(apiurl)[1]
+        Return the path to a new tempfile with the log content
+        """
 
         try:
-            buildroot = osc.build.calculate_build_root(apihost, project, package, 'standard', 'x86_64')
+            buildroot = osc.build.calculate_build_root(self.apihost, project, package, repo, arch)
         except Exception as e:
             print(f"Error: Failed to determine local build root: {e}", file=sys.stderr)
             sys.exit(1)
 
-        logfile = os.path.join(buildroot, '.build.log')
+        logfile = os.path.join(buildroot, ".build.log")
         if not os.path.isfile(logfile):
             print(f"Error: Local build log not found: {logfile}", file=sys.stderr)
             sys.exit(1)
 
         print(f"Found local build log: {logfile}")
-
-        if not opts.no_display:
-            try:
-                with open(logfile, 'rb') as f:
-                    f.seek(opts.offset)
+        try:
+            with open(logfile, "rb") as f, tempfile.NamedTemporaryFile(delete=False) as fp:
+                logfile = fp.name
+                f.seek(offset)
+                data = f.read(BUFSIZE)
+                while data:
+                    if strip_time:
+                        data = buildlog_strip_time(data)
+                    fp.write(data)
                     data = f.read(BUFSIZE)
-                    while data:
-                        if opts.strip_time:
-                            data = buildlog_strip_time(data)
-                        sys.stdout.buffer.write(data)
-                        data = f.read(BUFSIZE)
-            except Exception as e:
-                print(f"Error reading local build log: {e}", file=sys.stderr)
-                sys.exit(1)
+                fp.close()
+        except Exception as e:
+            print(f"Error reading local build log: {e}", file=sys.stderr)
+            sys.exit(1)
 
-        print(f"\n🚀 Analyzing local build log: {logfile}")
-        try:
-            with open(logfile, "r", encoding="utf-8", errors="ignore") as f:
-                log_content = f.read()
-            if opts.remote:
-                run_log_detective_remote(log_content, logfile)
+        return logfile
+
+    def do_local_log(self, args):
+        project = args.project or store_read_project(".")
+        package = args.package or store_read_package(".")
+
+        logfile = self.get_local_log(project, package, args.repo, args.arch, args.offset, args.strip_time)
+        print(f"🚀 Analyzing local build log: {logfile}")
+        if args.remote:
+            # TODO: upload the log somewhwere to use log detective
+            # self.run_log_detective_remote(logfile)
+            print(f"Can't use remote log-detective with local log", file=sys.stderr)
+        else:
+            self.run_log_detective(logfile)
+
+        os.unlink(logfile)
+
+    def do_remote_log_all(self, args):
+        project = args.project or store_read_project(".")
+        name_pattern = re.compile(f"^{re.escape(args.package)}$") if args.package else None
+
+        results = get_prj_results(
+            apiurl=self.apiurl,
+            prj=project,
+            status_filter="failed",
+            repo=args.repo,
+            arch=[args.arch],
+            name_filter=None,
+            csv=False,
+            brief=True,
+            show_excluded=args.show_excluded
+        )
+
+        if not results:
+            print("✅ No failed builds found.")
+            return
+
+        found = False
+        for line in results:
+            parts = line.strip().split()
+            if len(parts) != 4:
+                continue
+            package, repo, arch, status = parts
+            if name_pattern and not name_pattern.fullmatch(package):
+                continue
+            if status != "failed":
+                continue
+
+            found = True
+            log_url = self.get_log_url(project, package, repo, arch)
+            print(f"🔍 Running logdetective for {package} ({repo}/{arch})...")
+
+            if args.remote:
+                self.run_log_detective_remote(log_url)
             else:
-                subprocess.run(['logdetective', logfile], check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"❌ logdetective failed for local log: {e}", file=sys.stderr)
-        except FileNotFoundError:
-            if opts.remote:
-                pass  # Already handled
-            else:
-                print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
-        return
+                self.run_log_detective(log_url)
 
-    if not args:
-       print("❌ Error: PROJECT is required unless --local-log is used.", file=sys.stderr)
-       sys.exit(1)
-    
-    project= args[0]
+        if not found:
+            print("✅ No matching failed packages found.")
 
-    name_pattern = re.compile(f'^{re.escape(opts.package)}$') if opts.package else None
+    def do_remote_log(self, args):
+        project = args.project or store_read_project(".")
+        package = args.package or store_read_package(".")
+        repo, arch = args.repo, args.arch
 
-    results = get_prj_results(
-        apiurl=apiurl,
-        prj=project,
-        status_filter='failed',
-        repo='standard',
-        arch=[opts.arch],
-        name_filter=None,
-        csv=False,
-        brief=True,
-        show_excluded=opts.show_excluded
-    )
+        result = get_results(
+            apiurl=self.apiurl,
+            project=project,
+            package=package,
+            repository=repo,
+            arch=[arch],
+        )
 
-    if not results:
-        print("✅ No failed builds found.")
-        return
+        if not result or not result[0] or not "failed" in result[0]:
+            print("✅ No failed builds found.")
+            return
 
-    found = False
+        log_url = self.get_log_url(project, package, repo, arch)
+        print(f"🔍 Running logdetective for {package} ({repo}/{arch})...")
+        print(f"Log url: {log_url}")
 
-    for line in results:
-        parts = line.strip().split()
-        if len(parts) != 4:
-            continue
-        package, repo, arch, status = parts
-        if name_pattern and not name_pattern.fullmatch(package):
-            continue
-        if status != 'failed':
-            continue
+        if args.remote:
+            self.run_log_detective_remote(log_url)
+        else:
+            self.run_log_detective(log_url)
 
-        found = True
-        log_url = makeurl(apiurl, ['public', 'build', project, repo, arch, package, '_log'])
-        print(f"\n🔍 Running logdetective for {package} ({repo}/{arch})...")
-        try:
-            if opts.remote:
-                print(f"📥 Downloading log from: {log_url}")
-                import requests
-                try:
-                    response = requests.get(log_url)
-                    response.raise_for_status()
-                    run_log_detective_remote(response.text, f"{package}.log")
-                except Exception as e:
-                    print(f"❌ Failed to fetch or analyze log for {package}: {e}", file=sys.stderr)
-            else:
-                subprocess.run(['logdetective', log_url], check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"❌ logdetective failed for {package}: {e}")
-        except FileNotFoundError:
-            print(f"❌ 'logdetective' not found in PATH.", file=sys.stderr)
-            print(f"   (Failed for {package}: {log_url})", file=sys.stderr)
-
-    if not found:
-        print("✅ No matching failed packages found.")
+    def get_log_url(self, project, package, repo, arch):
+        return makeurl(self.apiurl, ["public", "build", project, repo, arch, package, "_log"])
