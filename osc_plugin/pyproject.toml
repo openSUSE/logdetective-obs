@@ -38,6 +38,7 @@ build = "^1.2.2.post1"
 twine = "^6.1.0"
 pytest = "^8.4.1"
 ruff = "^0.12.3"
+pytest-recording = "^0.13.4"
 
 [build-system]
 requires = ["poetry-core>=2.0.0"]

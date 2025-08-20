@@ -1,1 +1,1 @@
-from .plugin import do_ld
+from .plugin import LogDetective
