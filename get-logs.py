@@ -6,6 +6,7 @@ import requests
 import argparse
 import json
 import urllib.parse
+import sys
 
 LOGS_DIR = "logs"
 EXPLAIN_DIR = "explain"
@@ -193,16 +194,22 @@ def run_log_detective_remote(url, log_path, project):
 
 def build_payload(log_content, fail_reason, how_to_fix):
     return {
-        "username": "testuser",  # Replace with actual username handling if needed
+        "username": "testuser",
         "fail_reason": fail_reason,
         "how_to_fix": how_to_fix,
-        "spec_file": {"name": "", "content": ""},
         "container_file": {"name": "", "content": ""},
         "logs": [
             {
                 "name": "build.log",
                 "content": log_content,
-                "snippets": []
+                "snippets": [
+                            {
+          "start_index": 0,
+          "end_index": 0,
+          "user_comment": "string to test the snippet",
+          "text": "this is a sample test string"
+        }
+                ]
             }
         ]
     }
@@ -222,9 +229,9 @@ def submit_log_to_log_detective(url, fail_reason, how_to_fix):
         print(f"Error fetching log file: {log_response.status_code}")
         return None
 
-        log_content = log_response.text
+    log_content = log_response.text
     payload = build_payload(log_content, fail_reason, how_to_fix)
-    response = requests.post(url, json=payload)
+    response = requests.post(f"https://log-detective.com/frontend/contribute/url/{encoded_url}", json=payload)
     return response.json()
 
 def submit_local_log_to_log_detective(log_path, fail_reason, how_to_fix):
@@ -242,7 +249,7 @@ def submit_local_log_to_log_detective(log_path, fail_reason, how_to_fix):
     with open(log_path, "r", encoding="utf-8") as f:
         log_content = f.read()
     payload = build_payload(log_content, fail_reason, how_to_fix)
-    response = requests.post(url, json=payload)
+    response = requests.post("https://log-detective.com/frontend/contribute/upload", json=payload)
     return response.json()
 
 
@@ -266,6 +273,8 @@ if __name__ == "__main__":
             result = submit_local_log_to_log_detective(args.log_path, args.fail_reason, args.how_to_fix)
         else:
             parser.error("Please provide either --log-url or --log-path with --contribute-log")
+        print(result)
+        sys.exit(0)
 
     if args.package:
         osc_project_path = f"{args.project_name}/{args.package}"
