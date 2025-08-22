@@ -1,6 +1,6 @@
 [project]
 name = "osc_ld_plugin"
-version = "0.2.2"
+version = "1.0.0"
 description = "An osc plugin to analyze failed build logs using logdetective"
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
