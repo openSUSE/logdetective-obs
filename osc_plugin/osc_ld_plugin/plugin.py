@@ -5,8 +5,9 @@ import subprocess
 import requests
 import json
 import textwrap
+import urllib.parse
 
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, quote
 from osc.core import get_results, get_prj_results, makeurl, BUFSIZE, buildlog_strip_time
 from osc import conf
 from osc.cmdln import option
@@ -39,6 +40,11 @@ class LogDetective(OscCommand):
         self.add_argument("--strip-time", action="store_true", help="(For --local-log) Remove timestamps from the local build log output when displaying")
         self.add_argument("--offset", type=int, default=0, help="(For --local-log) Start reading the local build log from a specific byte offset when displaying")
         self.add_argument("-m", "--model", help="Select the model to use in Log Detective")
+
+        self.add_argument("--submit-log", action="store_true", help="Submit the log to log-detective for contribution")
+        self.add_argument("--fail-reason", help="(For --submit-log) The reason for the build failure")
+        self.add_argument("--how-to-fix", help="(For --submit-log) Suggested fix for the build failure")
+
 
     def run(self, args):
         """
@@ -112,7 +118,7 @@ class LogDetective(OscCommand):
         print(f"Found local build log: {logfile}")
         try:
             with open(logfile, "rb") as f, tempfile.NamedTemporaryFile(delete=False) as fp:
-                logfile = fp.name
+                logfile_path = fp.name  # Use a distinct variable name
                 f.seek(offset)
                 data = f.read(BUFSIZE)
                 while data:
@@ -125,19 +131,29 @@ class LogDetective(OscCommand):
             print(f"Error reading local build log: {e}", file=sys.stderr)
             sys.exit(1)
 
-        return logfile
+        return logfile_path # Return the path of the temporary file
 
     def do_local_log(self, args):
         project = args.project or store_read_project(".")
         package = args.package or store_read_package(".")
 
         logfile = self.get_local_log(project, package, args.repo, args.arch, args.offset, args.strip_time)
-        print(f"🚀 Analyzing local build log: {logfile}")
-        if args.remote:
-            # TODO: upload the log somewhwere to use log detective
+        
+        # Correctly implement the logic with an if/elif/else structure and add validation
+        if args.submit_log:
+            if not args.fail_reason or not args.how_to_fix:
+                print("❌ Both --fail-reason and --how-to-fix are required for --submit-log.", file=sys.stderr)
+                os.unlink(logfile) # Ensure cleanup
+                return
+            print(f"🚀 Submitting local build log to logdetective: {logfile}")
+            self.submit_local_log(logfile, args.fail_reason, args.how_to_fix)
+        
+        elif args.remote:
+            # TODO: upload the log somewhere to use log detective
             # self.run_log_detective_remote(logfile)
             print(f"Can't use remote log-detective with local log", file=sys.stderr)
         else:
+            print(f"🚀 Analyzing local build log: {logfile}")
             self.run_log_detective(logfile)
 
         os.unlink(logfile)
@@ -203,8 +219,18 @@ class LogDetective(OscCommand):
             return
 
         log_url = self.get_log_url(project, package, repo, arch)
-        print(f"🔍 Running logdetective for {package} ({repo}/{arch})...")
         print(f"Log url: {log_url}")
+        
+        # Move the submit log check to the top for clarity and to prevent running analysis
+        if args.submit_log:
+            if not args.fail_reason or not args.how_to_fix:
+                print("❌ Both --fail-reason and --how-to-fix are required for --submit-log.", file=sys.stderr)
+                return
+            print(f"🚀 Submitting remote build log to logdetective: {log_url}")
+            self.submit_remote_log(log_url, args.fail_reason, args.how_to_fix)
+            return
+
+        print(f"🔍 Running logdetective for {package} ({repo}/{arch})...")
 
         if args.remote:
             self.run_log_detective_remote(log_url)
@@ -213,3 +239,65 @@ class LogDetective(OscCommand):
 
     def get_log_url(self, project, package, repo, arch):
         return makeurl(self.apiurl, ["public", "build", project, repo, arch, package, "_log"])
+
+    def build_payload(self, log_content, fail_reason, how_to_fix):
+        return {
+            "username": "testuser",
+            "fail_reason": fail_reason,
+            "how_to_fix": how_to_fix,
+            "container_file": {"name": "", "content": ""},
+            "logs": [
+                {
+                    "name": "build.log",
+                    "content": log_content,
+                    "snippets": [
+                        {
+                            "start_index": 0,
+                            "end_index": 0,
+                            "user_comment": "string to test the snippet",
+                            "text": "this is a sample test string"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    def submit_remote_log(self, url, fail_reason, how_to_fix):
+        encoded_url = urllib.parse.quote(urllib.parse.quote(url, safe=''), safe='')
+        log_response = requests.get(url)
+        if log_response.status_code != 200:
+            print(f"Error fetching log file: {log_response.status_code}")
+            return None
+
+        log_content = log_response.text
+        payload = self.build_payload(log_content, fail_reason, how_to_fix)
+        try:
+            response = requests.post(
+                f"https://log-detective.com/frontend/contribute/url/{encoded_url}",
+                json=payload,
+                timeout=60
+            )
+            response.raise_for_status()
+            print("Logfile submitted successfully ✅")
+        except requests.RequestException as e:
+            print(f"❌ Error submitting log: {e}")
+
+    def submit_local_log(self, log_path, fail_reason, how_to_fix):
+        if not os.path.exists(log_path):
+            print(f"Error: Log file not found: {log_path}")
+            return None
+
+        with open(log_path, "r", encoding="utf-8") as f:
+            log_content = f.read()
+        payload = self.build_payload(log_content, fail_reason, how_to_fix)
+
+        try:
+            response = requests.post(
+                "https://log-detective.com/frontend/contribute/upload",
+                json=payload,
+                timeout=60
+            )
+            response.raise_for_status()  # raises error for 4xx/5xx
+            print("Logfile submitted successfully ✅")
+        except requests.RequestException as e:
+            print(f"❌ Error submitting log: {e}")
